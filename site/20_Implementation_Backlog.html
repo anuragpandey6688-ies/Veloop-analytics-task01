@@ -1,0 +1,231 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>20 · Implementation Backlog | VELOOP Analytics Task 01</title><style>
+:root{--bg:#f6f8fb;--panel:#fff;--ink:#10233d;--muted:#5a6b7d;--line:#dbe3ee;--accent:#1f3a5f;--accent2:#5b8def;--warn:#7a2e00;--warnbg:#fff4e0}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0f141b;--panel:#161d27;--ink:#e6edf5;--muted:#9aa9ba;--line:#2a3544;--accent:#9db8f2;--accent2:#7ea4f5;--warn:#ffcf99;--warnbg:#2b2214}}
+:root[data-theme="dark"]{--bg:#0f141b;--panel:#161d27;--ink:#e6edf5;--muted:#9aa9ba;--line:#2a3544;--accent:#9db8f2;--accent2:#7ea4f5;--warn:#ffcf99;--warnbg:#2b2214}
+*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+a{color:var(--accent2)}.wrap{display:grid;grid-template-columns:280px minmax(0,1fr);min-height:100vh}
+nav{background:var(--panel);border-right:1px solid var(--line);padding:20px 14px;position:sticky;top:0;height:100vh;overflow:auto}
+nav .brand{font-weight:800;font-size:16px;margin:0 6px 14px}nav a{display:block;padding:6px 8px;border-radius:6px;color:var(--ink);text-decoration:none;font-size:13.5px}
+nav a:hover,nav a.on{background:var(--bg);color:var(--accent2)}main{padding:32px 40px;max-width:1200px;min-width:0}
+h1{font-size:28px;line-height:1.25;margin-top:0}h2{margin-top:36px;border-bottom:1px solid var(--line);padding-bottom:6px}h3{margin-top:26px}
+table{border-collapse:collapse;width:100%;font-size:13px;margin:14px 0;display:block;overflow-x:auto}
+th,td{border:1px solid var(--line);padding:6px 9px;text-align:left;vertical-align:top}th{background:var(--accent);color:#fff;position:sticky;top:0}
+:root[data-theme="dark"] th{color:#0f141b}tr:nth-child(even) td{background:color-mix(in srgb,var(--panel) 92%,var(--accent2))}
+blockquote{margin:16px 0;padding:12px 16px;background:var(--warnbg);border-left:4px solid var(--warn);color:var(--warn);border-radius:6px}
+code{background:color-mix(in srgb,var(--panel) 80%,var(--accent2));padding:1px 5px;border-radius:4px;font-size:12.5px}
+pre{background:var(--panel);border:1px solid var(--line);padding:14px;border-radius:8px;overflow:auto}pre code{background:none;padding:0}
+img{max-width:100%;height:auto;background:#fff;border:1px solid var(--line);border-radius:8px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px;margin:18px 0}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px;text-decoration:none;color:var(--ink)}
+.card b{display:block;margin-bottom:4px}.card span{color:var(--muted);font-size:13px}
+.stats{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin:18px 0}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px}.stat b{font-size:24px;display:block;color:var(--accent2)}
+.stat span{font-size:12.5px;color:var(--muted)}.toggle{margin:12px 6px 0;font-size:12px;background:none;border:1px solid var(--line);color:var(--ink);border-radius:6px;padding:4px 8px;cursor:pointer}
+@media print{nav{display:none}.wrap{display:block}main{max-width:none;padding:0}th{position:static}table{display:table;font-size:10.5px}h2{break-after:avoid}}
+@media (max-width:860px){.wrap{grid-template-columns:1fr}nav{position:static;height:auto;max-height:200px;border-right:0;border-bottom:1px solid var(--line)}main{padding:20px 16px}}
+</style></head><body><div class="wrap"><nav>
+<div class="brand"><a href="index.html" style="padding:0;color:inherit">VELOOP Analytics Blueprint</a></div>
+<a class="" href="index.html">Overview</a><a class='' href='01_Executive_Summary.html'>01 · Executive Summary</a><a class='' href='02_Product_Data_Audit.html'>02 · Product Data Readiness Audit</a><a class='' href='03_Data_Coverage_Matrix.html'>03 · Data Coverage Matrix</a><a class='' href='04_User_Analytics_Specification.html'>04 · User & Account Analytics Specification</a><a class='' href='05_Earning_Reward_Analytics_Specification.html'>05 · Earning & Reward Analytics Specification</a><a class='' href='06_Wallet_Withdrawal_Analytics_Specification.html'>06 · Wallet & Withdrawal Analytics Specification</a><a class='' href='07_Referral_Engagement_Analytics.html'>07 · Referral & Engagement Analytics</a><a class='' href='08_Event_Tracking_Plan.html'>08 · Event Tracking Plan</a><a class='' href='09_Data_Dictionary.html'>09 · Data Dictionary</a><a class='' href='10_Logical_Data_Model.html'>10 · Logical Data Model</a><a class='' href='11_KPI_Catalogue.html'>11 · KPI Catalogue</a><a class='' href='12_Simulated_Data_Profiling.html'>12 · Simulated Data Profiling: Findings</a><a class='' href='13_Data_Quality_Audit.html'>13 · Data Quality Audit: Report</a><a class='' href='14_Dashboard_Blueprint.html'>14 · Analytics Dashboard Blueprint</a><a class='' href='15_Developer_Analytics_Handoff.html'>15 · Developer Analytics Handoff</a><a class='' href='16_Data_Pipeline_Proposal.html'>16 · Data Pipeline & Operating Model</a><a class='' href='17_Privacy_Governance_Proposal.html'>17 · Data Access, Privacy & Governance Proposal</a><a class='' href='18_Analytics_Readiness_Assessment.html'>18 · Analytics Readiness Assessment</a><a class='' href='19_Assumption_Verification_Register.html'>19 · Assumption & Verification Register</a><a class='on' href='20_Implementation_Backlog.html'>20 · Implementation Backlog</a><a class='' href='21_Final_Consolidated_Report.html'>21 · Final Consolidated Report</a><a href="downloads.html" class="">Downloads</a>
+<button class="toggle" onclick="var r=document.documentElement;r.dataset.theme=(r.dataset.theme==='dark'?'light':'dark');try{localStorage.setItem('t',r.dataset.theme)}catch(e){}">Toggle theme</button>
+</nav><main><h1>20 · Implementation Backlog</h1>
+<p>Spreadsheet: <a href="files/20_Implementation_Backlog.xlsx"><code>20_Implementation_Backlog.xlsx</code></a>. Priorities come from the gaps (02), the readiness assessment (18) and the quality audit (13).</p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>priority</th>
+<th>requirement</th>
+<th>reason</th>
+<th>dependency</th>
+<th>owner</th>
+<th>stage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BL-01</td>
+<td>Critical</td>
+<td>Confirm current logging and live feature list (A-001, A-002)</td>
+<td>All later work depends on what exists</td>
+<td>None</td>
+<td>Engineering + Product</td>
+<td>Pre-launch</td>
+</tr>
+<tr>
+<td>BL-02</td>
+<td>Critical</td>
+<td>Stable opaque user_id on every record</td>
+<td>Required for cross-event analysis</td>
+<td>Authentication</td>
+<td>Engineering</td>
+<td>Pre-launch</td>
+</tr>
+<tr>
+<td>BL-03</td>
+<td>Critical</td>
+<td>Append-only wallet ledger with transaction_id, related_transaction_id and idempotency_key</td>
+<td>Required for wallet analytics and reconciliation; prevents duplicate credits</td>
+<td>Wallet service</td>
+<td>Engineering</td>
+<td>Pre-launch</td>
+</tr>
+<tr>
+<td>BL-04</td>
+<td>Critical</td>
+<td>Reward table separating pending/credited/rejected/reversed/corrected with idempotency_key</td>
+<td>Distinguishes activity from actual credit (C3)</td>
+<td>Reward service</td>
+<td>Engineering</td>
+<td>Pre-launch</td>
+</tr>
+<tr>
+<td>BL-05</td>
+<td>Critical</td>
+<td>Withdrawal status history + reason categories + debit/refund links</td>
+<td>Withdrawal KPIs and trust</td>
+<td>Payout flow</td>
+<td>Engineering + Operations</td>
+<td>Pre-launch</td>
+</tr>
+<tr>
+<td>BL-06</td>
+<td>Critical</td>
+<td>Store all timestamps in UTC; report on IST day</td>
+<td>Daily KPIs and streaks align with claim window</td>
+<td>Database</td>
+<td>Engineering</td>
+<td>Pre-launch</td>
+</tr>
+<tr>
+<td>BL-07</td>
+<td>High</td>
+<td>Server-side events for the Critical events in deliverable 15 (event_id, schema_version)</td>
+<td>Product measurement</td>
+<td>BL-02</td>
+<td>Engineering</td>
+<td>Pre-launch</td>
+</tr>
+<tr>
+<td>BL-08</td>
+<td>High</td>
+<td>task_activity with activity_id, validation_status, failure_category, external_reference_id</td>
+<td>Earning funnel and partner reliability</td>
+<td>Task service, partner callbacks</td>
+<td>Engineering</td>
+<td>Pre-launch</td>
+</tr>
+<tr>
+<td>BL-09</td>
+<td>High</td>
+<td>Referral table linking referrer and referred user with stage timestamps</td>
+<td>Referral funnel (gap G02)</td>
+<td>Referral service</td>
+<td>Engineering</td>
+<td>Pre-launch</td>
+</tr>
+<tr>
+<td>BL-10</td>
+<td>High</td>
+<td>Account status history table</td>
+<td>Lifecycle KPIs (gap G04)</td>
+<td>Account service</td>
+<td>Engineering</td>
+<td>Pre-launch</td>
+</tr>
+<tr>
+<td>BL-11</td>
+<td>High</td>
+<td>Data quality checks QC-01 to QC-17</td>
+<td>Prevent unreliable reporting</td>
+<td>Data layer</td>
+<td>Data/Engineering</td>
+<td>Pre-launch</td>
+</tr>
+<tr>
+<td>BL-12</td>
+<td>High</td>
+<td>Remove names/emails/exact age/gender/city from analytics extracts; consent rule for marketing_opt_in</td>
+<td>Privacy (DQ-C04, DQ-C10)</td>
+<td>Governance approval</td>
+<td>Engineering + Founder</td>
+<td>Pre-launch</td>
+</tr>
+<tr>
+<td>BL-13</td>
+<td>High</td>
+<td>Publish VE/Gem/Token conversion rate table with effective dates</td>
+<td>Reward liability in INR (A-010)</td>
+<td>Finance decision</td>
+<td>Founder / Finance</td>
+<td>Pre-launch</td>
+</tr>
+<tr>
+<td>BL-14</td>
+<td>Medium</td>
+<td>Client events (views, opens, onboarding steps) and sessions</td>
+<td>UX funnels and returning users</td>
+<td>BL-07</td>
+<td>Engineering</td>
+<td>Launch</td>
+</tr>
+<tr>
+<td>BL-15</td>
+<td>Medium</td>
+<td>Transformation models + KPI tables (dbt Core or scheduled SQL)</td>
+<td>Reproducible KPIs</td>
+<td>BL-07, BL-11</td>
+<td>Data/Analytics</td>
+<td>Launch</td>
+</tr>
+<tr>
+<td>BL-16</td>
+<td>Medium</td>
+<td>Approve KPI catalogue v1 and owners</td>
+<td>Single source of truth</td>
+<td>None</td>
+<td>Founder + Data</td>
+<td>Launch</td>
+</tr>
+<tr>
+<td>BL-17</td>
+<td>Medium</td>
+<td>Support ticket categories and timestamps (tool or structured inbox)</td>
+<td>Support KPIs</td>
+<td>A-019</td>
+<td>Operations</td>
+<td>Launch</td>
+</tr>
+<tr>
+<td>BL-18</td>
+<td>Medium</td>
+<td>Advanced dashboards (7 dashboards in deliverable 14)</td>
+<td>Management reporting</td>
+<td>Production data, BL-15</td>
+<td>Data/Analytics</td>
+<td>Post-launch</td>
+</tr>
+<tr>
+<td>BL-19</td>
+<td>Low</td>
+<td>Warehouse migration (object storage + columnar warehouse)</td>
+<td>Only when DB load or volume justifies</td>
+<td>Volume evidence</td>
+<td>Engineering</td>
+<td>Post-launch</td>
+</tr>
+<tr>
+<td>BL-20</td>
+<td>Low</td>
+<td>Instrument future features (Lucky Draw etc.) through change log</td>
+<td>Not live yet</td>
+<td>Feature launch</td>
+<td>Product</td>
+<td>Post-launch</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Sequencing logic:</strong> identity and money integrity come first (BL-01 to BL-06), because an error there corrupts every later KPI and directly affects users' money. Event tracking and quality checks follow. Dashboards come last, because a dashboard built before the data is trustworthy would show confident but wrong numbers.</p></main></div>
+<script>try{var t=localStorage.getItem('t');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script type="module">if(document.querySelector('.mermaid')){const m=await import('https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs');m.default.initialize({startOnLoad:true,theme:'neutral'});m.default.run();}</script>
+</body></html>

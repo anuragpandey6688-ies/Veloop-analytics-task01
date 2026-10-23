@@ -1,0 +1,158 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>16 · Data Pipeline & Operating Model | VELOOP Analytics Task 01</title><style>
+:root{--bg:#f6f8fb;--panel:#fff;--ink:#10233d;--muted:#5a6b7d;--line:#dbe3ee;--accent:#1f3a5f;--accent2:#5b8def;--warn:#7a2e00;--warnbg:#fff4e0}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0f141b;--panel:#161d27;--ink:#e6edf5;--muted:#9aa9ba;--line:#2a3544;--accent:#9db8f2;--accent2:#7ea4f5;--warn:#ffcf99;--warnbg:#2b2214}}
+:root[data-theme="dark"]{--bg:#0f141b;--panel:#161d27;--ink:#e6edf5;--muted:#9aa9ba;--line:#2a3544;--accent:#9db8f2;--accent2:#7ea4f5;--warn:#ffcf99;--warnbg:#2b2214}
+*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+a{color:var(--accent2)}.wrap{display:grid;grid-template-columns:280px minmax(0,1fr);min-height:100vh}
+nav{background:var(--panel);border-right:1px solid var(--line);padding:20px 14px;position:sticky;top:0;height:100vh;overflow:auto}
+nav .brand{font-weight:800;font-size:16px;margin:0 6px 14px}nav a{display:block;padding:6px 8px;border-radius:6px;color:var(--ink);text-decoration:none;font-size:13.5px}
+nav a:hover,nav a.on{background:var(--bg);color:var(--accent2)}main{padding:32px 40px;max-width:1200px;min-width:0}
+h1{font-size:28px;line-height:1.25;margin-top:0}h2{margin-top:36px;border-bottom:1px solid var(--line);padding-bottom:6px}h3{margin-top:26px}
+table{border-collapse:collapse;width:100%;font-size:13px;margin:14px 0;display:block;overflow-x:auto}
+th,td{border:1px solid var(--line);padding:6px 9px;text-align:left;vertical-align:top}th{background:var(--accent);color:#fff;position:sticky;top:0}
+:root[data-theme="dark"] th{color:#0f141b}tr:nth-child(even) td{background:color-mix(in srgb,var(--panel) 92%,var(--accent2))}
+blockquote{margin:16px 0;padding:12px 16px;background:var(--warnbg);border-left:4px solid var(--warn);color:var(--warn);border-radius:6px}
+code{background:color-mix(in srgb,var(--panel) 80%,var(--accent2));padding:1px 5px;border-radius:4px;font-size:12.5px}
+pre{background:var(--panel);border:1px solid var(--line);padding:14px;border-radius:8px;overflow:auto}pre code{background:none;padding:0}
+img{max-width:100%;height:auto;background:#fff;border:1px solid var(--line);border-radius:8px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px;margin:18px 0}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px;text-decoration:none;color:var(--ink)}
+.card b{display:block;margin-bottom:4px}.card span{color:var(--muted);font-size:13px}
+.stats{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin:18px 0}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px}.stat b{font-size:24px;display:block;color:var(--accent2)}
+.stat span{font-size:12.5px;color:var(--muted)}.toggle{margin:12px 6px 0;font-size:12px;background:none;border:1px solid var(--line);color:var(--ink);border-radius:6px;padding:4px 8px;cursor:pointer}
+@media print{nav{display:none}.wrap{display:block}main{max-width:none;padding:0}th{position:static}table{display:table;font-size:10.5px}h2{break-after:avoid}}
+@media (max-width:860px){.wrap{grid-template-columns:1fr}nav{position:static;height:auto;max-height:200px;border-right:0;border-bottom:1px solid var(--line)}main{padding:20px 16px}}
+</style></head><body><div class="wrap"><nav>
+<div class="brand"><a href="index.html" style="padding:0;color:inherit">VELOOP Analytics Blueprint</a></div>
+<a class="" href="index.html">Overview</a><a class='' href='01_Executive_Summary.html'>01 · Executive Summary</a><a class='' href='02_Product_Data_Audit.html'>02 · Product Data Readiness Audit</a><a class='' href='03_Data_Coverage_Matrix.html'>03 · Data Coverage Matrix</a><a class='' href='04_User_Analytics_Specification.html'>04 · User & Account Analytics Specification</a><a class='' href='05_Earning_Reward_Analytics_Specification.html'>05 · Earning & Reward Analytics Specification</a><a class='' href='06_Wallet_Withdrawal_Analytics_Specification.html'>06 · Wallet & Withdrawal Analytics Specification</a><a class='' href='07_Referral_Engagement_Analytics.html'>07 · Referral & Engagement Analytics</a><a class='' href='08_Event_Tracking_Plan.html'>08 · Event Tracking Plan</a><a class='' href='09_Data_Dictionary.html'>09 · Data Dictionary</a><a class='' href='10_Logical_Data_Model.html'>10 · Logical Data Model</a><a class='' href='11_KPI_Catalogue.html'>11 · KPI Catalogue</a><a class='' href='12_Simulated_Data_Profiling.html'>12 · Simulated Data Profiling: Findings</a><a class='' href='13_Data_Quality_Audit.html'>13 · Data Quality Audit: Report</a><a class='' href='14_Dashboard_Blueprint.html'>14 · Analytics Dashboard Blueprint</a><a class='' href='15_Developer_Analytics_Handoff.html'>15 · Developer Analytics Handoff</a><a class='on' href='16_Data_Pipeline_Proposal.html'>16 · Data Pipeline & Operating Model</a><a class='' href='17_Privacy_Governance_Proposal.html'>17 · Data Access, Privacy & Governance Proposal</a><a class='' href='18_Analytics_Readiness_Assessment.html'>18 · Analytics Readiness Assessment</a><a class='' href='19_Assumption_Verification_Register.html'>19 · Assumption & Verification Register</a><a class='' href='20_Implementation_Backlog.html'>20 · Implementation Backlog</a><a class='' href='21_Final_Consolidated_Report.html'>21 · Final Consolidated Report</a><a href="downloads.html" class="">Downloads</a>
+<button class="toggle" onclick="var r=document.documentElement;r.dataset.theme=(r.dataset.theme==='dark'?'light':'dark');try{localStorage.setItem('t',r.dataset.theme)}catch(e){}">Toggle theme</button>
+</nav><main><h1>16 · Data Pipeline &amp; Operating Model</h1>
+<blockquote>
+<p><strong>Status:</strong> proposed specification. No event, field, table or KPI in this document has been verified as implemented in VELOOP production (see Assumption A-001). Facts taken from official VELOOP pages cite a source ID from the Source &amp; Verification Register (deliverable 19).</p>
+</blockquote>
+<p><img alt="Pipeline architecture" src="diagrams/pipeline.svg" /></p>
+<h2>Principle: practical now, scalable when justified</h2>
+<p>VELOOP does not yet have production analytics volume (brief, section 35). A warehouse, streaming platform or paid CDP would cost money and need maintenance without improving any decision today. The proposal is therefore built in <strong>two stages</strong>:</p>
+<ul>
+<li><strong>Stage 1 (now):</strong> collect events into the existing application database, transform them with scheduled SQL, and show them in a free BI tool. Most of the cost is engineering time.</li>
+<li><strong>Stage 2 (only when needed):</strong> move raw events to object storage and a columnar warehouse when there is evidence: queries slowing the production database, raw events growing past what a read replica handles comfortably, or several teams needing concurrent access. The trigger is measured load, not a date.</li>
+</ul>
+<h2>Components</h2>
+<table>
+<thead>
+<tr>
+<th>component</th>
+<th>proposal</th>
+<th>owner</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Source systems</td>
+<td>VELOOP web app (frontend), backend services (accounts, tasks, rewards, wallet, withdrawals, referrals), ad/survey/offer partner callbacks, payout partner, support mailbox/tool.</td>
+<td>Engineering</td>
+</tr>
+<tr>
+<td>Event producers</td>
+<td>Server: all money, reward, status and referral events (trusted). Client: views, opens, onboarding steps (untrusted, for UX analysis only).</td>
+<td>Engineering</td>
+</tr>
+<tr>
+<td>Collection</td>
+<td>Server events written to an append-only events table in the existing application database inside the same transaction as the business write (transactional outbox). Client events sent to one backend endpoint that validates schema and stamps received_at_utc.</td>
+<td>Engineering</td>
+</tr>
+<tr>
+<td>Storage / raw layer</td>
+<td>Stage 1 (now): raw_events table + existing business tables in the app's Postgres/MySQL read replica. Stage 2 (when volume or query load justifies): daily export to object storage (Parquet) and a warehouse (e.g. BigQuery or ClickHouse).</td>
+<td>Engineering</td>
+</tr>
+<tr>
+<td>Validation</td>
+<td>Schema check at the collection endpoint (QC-01, QC-04, QC-05, QC-11); quarantine table for rejected rows with reason.</td>
+<td>Engineering</td>
+</tr>
+<tr>
+<td>Transformation</td>
+<td>Scheduled SQL models (e.g. dbt Core, free) build clean tables: users, sessions, task_activity, rewards, wallet_transactions, withdrawals, referrals; dedup, normalisation, derived fields with as-of timestamp.</td>
+<td>Data/Analytics</td>
+</tr>
+<tr>
+<td>Quality checks</td>
+<td>SQL tests per model (uniqueness, not-null, accepted values, relationships, reconciliation QC-13), run after every transformation; failures block the dashboard refresh.</td>
+<td>Data/Analytics</td>
+</tr>
+<tr>
+<td>Analytical layer</td>
+<td>KPI tables (daily grain, IST day) built only from data_environment = 'production'.</td>
+<td>Data/Analytics</td>
+</tr>
+<tr>
+<td>Dashboard</td>
+<td>Free/low-cost BI on the analytical layer (e.g. Metabase open source or Looker Studio). Seven dashboards per deliverable 14.</td>
+<td>Data/Analytics</td>
+</tr>
+<tr>
+<td>Refresh</td>
+<td>Daily 02:00 IST full refresh for most KPIs; hourly incremental for withdrawal queue and pending rewards.</td>
+<td>Data/Analytics</td>
+</tr>
+<tr>
+<td>Monitoring</td>
+<td>Freshness, volume anomalies, test failures and quarantine counts posted to a team channel; dashboard banner when data is stale.</td>
+<td>Data/Analytics</td>
+</tr>
+<tr>
+<td>Failure handling</td>
+<td>Producers retry with the same event_id (idempotent); collection is at-least-once and dedup is by event_id; failed transformation keeps yesterday's dashboard and shows a stale banner; backfills re-run models for a date range.</td>
+<td>Engineering + Data</td>
+</tr>
+<tr>
+<td>Ownership</td>
+<td>Engineering owns producers, collection and raw layer; Data/Analytics owns transformations, tests, KPIs and dashboards; Product owns definitions; Founder approves KPI changes.</td>
+<td>Founder</td>
+</tr>
+</tbody>
+</table>
+<h2>Flow</h2>
+<p>VELOOP Application → Application Events (server outbox + validated client endpoint) → Raw Data Storage (<code>raw_events</code>, quarantine) → Validation (QC rules) → Transformation (scheduled SQL / dbt Core) → Analytical Data Layer (clean tables + daily KPI tables, production only) → BI / Dashboard → Business Reporting.</p>
+<h2>Failure handling summary</h2>
+<table>
+<thead>
+<tr>
+<th>Failure</th>
+<th>Handling</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Producer cannot reach collection</td>
+<td>Retry with same <code>event_id</code>; server events are safe because the outbox lives in the same DB transaction</td>
+</tr>
+<tr>
+<td>Duplicate delivery</td>
+<td>Dedup on <code>event_id</code> (QC-03)</td>
+</tr>
+<tr>
+<td>Invalid payload</td>
+<td>Quarantine with reason; daily quarantine report</td>
+</tr>
+<tr>
+<td>Transformation fails</td>
+<td>Keep previous dashboard data; show stale banner; alert owner</td>
+</tr>
+<tr>
+<td>Late partner callbacks</td>
+<td>Models recompute a rolling 7-day window each night</td>
+</tr>
+<tr>
+<td>Backfill / definition change</td>
+<td>Re-run models for a date range; record in change log</td>
+</tr>
+</tbody>
+</table></main></div>
+<script>try{var t=localStorage.getItem('t');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script type="module">if(document.querySelector('.mermaid')){const m=await import('https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs');m.default.initialize({startOnLoad:true,theme:'neutral'});m.default.run();}</script>
+</body></html>

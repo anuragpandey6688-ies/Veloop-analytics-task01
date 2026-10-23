@@ -1,0 +1,40 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='1160' height='630' viewBox='0 0 1160 630'>
+<rect width='100%' height='100%' fill='#F6F8FB'/>
+<text x='30' y='40' font-size='22' font-weight='700' fill='#10233D' font-family='Inter, Helvetica, Arial, sans-serif'>Dashboard 5 Wallet</text>
+<text x='30' y='64' font-size='12' fill='#7A2E00' font-family='Inter, Helvetica, Arial, sans-serif'>WIREFRAME. Layout only, no data. Production data only (data_environment = production). Shows 'data as of' time.</text>
+<rect x='30' y='78' width='1100' height='30' rx='6' fill='white' stroke='#C9D7F7'/>
+<text x='42' y='98' font-size='12' fill='#33475B' font-family='Inter, Helvetica, Arial, sans-serif'>Filters: Date range | transaction_type | unit   ·   Data as of: [timestamp]</text>
+<rect x='30' y='122' width='540' height='230' rx='10' fill='white' stroke='#C9D7F7'/>
+<text x='44' y='146' font-size='14' font-weight='700' fill='#10233D' font-family='Inter, Helvetica, Arial, sans-serif'>Transactions</text>
+<text x='44' y='164' font-size='11' fill='#5A6B7D' font-family='Inter, Helvetica, Arial, sans-serif'>K-WAL-01 · Stacked column · refresh Daily</text>
+<rect x='56.0' y='275.0' width='63.71428571428571' height='27.0' fill='#9DB8F2'/>
+<rect x='125.71428571428571' y='235.85' width='63.71428571428571' height='66.15' fill='#9DB8F2'/>
+<rect x='195.42857142857142' y='270.95' width='63.71428571428571' height='31.05' fill='#9DB8F2'/>
+<rect x='265.1428571428571' y='231.8' width='63.71428571428571' height='70.2' fill='#9DB8F2'/>
+<rect x='334.85714285714283' y='266.9' width='63.71428571428571' height='35.1' fill='#9DB8F2'/>
+<rect x='404.57142857142856' y='227.75' width='63.71428571428571' height='74.25' fill='#9DB8F2'/>
+<rect x='474.2857142857143' y='262.85' width='63.71428571428571' height='39.15' fill='#9DB8F2'/>
+<text x='44' y='338' font-size='11' fill='#33475B' font-family='Inter, Helvetica, Arial, sans-serif'>Q: What moves through wallets?</text>
+<rect x='590' y='122' width='540' height='230' rx='10' fill='white' stroke='#C9D7F7'/>
+<text x='604' y='146' font-size='14' font-weight='700' fill='#10233D' font-family='Inter, Helvetica, Arial, sans-serif'>Credits and redemptions</text>
+<text x='604' y='164' font-size='11' fill='#5A6B7D' font-family='Inter, Helvetica, Arial, sans-serif'>K-WAL-02, K-WAL-03 · Paired bars · refresh Daily</text>
+<rect x='616.0' y='275.0' width='63.71428571428571' height='27.0' fill='#9DB8F2'/>
+<rect x='685.7142857142857' y='235.85' width='63.71428571428571' height='66.15' fill='#9DB8F2'/>
+<rect x='755.4285714285714' y='270.95' width='63.71428571428571' height='31.05' fill='#9DB8F2'/>
+<rect x='825.1428571428571' y='231.8' width='63.71428571428571' height='70.2' fill='#9DB8F2'/>
+<rect x='894.8571428571429' y='266.9' width='63.71428571428571' height='35.1' fill='#9DB8F2'/>
+<rect x='964.5714285714286' y='227.75' width='63.71428571428571' height='74.25' fill='#9DB8F2'/>
+<rect x='1034.2857142857142' y='262.85' width='63.71428571428571' height='39.15' fill='#9DB8F2'/>
+<text x='604' y='338' font-size='11' fill='#33475B' font-family='Inter, Helvetica, Arial, sans-serif'>Q: Is value accumulating or being redeemed?</text>
+<rect x='30' y='372' width='540' height='230' rx='10' fill='white' stroke='#C9D7F7'/>
+<text x='44' y='396' font-size='14' font-weight='700' fill='#10233D' font-family='Inter, Helvetica, Arial, sans-serif'>Reversals and reconciliation</text>
+<text x='44' y='414' font-size='11' fill='#5A6B7D' font-family='Inter, Helvetica, Arial, sans-serif'>K-WAL-04, K-WAL-05 · Bar + exception table · refresh Daily</text>
+<rect x='56.0' y='525.0' width='63.71428571428571' height='27.0' fill='#9DB8F2'/>
+<rect x='125.71428571428571' y='485.85' width='63.71428571428571' height='66.15' fill='#9DB8F2'/>
+<rect x='195.42857142857142' y='520.95' width='63.71428571428571' height='31.05' fill='#9DB8F2'/>
+<rect x='265.1428571428571' y='481.8' width='63.71428571428571' height='70.2' fill='#9DB8F2'/>
+<rect x='334.85714285714283' y='516.9' width='63.71428571428571' height='35.1' fill='#9DB8F2'/>
+<rect x='404.57142857142856' y='477.75' width='63.71428571428571' height='74.25' fill='#9DB8F2'/>
+<rect x='474.2857142857143' y='512.85' width='63.71428571428571' height='39.15' fill='#9DB8F2'/>
+<text x='44' y='588' font-size='11' fill='#33475B' font-family='Inter, Helvetica, Arial, sans-serif'>Q: Can every balance be explained?</text>
+</svg>

@@ -1,0 +1,889 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>13 · Data Quality Audit: Report | VELOOP Analytics Task 01</title><style>
+:root{--bg:#f6f8fb;--panel:#fff;--ink:#10233d;--muted:#5a6b7d;--line:#dbe3ee;--accent:#1f3a5f;--accent2:#5b8def;--warn:#7a2e00;--warnbg:#fff4e0}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0f141b;--panel:#161d27;--ink:#e6edf5;--muted:#9aa9ba;--line:#2a3544;--accent:#9db8f2;--accent2:#7ea4f5;--warn:#ffcf99;--warnbg:#2b2214}}
+:root[data-theme="dark"]{--bg:#0f141b;--panel:#161d27;--ink:#e6edf5;--muted:#9aa9ba;--line:#2a3544;--accent:#9db8f2;--accent2:#7ea4f5;--warn:#ffcf99;--warnbg:#2b2214}
+*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+a{color:var(--accent2)}.wrap{display:grid;grid-template-columns:280px minmax(0,1fr);min-height:100vh}
+nav{background:var(--panel);border-right:1px solid var(--line);padding:20px 14px;position:sticky;top:0;height:100vh;overflow:auto}
+nav .brand{font-weight:800;font-size:16px;margin:0 6px 14px}nav a{display:block;padding:6px 8px;border-radius:6px;color:var(--ink);text-decoration:none;font-size:13.5px}
+nav a:hover,nav a.on{background:var(--bg);color:var(--accent2)}main{padding:32px 40px;max-width:1200px;min-width:0}
+h1{font-size:28px;line-height:1.25;margin-top:0}h2{margin-top:36px;border-bottom:1px solid var(--line);padding-bottom:6px}h3{margin-top:26px}
+table{border-collapse:collapse;width:100%;font-size:13px;margin:14px 0;display:block;overflow-x:auto}
+th,td{border:1px solid var(--line);padding:6px 9px;text-align:left;vertical-align:top}th{background:var(--accent);color:#fff;position:sticky;top:0}
+:root[data-theme="dark"] th{color:#0f141b}tr:nth-child(even) td{background:color-mix(in srgb,var(--panel) 92%,var(--accent2))}
+blockquote{margin:16px 0;padding:12px 16px;background:var(--warnbg);border-left:4px solid var(--warn);color:var(--warn);border-radius:6px}
+code{background:color-mix(in srgb,var(--panel) 80%,var(--accent2));padding:1px 5px;border-radius:4px;font-size:12.5px}
+pre{background:var(--panel);border:1px solid var(--line);padding:14px;border-radius:8px;overflow:auto}pre code{background:none;padding:0}
+img{max-width:100%;height:auto;background:#fff;border:1px solid var(--line);border-radius:8px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px;margin:18px 0}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px;text-decoration:none;color:var(--ink)}
+.card b{display:block;margin-bottom:4px}.card span{color:var(--muted);font-size:13px}
+.stats{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin:18px 0}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px}.stat b{font-size:24px;display:block;color:var(--accent2)}
+.stat span{font-size:12.5px;color:var(--muted)}.toggle{margin:12px 6px 0;font-size:12px;background:none;border:1px solid var(--line);color:var(--ink);border-radius:6px;padding:4px 8px;cursor:pointer}
+@media print{nav{display:none}.wrap{display:block}main{max-width:none;padding:0}th{position:static}table{display:table;font-size:10.5px}h2{break-after:avoid}}
+@media (max-width:860px){.wrap{grid-template-columns:1fr}nav{position:static;height:auto;max-height:200px;border-right:0;border-bottom:1px solid var(--line)}main{padding:20px 16px}}
+</style></head><body><div class="wrap"><nav>
+<div class="brand"><a href="index.html" style="padding:0;color:inherit">VELOOP Analytics Blueprint</a></div>
+<a class="" href="index.html">Overview</a><a class='' href='01_Executive_Summary.html'>01 · Executive Summary</a><a class='' href='02_Product_Data_Audit.html'>02 · Product Data Readiness Audit</a><a class='' href='03_Data_Coverage_Matrix.html'>03 · Data Coverage Matrix</a><a class='' href='04_User_Analytics_Specification.html'>04 · User & Account Analytics Specification</a><a class='' href='05_Earning_Reward_Analytics_Specification.html'>05 · Earning & Reward Analytics Specification</a><a class='' href='06_Wallet_Withdrawal_Analytics_Specification.html'>06 · Wallet & Withdrawal Analytics Specification</a><a class='' href='07_Referral_Engagement_Analytics.html'>07 · Referral & Engagement Analytics</a><a class='' href='08_Event_Tracking_Plan.html'>08 · Event Tracking Plan</a><a class='' href='09_Data_Dictionary.html'>09 · Data Dictionary</a><a class='' href='10_Logical_Data_Model.html'>10 · Logical Data Model</a><a class='' href='11_KPI_Catalogue.html'>11 · KPI Catalogue</a><a class='' href='12_Simulated_Data_Profiling.html'>12 · Simulated Data Profiling: Findings</a><a class='on' href='13_Data_Quality_Audit.html'>13 · Data Quality Audit: Report</a><a class='' href='14_Dashboard_Blueprint.html'>14 · Analytics Dashboard Blueprint</a><a class='' href='15_Developer_Analytics_Handoff.html'>15 · Developer Analytics Handoff</a><a class='' href='16_Data_Pipeline_Proposal.html'>16 · Data Pipeline & Operating Model</a><a class='' href='17_Privacy_Governance_Proposal.html'>17 · Data Access, Privacy & Governance Proposal</a><a class='' href='18_Analytics_Readiness_Assessment.html'>18 · Analytics Readiness Assessment</a><a class='' href='19_Assumption_Verification_Register.html'>19 · Assumption & Verification Register</a><a class='' href='20_Implementation_Backlog.html'>20 · Implementation Backlog</a><a class='' href='21_Final_Consolidated_Report.html'>21 · Final Consolidated Report</a><a href="downloads.html" class="">Downloads</a>
+<button class="toggle" onclick="var r=document.documentElement;r.dataset.theme=(r.dataset.theme==='dark'?'light':'dark');try{localStorage.setItem('t',r.dataset.theme)}catch(e){}">Toggle theme</button>
+</nav><main><h1>13 · Data Quality Audit: Report</h1>
+<blockquote>
+<p><strong>SIMULATED DATA NOTICE.</strong> Every number below that describes data comes from fictional datasets (supplied by VELOOP for this task, or generated by the analyst and labelled "SIMULATED DATA — CREATED FOR ANALYTICAL TESTING"). None of it describes actual VELOOP users, earnings, withdrawals, revenue, retention, conversion or performance.</p>
+</blockquote>
+<p>Workbook: <a href="files/13_Data_Quality_Audit.xlsx"><code>13_Data_Quality_Audit.xlsx</code></a>. It is produced by <code>scripts/dq_audit.py</code>. The report logs <strong>37 issues</strong> (Critical 6, High 14, Medium 11, Low 6), each with all 12 required fields.</p>
+<h2>How detection was kept honest</h2>
+<p>Detection uses rules only. The clean sheet and the injection log are opened <strong>after</strong> detection, purely to score the rules:</p>
+<ul>
+<li><strong>Supplied Users_Messy_Audit:</strong> the rules found <strong>12 of 12</strong> cells that differ from the clean sheet, plus <strong>8 of 8</strong> duplicate rows, with 0 extra and 0 missed.</li>
+<li><strong>Analyst-generated Messy_Data (522 rows):</strong> 90 of 90 injected defects detected, 0 missed, 0 false positives, across all 14 check types the brief lists.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>issue_type</th>
+<th>injected</th>
+<th>detected</th>
+<th>true_positive</th>
+<th>missed</th>
+<th>false_positive</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>duplicate_event</td>
+<td>12</td>
+<td>12</td>
+<td>12</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>duplicate_id</td>
+<td>5</td>
+<td>5</td>
+<td>5</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>impossible_state_transition</td>
+<td>5</td>
+<td>5</td>
+<td>5</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>inconsistent_capitalization</td>
+<td>9</td>
+<td>9</td>
+<td>9</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>inconsistent_naming</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>invalid_numeric</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>invalid_status</td>
+<td>7</td>
+<td>7</td>
+<td>7</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>malformed_date</td>
+<td>8</td>
+<td>8</td>
+<td>8</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>missing_id</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>missing_timestamp</td>
+<td>5</td>
+<td>5</td>
+<td>5</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>negative_value</td>
+<td>5</td>
+<td>5</td>
+<td>5</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>orphan_record</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>trailing_spaces</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>unexpected_null</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>Earlier runs of this audit caught two bugs in the analyst's own generator: withdrawals whose <code>processing</code> time fell after their final time, and capitalisation defects that produced invalid statuses. Both were fixed. The ordering checks S09–S13 in deliverable 12 now guard against them.</p>
+<h2>Issues found in the supplied "clean" sheet</h2>
+<p>The supplied clean sheet still has logical problems that a column-by-column check would miss:</p>
+<ul>
+<li><strong>DQ-C01:</strong> 91 users have <code>active_days = 0</code> but <code>lifetime_sessions &gt; 0</code>.</li>
+<li><strong>DQ-C02:</strong> 30 users have a last login but 0 sessions. <strong>DQ-C03:</strong> 72 have sessions but no login (all of them Pending Verification).</li>
+<li><strong>DQ-C04:</strong> 34 users are opted into marketing while their consent is still Pending. This is a governance conflict.</li>
+<li><strong>DQ-C05:</strong> 4 negative <code>days_since_registration</code> values. <strong>DQ-C06:</strong> 4 last logins after the stated period end.</li>
+<li><strong>DQ-C10:</strong> the analytics dataset contains direct identifiers (name, email) and sensitive attributes (exact age, gender, city).</li>
+</ul>
+<h2>Data Quality Report</h2>
+<table>
+<thead>
+<tr>
+<th>issue_id</th>
+<th>dataset</th>
+<th>field</th>
+<th>issue_type</th>
+<th>records_affected</th>
+<th>severity</th>
+<th>detection_logic</th>
+<th>likely_cause</th>
+<th>correction</th>
+<th>prevention</th>
+<th>owner</th>
+<th>status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DQ-U01</td>
+<td>Users_Messy_Audit (supplied)</td>
+<td>user_id</td>
+<td>Duplicate IDs / duplicate records</td>
+<td>8</td>
+<td>Critical</td>
+<td>user_id appears more than once; every repeat is an exact copy of an earlier row (pandas duplicated on all columns).</td>
+<td>Record re-inserted by a retried import or append without a key check.</td>
+<td>Keep the first occurrence; delete 8 repeats.</td>
+<td>Primary-key uniqueness constraint on user_id at load; idempotent upsert.</td>
+<td>Engineering</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>DQ-U-MISS-age</td>
+<td>Users_Messy_Audit (supplied)</td>
+<td>age</td>
+<td>Unexpected null</td>
+<td>1</td>
+<td>Medium</td>
+<td>age is blank although the supplied Data_Dictionary marks it Required.</td>
+<td>Field not captured or lost during export.</td>
+<td>Re-source from system of record; else mark 'unknown' explicitly, never guess.</td>
+<td>NOT NULL / required-field validation at ingestion.</td>
+<td>Engineering</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>DQ-U-MISS-city</td>
+<td>Users_Messy_Audit (supplied)</td>
+<td>city</td>
+<td>Unexpected null</td>
+<td>1</td>
+<td>Medium</td>
+<td>city is blank although the supplied Data_Dictionary marks it Required.</td>
+<td>Field not captured or lost during export.</td>
+<td>Re-source from system of record; else mark 'unknown' explicitly, never guess.</td>
+<td>NOT NULL / required-field validation at ingestion.</td>
+<td>Engineering</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>DQ-U-MISS-acquisition_source</td>
+<td>Users_Messy_Audit (supplied)</td>
+<td>acquisition_source</td>
+<td>Unexpected null</td>
+<td>1</td>
+<td>High</td>
+<td>acquisition_source is blank although the supplied Data_Dictionary marks it Required.</td>
+<td>Field not captured or lost during export.</td>
+<td>Re-source from system of record; else mark 'unknown' explicitly, never guess.</td>
+<td>NOT NULL / required-field validation at ingestion.</td>
+<td>Engineering</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>DQ-U-MISS-primary_device</td>
+<td>Users_Messy_Audit (supplied)</td>
+<td>primary_device</td>
+<td>Unexpected null</td>
+<td>1</td>
+<td>Medium</td>
+<td>primary_device is blank although the supplied Data_Dictionary marks it Required.</td>
+<td>Field not captured or lost during export.</td>
+<td>Re-source from system of record; else mark 'unknown' explicitly, never guess.</td>
+<td>NOT NULL / required-field validation at ingestion.</td>
+<td>Engineering</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>DQ-U-MISS-email_verification_status</td>
+<td>Users_Messy_Audit (supplied)</td>
+<td>email_verification_status</td>
+<td>Unexpected null</td>
+<td>1</td>
+<td>High</td>
+<td>email_verification_status is blank although the supplied Data_Dictionary marks it Required.</td>
+<td>Field not captured or lost during export.</td>
+<td>Re-source from system of record; else mark 'unknown' explicitly, never guess.</td>
+<td>NOT NULL / required-field validation at ingestion.</td>
+<td>Engineering</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>DQ-U-MISS-onboarding_status</td>
+<td>Users_Messy_Audit (supplied)</td>
+<td>onboarding_status</td>
+<td>Unexpected null</td>
+<td>1</td>
+<td>High</td>
+<td>onboarding_status is blank although the supplied Data_Dictionary marks it Required.</td>
+<td>Field not captured or lost during export.</td>
+<td>Re-source from system of record; else mark 'unknown' explicitly, never guess.</td>
+<td>NOT NULL / required-field validation at ingestion.</td>
+<td>Engineering</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>DQ-U-MISS-gender</td>
+<td>Users_Messy_Audit (supplied)</td>
+<td>gender</td>
+<td>Missing optional value</td>
+<td>1</td>
+<td>Low</td>
+<td>gender is blank although the supplied Data_Dictionary marks it Optional.</td>
+<td>Field not captured or lost during export.</td>
+<td>Re-source from system of record; else mark 'unknown' explicitly, never guess.</td>
+<td>NOT NULL / required-field validation at ingestion.</td>
+<td>Engineering</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>DQ-U02</td>
+<td>Users_Messy_Audit (supplied)</td>
+<td>registration_datetime</td>
+<td>Malformed dates</td>
+<td>2</td>
+<td>High</td>
+<td>Value does not parse with format YYYY-MM-DD HH:MM:SS (values: 'N/A', '2026-14-02 12:00').</td>
+<td>Free-text placeholder ('N/A') and a day/month swap or typo ('2026-14-02 12:00').</td>
+<td>Quarantine rows; recover true timestamp from backend logs.</td>
+<td>Typed timestamp column; reject non-ISO strings at ingestion.</td>
+<td>Engineering</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>DQ-U03</td>
+<td>Users_Messy_Audit (supplied)</td>
+<td>registration_datetime / days_since_registration</td>
+<td>Inconsistent derived value</td>
+<td>2</td>
+<td>High</td>
+<td>days_since_registration differs from (2026-09-15 00:00 - registration_datetime) by more than rounding (0.06 day).</td>
+<td>Registration timestamp edited after the derived column was computed, or derived column stale.</td>
+<td>Treat registration_datetime from the system of record as truth; recompute derived fields in the transformation layer.</td>
+<td>Do not store derived columns in source tables; compute them downstream with a documented reference date.</td>
+<td>Data/Analytics</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>DQ-U04</td>
+<td>Users_Messy_Audit (supplied)</td>
+<td>last_login_datetime</td>
+<td>Unexpected null</td>
+<td>1</td>
+<td>Medium</td>
+<td>last_login_datetime blank for a user who is not 'Pending Verification' (all 72 pending users are blank by design).</td>
+<td>Login timestamp not written for this account.</td>
+<td>Re-source from auth logs.</td>
+<td>Conditional-required rule: last_login required when lifetime_sessions &gt; 0 and status != pending_verification.</td>
+<td>Engineering</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>DQ-C01</td>
+<td>Users_1000_Clean (supplied)</td>
+<td>active_days / lifetime_sessions</td>
+<td>Impossible combination</td>
+<td>91</td>
+<td>High</td>
+<td>active_days = 0 while lifetime_sessions &gt; 0 (a session implies at least one active day).</td>
+<td>Counters maintained separately and not reconciled, or active_days defined differently (undocumented).</td>
+<td>Recompute both counters from session/event history.</td>
+<td>Derive counters from events in the analytics layer; add cross-field rule.</td>
+<td>Data/Analytics</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>DQ-C02</td>
+<td>Users_1000_Clean (supplied)</td>
+<td>last_login_datetime / lifetime_sessions</td>
+<td>Impossible combination</td>
+<td>30</td>
+<td>High</td>
+<td>A last login exists but lifetime_sessions = 0.</td>
+<td>Session counter not incremented on login.</td>
+<td>Recompute from login events.</td>
+<td>Single source for sessions (sessions table).</td>
+<td>Engineering</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>DQ-C03</td>
+<td>Users_1000_Clean (supplied)</td>
+<td>last_login_datetime / lifetime_sessions</td>
+<td>Impossible combination</td>
+<td>72</td>
+<td>Medium</td>
+<td>lifetime_sessions &gt; 0 but no last login (all are 'Pending Verification').</td>
+<td>Sessions may be counted before verification without a login record, or counter is wrong; definition of 'session' unclear.</td>
+<td>Clarify whether unverified users can hold sessions (A-008).</td>
+<td>Document session definition; derive from session table.</td>
+<td>Product + Engineering</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>DQ-C04</td>
+<td>Users_1000_Clean (supplied)</td>
+<td>consent_status / marketing_opt_in</td>
+<td>Governance conflict</td>
+<td>34</td>
+<td>High</td>
+<td>marketing_opt_in = Yes while consent_status = Pending.</td>
+<td>Opt-in captured independently of consent.</td>
+<td>Treat these users as not opted in until consent is accepted.</td>
+<td>Rule: marketing_opt_in may be true only if consent_status = accepted.</td>
+<td>Product + Legal</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>DQ-C05</td>
+<td>Users_1000_Clean (supplied)</td>
+<td>days_since_registration</td>
+<td>Negative values where inappropriate</td>
+<td>4</td>
+<td>Medium</td>
+<td>days_since_registration &lt; 0, violating the supplied dictionary rule '&gt;=0'.</td>
+<td>Derived with reference date 2026-09-15 00:00 while registrations continue later that day.</td>
+<td>Recompute with a documented reference timestamp at the end of the period.</td>
+<td>Compute derived fields downstream with an explicit as-of timestamp.</td>
+<td>Data/Analytics</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>DQ-C06</td>
+<td>Users_1000_Clean (supplied)</td>
+<td>last_login_datetime</td>
+<td>Out-of-period timestamps</td>
+<td>4</td>
+<td>Medium</td>
+<td>last_login_datetime after the stated dataset period end (15 Sep 2026).</td>
+<td>Snapshot taken later than stated period, or timestamps in a different timezone.</td>
+<td>Confirm extraction time and timezone (A-004).</td>
+<td>Store extraction timestamp and timezone with every dataset.</td>
+<td>Data/Analytics</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>DQ-C07</td>
+<td>Users_1000_Clean (supplied)</td>
+<td>is_active_7d / is_active_30d</td>
+<td>Undocumented derivation</td>
+<td>9</td>
+<td>Medium</td>
+<td>Flags reproduce exactly only with reference date 2026-09-15 00:00 on login time (0 mismatches); users whose last login is after that moment are still counted active.</td>
+<td>Reference date and definition (login-based) not documented.</td>
+<td>Document as-of timestamp; re-define activity on qualifying events (K-USR-02).</td>
+<td>Derived flags carry definition + as-of metadata.</td>
+<td>Data/Analytics</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>DQ-C08</td>
+<td>Users_1000_Clean (supplied)</td>
+<td>email_verification_status / account_status</td>
+<td>Business-rule question</td>
+<td>42</td>
+<td>Low</td>
+<td>Account 'Active' while email verification is 'Pending'.</td>
+<td>May be valid (e.g. verification not required to use the platform).</td>
+<td>None until rule confirmed (A-009).</td>
+<td>Document the rule.</td>
+<td>Product</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>DQ-C09</td>
+<td>Users_1000_Clean (supplied)</td>
+<td>platform / primary_device</td>
+<td>Inconsistent naming / semantics</td>
+<td>1000</td>
+<td>Low</td>
+<td>platform = 'Web' for 100% of users while primary_device includes Android and iOS.</td>
+<td>platform means 'web app' and device means OS; not documented.</td>
+<td>Rename to signup_platform and device_os/device_type.</td>
+<td>Dictionary definitions with allowed values.</td>
+<td>Data/Analytics</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>DQ-C10</td>
+<td>Users_1000_Clean (supplied)</td>
+<td>full_name, email, age, gender, city</td>
+<td>Unnecessary personal data</td>
+<td>1000</td>
+<td>High</td>
+<td>Direct identifiers and sensitive attributes present in an analytics dataset.</td>
+<td>Dataset built from an account export rather than an analytics model.</td>
+<td>Remove from analytics layer; keep in identity store only; use age_band if needed.</td>
+<td>Pseudonymous analytics model (deliverable 17).</td>
+<td>Data/Analytics + Engineering</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>DQ-C11</td>
+<td>Data_Dictionary (supplied)</td>
+<td>platform, country</td>
+<td>Incomplete documentation</td>
+<td>2</td>
+<td>Low</td>
+<td>Columns present in the user sheets but missing from the supplied Data_Dictionary sheet.</td>
+<td>Dictionary not updated when columns added.</td>
+<td>Add both fields.</td>
+<td>Validator: every column must have a dictionary entry (scripts/validate.py does this for this project).</td>
+<td>Data/Analytics</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>DQ-C12</td>
+<td>Users_1000_Clean (supplied)</td>
+<td>data_environment</td>
+<td>Missing simulated-data label</td>
+<td>1000</td>
+<td>Medium</td>
+<td>Users_1000_Clean has no data_environment column (the audit sheet has one).</td>
+<td>Label added to one sheet only.</td>
+<td>Add label column to every sheet.</td>
+<td>Pipeline adds data_environment on load.</td>
+<td>Data/Analytics</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>DQ-M01</td>
+<td>Messy_Data (analyst-generated)</td>
+<td>record_id</td>
+<td>Duplicate IDs</td>
+<td>5</td>
+<td>Critical</td>
+<td>record_id not unique.</td>
+<td>ID generated by copying or by a non-unique sequence.</td>
+<td>Re-key affected rows from source; keep both until source confirms.</td>
+<td>Unique constraint; server-generated IDs.</td>
+<td>Engineering</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>DQ-M02</td>
+<td>Messy_Data (analyst-generated)</td>
+<td>user_id</td>
+<td>Missing IDs</td>
+<td>6</td>
+<td>Critical</td>
+<td>user_id blank.</td>
+<td>Event emitted before user context set.</td>
+<td>Recover from session or reference record; else exclude from user KPIs.</td>
+<td>Reject events without user_id at collection.</td>
+<td>Engineering</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>DQ-M03</td>
+<td>Messy_Data (analyst-generated)</td>
+<td>event_timestamp_utc</td>
+<td>Missing timestamps</td>
+<td>5</td>
+<td>High</td>
+<td>event_timestamp_utc blank.</td>
+<td>Producer did not set time.</td>
+<td>Use received_at_utc only if documented; else quarantine.</td>
+<td>Required timestamp at producer + collection.</td>
+<td>Engineering</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>DQ-M04</td>
+<td>Messy_Data (analyst-generated)</td>
+<td>event_timestamp_utc</td>
+<td>Malformed dates</td>
+<td>8</td>
+<td>High</td>
+<td>Not ISO 8601 UTC (YYYY-MM-DDTHH:MM:SSZ) or not a real calendar date/time.</td>
+<td>Mixed formats from different producers; manual edits.</td>
+<td>Parse known formats with explicit rules; quarantine the rest.</td>
+<td>Single timestamp format enforced by SDK and schema.</td>
+<td>Engineering</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>DQ-M05</td>
+<td>Messy_Data (analyst-generated)</td>
+<td>status</td>
+<td>Invalid statuses</td>
+<td>7</td>
+<td>High</td>
+<td>status (case-insensitive) not in the allowed list for the source table.</td>
+<td>Free-text statuses from manual processes or partner systems.</td>
+<td>Map to approved values only where meaning is certain; else quarantine.</td>
+<td>Enum validation against approved values.</td>
+<td>Engineering</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>DQ-M06</td>
+<td>Messy_Data (analyst-generated)</td>
+<td>status</td>
+<td>Inconsistent capitalization</td>
+<td>9</td>
+<td>Low</td>
+<td>status valid only after lower-casing.</td>
+<td>No canonical casing.</td>
+<td>Lower-case in transformation.</td>
+<td>Enum validation is case-sensitive.</td>
+<td>Data/Analytics</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>DQ-M07</td>
+<td>Messy_Data (analyst-generated)</td>
+<td>event_name (any text field)</td>
+<td>Trailing spaces</td>
+<td>6</td>
+<td>Low</td>
+<td>Leading/trailing whitespace in any text field.</td>
+<td>Manual entry or string concatenation.</td>
+<td>Trim in transformation.</td>
+<td>Trim at collection; schema regex.</td>
+<td>Data/Analytics</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>DQ-M08</td>
+<td>Messy_Data (analyst-generated)</td>
+<td>amount</td>
+<td>Invalid numeric values</td>
+<td>6</td>
+<td>High</td>
+<td>amount not parseable as a number.</td>
+<td>Text in numeric field (units, typos, spreadsheet errors).</td>
+<td>Recover from source; never coerce silently.</td>
+<td>Numeric type at schema level.</td>
+<td>Engineering</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>DQ-M09</td>
+<td>Messy_Data (analyst-generated)</td>
+<td>amount</td>
+<td>Negative values where inappropriate</td>
+<td>5</td>
+<td>High</td>
+<td>amount &lt; 0 (amounts are absolute; direction is separate).</td>
+<td>Sign used instead of direction field.</td>
+<td>Use abs(amount) only if direction confirms; else quarantine.</td>
+<td>amount &gt; 0 rule; direction enum.</td>
+<td>Engineering</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>DQ-M10</td>
+<td>Messy_Data (analyst-generated)</td>
+<td>payout_method</td>
+<td>Unexpected nulls</td>
+<td>4</td>
+<td>Medium</td>
+<td>payout_method blank on a withdrawal record.</td>
+<td>Field dropped in export.</td>
+<td>Re-source from withdrawals table.</td>
+<td>Conditional-required rule.</td>
+<td>Engineering</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>DQ-M11</td>
+<td>Messy_Data (analyst-generated)</td>
+<td>user_id</td>
+<td>Orphan records</td>
+<td>6</td>
+<td>Critical</td>
+<td>user_id not found in Users.</td>
+<td>Test/deleted accounts or wrong ID.</td>
+<td>Hold out of KPIs until resolved.</td>
+<td>Referential integrity check at load.</td>
+<td>Engineering</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>DQ-M12</td>
+<td>Messy_Data (analyst-generated)</td>
+<td>row</td>
+<td>Duplicate events</td>
+<td>12</td>
+<td>Critical</td>
+<td>Identical rows (all fields except record_id).</td>
+<td>Producer retry without idempotency key.</td>
+<td>Drop later copies.</td>
+<td>event_id generated once and reused on retry; dedup on event_id.</td>
+<td>Engineering</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>DQ-M13</td>
+<td>Messy_Data (analyst-generated)</td>
+<td>event_name</td>
+<td>Inconsistent naming</td>
+<td>6</td>
+<td>Medium</td>
+<td>event_name not snake_case object_action or not in the catalogue.</td>
+<td>No naming standard enforced.</td>
+<td>Map to catalogue names.</td>
+<td>Schema registry rejects unknown names.</td>
+<td>Engineering</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>DQ-M14</td>
+<td>Messy_Data (analyst-generated)</td>
+<td>event_timestamp_utc / event_name</td>
+<td>Impossible state transitions</td>
+<td>5</td>
+<td>Critical</td>
+<td>Within one reference_id, a later lifecycle stage is timestamped before an earlier stage (e.g. completed before requested).</td>
+<td>Clock issues, back-dated manual edits or out-of-order replay.</td>
+<td>Quarantine lifecycle; rebuild from status history.</td>
+<td>State machine enforced in backend; status history append-only.</td>
+<td>Engineering</td>
+<td>Open</td>
+</tr>
+</tbody>
+</table>
+<h2>Work Package L: Data Quality Control Framework</h2>
+<p>Each rule is placed at the earliest layer of <strong>Application → Data Collection → Raw Data → Transformation → Analytics Layer → Dashboard</strong> where it can stop the defect. Fixing data at the source is cheaper than cleaning it later.</p>
+<table>
+<thead>
+<tr>
+<th>rule_id</th>
+<th>rule</th>
+<th>layer</th>
+<th>check_logic</th>
+<th>action_on_failure</th>
+<th>owner</th>
+<th>catches</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>QC-01</td>
+<td>ID validation</td>
+<td>Application; Data Collection</td>
+<td>IDs generated server-side; non-null; match agreed pattern; event_id generated once and reused on retry.</td>
+<td>Reject event at collection; alert engineering.</td>
+<td>Engineering</td>
+<td>DQ-M02, DQ-U01</td>
+</tr>
+<tr>
+<td>QC-02</td>
+<td>Primary key uniqueness</td>
+<td>Raw Data</td>
+<td>COUNT(*) = COUNT(DISTINCT pk) per load; duplicates moved to quarantine table.</td>
+<td>Quarantine duplicates; keep first by received_at_utc.</td>
+<td>Data/Analytics</td>
+<td>DQ-U01, DQ-M01</td>
+</tr>
+<tr>
+<td>QC-03</td>
+<td>Duplicate event / transaction</td>
+<td>Data Collection; Raw Data</td>
+<td>Dedup on event_id; wallet and reward writes protected by idempotency_key unique index.</td>
+<td>Drop duplicate events; block duplicate ledger rows.</td>
+<td>Engineering</td>
+<td>DQ-M12</td>
+</tr>
+<tr>
+<td>QC-04</td>
+<td>Allowed status values</td>
+<td>Application; Transformation</td>
+<td>Enum check against dictionary allowed values (case-sensitive at source, lower-case normalisation only in transformation with a mapping log).</td>
+<td>Reject at source; quarantine in transformation.</td>
+<td>Engineering</td>
+<td>DQ-M05, DQ-M06</td>
+</tr>
+<tr>
+<td>QC-05</td>
+<td>Timestamp format and timezone</td>
+<td>Application; Data Collection</td>
+<td>ISO 8601 UTC with Z; reject unparseable; flag event_timestamp_utc more than 5 min in the future or before account creation.</td>
+<td>Reject or quarantine; never guess.</td>
+<td>Engineering</td>
+<td>DQ-U02, DQ-M03, DQ-M04, DQ-C06</td>
+</tr>
+<tr>
+<td>QC-06</td>
+<td>Referential integrity</td>
+<td>Transformation</td>
+<td>Every FK resolves in its parent table (users, tasks, sessions, wallet).</td>
+<td>Hold orphan rows out of KPIs; daily orphan report.</td>
+<td>Data/Analytics</td>
+<td>DQ-M11</td>
+</tr>
+<tr>
+<td>QC-07</td>
+<td>Required and conditional fields</td>
+<td>Application; Transformation</td>
+<td>Required fields non-null; conditional rules (e.g. reason_category when rejected; last_login when sessions &gt; 0).</td>
+<td>Reject at source; flag in transformation.</td>
+<td>Engineering</td>
+<td>DQ-U-MISS-*, DQ-U04, DQ-M10</td>
+</tr>
+<tr>
+<td>QC-08</td>
+<td>Numeric validity</td>
+<td>Application; Transformation</td>
+<td>Amounts numeric, &gt; 0, integer for credits; direction carries sign.</td>
+<td>Reject; quarantine.</td>
+<td>Engineering</td>
+<td>DQ-M08, DQ-M09</td>
+</tr>
+<tr>
+<td>QC-09</td>
+<td>State machine transitions</td>
+<td>Application; Transformation</td>
+<td>Only allowed transitions (deliverable 06/05); status-history timestamps non-decreasing.</td>
+<td>Block invalid transition in backend; flag in transformation.</td>
+<td>Engineering</td>
+<td>DQ-M14</td>
+</tr>
+<tr>
+<td>QC-10</td>
+<td>Cross-field consistency</td>
+<td>Transformation</td>
+<td>e.g. active_days &gt;= 1 when sessions &gt; 0; marketing_opt_in only with consent accepted; final_amount = 0 when reversed.</td>
+<td>Flag; fix source logic.</td>
+<td>Data/Analytics</td>
+<td>DQ-C01, DQ-C02, DQ-C03, DQ-C04</td>
+</tr>
+<tr>
+<td>QC-11</td>
+<td>Event naming</td>
+<td>Application; Data Collection</td>
+<td>event_name in catalogue and matches ^[a-z]+(_[a-z]+)+$; schema_version known.</td>
+<td>Reject unknown events; alert.</td>
+<td>Engineering</td>
+<td>DQ-M13, DQ-M07</td>
+</tr>
+<tr>
+<td>QC-12</td>
+<td>Text hygiene</td>
+<td>Transformation</td>
+<td>Trim whitespace; normalise case for enums with mapping log.</td>
+<td>Auto-fix with log.</td>
+<td>Data/Analytics</td>
+<td>DQ-M07, DQ-M06</td>
+</tr>
+<tr>
+<td>QC-13</td>
+<td>Ledger reconciliation</td>
+<td>Analytics Layer</td>
+<td>Credited wallet-unit rewards = reward_credit rows; withdrawals = redemption_debit rows; balances = sum of ledger.</td>
+<td>Exception report (K-WAL-05); block money dashboards if exceptions &gt; 0 unexplained.</td>
+<td>Data/Analytics + Finance</td>
+<td>S06, S07, S08</td>
+</tr>
+<tr>
+<td>QC-14</td>
+<td>Derived fields computed downstream</td>
+<td>Transformation</td>
+<td>No derived fields stored in source tables; as-of timestamp stored with every derived flag.</td>
+<td>Recompute.</td>
+<td>Data/Analytics</td>
+<td>DQ-U03, DQ-C05, DQ-C07</td>
+</tr>
+<tr>
+<td>QC-15</td>
+<td>Volume and freshness monitoring</td>
+<td>Raw Data; Dashboard</td>
+<td>Daily row counts vs trailing 7-day median; last event time per source; late-arrival share.</td>
+<td>Alert owner; show 'data delayed' banner on dashboard.</td>
+<td>Data/Analytics</td>
+<td>Pipeline failures</td>
+</tr>
+<tr>
+<td>QC-16</td>
+<td>Environment separation</td>
+<td>Data Collection; Dashboard</td>
+<td>data_environment = production enforced on every dashboard query.</td>
+<td>Block dashboard query.</td>
+<td>Data/Analytics</td>
+<td>DQ-C12, integrity rule 12</td>
+</tr>
+<tr>
+<td>QC-17</td>
+<td>Personal-data minimisation</td>
+<td>Transformation</td>
+<td>Analytics tables only contain dictionary-approved fields; no names, emails, payment details.</td>
+<td>Drop columns; alert.</td>
+<td>Data/Analytics</td>
+<td>DQ-C10</td>
+</tr>
+</tbody>
+</table></main></div>
+<script>try{var t=localStorage.getItem('t');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script type="module">if(document.querySelector('.mermaid')){const m=await import('https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs');m.default.initialize({startOnLoad:true,theme:'neutral'});m.default.run();}</script>
+</body></html>

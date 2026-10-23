@@ -1,0 +1,660 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>11 · KPI Catalogue | VELOOP Analytics Task 01</title><style>
+:root{--bg:#f6f8fb;--panel:#fff;--ink:#10233d;--muted:#5a6b7d;--line:#dbe3ee;--accent:#1f3a5f;--accent2:#5b8def;--warn:#7a2e00;--warnbg:#fff4e0}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0f141b;--panel:#161d27;--ink:#e6edf5;--muted:#9aa9ba;--line:#2a3544;--accent:#9db8f2;--accent2:#7ea4f5;--warn:#ffcf99;--warnbg:#2b2214}}
+:root[data-theme="dark"]{--bg:#0f141b;--panel:#161d27;--ink:#e6edf5;--muted:#9aa9ba;--line:#2a3544;--accent:#9db8f2;--accent2:#7ea4f5;--warn:#ffcf99;--warnbg:#2b2214}
+*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+a{color:var(--accent2)}.wrap{display:grid;grid-template-columns:280px minmax(0,1fr);min-height:100vh}
+nav{background:var(--panel);border-right:1px solid var(--line);padding:20px 14px;position:sticky;top:0;height:100vh;overflow:auto}
+nav .brand{font-weight:800;font-size:16px;margin:0 6px 14px}nav a{display:block;padding:6px 8px;border-radius:6px;color:var(--ink);text-decoration:none;font-size:13.5px}
+nav a:hover,nav a.on{background:var(--bg);color:var(--accent2)}main{padding:32px 40px;max-width:1200px;min-width:0}
+h1{font-size:28px;line-height:1.25;margin-top:0}h2{margin-top:36px;border-bottom:1px solid var(--line);padding-bottom:6px}h3{margin-top:26px}
+table{border-collapse:collapse;width:100%;font-size:13px;margin:14px 0;display:block;overflow-x:auto}
+th,td{border:1px solid var(--line);padding:6px 9px;text-align:left;vertical-align:top}th{background:var(--accent);color:#fff;position:sticky;top:0}
+:root[data-theme="dark"] th{color:#0f141b}tr:nth-child(even) td{background:color-mix(in srgb,var(--panel) 92%,var(--accent2))}
+blockquote{margin:16px 0;padding:12px 16px;background:var(--warnbg);border-left:4px solid var(--warn);color:var(--warn);border-radius:6px}
+code{background:color-mix(in srgb,var(--panel) 80%,var(--accent2));padding:1px 5px;border-radius:4px;font-size:12.5px}
+pre{background:var(--panel);border:1px solid var(--line);padding:14px;border-radius:8px;overflow:auto}pre code{background:none;padding:0}
+img{max-width:100%;height:auto;background:#fff;border:1px solid var(--line);border-radius:8px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px;margin:18px 0}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px;text-decoration:none;color:var(--ink)}
+.card b{display:block;margin-bottom:4px}.card span{color:var(--muted);font-size:13px}
+.stats{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin:18px 0}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px}.stat b{font-size:24px;display:block;color:var(--accent2)}
+.stat span{font-size:12.5px;color:var(--muted)}.toggle{margin:12px 6px 0;font-size:12px;background:none;border:1px solid var(--line);color:var(--ink);border-radius:6px;padding:4px 8px;cursor:pointer}
+@media print{nav{display:none}.wrap{display:block}main{max-width:none;padding:0}th{position:static}table{display:table;font-size:10.5px}h2{break-after:avoid}}
+@media (max-width:860px){.wrap{grid-template-columns:1fr}nav{position:static;height:auto;max-height:200px;border-right:0;border-bottom:1px solid var(--line)}main{padding:20px 16px}}
+</style></head><body><div class="wrap"><nav>
+<div class="brand"><a href="index.html" style="padding:0;color:inherit">VELOOP Analytics Blueprint</a></div>
+<a class="" href="index.html">Overview</a><a class='' href='01_Executive_Summary.html'>01 · Executive Summary</a><a class='' href='02_Product_Data_Audit.html'>02 · Product Data Readiness Audit</a><a class='' href='03_Data_Coverage_Matrix.html'>03 · Data Coverage Matrix</a><a class='' href='04_User_Analytics_Specification.html'>04 · User & Account Analytics Specification</a><a class='' href='05_Earning_Reward_Analytics_Specification.html'>05 · Earning & Reward Analytics Specification</a><a class='' href='06_Wallet_Withdrawal_Analytics_Specification.html'>06 · Wallet & Withdrawal Analytics Specification</a><a class='' href='07_Referral_Engagement_Analytics.html'>07 · Referral & Engagement Analytics</a><a class='' href='08_Event_Tracking_Plan.html'>08 · Event Tracking Plan</a><a class='' href='09_Data_Dictionary.html'>09 · Data Dictionary</a><a class='' href='10_Logical_Data_Model.html'>10 · Logical Data Model</a><a class='on' href='11_KPI_Catalogue.html'>11 · KPI Catalogue</a><a class='' href='12_Simulated_Data_Profiling.html'>12 · Simulated Data Profiling: Findings</a><a class='' href='13_Data_Quality_Audit.html'>13 · Data Quality Audit: Report</a><a class='' href='14_Dashboard_Blueprint.html'>14 · Analytics Dashboard Blueprint</a><a class='' href='15_Developer_Analytics_Handoff.html'>15 · Developer Analytics Handoff</a><a class='' href='16_Data_Pipeline_Proposal.html'>16 · Data Pipeline & Operating Model</a><a class='' href='17_Privacy_Governance_Proposal.html'>17 · Data Access, Privacy & Governance Proposal</a><a class='' href='18_Analytics_Readiness_Assessment.html'>18 · Analytics Readiness Assessment</a><a class='' href='19_Assumption_Verification_Register.html'>19 · Assumption & Verification Register</a><a class='' href='20_Implementation_Backlog.html'>20 · Implementation Backlog</a><a class='' href='21_Final_Consolidated_Report.html'>21 · Final Consolidated Report</a><a href="downloads.html" class="">Downloads</a>
+<button class="toggle" onclick="var r=document.documentElement;r.dataset.theme=(r.dataset.theme==='dark'?'light':'dark');try{localStorage.setItem('t',r.dataset.theme)}catch(e){}">Toggle theme</button>
+</nav><main><h1>11 · KPI Catalogue</h1>
+<blockquote>
+<p><strong>Status:</strong> proposed specification. No event, field, table or KPI in this document has been verified as implemented in VELOOP production (see Assumption A-001). Facts taken from official VELOOP pages cite a source ID from the Source &amp; Verification Register (deliverable 19).</p>
+</blockquote>
+<p>Spreadsheet: <a href="files/11_KPI_Catalogue.xlsx"><code>11_KPI_Catalogue.xlsx</code></a>. It holds <strong>53 KPIs</strong> (the brief asks for 30+) across User, Engagement, Reward, Wallet, Withdrawal, Referral and Support.</p>
+<p><strong>No targets.</strong> Every entry is a definition such as "DAU = unique users generating a qualifying activity event within an IST calendar day". It never says what DAU should be.</p>
+<table>
+<thead>
+<tr>
+<th>area</th>
+<th>kpis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Engagement</td>
+<td>11</td>
+</tr>
+<tr>
+<td>Referral</td>
+<td>6</td>
+</tr>
+<tr>
+<td>Reward</td>
+<td>6</td>
+</tr>
+<tr>
+<td>Support</td>
+<td>4</td>
+</tr>
+<tr>
+<td>User</td>
+<td>11</td>
+</tr>
+<tr>
+<td>Wallet</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Withdrawal</td>
+<td>10</td>
+</tr>
+</tbody>
+</table>
+<h3>K-USR-01 · New Registrations</h3>
+<ul>
+<li><strong>Definition:</strong> Count of accounts created in the period.</li>
+<li><strong>Formula:</strong> <code>COUNT(DISTINCT users.user_id) WHERE registration_at_utc in period (IST day boundaries)</code></li>
+<li><strong>Required fields:</strong> users.user_id, users.registration_at_utc</li>
+<li><strong>Data source:</strong> users (backend) · <strong>Frequency:</strong> Daily · <strong>Stakeholder:</strong> Founder, Growth</li>
+<li><strong>Business purpose:</strong> Tracks acquisition volume.</li>
+<li><strong>Interpretation:</strong> Read alongside activation; registrations alone do not mean engaged users.</li>
+<li><strong>Limitation:</strong> Includes accounts later suspended; fake or duplicate accounts inflate it until verification removes them.</li>
+<li><strong>Status:</strong> Proposed definition</li>
+</ul>
+<h3>K-USR-02 · Daily Active Users (DAU)</h3>
+<ul>
+<li><strong>Definition:</strong> Unique users generating at least one qualifying activity event within an IST calendar day.</li>
+<li><strong>Formula:</strong> <code>COUNT(DISTINCT feature_events.user_id) WHERE event_name in qualifying set AND DATE_IST(event_timestamp_utc) = day</code></li>
+<li><strong>Required fields:</strong> feature_events.user_id, feature_events.event_name, feature_events.event_timestamp_utc</li>
+<li><strong>Data source:</strong> feature_events · <strong>Frequency:</strong> Daily · <strong>Stakeholder:</strong> Founder, Product</li>
+<li><strong>Business purpose:</strong> Core engagement size.</li>
+<li><strong>Interpretation:</strong> Compare trend, not single days; weekends and campaigns move it.</li>
+<li><strong>Limitation:</strong> Depends on agreed qualifying-event list; login-only users are excluded by design.</li>
+<li><strong>Status:</strong> Proposed definition</li>
+</ul>
+<h3>K-USR-03 · Weekly Active Users (WAU)</h3>
+<ul>
+<li><strong>Definition:</strong> Unique users with at least one qualifying activity event in the trailing 7 IST days.</li>
+<li><strong>Formula:</strong> <code>COUNT(DISTINCT user_id) over [day-6, day]</code></li>
+<li><strong>Required fields:</strong> feature_events.user_id, feature_events.event_name, feature_events.event_timestamp_utc</li>
+<li><strong>Data source:</strong> feature_events · <strong>Frequency:</strong> Daily (rolling) · <strong>Stakeholder:</strong> Product</li>
+<li><strong>Business purpose:</strong> Weekly engagement size.</li>
+<li><strong>Interpretation:</strong> Smoother than DAU.</li>
+<li><strong>Limitation:</strong> Same as K-USR-02.</li>
+<li><strong>Status:</strong> Proposed definition</li>
+</ul>
+<h3>K-USR-04 · Monthly Active Users (MAU)</h3>
+<ul>
+<li><strong>Definition:</strong> Unique users with at least one qualifying activity event in the trailing 30 IST days.</li>
+<li><strong>Formula:</strong> <code>COUNT(DISTINCT user_id) over [day-29, day]</code></li>
+<li><strong>Required fields:</strong> feature_events.user_id, feature_events.event_name, feature_events.event_timestamp_utc</li>
+<li><strong>Data source:</strong> feature_events · <strong>Frequency:</strong> Daily (rolling) · <strong>Stakeholder:</strong> Founder</li>
+<li><strong>Business purpose:</strong> Monthly engaged base.</li>
+<li><strong>Interpretation:</strong> Denominator for stickiness.</li>
+<li><strong>Limitation:</strong> Same as K-USR-02.</li>
+<li><strong>Status:</strong> Proposed definition</li>
+</ul>
+<h3>K-USR-05 · Stickiness (DAU/MAU)</h3>
+<ul>
+<li><strong>Definition:</strong> Average DAU in the period divided by MAU at period end.</li>
+<li><strong>Formula:</strong> <code>AVG(K-USR-02 over period) / K-USR-04(period end)</code></li>
+<li><strong>Required fields:</strong> feature_events.user_id, feature_events.event_timestamp_utc</li>
+<li><strong>Data source:</strong> Derived from K-USR-02, K-USR-04 · <strong>Frequency:</strong> Weekly · <strong>Stakeholder:</strong> Product</li>
+<li><strong>Business purpose:</strong> How often engaged users return.</li>
+<li><strong>Interpretation:</strong> Higher means more habitual use.</li>
+<li><strong>Limitation:</strong> Sensitive to MAU growth from new cohorts.</li>
+<li><strong>Status:</strong> Proposed definition</li>
+</ul>
+<h3>K-USR-06 · Returning Users</h3>
+<ul>
+<li><strong>Definition:</strong> Users active in the current period who were also active in an earlier period and are not new registrations of the current period.</li>
+<li><strong>Formula:</strong> <code>COUNT(DISTINCT user_id active in period P AND active before P AND registration_at_utc &lt; start(P))</code></li>
+<li><strong>Required fields:</strong> feature_events.user_id, feature_events.event_timestamp_utc, users.registration_at_utc</li>
+<li><strong>Data source:</strong> feature_events, users · <strong>Frequency:</strong> Weekly · <strong>Stakeholder:</strong> Product</li>
+<li><strong>Business purpose:</strong> Separates retained base from new users.</li>
+<li><strong>Interpretation:</strong> Rising share means retention improving.</li>
+<li><strong>Limitation:</strong> Needs full event history; a snapshot field such as last_login cannot produce it.</li>
+<li><strong>Status:</strong> Proposed definition</li>
+</ul>
+<h3>K-USR-07 · Inactive Users</h3>
+<ul>
+<li><strong>Definition:</strong> Registered, non-closed accounts with no qualifying activity in the last 30 IST days.</li>
+<li><strong>Formula:</strong> <code>COUNT(user_id) WHERE account_status != 'closed' AND (last_activity_at_utc IS NULL OR last_activity_at_utc &lt; day-29)</code></li>
+<li><strong>Required fields:</strong> users.user_id, users.account_status, users.last_activity_at_utc</li>
+<li><strong>Data source:</strong> users (derived) · <strong>Frequency:</strong> Weekly · <strong>Stakeholder:</strong> Product, Growth</li>
+<li><strong>Business purpose:</strong> Re-engagement audience sizing.</li>
+<li><strong>Interpretation:</strong> Large and growing means activation or retention problems.</li>
+<li><strong>Limitation:</strong> 30-day window is a proposed convention, to be approved.</li>
+<li><strong>Status:</strong> Proposed definition</li>
+</ul>
+<h3>K-USR-08 · Onboarding Completion Rate</h3>
+<ul>
+<li><strong>Definition:</strong> Share of users who started onboarding and completed it within 7 days.</li>
+<li><strong>Formula:</strong> <code>COUNT(onboarding_completed within 7d of start) / COUNT(onboarding_started), by start cohort</code></li>
+<li><strong>Required fields:</strong> users.onboarding_started_at_utc, users.onboarding_completed_at_utc</li>
+<li><strong>Data source:</strong> users / onboarding events · <strong>Frequency:</strong> Weekly · <strong>Stakeholder:</strong> Product</li>
+<li><strong>Business purpose:</strong> Onboarding quality.</li>
+<li><strong>Interpretation:</strong> Low rate points to friction in specific steps (use step events).</li>
+<li><strong>Limitation:</strong> Cohort needs 7 days to mature; recent cohorts are incomplete.</li>
+<li><strong>Status:</strong> Proposed definition</li>
+</ul>
+<h3>K-USR-09 · Email Verification Rate</h3>
+<ul>
+<li><strong>Definition:</strong> Share of new registrations that verified email within 7 days.</li>
+<li><strong>Formula:</strong> <code>COUNT(email_verified_at_utc - registration_at_utc &lt;= 7d) / COUNT(registrations in cohort)</code></li>
+<li><strong>Required fields:</strong> users.registration_at_utc, users.email_verified_at_utc</li>
+<li><strong>Data source:</strong> users · <strong>Frequency:</strong> Weekly · <strong>Stakeholder:</strong> Product, Operations</li>
+<li><strong>Business purpose:</strong> Verification funnel health.</li>
+<li><strong>Interpretation:</strong> Drops can signal email delivery problems.</li>
+<li><strong>Limitation:</strong> Google sign-in users may be verified by provider; definition must state how they count.</li>
+<li><strong>Status:</strong> Proposed definition</li>
+</ul>
+<h3>K-USR-10 · Day-7 Retention</h3>
+<ul>
+<li><strong>Definition:</strong> Share of a registration cohort with a qualifying activity on IST day 7 after registration (day 0 = registration day).</li>
+<li><strong>Formula:</strong> <code>COUNT(users in cohort active on day 7) / COUNT(users in cohort)</code></li>
+<li><strong>Required fields:</strong> users.registration_at_utc, feature_events.user_id, feature_events.event_timestamp_utc</li>
+<li><strong>Data source:</strong> users, feature_events · <strong>Frequency:</strong> Weekly · <strong>Stakeholder:</strong> Founder, Product</li>
+<li><strong>Business purpose:</strong> Early retention.</li>
+<li><strong>Interpretation:</strong> Compare cohorts, not absolute value.</li>
+<li><strong>Limitation:</strong> Exact-day retention is noisy for small cohorts; report cohort size beside it.</li>
+<li><strong>Status:</strong> Proposed definition</li>
+</ul>
+<h3>K-USR-11 · Account Suspensions</h3>
+<ul>
+<li><strong>Definition:</strong> Count of status changes into 'suspended' in the period.</li>
+<li><strong>Formula:</strong> <code>COUNT(user_status_history WHERE new_status = 'suspended' AND changed_at_utc in period)</code></li>
+<li><strong>Required fields:</strong> user_status_history.new_status, user_status_history.changed_at_utc</li>
+<li><strong>Data source:</strong> user_status_history · <strong>Frequency:</strong> Weekly · <strong>Stakeholder:</strong> Operations, Trust &amp; Safety</li>
+<li><strong>Business purpose:</strong> Enforcement workload.</li>
+<li><strong>Interpretation:</strong> Spikes need investigation, not automatic interpretation.</li>
+<li><strong>Limitation:</strong> Requires status history, absent in supplied data (gap G04).</li>
+<li><strong>Status:</strong> Proposed definition</li>
+</ul>
+<h3>K-ENG-01 · Feature Adoption Rate</h3>
+<ul>
+<li><strong>Definition:</strong> Share of active users in the period who used a given feature at least once.</li>
+<li><strong>Formula:</strong> <code>COUNT(DISTINCT user_id with qualifying event in feature F) / K-USR-04</code></li>
+<li><strong>Required fields:</strong> feature_events.user_id, feature_events.feature, feature_events.event_name</li>
+<li><strong>Data source:</strong> feature_events · <strong>Frequency:</strong> Weekly · <strong>Stakeholder:</strong> Product</li>
+<li><strong>Business purpose:</strong> Which features matter to users.</li>
+<li><strong>Interpretation:</strong> Compare across features and over time.</li>
+<li><strong>Limitation:</strong> Feature attribution must be consistent across events.</li>
+<li><strong>Status:</strong> Proposed definition</li>
+</ul>
+<h3>K-ENG-02 · Task Starts</h3>
+<ul>
+<li><strong>Definition:</strong> Count of task attempts started.</li>
+<li><strong>Formula:</strong> <code>COUNT(task_activity.activity_id) WHERE started_at_utc in period</code></li>
+<li><strong>Required fields:</strong> task_activity.activity_id, task_activity.started_at_utc</li>
+<li><strong>Data source:</strong> task_activity · <strong>Frequency:</strong> Daily · <strong>Stakeholder:</strong> Product</li>
+<li><strong>Business purpose:</strong> Top of the earning funnel.</li>
+<li><strong>Interpretation:</strong> Read with completion rate.</li>
+<li><strong>Limitation:</strong> Abandoned starts are included by design.</li>
+<li><strong>Status:</strong> Proposed definition</li>
+</ul>
+<h3>K-ENG-03 · Validated Task Completions</h3>
+<ul>
+<li><strong>Definition:</strong> Count of task attempts whose completion passed validation.</li>
+<li><strong>Formula:</strong> <code>COUNT(activity_id) WHERE activity_status = 'completed' AND validation_status = 'passed'</code></li>
+<li><strong>Required fields:</strong> task_activity.activity_status, task_activity.validation_status, task_activity.validated_at_utc</li>
+<li><strong>Data source:</strong> task_activity · <strong>Frequency:</strong> Daily · <strong>Stakeholder:</strong> Product</li>
+<li><strong>Business purpose:</strong> Successful earning activity.</li>
+<li><strong>Interpretation:</strong> Activity, not reward: see K-RWD-02 for credits.</li>
+<li><strong>Limitation:</strong> Late partner validation moves completions into later days.</li>
+<li><strong>Status:</strong> Proposed definition</li>
+</ul>
+<h3>K-ENG-04 · Task Completion Rate</h3>
+<ul>
+<li><strong>Definition:</strong> Validated completions divided by task starts, for attempts started in the period.</li>
+<li><strong>Formula:</strong> <code>K-ENG-03 / K-ENG-02 (same start cohort)</code></li>
+<li><strong>Required fields:</strong> task_activity.activity_status, task_activity.validation_status, task_activity.started_at_utc</li>
+<li><strong>Data source:</strong> task_activity · <strong>Frequency:</strong> Daily · <strong>Stakeholder:</strong> Product</li>
+<li><strong>Business purpose:</strong> Funnel efficiency by task type.</li>
+<li><strong>Interpretation:</strong> Break down by task_type and fulfilment_source.</li>
+<li><strong>Limitation:</strong> Pending validations depress recent days; use a maturity window (e.g. 3 days).</li>
+<li><strong>Status:</strong> Proposed definition</li>
+</ul>
+<h3>K-ENG-05 · Task Abandonment Rate</h3>
+<ul>
+<li><strong>Definition:</strong> Share of started attempts that ended as abandoned.</li>
+<li><strong>Formula:</strong> <code>COUNT(activity_status = 'abandoned') / COUNT(started)</code></li>
+<li><strong>Required fields:</strong> task_activity.activity_status, task_activity.started_at_utc</li>
+<li><strong>Data source:</strong> task_activity · <strong>Frequency:</strong> Weekly · <strong>Stakeholder:</strong> Product, UX</li>
+<li><strong>Business purpose:</strong> UX friction.</li>
+<li><strong>Interpretation:</strong> High abandonment on one task type suggests UX or content issues.</li>
+<li><strong>Limitation:</strong> Abandonment is derived from a timeout rule that engineering must define (A-013).</li>
+<li><strong>Status:</strong> Proposed definition</li>
+</ul>
+<h3>K-ENG-06 · Task Failure Rate by Category</h3>
+<ul>
+<li><strong>Definition:</strong> Share of started attempts that failed, split by failure_category.</li>
+<li><strong>Formula:</strong> <code>COUNT(activity_status = 'failed' AND failure_category = c) / COUNT(started)</code></li>
+<li><strong>Required fields:</strong> task_activity.activity_status, task_activity.failure_category, task_activity.tracking_source</li>
+<li><strong>Data source:</strong> task_activity · <strong>Frequency:</strong> Weekly · <strong>Stakeholder:</strong> Product, Engineering</li>
+<li><strong>Business purpose:</strong> Separates partner tracking failures from VELOOP failures.</li>
+<li><strong>Interpretation:</strong> Tracking failures concentrated on one partner point to that partner.</li>
+<li><strong>Limitation:</strong> Classification is proposed; real failure codes unknown.</li>
+<li><strong>Status:</strong> Proposed definition</li>
+</ul>
+<h3>K-ENG-07 · Repeat Usage Rate</h3>
+<ul>
+<li><strong>Definition:</strong> Share of a feature's users in the period who used it on 2 or more distinct IST days.</li>
+<li><strong>Formula:</strong> <code>COUNT(users with &gt;= 2 active days in feature F) / COUNT(users of F)</code></li>
+<li><strong>Required fields:</strong> feature_events.user_id, feature_events.feature, feature_events.event_timestamp_utc</li>
+<li><strong>Data source:</strong> feature_events · <strong>Frequency:</strong> Weekly · <strong>Stakeholder:</strong> Product</li>
+<li><strong>Business purpose:</strong> Habit formation per feature.</li>
+<li><strong>Interpretation:</strong> Higher means the feature drives return visits.</li>
+<li><strong>Limitation:</strong> Short periods understate it.</li>
+<li><strong>Status:</strong> Proposed definition</li>
+</ul>
+<h3>K-ENG-08 · Active Days per Active User</h3>
+<ul>
+<li><strong>Definition:</strong> Average count of distinct IST days with qualifying activity per active user in a 30-day window.</li>
+<li><strong>Formula:</strong> <code>SUM(active days per user) / K-USR-04</code></li>
+<li><strong>Required fields:</strong> feature_events.user_id, feature_events.event_timestamp_utc</li>
+<li><strong>Data source:</strong> feature_events · <strong>Frequency:</strong> Monthly · <strong>Stakeholder:</strong> Product</li>
+<li><strong>Business purpose:</strong> Depth of engagement.</li>
+<li><strong>Interpretation:</strong> Read with MAU.</li>
+<li><strong>Limitation:</strong> Not comparable across windows of different length.</li>
+<li><strong>Status:</strong> Proposed definition</li>
+</ul>
+<h3>K-ENG-09 · Daily Reward Claim Rate</h3>
+<ul>
+<li><strong>Definition:</strong> Share of DAU who claimed the daily reward that day.</li>
+<li><strong>Formula:</strong> <code>COUNT(DISTINCT user_id with daily_reward_claimed on day) / K-USR-02</code></li>
+<li><strong>Required fields:</strong> feature_events.event_name, event_properties.claim_date_ist</li>
+<li><strong>Data source:</strong> feature_events · <strong>Frequency:</strong> Daily · <strong>Stakeholder:</strong> Product</li>
+<li><strong>Business purpose:</strong> Daily habit loop health.</li>
+<li><strong>Interpretation:</strong> Low share means the check-in is not discovered or not valued.</li>
+<li><strong>Limitation:</strong> Claim date must use IST window.</li>
+<li><strong>Status:</strong> Proposed definition</li>
+</ul>
+<h3>K-ENG-10 · Spin Completion Rate</h3>
+<ul>
+<li><strong>Definition:</strong> Share of spins started that completed.</li>
+<li><strong>Formula:</strong> <code>COUNT(spin_completed) / COUNT(spin_started) joined on spin_id</code></li>
+<li><strong>Required fields:</strong> event_properties.spin_id, event_properties.outcome_type</li>
+<li><strong>Data source:</strong> feature_events · <strong>Frequency:</strong> Weekly · <strong>Stakeholder:</strong> Product, Engineering</li>
+<li><strong>Business purpose:</strong> Detects interrupted spins (technical issues).</li>
+<li><strong>Interpretation:</strong> Gaps indicate crashes or connectivity issues.</li>
+<li><strong>Limitation:</strong> Requires spin_id on both events.</li>
+<li><strong>Status:</strong> Proposed definition</li>
+</ul>
+<h3>K-ENG-11 · Mission Completion Rate</h3>
+<ul>
+<li><strong>Definition:</strong> Share of missions started that were completed before expiry.</li>
+<li><strong>Formula:</strong> <code>COUNT(mission_status = 'completed') / COUNT(started)</code></li>
+<li><strong>Required fields:</strong> mission_progress.mission_status, mission_progress.started_at_utc</li>
+<li><strong>Data source:</strong> mission_progress · <strong>Frequency:</strong> Weekly · <strong>Stakeholder:</strong> Product</li>
+<li><strong>Business purpose:</strong> Mission design quality.</li>
+<li><strong>Interpretation:</strong> Very low or very high suggests difficulty mis-set.</li>
+<li><strong>Limitation:</strong> Mission rules vary by mission type.</li>
+<li><strong>Status:</strong> Proposed definition</li>
+</ul>
+<h3>K-RWD-01 · Reward Transactions</h3>
+<ul>
+<li><strong>Definition:</strong> Count of reward records created, by status.</li>
+<li><strong>Formula:</strong> <code>COUNT(rewards.reward_id) GROUP BY reward_status</code></li>
+<li><strong>Required fields:</strong> rewards.reward_id, rewards.reward_status, rewards.created_at_utc</li>
+<li><strong>Data source:</strong> rewards · <strong>Frequency:</strong> Daily · <strong>Stakeholder:</strong> Finance, Product</li>
+<li><strong>Business purpose:</strong> Reward workload and mix.</li>
+<li><strong>Interpretation:</strong> Split by status before interpreting.</li>
+<li><strong>Limitation:</strong> Includes pending rewards that may never be credited.</li>
+<li><strong>Status:</strong> Proposed definition</li>
+</ul>
+<h3>K-RWD-02 · Rewards Credited (count and volume)</h3>
+<ul>
+<li><strong>Definition:</strong> Count and summed final_amount of rewards credited in the period, per unit.</li>
+<li><strong>Formula:</strong> <code>COUNT(*), SUM(final_amount) WHERE reward_status in ('credited','corrected') AND credited_at_utc in period GROUP BY unit</code></li>
+<li><strong>Required fields:</strong> rewards.reward_status, rewards.final_amount, rewards.unit, rewards.credited_at_utc</li>
+<li><strong>Data source:</strong> rewards · <strong>Frequency:</strong> Daily · <strong>Stakeholder:</strong> Finance, Founder</li>
+<li><strong>Business purpose:</strong> Actual reward cost, distinct from activity.</li>
+<li><strong>Interpretation:</strong> Never add units together without approved conversion rates.</li>
+<li><strong>Limitation:</strong> VE to INR rate unknown (A-010).</li>
+<li><strong>Status:</strong> Proposed definition</li>
+</ul>
+<h3>K-RWD-03 · Reward Reversal Rate</h3>
+<ul>
+<li><strong>Definition:</strong> Share of credited rewards later reversed, by credit cohort.</li>
+<li><strong>Formula:</strong> <code>COUNT(reward_status = 'reversed') / COUNT(credited in cohort)</code></li>
+<li><strong>Required fields:</strong> rewards.reward_status, rewards.credited_at_utc, rewards.reversed_at_utc</li>
+<li><strong>Data source:</strong> rewards · <strong>Frequency:</strong> Weekly · <strong>Stakeholder:</strong> Trust &amp; Safety, Finance</li>
+<li><strong>Business purpose:</strong> Quality of credited activity.</li>
+<li><strong>Interpretation:</strong> Rising rate is a quality signal, not proof of abuse.</li>
+<li><strong>Limitation:</strong> Reversals can occur long after credit; recent cohorts are incomplete.</li>
+<li><strong>Status:</strong> Proposed definition</li>
+</ul>
+<h3>K-RWD-04 · Pending Reward Backlog</h3>
+<ul>
+<li><strong>Definition:</strong> Count and amount of rewards in 'pending' at snapshot time, with age buckets.</li>
+<li><strong>Formula:</strong> <code>COUNT(*), SUM(amount) WHERE reward_status = 'pending' at snapshot GROUP BY age bucket</code></li>
+<li><strong>Required fields:</strong> rewards.reward_status, rewards.created_at_utc, rewards.amount</li>
+<li><strong>Data source:</strong> rewards · <strong>Frequency:</strong> Daily · <strong>Stakeholder:</strong> Operations</li>
+<li><strong>Business purpose:</strong> Validation backlog and user-facing delay.</li>
+<li><strong>Interpretation:</strong> Old pending items drive 'rewards not updated' tickets.</li>
+<li><strong>Limitation:</strong> Snapshot metric; needs daily snapshot or status history.</li>
+<li><strong>Status:</strong> Proposed definition</li>
+</ul>
+<h3>K-RWD-05 · Reward Activity by Feature</h3>
+<ul>
+<li><strong>Definition:</strong> Credited reward count and volume split by feature and source_type.</li>
+<li><strong>Formula:</strong> <code>K-RWD-02 GROUP BY feature, source_type, unit</code></li>
+<li><strong>Required fields:</strong> rewards.feature, rewards.source_type, rewards.unit, rewards.final_amount</li>
+<li><strong>Data source:</strong> rewards · <strong>Frequency:</strong> Weekly · <strong>Stakeholder:</strong> Product, Finance</li>
+<li><strong>Business purpose:</strong> Where reward budget goes.</li>
+<li><strong>Interpretation:</strong> Compare to feature adoption.</li>
+<li><strong>Limitation:</strong> Same unit caveat as K-RWD-02.</li>
+<li><strong>Status:</strong> Proposed definition</li>
+</ul>
+<h3>K-RWD-06 · Activity-to-Credit Lag</h3>
+<ul>
+<li><strong>Definition:</strong> Median and P90 time between validated completion and reward credit.</li>
+<li><strong>Formula:</strong> <code>PERCENTILE(credited_at_utc - task_activity.completed_at_utc)</code></li>
+<li><strong>Required fields:</strong> rewards.credited_at_utc, task_activity.completed_at_utc, rewards.source_id</li>
+<li><strong>Data source:</strong> rewards + task_activity · <strong>Frequency:</strong> Weekly · <strong>Stakeholder:</strong> Product, Engineering</li>
+<li><strong>Business purpose:</strong> User-facing reward delay.</li>
+<li><strong>Interpretation:</strong> Compare with official guidance of ~15 minutes for ad tracking.</li>
+<li><strong>Limitation:</strong> Only for task-sourced rewards.</li>
+<li><strong>Status:</strong> Proposed definition</li>
+</ul>
+<h3>K-WAL-01 · Wallet Transactions</h3>
+<ul>
+<li><strong>Definition:</strong> Count of ledger rows created, by transaction_type and status.</li>
+<li><strong>Formula:</strong> <code>COUNT(transaction_id) GROUP BY transaction_type, transaction_status</code></li>
+<li><strong>Required fields:</strong> wallet_transactions.transaction_id, wallet_transactions.transaction_type, wallet_transactions.transaction_status</li>
+<li><strong>Data source:</strong> wallet_transactions · <strong>Frequency:</strong> Daily · <strong>Stakeholder:</strong> Finance, Engineering</li>
+<li><strong>Business purpose:</strong> Ledger activity.</li>
+<li><strong>Interpretation:</strong> Mix shifts show behaviour change.</li>
+<li><strong>Limitation:</strong> Ledger completeness must be reconciled first (K-WAL-05).</li>
+<li><strong>Status:</strong> Proposed definition</li>
+</ul>
+<h3>K-WAL-02 · Credit Volume</h3>
+<ul>
+<li><strong>Definition:</strong> Sum of completed credit amounts per unit in the period.</li>
+<li><strong>Formula:</strong> <code>SUM(amount) WHERE direction = 'credit' AND transaction_status = 'completed' GROUP BY unit</code></li>
+<li><strong>Required fields:</strong> wallet_transactions.direction, wallet_transactions.amount, wallet_transactions.unit, wallet_transactions.transaction_status</li>
+<li><strong>Data source:</strong> wallet_transactions · <strong>Frequency:</strong> Daily · <strong>Stakeholder:</strong> Finance</li>
+<li><strong>Business purpose:</strong> Value entering wallets.</li>
+<li><strong>Interpretation:</strong> Per unit only.</li>
+<li><strong>Limitation:</strong> Refunds count as credits; split by type when needed.</li>
+<li><strong>Status:</strong> Proposed definition</li>
+</ul>
+<h3>K-WAL-03 · Redemption Activity</h3>
+<ul>
+<li><strong>Definition:</strong> Count and volume of redemption_debit transactions.</li>
+<li><strong>Formula:</strong> <code>COUNT(*), SUM(amount) WHERE transaction_type = 'redemption_debit'</code></li>
+<li><strong>Required fields:</strong> wallet_transactions.transaction_type, wallet_transactions.amount</li>
+<li><strong>Data source:</strong> wallet_transactions · <strong>Frequency:</strong> Daily · <strong>Stakeholder:</strong> Finance</li>
+<li><strong>Business purpose:</strong> Value leaving through redemptions.</li>
+<li><strong>Interpretation:</strong> Compare to withdrawal requests.</li>
+<li><strong>Limitation:</strong> Includes debits later refunded; net with K-WAL-04.</li>
+<li><strong>Status:</strong> Proposed definition</li>
+</ul>
+<h3>K-WAL-04 · Wallet Reversals and Refunds</h3>
+<ul>
+<li><strong>Definition:</strong> Count and volume of reversal, adjustment and redemption_refund rows.</li>
+<li><strong>Formula:</strong> <code>COUNT(*), SUM(amount) WHERE transaction_type in ('reversal','adjustment','redemption_refund')</code></li>
+<li><strong>Required fields:</strong> wallet_transactions.transaction_type, wallet_transactions.amount, wallet_transactions.related_transaction_id</li>
+<li><strong>Data source:</strong> wallet_transactions · <strong>Frequency:</strong> Weekly · <strong>Stakeholder:</strong> Finance, Trust &amp; Safety</li>
+<li><strong>Business purpose:</strong> Corrections to the ledger.</li>
+<li><strong>Interpretation:</strong> Every row must link to an original transaction.</li>
+<li><strong>Limitation:</strong> Unlinked rows are a data-quality defect.</li>
+<li><strong>Status:</strong> Proposed definition</li>
+</ul>
+<h3>K-WAL-05 · Ledger Reconciliation Exceptions</h3>
+<ul>
+<li><strong>Definition:</strong> Count of credited wallet-unit rewards without a wallet credit, plus wallet reward credits without a reward, plus withdrawals without a debit.</li>
+<li><strong>Formula:</strong> <code>Anti-join counts across rewards, wallet_transactions, withdrawals</code></li>
+<li><strong>Required fields:</strong> rewards.wallet_transaction_id, wallet_transactions.reference_id, withdrawals.debit_transaction_id</li>
+<li><strong>Data source:</strong> rewards, wallet_transactions, withdrawals · <strong>Frequency:</strong> Daily · <strong>Stakeholder:</strong> Engineering, Finance</li>
+<li><strong>Business purpose:</strong> Trust in every money KPI.</li>
+<li><strong>Interpretation:</strong> Expected value is 0; any exception needs a ticket.</li>
+<li><strong>Limitation:</strong> Requires transaction IDs on all three tables.</li>
+<li><strong>Status:</strong> Proposed definition</li>
+</ul>
+<h3>K-WDR-01 · Withdrawal Requests</h3>
+<ul>
+<li><strong>Definition:</strong> Count and INR value of withdrawal requests submitted.</li>
+<li><strong>Formula:</strong> <code>COUNT(withdrawal_id), SUM(amount_inr) WHERE requested_at_utc in period</code></li>
+<li><strong>Required fields:</strong> withdrawals.withdrawal_id, withdrawals.requested_at_utc, withdrawals.amount_inr</li>
+<li><strong>Data source:</strong> withdrawals · <strong>Frequency:</strong> Daily · <strong>Stakeholder:</strong> Finance, Operations</li>
+<li><strong>Business purpose:</strong> Payout demand.</li>
+<li><strong>Interpretation:</strong> Read with completion and queue.</li>
+<li><strong>Limitation:</strong> Requests later rejected are included.</li>
+<li><strong>Status:</strong> Proposed definition</li>
+</ul>
+<h3>K-WDR-02 · Completed Withdrawals</h3>
+<ul>
+<li><strong>Definition:</strong> Count and INR value reaching 'completed' in the period.</li>
+<li><strong>Formula:</strong> <code>COUNT(*), SUM(amount_inr) WHERE withdrawal_status = 'completed' AND final_at_utc in period</code></li>
+<li><strong>Required fields:</strong> withdrawals.withdrawal_status, withdrawals.final_at_utc, withdrawals.amount_inr</li>
+<li><strong>Data source:</strong> withdrawals · <strong>Frequency:</strong> Daily · <strong>Stakeholder:</strong> Finance, Founder</li>
+<li><strong>Business purpose:</strong> Payout delivered.</li>
+<li><strong>Interpretation:</strong> A completed payout can still be reversed later.</li>
+<li><strong>Limitation:</strong> Partner-side failures after completion need payout_reference_id reconciliation.</li>
+<li><strong>Status:</strong> Proposed definition</li>
+</ul>
+<h3>K-WDR-03 · Pending Withdrawal Queue</h3>
+<ul>
+<li><strong>Definition:</strong> Count, INR value and age of requests in 'requested' or 'processing' at snapshot time.</li>
+<li><strong>Formula:</strong> <code>COUNT(*), SUM(amount_inr), MAX(now - requested_at_utc) WHERE status in ('requested','processing')</code></li>
+<li><strong>Required fields:</strong> withdrawals.withdrawal_status, withdrawals.requested_at_utc, withdrawals.amount_inr</li>
+<li><strong>Data source:</strong> withdrawals · <strong>Frequency:</strong> Hourly / Daily · <strong>Stakeholder:</strong> Operations</li>
+<li><strong>Business purpose:</strong> Operational load and user waiting time.</li>
+<li><strong>Interpretation:</strong> Aging items beyond the published window need action.</li>
+<li><strong>Limitation:</strong> Snapshot; requires status history for trends.</li>
+<li><strong>Status:</strong> Proposed definition</li>
+</ul>
+<h3>K-WDR-04 · Rejected Withdrawals and Rejection Rate</h3>
+<ul>
+<li><strong>Definition:</strong> Count of rejected requests and share of resolved requests that were rejected, by reason_category.</li>
+<li><strong>Formula:</strong> <code>COUNT(rejected) / COUNT(rejected + completed + reversed) for requests resolved in period</code></li>
+<li><strong>Required fields:</strong> withdrawals.withdrawal_status, withdrawals.reason_category</li>
+<li><strong>Data source:</strong> withdrawals · <strong>Frequency:</strong> Weekly · <strong>Stakeholder:</strong> Operations, Trust &amp; Safety</li>
+<li><strong>Business purpose:</strong> Payout friction and abuse handling.</li>
+<li><strong>Interpretation:</strong> Reason mix shows whether users or partners cause rejections.</li>
+<li><strong>Limitation:</strong> Reason taxonomy is proposed (A-015).</li>
+<li><strong>Status:</strong> Proposed definition</li>
+</ul>
+<h3>K-WDR-05 · Reversed Withdrawals</h3>
+<ul>
+<li><strong>Definition:</strong> Count and INR value of withdrawals reversed after completion.</li>
+<li><strong>Formula:</strong> <code>COUNT(*), SUM(amount_inr) WHERE withdrawal_status = 'reversed'</code></li>
+<li><strong>Required fields:</strong> withdrawals.withdrawal_status, withdrawals.amount_inr, withdrawals.reason_category</li>
+<li><strong>Data source:</strong> withdrawals · <strong>Frequency:</strong> Weekly · <strong>Stakeholder:</strong> Finance</li>
+<li><strong>Business purpose:</strong> Payout failures after completion.</li>
+<li><strong>Interpretation:</strong> Each case needs a partner-side cause review.</li>
+<li><strong>Limitation:</strong> Reversal can occur after reporting period closes.</li>
+<li><strong>Status:</strong> Proposed definition</li>
+</ul>
+<h3>K-WDR-06 · Withdrawal Processing Time</h3>
+<ul>
+<li><strong>Definition:</strong> Median and P90 hours from request to final status, for resolved requests.</li>
+<li><strong>Formula:</strong> <code>PERCENTILE(final_at_utc - requested_at_utc, 0.5 / 0.9)</code></li>
+<li><strong>Required fields:</strong> withdrawals.requested_at_utc, withdrawals.final_at_utc</li>
+<li><strong>Data source:</strong> withdrawals · <strong>Frequency:</strong> Daily · <strong>Stakeholder:</strong> Operations, Founder</li>
+<li><strong>Business purpose:</strong> Payout speed vs published expectation (24 h, up to 72 h).</li>
+<li><strong>Interpretation:</strong> P90 matters more than median for user trust.</li>
+<li><strong>Limitation:</strong> Excludes open requests; pair with K-WDR-03.</li>
+<li><strong>Status:</strong> Proposed definition</li>
+</ul>
+<h3>K-WDR-07 · Withdrawal Completion Rate</h3>
+<ul>
+<li><strong>Definition:</strong> Share of resolved requests (requested in the cohort) that completed and were not reversed.</li>
+<li><strong>Formula:</strong> <code>COUNT(completed) / COUNT(completed + rejected + reversed)</code></li>
+<li><strong>Required fields:</strong> withdrawals.withdrawal_status, withdrawals.requested_at_utc</li>
+<li><strong>Data source:</strong> withdrawals · <strong>Frequency:</strong> Weekly · <strong>Stakeholder:</strong> Founder, Finance</li>
+<li><strong>Business purpose:</strong> Payout reliability.</li>
+<li><strong>Interpretation:</strong> Report with cohort size and open count.</li>
+<li><strong>Limitation:</strong> Open requests excluded; recent cohorts immature.</li>
+<li><strong>Status:</strong> Proposed definition</li>
+</ul>
+<h3>K-WDR-08 · Withdrawal Volume (INR)</h3>
+<ul>
+<li><strong>Definition:</strong> Sum of amount_inr by status for the period.</li>
+<li><strong>Formula:</strong> <code>SUM(amount_inr) GROUP BY withdrawal_status</code></li>
+<li><strong>Required fields:</strong> withdrawals.amount_inr, withdrawals.withdrawal_status</li>
+<li><strong>Data source:</strong> withdrawals · <strong>Frequency:</strong> Daily · <strong>Stakeholder:</strong> Finance</li>
+<li><strong>Business purpose:</strong> Cash liability and payout spend.</li>
+<li><strong>Interpretation:</strong> Completed volume is actual payout.</li>
+<li><strong>Limitation:</strong> INR only; VE liability needs a confirmed conversion rate.</li>
+<li><strong>Status:</strong> Proposed definition</li>
+</ul>
+<h3>K-WDR-09 · Payout Method Distribution</h3>
+<ul>
+<li><strong>Definition:</strong> Share of requests and completed volume by payout_method.</li>
+<li><strong>Formula:</strong> <code>COUNT(*) GROUP BY payout_method / COUNT(*)</code></li>
+<li><strong>Required fields:</strong> withdrawals.payout_method, withdrawals.withdrawal_status</li>
+<li><strong>Data source:</strong> withdrawals · <strong>Frequency:</strong> Weekly · <strong>Stakeholder:</strong> Operations, Finance</li>
+<li><strong>Business purpose:</strong> Partner capacity planning.</li>
+<li><strong>Interpretation:</strong> Rejection rate per method shows method-specific issues.</li>
+<li><strong>Limitation:</strong> Method availability varies by user eligibility (official).</li>
+<li><strong>Status:</strong> Proposed definition</li>
+</ul>
+<h3>K-WDR-10 · Share Resolved Within 72 Hours</h3>
+<ul>
+<li><strong>Definition:</strong> Share of resolved requests whose processing time was 72 hours or less.</li>
+<li><strong>Formula:</strong> <code>COUNT(final_at_utc - requested_at_utc &lt;= 72h) / COUNT(resolved)</code></li>
+<li><strong>Required fields:</strong> withdrawals.requested_at_utc, withdrawals.final_at_utc</li>
+<li><strong>Data source:</strong> withdrawals · <strong>Frequency:</strong> Daily · <strong>Stakeholder:</strong> Operations, Founder</li>
+<li><strong>Business purpose:</strong> Checks delivery against the publicly stated processing window. This is a published policy reference, not an internal target.</li>
+<li><strong>Interpretation:</strong> Breaches need case review.</li>
+<li><strong>Limitation:</strong> Policy window may change; read from config, not hard-coded.</li>
+<li><strong>Status:</strong> Proposed definition</li>
+</ul>
+<h3>K-REF-01 · Referrals Created</h3>
+<ul>
+<li><strong>Definition:</strong> Count of referral records created.</li>
+<li><strong>Formula:</strong> <code>COUNT(referral_id) WHERE created_at_utc in period</code></li>
+<li><strong>Required fields:</strong> referrals.referral_id, referrals.created_at_utc</li>
+<li><strong>Data source:</strong> referrals · <strong>Frequency:</strong> Weekly · <strong>Stakeholder:</strong> Growth</li>
+<li><strong>Business purpose:</strong> Referral intent.</li>
+<li><strong>Interpretation:</strong> Top of referral funnel.</li>
+<li><strong>Limitation:</strong> Depends on when a referral record is created (A-016).</li>
+<li><strong>Status:</strong> Proposed definition</li>
+</ul>
+<h3>K-REF-02 · Referral Registrations</h3>
+<ul>
+<li><strong>Definition:</strong> Count of referrals where the referred user registered.</li>
+<li><strong>Formula:</strong> <code>COUNT(*) WHERE registered_at_utc in period</code></li>
+<li><strong>Required fields:</strong> referrals.registered_at_utc, referrals.referred_user_id</li>
+<li><strong>Data source:</strong> referrals · <strong>Frequency:</strong> Weekly · <strong>Stakeholder:</strong> Growth</li>
+<li><strong>Business purpose:</strong> Referral sign-ups.</li>
+<li><strong>Interpretation:</strong> Registration is NOT conversion.</li>
+<li><strong>Limitation:</strong> Requires referred_user_id link (missing in supplied data).</li>
+<li><strong>Status:</strong> Proposed definition</li>
+</ul>
+<h3>K-REF-03 · Referral Activations</h3>
+<ul>
+<li><strong>Definition:</strong> Count of referred users who completed a first eligible activity.</li>
+<li><strong>Formula:</strong> <code>COUNT(*) WHERE activated_at_utc in period</code></li>
+<li><strong>Required fields:</strong> referrals.activated_at_utc</li>
+<li><strong>Data source:</strong> referrals · <strong>Frequency:</strong> Weekly · <strong>Stakeholder:</strong> Growth</li>
+<li><strong>Business purpose:</strong> Quality of referred users.</li>
+<li><strong>Interpretation:</strong> Low activation means low-intent sign-ups.</li>
+<li><strong>Limitation:</strong> 'Eligible first activity' must be defined by VELOOP (A-017).</li>
+<li><strong>Status:</strong> Proposed definition</li>
+</ul>
+<h3>K-REF-04 · Referral Conversions</h3>
+<ul>
+<li><strong>Definition:</strong> Count of referrals that passed validation and earned the referral reward.</li>
+<li><strong>Formula:</strong> <code>COUNT(*) WHERE referral_status = 'converted' AND converted_at_utc in period</code></li>
+<li><strong>Required fields:</strong> referrals.referral_status, referrals.converted_at_utc</li>
+<li><strong>Data source:</strong> referrals · <strong>Frequency:</strong> Weekly · <strong>Stakeholder:</strong> Growth, Finance</li>
+<li><strong>Business purpose:</strong> Successful referrals and their cost.</li>
+<li><strong>Interpretation:</strong> Pair with reward cost.</li>
+<li><strong>Limitation:</strong> Later reversals of referral rewards must update status.</li>
+<li><strong>Status:</strong> Proposed definition</li>
+</ul>
+<h3>K-REF-05 · Referral Conversion Rate</h3>
+<ul>
+<li><strong>Definition:</strong> Conversions divided by registrations for a registration cohort.</li>
+<li><strong>Formula:</strong> <code>COUNT(converted) / COUNT(registered) per cohort</code></li>
+<li><strong>Required fields:</strong> referrals.referral_status, referrals.registered_at_utc</li>
+<li><strong>Data source:</strong> referrals · <strong>Frequency:</strong> Monthly · <strong>Stakeholder:</strong> Growth</li>
+<li><strong>Business purpose:</strong> Funnel efficiency.</li>
+<li><strong>Interpretation:</strong> Compare cohorts.</li>
+<li><strong>Limitation:</strong> Cohort maturity needed.</li>
+<li><strong>Status:</strong> Proposed definition</li>
+</ul>
+<h3>K-REF-06 · Referral Rejection Rate</h3>
+<ul>
+<li><strong>Definition:</strong> Share of registered referrals rejected at validation.</li>
+<li><strong>Formula:</strong> <code>COUNT(rejected) / COUNT(registered)</code></li>
+<li><strong>Required fields:</strong> referrals.referral_status, referrals.rejection_reason_category</li>
+<li><strong>Data source:</strong> referrals · <strong>Frequency:</strong> Monthly · <strong>Stakeholder:</strong> Trust &amp; Safety</li>
+<li><strong>Business purpose:</strong> Referral abuse handling.</li>
+<li><strong>Interpretation:</strong> Rising rate needs review.</li>
+<li><strong>Limitation:</strong> Does not reveal or set any fraud threshold.</li>
+<li><strong>Status:</strong> Proposed definition</li>
+</ul>
+<h3>K-SUP-01 · Support Requests</h3>
+<ul>
+<li><strong>Definition:</strong> Count of support tickets created.</li>
+<li><strong>Formula:</strong> <code>COUNT(ticket_id) WHERE created_at_utc in period</code></li>
+<li><strong>Required fields:</strong> support_tickets.ticket_id, support_tickets.created_at_utc</li>
+<li><strong>Data source:</strong> support tool · <strong>Frequency:</strong> Daily · <strong>Stakeholder:</strong> Operations</li>
+<li><strong>Business purpose:</strong> Support load.</li>
+<li><strong>Interpretation:</strong> Normalise by active users for comparisons.</li>
+<li><strong>Limitation:</strong> Email-only support may not create structured tickets (A-019).</li>
+<li><strong>Status:</strong> Proposed definition</li>
+</ul>
+<h3>K-SUP-02 · Issue Category Distribution</h3>
+<ul>
+<li><strong>Definition:</strong> Share of tickets by issue_category.</li>
+<li><strong>Formula:</strong> <code>COUNT(*) GROUP BY issue_category / COUNT(*)</code></li>
+<li><strong>Required fields:</strong> support_tickets.issue_category</li>
+<li><strong>Data source:</strong> support tool · <strong>Frequency:</strong> Weekly · <strong>Stakeholder:</strong> Operations, Product</li>
+<li><strong>Business purpose:</strong> Which product areas cause contacts.</li>
+<li><strong>Interpretation:</strong> Withdrawal and missing-reward share are key signals.</li>
+<li><strong>Limitation:</strong> Depends on consistent agent tagging.</li>
+<li><strong>Status:</strong> Proposed definition</li>
+</ul>
+<h3>K-SUP-03 · Help-Center Engagement</h3>
+<ul>
+<li><strong>Definition:</strong> Article views and unique viewers per content_category.</li>
+<li><strong>Formula:</strong> <code>COUNT(help_article_viewed), COUNT(DISTINCT user_id) GROUP BY content_category</code></li>
+<li><strong>Required fields:</strong> feature_events.event_name, content.content_category, feature_events.user_id</li>
+<li><strong>Data source:</strong> feature_events, content · <strong>Frequency:</strong> Weekly · <strong>Stakeholder:</strong> Content, Operations</li>
+<li><strong>Business purpose:</strong> Self-service usage.</li>
+<li><strong>Interpretation:</strong> High views on withdrawal pages before tickets suggests unclear content.</li>
+<li><strong>Limitation:</strong> Logged-out viewers are not attributable to user_id.</li>
+<li><strong>Status:</strong> Proposed definition</li>
+</ul>
+<h3>K-SUP-04 · Support Response Time</h3>
+<ul>
+<li><strong>Definition:</strong> Median and P90 hours from ticket creation to first response.</li>
+<li><strong>Formula:</strong> <code>PERCENTILE(first_response_at_utc - created_at_utc)</code></li>
+<li><strong>Required fields:</strong> support_tickets.created_at_utc, support_tickets.first_response_at_utc</li>
+<li><strong>Data source:</strong> support tool · <strong>Frequency:</strong> Weekly · <strong>Stakeholder:</strong> Operations</li>
+<li><strong>Business purpose:</strong> Checks support against published reply time.</li>
+<li><strong>Interpretation:</strong> Published reply time differs between pages (24-48 h vs 24-72 h); clarify.</li>
+<li><strong>Limitation:</strong> Needs ticket timestamps.</li>
+<li><strong>Status:</strong> Proposed definition</li>
+</ul></main></div>
+<script>try{var t=localStorage.getItem('t');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script type="module">if(document.querySelector('.mermaid')){const m=await import('https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs');m.default.initialize({startOnLoad:true,theme:'neutral'});m.default.run();}</script>
+</body></html>

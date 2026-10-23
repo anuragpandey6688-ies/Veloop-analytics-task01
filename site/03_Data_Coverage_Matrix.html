@@ -1,0 +1,501 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>03 · Data Coverage Matrix | VELOOP Analytics Task 01</title><style>
+:root{--bg:#f6f8fb;--panel:#fff;--ink:#10233d;--muted:#5a6b7d;--line:#dbe3ee;--accent:#1f3a5f;--accent2:#5b8def;--warn:#7a2e00;--warnbg:#fff4e0}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0f141b;--panel:#161d27;--ink:#e6edf5;--muted:#9aa9ba;--line:#2a3544;--accent:#9db8f2;--accent2:#7ea4f5;--warn:#ffcf99;--warnbg:#2b2214}}
+:root[data-theme="dark"]{--bg:#0f141b;--panel:#161d27;--ink:#e6edf5;--muted:#9aa9ba;--line:#2a3544;--accent:#9db8f2;--accent2:#7ea4f5;--warn:#ffcf99;--warnbg:#2b2214}
+*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+a{color:var(--accent2)}.wrap{display:grid;grid-template-columns:280px minmax(0,1fr);min-height:100vh}
+nav{background:var(--panel);border-right:1px solid var(--line);padding:20px 14px;position:sticky;top:0;height:100vh;overflow:auto}
+nav .brand{font-weight:800;font-size:16px;margin:0 6px 14px}nav a{display:block;padding:6px 8px;border-radius:6px;color:var(--ink);text-decoration:none;font-size:13.5px}
+nav a:hover,nav a.on{background:var(--bg);color:var(--accent2)}main{padding:32px 40px;max-width:1200px;min-width:0}
+h1{font-size:28px;line-height:1.25;margin-top:0}h2{margin-top:36px;border-bottom:1px solid var(--line);padding-bottom:6px}h3{margin-top:26px}
+table{border-collapse:collapse;width:100%;font-size:13px;margin:14px 0;display:block;overflow-x:auto}
+th,td{border:1px solid var(--line);padding:6px 9px;text-align:left;vertical-align:top}th{background:var(--accent);color:#fff;position:sticky;top:0}
+:root[data-theme="dark"] th{color:#0f141b}tr:nth-child(even) td{background:color-mix(in srgb,var(--panel) 92%,var(--accent2))}
+blockquote{margin:16px 0;padding:12px 16px;background:var(--warnbg);border-left:4px solid var(--warn);color:var(--warn);border-radius:6px}
+code{background:color-mix(in srgb,var(--panel) 80%,var(--accent2));padding:1px 5px;border-radius:4px;font-size:12.5px}
+pre{background:var(--panel);border:1px solid var(--line);padding:14px;border-radius:8px;overflow:auto}pre code{background:none;padding:0}
+img{max-width:100%;height:auto;background:#fff;border:1px solid var(--line);border-radius:8px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px;margin:18px 0}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px;text-decoration:none;color:var(--ink)}
+.card b{display:block;margin-bottom:4px}.card span{color:var(--muted);font-size:13px}
+.stats{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin:18px 0}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px}.stat b{font-size:24px;display:block;color:var(--accent2)}
+.stat span{font-size:12.5px;color:var(--muted)}.toggle{margin:12px 6px 0;font-size:12px;background:none;border:1px solid var(--line);color:var(--ink);border-radius:6px;padding:4px 8px;cursor:pointer}
+@media print{nav{display:none}.wrap{display:block}main{max-width:none;padding:0}th{position:static}table{display:table;font-size:10.5px}h2{break-after:avoid}}
+@media (max-width:860px){.wrap{grid-template-columns:1fr}nav{position:static;height:auto;max-height:200px;border-right:0;border-bottom:1px solid var(--line)}main{padding:20px 16px}}
+</style></head><body><div class="wrap"><nav>
+<div class="brand"><a href="index.html" style="padding:0;color:inherit">VELOOP Analytics Blueprint</a></div>
+<a class="" href="index.html">Overview</a><a class='' href='01_Executive_Summary.html'>01 · Executive Summary</a><a class='' href='02_Product_Data_Audit.html'>02 · Product Data Readiness Audit</a><a class='on' href='03_Data_Coverage_Matrix.html'>03 · Data Coverage Matrix</a><a class='' href='04_User_Analytics_Specification.html'>04 · User & Account Analytics Specification</a><a class='' href='05_Earning_Reward_Analytics_Specification.html'>05 · Earning & Reward Analytics Specification</a><a class='' href='06_Wallet_Withdrawal_Analytics_Specification.html'>06 · Wallet & Withdrawal Analytics Specification</a><a class='' href='07_Referral_Engagement_Analytics.html'>07 · Referral & Engagement Analytics</a><a class='' href='08_Event_Tracking_Plan.html'>08 · Event Tracking Plan</a><a class='' href='09_Data_Dictionary.html'>09 · Data Dictionary</a><a class='' href='10_Logical_Data_Model.html'>10 · Logical Data Model</a><a class='' href='11_KPI_Catalogue.html'>11 · KPI Catalogue</a><a class='' href='12_Simulated_Data_Profiling.html'>12 · Simulated Data Profiling: Findings</a><a class='' href='13_Data_Quality_Audit.html'>13 · Data Quality Audit: Report</a><a class='' href='14_Dashboard_Blueprint.html'>14 · Analytics Dashboard Blueprint</a><a class='' href='15_Developer_Analytics_Handoff.html'>15 · Developer Analytics Handoff</a><a class='' href='16_Data_Pipeline_Proposal.html'>16 · Data Pipeline & Operating Model</a><a class='' href='17_Privacy_Governance_Proposal.html'>17 · Data Access, Privacy & Governance Proposal</a><a class='' href='18_Analytics_Readiness_Assessment.html'>18 · Analytics Readiness Assessment</a><a class='' href='19_Assumption_Verification_Register.html'>19 · Assumption & Verification Register</a><a class='' href='20_Implementation_Backlog.html'>20 · Implementation Backlog</a><a class='' href='21_Final_Consolidated_Report.html'>21 · Final Consolidated Report</a><a href="downloads.html" class="">Downloads</a>
+<button class="toggle" onclick="var r=document.documentElement;r.dataset.theme=(r.dataset.theme==='dark'?'light':'dark');try{localStorage.setItem('t',r.dataset.theme)}catch(e){}">Toggle theme</button>
+</nav><main><h1>03 · Data Coverage Matrix</h1>
+<blockquote>
+<p><strong>Status:</strong> proposed specification. No event, field, table or KPI in this document has been verified as implemented in VELOOP production (see Assumption A-001). Facts taken from official VELOOP pages cite a source ID from the Source &amp; Verification Register (deliverable 19).</p>
+</blockquote>
+<p>Spreadsheet: <a href="files/03_Data_Coverage_Matrix.xlsx"><code>03_Data_Coverage_Matrix.xlsx</code></a>. It has 32 rows covering every product area found on official pages, plus 16 analytics gaps.</p>
+<h2>A4 Coverage matrix</h2>
+<table>
+<thead>
+<tr>
+<th>product_area</th>
+<th>feature</th>
+<th>user_action</th>
+<th>system_action</th>
+<th>proposed_events</th>
+<th>business_question</th>
+<th>status</th>
+<th>priority</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Account</td>
+<td>Registration</td>
+<td>Submits sign-up (web form or Google sign-in)</td>
+<td>Creates account, assigns user_id</td>
+<td>user_registered</td>
+<td>How many users join, from which channels?</td>
+<td>Confirmed</td>
+<td>Critical</td>
+</tr>
+<tr>
+<td>Account</td>
+<td>Login</td>
+<td>Signs in</td>
+<td>Authenticates, creates session</td>
+<td>user_logged_in; user_logged_out</td>
+<td>How often do users come back?</td>
+<td>Confirmed</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Account</td>
+<td>Onboarding</td>
+<td>Goes through first-run steps</td>
+<td>Records onboarding progress</td>
+<td>onboarding_started; onboarding_step_completed; onboarding_completed</td>
+<td>Where do new users drop before their first task?</td>
+<td>To Be Verified</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Account</td>
+<td>Email verification</td>
+<td>Clicks verification link</td>
+<td>Marks email verified</td>
+<td>email_verified</td>
+<td>How long does verification take; does it block activation?</td>
+<td>Confirmed</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Account</td>
+<td>Account status</td>
+<td>(none: system/admin action) or requests deletion</td>
+<td>Changes status (active, inactive, suspended, closed)</td>
+<td>account_status_changed</td>
+<td>How many accounts are suspended or closed, and when?</td>
+<td>Confirmed</td>
+<td>Critical</td>
+</tr>
+<tr>
+<td>Earning</td>
+<td>Task list / discovery</td>
+<td>Browses and opens tasks</td>
+<td>Renders task inventory</td>
+<td>task_viewed; task_opened</td>
+<td>Which tasks attract attention but are not started?</td>
+<td>Proposed</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Earning</td>
+<td>Watch Ads</td>
+<td>Starts and watches an ad</td>
+<td>Partner tracks view; VELOOP validates; reward credited</td>
+<td>task_started; task_submitted; task_completed; task_failed; reward_pending; reward_credited</td>
+<td>What share of ad starts end in a credited reward, and where do they fail?</td>
+<td>Confirmed</td>
+<td>Critical</td>
+</tr>
+<tr>
+<td>Earning</td>
+<td>Surveys</td>
+<td>Starts and completes a survey</td>
+<td>Partner reports completion; validation</td>
+<td>task_started; task_completed; task_failed</td>
+<td>Which survey partners fail tracking most?</td>
+<td>Confirmed</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Earning</td>
+<td>App Tasks / Offers</td>
+<td>Installs or signs up for a partner app</td>
+<td>Partner postback; validation (can take long)</td>
+<td>task_started; task_completed; task_failed</td>
+<td>How long do offer validations take and how many never return?</td>
+<td>Confirmed</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Earning</td>
+<td>Captcha</td>
+<td>Solves captchas</td>
+<td>Validates answers</td>
+<td>task_started; task_completed; task_failed</td>
+<td>Is captcha a meaningful earning source?</td>
+<td>Confirmed</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Earning</td>
+<td>Tap &amp; Earn</td>
+<td>Taps within limits</td>
+<td>Counts valid taps, applies limits</td>
+<td>task_started; task_completed; task_failed</td>
+<td>How many users use Tap &amp; Earn repeatedly?</td>
+<td>Confirmed</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Earning</td>
+<td>Earning Session (Mine &amp; earn)</td>
+<td>Starts a session (up to 1 h 30 min)</td>
+<td>Accrues credits, applies boosts</td>
+<td>task_started; task_completed; task_failed</td>
+<td>Do users restart sessions; what share complete?</td>
+<td>Confirmed</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Earning</td>
+<td>Play &amp; Earn (games)</td>
+<td>Plays a game (Tokens may be spent)</td>
+<td>Records result and rewards</td>
+<td>task_started; task_completed</td>
+<td>Do games drive engagement or only cost?</td>
+<td>To Be Verified</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Earning</td>
+<td>Follow &amp; Earn (social)</td>
+<td>Follows a social account</td>
+<td>Validates follow where possible</td>
+<td>task_started; task_completed; task_failed</td>
+<td>Can social follows be validated at all?</td>
+<td>Confirmed</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Engagement</td>
+<td>Daily Check-In</td>
+<td>Claims daily reward</td>
+<td>Validates one claim per IST day; credits reward</td>
+<td>daily_reward_claimed</td>
+<td>What share of active users claim daily?</td>
+<td>Confirmed</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Engagement</td>
+<td>Streaks</td>
+<td>(implicit: consecutive claims)</td>
+<td>Increments or resets streak</td>
+<td>streak_updated</td>
+<td>How often do streaks reset and at what length?</td>
+<td>Confirmed</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Engagement</td>
+<td>Spin the Wheel</td>
+<td>Spends a Spin and spins</td>
+<td>Determines outcome, credits reward</td>
+<td>spin_started; spin_completed</td>
+<td>How many spins are interrupted?</td>
+<td>Confirmed</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Engagement</td>
+<td>Missions</td>
+<td>Joins and completes mission conditions</td>
+<td>Tracks progress, verifies completion</td>
+<td>mission_started; mission_completed</td>
+<td>Which missions are completed and which abandoned?</td>
+<td>Confirmed</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Engagement</td>
+<td>Badges</td>
+<td>(earned by progress)</td>
+<td>Awards badge</td>
+<td>badge_earned</td>
+<td>Do badges correlate with retention?</td>
+<td>Confirmed</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Engagement</td>
+<td>Levels / XP</td>
+<td>(earned by activity)</td>
+<td>Adds XP, changes level, may correct</td>
+<td>level_reached; reward_credited</td>
+<td>How fast do users progress?</td>
+<td>Confirmed</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Engagement</td>
+<td>Leaderboard</td>
+<td>Views leaderboard / enters weekly leaderboard</td>
+<td>Ranks users, may reward</td>
+<td>feature_viewed; reward_credited</td>
+<td>Does the leaderboard motivate activity?</td>
+<td>To Be Verified</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Engagement</td>
+<td>Promo Codes</td>
+<td>Enters a promo code</td>
+<td>Validates and grants benefit</td>
+<td>promo_code_redeemed</td>
+<td>Which promos are redeemed, by whom?</td>
+<td>Confirmed</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Rewards</td>
+<td>Reward lifecycle (all sources)</td>
+<td>(none)</td>
+<td>Creates pending reward, credits, rejects, reverses or corrects</td>
+<td>reward_pending; reward_credited; reward_rejected; reward_reversed; reward_corrected</td>
+<td>How much activity actually turns into credited rewards, and how much is reversed?</td>
+<td>Confirmed</td>
+<td>Critical</td>
+</tr>
+<tr>
+<td>Wallet</td>
+<td>Wallet ledger</td>
+<td>Views balances</td>
+<td>Writes ledger rows for every movement</td>
+<td>wallet_transaction_created; wallet_transaction_completed; wallet_transaction_reversed</td>
+<td>Can every balance be explained by its transactions?</td>
+<td>Confirmed</td>
+<td>Critical</td>
+</tr>
+<tr>
+<td>Wallet</td>
+<td>Gems Exchange / Swap Center</td>
+<td>Converts Gems (or other units) to VEs</td>
+<td>Debits one unit, credits another</td>
+<td>currency_exchanged</td>
+<td>How much value moves through exchange, at what rate?</td>
+<td>Confirmed</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Withdrawals</td>
+<td>Withdrawal request</td>
+<td>Requests payout (min Rs. 10) by UPI, PayPal or gift card</td>
+<td>Debits VEs, queues for review</td>
+<td>withdrawal_requested</td>
+<td>How much payout demand is there and by which method?</td>
+<td>Confirmed</td>
+<td>Critical</td>
+</tr>
+<tr>
+<td>Withdrawals</td>
+<td>Review and payout</td>
+<td>(waits)</td>
+<td>Reviews (system/manual), pays, rejects or reverses; refunds VEs if needed</td>
+<td>withdrawal_processing; withdrawal_completed; withdrawal_rejected; withdrawal_reversed</td>
+<td>Are payouts processed within the published 24-72 h?</td>
+<td>Confirmed</td>
+<td>Critical</td>
+</tr>
+<tr>
+<td>Referrals</td>
+<td>Refer &amp; Earn</td>
+<td>Shares referral code/link</td>
+<td>Creates referral record, links referred user, validates, rewards</td>
+<td>referral_created; referral_registered; referral_activated; referral_converted; referral_rejected</td>
+<td>How many referred sign-ups become genuine, rewarded referrals?</td>
+<td>Confirmed</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Support</td>
+<td>Help Center</td>
+<td>Reads help articles</td>
+<td>Serves content</td>
+<td>help_article_viewed</td>
+<td>Which topics do users read before contacting support?</td>
+<td>Confirmed</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Support</td>
+<td>Support requests</td>
+<td>Emails support / requests manual review</td>
+<td>Logs and resolves request</td>
+<td>support_ticket_created; support_ticket_resolved</td>
+<td>What drives support load and how fast is it handled?</td>
+<td>To Be Verified</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Navigation</td>
+<td>Screens</td>
+<td>Opens screens</td>
+<td>Renders screen</td>
+<td>feature_viewed</td>
+<td>Which features are discovered?</td>
+<td>Proposed</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Future</td>
+<td>Lucky Draw, Team Battle, Referral Milestones, Collect Cards, Surprise/Mystery Rewards</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>None now</td>
+<td>n/a</td>
+<td>Not live</td>
+<td>Low</td>
+</tr>
+</tbody>
+</table>
+<h2>Analytics gaps (16; the brief asks for at least 10)</h2>
+<table>
+<thead>
+<tr>
+<th>gap_id</th>
+<th>gap</th>
+<th>evidence</th>
+<th>impact</th>
+<th>priority</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>G01</td>
+<td>No event-level activity data</td>
+<td>Supplied data is one snapshot row per user (last_login, lifetime_sessions, flags).</td>
+<td>DAU/WAU/MAU, retention and funnels cannot be computed.</td>
+<td>Critical</td>
+</tr>
+<tr>
+<td>G02</td>
+<td>Referred users cannot be linked to referrers</td>
+<td>Users has referral_source_detail = 'Friend/Family' only; no referral_id or referrer_user_id.</td>
+<td>Referral funnel and referral cost cannot be measured.</td>
+<td>Critical</td>
+</tr>
+<tr>
+<td>G03</td>
+<td>Timestamps have no timezone</td>
+<td>registration_datetime and last_login_datetime are naive.</td>
+<td>Day boundaries can be wrong by 5.5 h; daily reward/streak KPIs misalign with the IST claim window.</td>
+<td>High</td>
+</tr>
+<tr>
+<td>G04</td>
+<td>No account status history</td>
+<td>account_status is current state only.</td>
+<td>Suspension trends and lifecycle timing cannot be measured.</td>
+<td>High</td>
+</tr>
+<tr>
+<td>G05</td>
+<td>Balances without a ledger</td>
+<td>xp_balance is a stored balance; no transactions.</td>
+<td>Balances cannot be reconciled or explained.</td>
+<td>Critical</td>
+</tr>
+<tr>
+<td>G06</td>
+<td>Undocumented derived fields</td>
+<td>is_active_7d/30d and days_since_registration use an unstated reference date (inferred 2026-09-15 00:00) and login-based activity.</td>
+<td>Flags are not reproducible; definitions conflict with qualifying-activity DAU.</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>G07</td>
+<td>Seven of eight expected datasets missing</td>
+<td>Only Users supplied.</td>
+<td>Relationship and KPI tests impossible on supplied data (J2/J3).</td>
+<td>High</td>
+</tr>
+<tr>
+<td>G08</td>
+<td>No session identifier</td>
+<td>Only a lifetime counter.</td>
+<td>Session-level and returning-user analysis impossible.</td>
+<td>High</td>
+</tr>
+<tr>
+<td>G09</td>
+<td>No event_id / idempotency key</td>
+<td>No unique event or transaction identifiers in supplied structure.</td>
+<td>Duplicate events/credits cannot be detected.</td>
+<td>Critical</td>
+</tr>
+<tr>
+<td>G10</td>
+<td>No third-party tracking fields</td>
+<td>No provider_id, external_reference_id or validation status.</td>
+<td>Partner tracking failures cannot be separated from VELOOP failures (C4).</td>
+<td>High</td>
+</tr>
+<tr>
+<td>G11</td>
+<td>No onboarding or verification timestamps</td>
+<td>Status fields only.</td>
+<td>Time-to-onboard and cohort-based rates impossible.</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>G12</td>
+<td>Personal data in analytics dataset</td>
+<td>full_name, email, exact age, gender, city present.</td>
+<td>Privacy risk with no analytical need.</td>
+<td>High</td>
+</tr>
+<tr>
+<td>G13</td>
+<td>Platform/device semantics unclear</td>
+<td>platform = Web for all; primary_device mixes OS values; app status unknown.</td>
+<td>Platform split unreliable.</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>G14</td>
+<td>No currency conversion rates</td>
+<td>Not published or supplied.</td>
+<td>Reward liability in INR cannot be computed.</td>
+<td>High</td>
+</tr>
+<tr>
+<td>G15</td>
+<td>Consent and marketing opt-in conflict</td>
+<td>34 users opted in while consent pending.</td>
+<td>Marketing audience may include non-consented users.</td>
+<td>High</td>
+</tr>
+<tr>
+<td>G16</td>
+<td>Supplied dictionary incomplete</td>
+<td>platform and country undocumented; no allowed values for account_status beyond 'controlled list'.</td>
+<td>Ambiguous fields.</td>
+<td>Low</td>
+</tr>
+</tbody>
+</table></main></div>
+<script>try{var t=localStorage.getItem('t');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script type="module">if(document.querySelector('.mermaid')){const m=await import('https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs');m.default.initialize({startOnLoad:true,theme:'neutral'});m.default.run();}</script>
+</body></html>

@@ -1,0 +1,62 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='1160' height='880' viewBox='0 0 1160 880'>
+<rect width='100%' height='100%' fill='#F6F8FB'/>
+<text x='30' y='40' font-size='22' font-weight='700' fill='#10233D' font-family='Inter, Helvetica, Arial, sans-serif'>Dashboard 1 Executive Overview</text>
+<text x='30' y='64' font-size='12' fill='#7A2E00' font-family='Inter, Helvetica, Arial, sans-serif'>WIREFRAME. Layout only, no data. Production data only (data_environment = production). Shows 'data as of' time.</text>
+<rect x='30' y='78' width='1100' height='30' rx='6' fill='white' stroke='#C9D7F7'/>
+<text x='42' y='98' font-size='12' fill='#33475B' font-family='Inter, Helvetica, Arial, sans-serif'>Filters: Date range | acquisition_source | feature | payout_method | platform | referral_channel | unit   ·   Data as of: [timestamp]</text>
+<rect x='30' y='122' width='540' height='230' rx='10' fill='white' stroke='#C9D7F7'/>
+<text x='44' y='146' font-size='14' font-weight='700' fill='#10233D' font-family='Inter, Helvetica, Arial, sans-serif'>Active users trend</text>
+<text x='44' y='164' font-size='11' fill='#5A6B7D' font-family='Inter, Helvetica, Arial, sans-serif'>K-USR-02, K-USR-04 · Line chart · refresh Daily</text>
+<polyline points='54.0,297.0 108.66666666666666,236.56666666666666 163.33333333333331,274.1333333333333 218.0,213.7 272.66666666666663,251.26666666666665 327.3333333333333,288.8333333333333 382.0,228.4 436.6666666666667,265.96666666666664 491.3333333333333,205.53333333333333 546.0,243.1' fill='none' stroke='#5B8DEF' stroke-width='2.5'/>
+<text x='44' y='338' font-size='11' fill='#33475B' font-family='Inter, Helvetica, Arial, sans-serif'>Q: Is engaged usage growing?</text>
+<rect x='590' y='122' width='540' height='230' rx='10' fill='white' stroke='#C9D7F7'/>
+<text x='604' y='146' font-size='14' font-weight='700' fill='#10233D' font-family='Inter, Helvetica, Arial, sans-serif'>Engagement summary tiles</text>
+<text x='604' y='164' font-size='11' fill='#5A6B7D' font-family='Inter, Helvetica, Arial, sans-serif'>K-ENG-04, K-ENG-09 · Stat tiles · refresh Daily</text>
+<rect x='614.0' y='189' width='156.0' height='108' rx='6' fill='#EEF3FD' stroke='#9DB8F2'/>
+<text x='692.0' y='249.0' text-anchor='middle' font-size='16' font-weight='700' fill='#5B8DEF' font-family='Inter, Helvetica, Arial, sans-serif'>###</text>
+<rect x='778.0' y='189' width='156.0' height='108' rx='6' fill='#EEF3FD' stroke='#9DB8F2'/>
+<text x='856.0' y='249.0' text-anchor='middle' font-size='16' font-weight='700' fill='#5B8DEF' font-family='Inter, Helvetica, Arial, sans-serif'>###</text>
+<rect x='942.0' y='189' width='156.0' height='108' rx='6' fill='#EEF3FD' stroke='#9DB8F2'/>
+<text x='1020.0' y='249.0' text-anchor='middle' font-size='16' font-weight='700' fill='#5B8DEF' font-family='Inter, Helvetica, Arial, sans-serif'>###</text>
+<text x='604' y='338' font-size='11' fill='#33475B' font-family='Inter, Helvetica, Arial, sans-serif'>Q: Is earning activity healthy?</text>
+<rect x='30' y='372' width='540' height='230' rx='10' fill='white' stroke='#C9D7F7'/>
+<text x='44' y='396' font-size='14' font-weight='700' fill='#10233D' font-family='Inter, Helvetica, Arial, sans-serif'>Reward activity</text>
+<text x='44' y='414' font-size='11' fill='#5A6B7D' font-family='Inter, Helvetica, Arial, sans-serif'>K-RWD-02, K-RWD-03 · Stacked bars per unit (no unit summing) · refresh Daily</text>
+<rect x='56.0' y='525.0' width='63.71428571428571' height='27.0' fill='#9DB8F2'/>
+<rect x='125.71428571428571' y='485.85' width='63.71428571428571' height='66.15' fill='#9DB8F2'/>
+<rect x='195.42857142857142' y='520.95' width='63.71428571428571' height='31.05' fill='#9DB8F2'/>
+<rect x='265.1428571428571' y='481.8' width='63.71428571428571' height='70.2' fill='#9DB8F2'/>
+<rect x='334.85714285714283' y='516.9' width='63.71428571428571' height='35.1' fill='#9DB8F2'/>
+<rect x='404.57142857142856' y='477.75' width='63.71428571428571' height='74.25' fill='#9DB8F2'/>
+<rect x='474.2857142857143' y='512.85' width='63.71428571428571' height='39.15' fill='#9DB8F2'/>
+<text x='44' y='588' font-size='11' fill='#33475B' font-family='Inter, Helvetica, Arial, sans-serif'>Q: How much reward value is issued and how much reversed?</text>
+<rect x='590' y='372' width='540' height='230' rx='10' fill='white' stroke='#C9D7F7'/>
+<text x='604' y='396' font-size='14' font-weight='700' fill='#10233D' font-family='Inter, Helvetica, Arial, sans-serif'>Wallet activity</text>
+<text x='604' y='414' font-size='11' fill='#5A6B7D' font-family='Inter, Helvetica, Arial, sans-serif'>K-WAL-02, K-WAL-03, K-WAL-05 · Paired bars + exception badge · refresh Daily</text>
+<rect x='616.0' y='525.0' width='63.71428571428571' height='27.0' fill='#9DB8F2'/>
+<rect x='685.7142857142857' y='485.85' width='63.71428571428571' height='66.15' fill='#9DB8F2'/>
+<rect x='755.4285714285714' y='520.95' width='63.71428571428571' height='31.05' fill='#9DB8F2'/>
+<rect x='825.1428571428571' y='481.8' width='63.71428571428571' height='70.2' fill='#9DB8F2'/>
+<rect x='894.8571428571429' y='516.9' width='63.71428571428571' height='35.1' fill='#9DB8F2'/>
+<rect x='964.5714285714286' y='477.75' width='63.71428571428571' height='74.25' fill='#9DB8F2'/>
+<rect x='1034.2857142857142' y='512.85' width='63.71428571428571' height='39.15' fill='#9DB8F2'/>
+<text x='604' y='588' font-size='11' fill='#33475B' font-family='Inter, Helvetica, Arial, sans-serif'>Q: Is the ledger consistent and how fast is value redeemed?</text>
+<rect x='30' y='622' width='540' height='230' rx='10' fill='white' stroke='#C9D7F7'/>
+<text x='44' y='646' font-size='14' font-weight='700' fill='#10233D' font-family='Inter, Helvetica, Arial, sans-serif'>Withdrawal activity</text>
+<text x='44' y='664' font-size='11' fill='#5A6B7D' font-family='Inter, Helvetica, Arial, sans-serif'>K-WDR-01, K-WDR-03, K-WDR-06 · Tiles + line · refresh Hourly</text>
+<rect x='54.0' y='689' width='156.0' height='108' rx='6' fill='#EEF3FD' stroke='#9DB8F2'/>
+<text x='132.0' y='749.0' text-anchor='middle' font-size='16' font-weight='700' fill='#5B8DEF' font-family='Inter, Helvetica, Arial, sans-serif'>###</text>
+<rect x='218.0' y='689' width='156.0' height='108' rx='6' fill='#EEF3FD' stroke='#9DB8F2'/>
+<text x='296.0' y='749.0' text-anchor='middle' font-size='16' font-weight='700' fill='#5B8DEF' font-family='Inter, Helvetica, Arial, sans-serif'>###</text>
+<rect x='382.0' y='689' width='156.0' height='108' rx='6' fill='#EEF3FD' stroke='#9DB8F2'/>
+<text x='460.0' y='749.0' text-anchor='middle' font-size='16' font-weight='700' fill='#5B8DEF' font-family='Inter, Helvetica, Arial, sans-serif'>###</text>
+<text x='44' y='838' font-size='11' fill='#33475B' font-family='Inter, Helvetica, Arial, sans-serif'>Q: Are payouts flowing within the published window?</text>
+<rect x='590' y='622' width='540' height='230' rx='10' fill='white' stroke='#C9D7F7'/>
+<text x='604' y='646' font-size='14' font-weight='700' fill='#10233D' font-family='Inter, Helvetica, Arial, sans-serif'>Referral activity</text>
+<text x='604' y='664' font-size='11' fill='#5A6B7D' font-family='Inter, Helvetica, Arial, sans-serif'>K-REF-02, K-REF-04 · Funnel · refresh Daily</text>
+<rect x='619.0' y='686.0' width='482.0' height='23.5' fill='#9DB8F2'/>
+<rect x='667.2' y='714.5' width='385.6' height='23.5' fill='#9DB8F2'/>
+<rect x='715.4' y='743.0' width='289.2' height='23.5' fill='#9DB8F2'/>
+<rect x='763.6' y='771.5' width='192.79999999999995' height='23.5' fill='#9DB8F2'/>
+<text x='604' y='838' font-size='11' fill='#33475B' font-family='Inter, Helvetica, Arial, sans-serif'>Q: Do referrals bring genuine users?</text>
+</svg>

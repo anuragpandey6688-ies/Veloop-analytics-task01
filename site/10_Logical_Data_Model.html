@@ -1,0 +1,515 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>10 · Logical Data Model | VELOOP Analytics Task 01</title><style>
+:root{--bg:#f6f8fb;--panel:#fff;--ink:#10233d;--muted:#5a6b7d;--line:#dbe3ee;--accent:#1f3a5f;--accent2:#5b8def;--warn:#7a2e00;--warnbg:#fff4e0}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0f141b;--panel:#161d27;--ink:#e6edf5;--muted:#9aa9ba;--line:#2a3544;--accent:#9db8f2;--accent2:#7ea4f5;--warn:#ffcf99;--warnbg:#2b2214}}
+:root[data-theme="dark"]{--bg:#0f141b;--panel:#161d27;--ink:#e6edf5;--muted:#9aa9ba;--line:#2a3544;--accent:#9db8f2;--accent2:#7ea4f5;--warn:#ffcf99;--warnbg:#2b2214}
+*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+a{color:var(--accent2)}.wrap{display:grid;grid-template-columns:280px minmax(0,1fr);min-height:100vh}
+nav{background:var(--panel);border-right:1px solid var(--line);padding:20px 14px;position:sticky;top:0;height:100vh;overflow:auto}
+nav .brand{font-weight:800;font-size:16px;margin:0 6px 14px}nav a{display:block;padding:6px 8px;border-radius:6px;color:var(--ink);text-decoration:none;font-size:13.5px}
+nav a:hover,nav a.on{background:var(--bg);color:var(--accent2)}main{padding:32px 40px;max-width:1200px;min-width:0}
+h1{font-size:28px;line-height:1.25;margin-top:0}h2{margin-top:36px;border-bottom:1px solid var(--line);padding-bottom:6px}h3{margin-top:26px}
+table{border-collapse:collapse;width:100%;font-size:13px;margin:14px 0;display:block;overflow-x:auto}
+th,td{border:1px solid var(--line);padding:6px 9px;text-align:left;vertical-align:top}th{background:var(--accent);color:#fff;position:sticky;top:0}
+:root[data-theme="dark"] th{color:#0f141b}tr:nth-child(even) td{background:color-mix(in srgb,var(--panel) 92%,var(--accent2))}
+blockquote{margin:16px 0;padding:12px 16px;background:var(--warnbg);border-left:4px solid var(--warn);color:var(--warn);border-radius:6px}
+code{background:color-mix(in srgb,var(--panel) 80%,var(--accent2));padding:1px 5px;border-radius:4px;font-size:12.5px}
+pre{background:var(--panel);border:1px solid var(--line);padding:14px;border-radius:8px;overflow:auto}pre code{background:none;padding:0}
+img{max-width:100%;height:auto;background:#fff;border:1px solid var(--line);border-radius:8px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px;margin:18px 0}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px;text-decoration:none;color:var(--ink)}
+.card b{display:block;margin-bottom:4px}.card span{color:var(--muted);font-size:13px}
+.stats{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin:18px 0}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px}.stat b{font-size:24px;display:block;color:var(--accent2)}
+.stat span{font-size:12.5px;color:var(--muted)}.toggle{margin:12px 6px 0;font-size:12px;background:none;border:1px solid var(--line);color:var(--ink);border-radius:6px;padding:4px 8px;cursor:pointer}
+@media print{nav{display:none}.wrap{display:block}main{max-width:none;padding:0}th{position:static}table{display:table;font-size:10.5px}h2{break-after:avoid}}
+@media (max-width:860px){.wrap{grid-template-columns:1fr}nav{position:static;height:auto;max-height:200px;border-right:0;border-bottom:1px solid var(--line)}main{padding:20px 16px}}
+</style></head><body><div class="wrap"><nav>
+<div class="brand"><a href="index.html" style="padding:0;color:inherit">VELOOP Analytics Blueprint</a></div>
+<a class="" href="index.html">Overview</a><a class='' href='01_Executive_Summary.html'>01 · Executive Summary</a><a class='' href='02_Product_Data_Audit.html'>02 · Product Data Readiness Audit</a><a class='' href='03_Data_Coverage_Matrix.html'>03 · Data Coverage Matrix</a><a class='' href='04_User_Analytics_Specification.html'>04 · User & Account Analytics Specification</a><a class='' href='05_Earning_Reward_Analytics_Specification.html'>05 · Earning & Reward Analytics Specification</a><a class='' href='06_Wallet_Withdrawal_Analytics_Specification.html'>06 · Wallet & Withdrawal Analytics Specification</a><a class='' href='07_Referral_Engagement_Analytics.html'>07 · Referral & Engagement Analytics</a><a class='' href='08_Event_Tracking_Plan.html'>08 · Event Tracking Plan</a><a class='' href='09_Data_Dictionary.html'>09 · Data Dictionary</a><a class='on' href='10_Logical_Data_Model.html'>10 · Logical Data Model</a><a class='' href='11_KPI_Catalogue.html'>11 · KPI Catalogue</a><a class='' href='12_Simulated_Data_Profiling.html'>12 · Simulated Data Profiling: Findings</a><a class='' href='13_Data_Quality_Audit.html'>13 · Data Quality Audit: Report</a><a class='' href='14_Dashboard_Blueprint.html'>14 · Analytics Dashboard Blueprint</a><a class='' href='15_Developer_Analytics_Handoff.html'>15 · Developer Analytics Handoff</a><a class='' href='16_Data_Pipeline_Proposal.html'>16 · Data Pipeline & Operating Model</a><a class='' href='17_Privacy_Governance_Proposal.html'>17 · Data Access, Privacy & Governance Proposal</a><a class='' href='18_Analytics_Readiness_Assessment.html'>18 · Analytics Readiness Assessment</a><a class='' href='19_Assumption_Verification_Register.html'>19 · Assumption & Verification Register</a><a class='' href='20_Implementation_Backlog.html'>20 · Implementation Backlog</a><a class='' href='21_Final_Consolidated_Report.html'>21 · Final Consolidated Report</a><a href="downloads.html" class="">Downloads</a>
+<button class="toggle" onclick="var r=document.documentElement;r.dataset.theme=(r.dataset.theme==='dark'?'light':'dark');try{localStorage.setItem('t',r.dataset.theme)}catch(e){}">Toggle theme</button>
+</nav><main><h1>10 · Logical Data Model</h1>
+<blockquote>
+<p><strong>Status:</strong> proposed specification. No event, field, table or KPI in this document has been verified as implemented in VELOOP production (see Assumption A-001). Facts taken from official VELOOP pages cite a source ID from the Source &amp; Verification Register (deliverable 19).</p>
+</blockquote>
+<p>The model has 17 entities. It covers the 8 required entities (Users, Tasks, Task Activity, Rewards, Wallet Transactions, Withdrawals, Referrals, Feature Events) plus status-history tables, sessions, missions, badges, support tickets and content. Each optional entity is justified below.</p>
+<h2>H4 ER diagram</h2>
+<p><img alt="ER diagram" src="diagrams/er_diagram.png" /></p>
+<p>Vector version: <a href="diagrams/er_diagram.svg"><code>diagrams/er_diagram.svg</code></a>.</p>
+<p>The source is <a href="diagrams/er_diagram.mmd" download><code>diagrams/er_diagram.mmd</code></a>, and the Mermaid code below also renders on GitHub:</p>
+<pre class="mermaid">erDiagram
+    users {
+        string user_id PK
+        string referral_id FK
+        timestamp registration_at_utc
+        enum acquisition_source
+        enum account_status
+        enum onboarding_status
+    }
+    user_status_history {
+        string status_change_id PK
+        string user_id FK
+        enum previous_status
+        enum new_status
+        timestamp changed_at_utc
+    }
+    sessions {
+        string session_id PK
+        string user_id FK
+        timestamp session_start_utc
+        enum platform
+    }
+    feature_events {
+        string event_id PK
+        string user_id FK
+        string session_id FK
+        enum event_name
+        timestamp event_timestamp_utc
+        enum feature
+    }
+    tasks {
+        string task_id PK
+        enum task_type
+        enum fulfilment_source
+        enum reward_unit
+    }
+    task_activity {
+        string activity_id PK
+        string user_id FK
+        string task_id FK
+        string session_id FK
+        enum activity_status
+        enum validation_status
+        timestamp started_at_utc
+    }
+    rewards {
+        string reward_id PK
+        string user_id FK
+        string source_id FK
+        string wallet_transaction_id FK
+        enum reward_status
+        integer amount
+        enum unit
+    }
+    wallet_transactions {
+        string transaction_id PK
+        string user_id FK
+        string reference_id FK
+        string related_transaction_id FK
+        enum transaction_type
+        enum direction
+        integer amount
+    }
+    withdrawals {
+        string withdrawal_id PK
+        string user_id FK
+        string debit_transaction_id FK
+        decimal amount_inr
+        enum payout_method
+        enum withdrawal_status
+    }
+    withdrawal_status_history {
+        string status_history_id PK
+        string withdrawal_id FK
+        enum from_status
+        enum to_status
+        timestamp changed_at_utc
+    }
+    referrals {
+        string referral_id PK
+        string referrer_user_id FK
+        string referred_user_id FK
+        string reward_id FK
+        enum referral_status
+    }
+    missions {
+        string mission_id PK
+        string mission_type
+    }
+    mission_progress {
+        string mission_progress_id PK
+        string user_id FK
+        string mission_id FK
+        enum mission_status
+    }
+    badges {
+        string badge_id PK
+        enum badge_type
+    }
+    user_badges {
+        string user_id PK
+        string badge_id PK
+        timestamp earned_at_utc
+    }
+    support_tickets {
+        string ticket_id PK
+        string user_id FK
+        enum issue_category
+        enum ticket_status
+    }
+    content {
+        string content_id PK
+        enum content_category
+    }
+    users ||--o{ withdrawals : requests
+    withdrawals ||--|{ withdrawal_status_history : transitions
+    withdrawals ||--|{ wallet_transactions : debits
+    users ||--o{ sessions : has
+    users ||--o{ feature_events : generates
+    sessions |o--o{ feature_events : groups
+    users ||--o{ user_status_history : changes
+    users ||--o{ task_activity : attempts
+    tasks ||--o{ task_activity : attempted_as
+    task_activity ||--o| rewards : earns
+    users ||--o{ rewards : receives
+    rewards ||--o{ wallet_transactions : posts
+    wallet_transactions |o--o{ wallet_transactions : reverses
+    users ||--o{ referrals : refers
+    users |o--o| referrals : referred_by
+    referrals ||--o| rewards : rewards
+    users ||--o{ mission_progress : joins
+    missions ||--o{ mission_progress : tracked_in
+    users ||--o{ user_badges : earns
+    badges ||--o{ user_badges : awarded_as
+    users |o--o{ support_tickets : raises
+    content ||--o{ feature_events : viewed_in
+</pre>
+
+<h2>H1/H2 Primary and foreign keys</h2>
+<table>
+<thead>
+<tr>
+<th>entity</th>
+<th>description</th>
+<th>primary_key</th>
+<th>foreign_keys</th>
+<th>grain</th>
+<th>justification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>users</td>
+<td>One row per VELOOP account (pseudonymous analytics view).</td>
+<td>user_id</td>
+<td>referral_id → referrals.referral_id</td>
+<td>account</td>
+<td>Core entity; every other entity hangs off user_id.</td>
+</tr>
+<tr>
+<td>user_status_history</td>
+<td>One row per account status change.</td>
+<td>status_change_id</td>
+<td>user_id → users.user_id</td>
+<td>status change</td>
+<td>Needed because account_status is a snapshot (gap G04).</td>
+</tr>
+<tr>
+<td>sessions</td>
+<td>One row per session.</td>
+<td>session_id</td>
+<td>user_id → users.user_id</td>
+<td>session</td>
+<td>Session-level analysis and returning users.</td>
+</tr>
+<tr>
+<td>feature_events</td>
+<td>One row per tracked event (event envelope; properties in a JSON column).</td>
+<td>event_id</td>
+<td>user_id → users.user_id; session_id → sessions.session_id</td>
+<td>event</td>
+<td>Raw behavioural record.</td>
+</tr>
+<tr>
+<td>tasks</td>
+<td>One row per configured task/offer.</td>
+<td>task_id</td>
+<td>none</td>
+<td>task config</td>
+<td>Dimension for task activity.</td>
+</tr>
+<tr>
+<td>task_activity</td>
+<td>One row per user attempt at a task.</td>
+<td>activity_id</td>
+<td>user_id → users.user_id; task_id → tasks.task_id; session_id → sessions.session_id</td>
+<td>attempt</td>
+<td>Transaction-level task lifecycle (C1).</td>
+</tr>
+<tr>
+<td>rewards</td>
+<td>One row per reward decision.</td>
+<td>reward_id</td>
+<td>user_id → users.user_id; source_id → task_activity | feature_events | referrals | mission_progress.activity_id | event_id | referral_id | mission_progress_id; wallet_transaction_id → wallet_transactions.transaction_id</td>
+<td>reward</td>
+<td>Separates activity from credit (C3).</td>
+</tr>
+<tr>
+<td>wallet_transactions</td>
+<td>One row per ledger movement (append-only).</td>
+<td>transaction_id</td>
+<td>user_id → users.user_id; reference_id → rewards | withdrawals.reward_id | withdrawal_id; related_transaction_id → wallet_transactions.transaction_id</td>
+<td>ledger movement</td>
+<td>Wallet transaction model (D1).</td>
+</tr>
+<tr>
+<td>withdrawals</td>
+<td>One row per withdrawal request.</td>
+<td>withdrawal_id</td>
+<td>user_id → users.user_id; debit_transaction_id → wallet_transactions.transaction_id</td>
+<td>request</td>
+<td>Withdrawal lifecycle (D2).</td>
+</tr>
+<tr>
+<td>withdrawal_status_history</td>
+<td>One row per withdrawal status transition.</td>
+<td>status_history_id</td>
+<td>withdrawal_id → withdrawals.withdrawal_id</td>
+<td>transition</td>
+<td>Stage durations and impossible-transition checks.</td>
+</tr>
+<tr>
+<td>referrals</td>
+<td>One row per referral relationship.</td>
+<td>referral_id</td>
+<td>referrer_user_id → users.user_id; referred_user_id → users.user_id; reward_id → rewards.reward_id</td>
+<td>referral</td>
+<td>Referral funnel (E1).</td>
+</tr>
+<tr>
+<td>missions</td>
+<td>One row per configured mission.</td>
+<td>mission_id</td>
+<td>none</td>
+<td>mission config</td>
+<td>Justified: missions are live per official help center.</td>
+</tr>
+<tr>
+<td>mission_progress</td>
+<td>One row per user per mission attempt (users M:N missions).</td>
+<td>mission_progress_id</td>
+<td>user_id → users.user_id; mission_id → missions.mission_id</td>
+<td>user-mission</td>
+<td>Mission completion rate.</td>
+</tr>
+<tr>
+<td>badges</td>
+<td>One row per configured badge.</td>
+<td>badge_id</td>
+<td>none</td>
+<td>badge config</td>
+<td>Justified: badges are live per official help center.</td>
+</tr>
+<tr>
+<td>user_badges</td>
+<td>One row per badge earned by a user (users M:N badges).</td>
+<td>user_id, badge_id</td>
+<td>user_id → users.user_id; badge_id → badges.badge_id</td>
+<td>user-badge</td>
+<td>Badge engagement.</td>
+</tr>
+<tr>
+<td>support_tickets</td>
+<td>One row per support request.</td>
+<td>ticket_id</td>
+<td>user_id → users.user_id</td>
+<td>ticket</td>
+<td>Support KPIs.</td>
+</tr>
+<tr>
+<td>content</td>
+<td>One row per help-center article.</td>
+<td>content_id</td>
+<td>none</td>
+<td>article</td>
+<td>Help-center engagement.</td>
+</tr>
+</tbody>
+</table>
+<h2>H3 Relationships</h2>
+<table>
+<thead>
+<tr>
+<th>parent</th>
+<th>child</th>
+<th>cardinality</th>
+<th>via</th>
+<th>note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>users</td>
+<td>sessions</td>
+<td>1:N</td>
+<td>user_id</td>
+<td>A user has many sessions; a session belongs to one user.</td>
+</tr>
+<tr>
+<td>users</td>
+<td>feature_events</td>
+<td>1:N</td>
+<td>user_id</td>
+<td>Event relationship: every event belongs to one user.</td>
+</tr>
+<tr>
+<td>sessions</td>
+<td>feature_events</td>
+<td>1:N</td>
+<td>session_id</td>
+<td>Event relationship: client events belong to one session.</td>
+</tr>
+<tr>
+<td>users</td>
+<td>user_status_history</td>
+<td>1:N</td>
+<td>user_id</td>
+<td>Each status change belongs to one user.</td>
+</tr>
+<tr>
+<td>users</td>
+<td>task_activity</td>
+<td>1:N</td>
+<td>user_id</td>
+<td>A user makes many attempts.</td>
+</tr>
+<tr>
+<td>tasks</td>
+<td>task_activity</td>
+<td>1:N</td>
+<td>task_id</td>
+<td>users M:N tasks resolved through task_activity.</td>
+</tr>
+<tr>
+<td>task_activity</td>
+<td>rewards</td>
+<td>1:0..1</td>
+<td>rewards.source_id = activity_id (source_type = task)</td>
+<td>At most one reward per attempt (idempotency_key).</td>
+</tr>
+<tr>
+<td>users</td>
+<td>rewards</td>
+<td>1:N</td>
+<td>user_id</td>
+<td>A user has many rewards.</td>
+</tr>
+<tr>
+<td>rewards</td>
+<td>wallet_transactions</td>
+<td>1:0..N</td>
+<td>wallet_transactions.reference_id = reward_id</td>
+<td>Transaction relationship: credit, then optional reversal/adjustment.</td>
+</tr>
+<tr>
+<td>wallet_transactions</td>
+<td>wallet_transactions</td>
+<td>1:0..N</td>
+<td>related_transaction_id</td>
+<td>Transaction relationship: reversal, adjustment, refund and exchange pairs point to the original row.</td>
+</tr>
+<tr>
+<td>users</td>
+<td>wallet_transactions</td>
+<td>1:N</td>
+<td>user_id</td>
+<td>A wallet has many movements.</td>
+</tr>
+<tr>
+<td>users</td>
+<td>withdrawals</td>
+<td>1:N</td>
+<td>user_id</td>
+<td>A user can request many withdrawals.</td>
+</tr>
+<tr>
+<td>withdrawals</td>
+<td>wallet_transactions</td>
+<td>1:1..2</td>
+<td>debit_transaction_id; refund via reference_id</td>
+<td>Exactly one redemption_debit; one refund if rejected/reversed.</td>
+</tr>
+<tr>
+<td>withdrawals</td>
+<td>withdrawal_status_history</td>
+<td>1:N</td>
+<td>withdrawal_id</td>
+<td>One row per transition.</td>
+</tr>
+<tr>
+<td>users</td>
+<td>referrals (as referrer)</td>
+<td>1:N</td>
+<td>referrer_user_id</td>
+<td>A user can refer many people.</td>
+</tr>
+<tr>
+<td>users</td>
+<td>referrals (as referred)</td>
+<td>1:0..1</td>
+<td>referred_user_id</td>
+<td>A user is referred at most once.</td>
+</tr>
+<tr>
+<td>referrals</td>
+<td>rewards</td>
+<td>1:0..1</td>
+<td>referrals.reward_id</td>
+<td>One referral reward on conversion.</td>
+</tr>
+<tr>
+<td>users</td>
+<td>mission_progress</td>
+<td>1:N</td>
+<td>user_id</td>
+<td>users M:N missions via mission_progress.</td>
+</tr>
+<tr>
+<td>missions</td>
+<td>mission_progress</td>
+<td>1:N</td>
+<td>mission_id</td>
+<td></td>
+</tr>
+<tr>
+<td>users</td>
+<td>user_badges</td>
+<td>1:N</td>
+<td>user_id</td>
+<td>users M:N badges via user_badges.</td>
+</tr>
+<tr>
+<td>badges</td>
+<td>user_badges</td>
+<td>1:N</td>
+<td>badge_id</td>
+<td></td>
+</tr>
+<tr>
+<td>users</td>
+<td>support_tickets</td>
+<td>1:N</td>
+<td>user_id</td>
+<td>Tickets may be anonymous (user_id optional).</td>
+</tr>
+<tr>
+<td>content</td>
+<td>feature_events</td>
+<td>1:N</td>
+<td>properties.content_id</td>
+<td>help_article_viewed events reference content.</td>
+</tr>
+</tbody>
+</table>
+<h3>Key design decisions</h3>
+<ul>
+<li><strong>Activity is separate from reward</strong> (<code>task_activity</code> → <code>rewards</code>), so "activity occurred" can never be confused with "reward credited" (C3).</li>
+<li><strong>The wallet is an append-only ledger.</strong> A reversal is a new row pointing to the original (<code>related_transaction_id</code>); nothing is updated in place. Balances are always the sum of the ledger.</li>
+<li><strong>Polymorphic source.</strong> <code>rewards.source_id</code> points to <code>task_activity</code>, <code>feature_events</code> (daily, spin, badge), <code>referrals</code> or <code>mission_progress</code>, selected by <code>source_type</code>. The validator and QC-06 check each branch separately (J2 tests R13–R15).</li>
+<li><strong>Many-to-many:</strong> users↔tasks through <code>task_activity</code>, users↔missions through <code>mission_progress</code>, users↔badges through <code>user_badges</code> (composite key).</li>
+<li><strong>Status history tables</strong> exist because current-state columns cannot answer "when" questions (gaps G04).</li>
+<li><strong>Referral rows exist before the referred user does</strong>, so <code>referred_user_id</code> is nullable until registration. A user can be referred at most once.</li>
+</ul></main></div>
+<script>try{var t=localStorage.getItem('t');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script type="module">if(document.querySelector('.mermaid')){const m=await import('https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs');m.default.initialize({startOnLoad:true,theme:'neutral'});m.default.run();}</script>
+</body></html>

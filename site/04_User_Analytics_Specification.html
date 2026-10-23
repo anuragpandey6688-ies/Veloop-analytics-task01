@@ -1,0 +1,621 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>04 · User & Account Analytics Specification | VELOOP Analytics Task 01</title><style>
+:root{--bg:#f6f8fb;--panel:#fff;--ink:#10233d;--muted:#5a6b7d;--line:#dbe3ee;--accent:#1f3a5f;--accent2:#5b8def;--warn:#7a2e00;--warnbg:#fff4e0}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0f141b;--panel:#161d27;--ink:#e6edf5;--muted:#9aa9ba;--line:#2a3544;--accent:#9db8f2;--accent2:#7ea4f5;--warn:#ffcf99;--warnbg:#2b2214}}
+:root[data-theme="dark"]{--bg:#0f141b;--panel:#161d27;--ink:#e6edf5;--muted:#9aa9ba;--line:#2a3544;--accent:#9db8f2;--accent2:#7ea4f5;--warn:#ffcf99;--warnbg:#2b2214}
+*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+a{color:var(--accent2)}.wrap{display:grid;grid-template-columns:280px minmax(0,1fr);min-height:100vh}
+nav{background:var(--panel);border-right:1px solid var(--line);padding:20px 14px;position:sticky;top:0;height:100vh;overflow:auto}
+nav .brand{font-weight:800;font-size:16px;margin:0 6px 14px}nav a{display:block;padding:6px 8px;border-radius:6px;color:var(--ink);text-decoration:none;font-size:13.5px}
+nav a:hover,nav a.on{background:var(--bg);color:var(--accent2)}main{padding:32px 40px;max-width:1200px;min-width:0}
+h1{font-size:28px;line-height:1.25;margin-top:0}h2{margin-top:36px;border-bottom:1px solid var(--line);padding-bottom:6px}h3{margin-top:26px}
+table{border-collapse:collapse;width:100%;font-size:13px;margin:14px 0;display:block;overflow-x:auto}
+th,td{border:1px solid var(--line);padding:6px 9px;text-align:left;vertical-align:top}th{background:var(--accent);color:#fff;position:sticky;top:0}
+:root[data-theme="dark"] th{color:#0f141b}tr:nth-child(even) td{background:color-mix(in srgb,var(--panel) 92%,var(--accent2))}
+blockquote{margin:16px 0;padding:12px 16px;background:var(--warnbg);border-left:4px solid var(--warn);color:var(--warn);border-radius:6px}
+code{background:color-mix(in srgb,var(--panel) 80%,var(--accent2));padding:1px 5px;border-radius:4px;font-size:12.5px}
+pre{background:var(--panel);border:1px solid var(--line);padding:14px;border-radius:8px;overflow:auto}pre code{background:none;padding:0}
+img{max-width:100%;height:auto;background:#fff;border:1px solid var(--line);border-radius:8px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px;margin:18px 0}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px;text-decoration:none;color:var(--ink)}
+.card b{display:block;margin-bottom:4px}.card span{color:var(--muted);font-size:13px}
+.stats{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin:18px 0}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px}.stat b{font-size:24px;display:block;color:var(--accent2)}
+.stat span{font-size:12.5px;color:var(--muted)}.toggle{margin:12px 6px 0;font-size:12px;background:none;border:1px solid var(--line);color:var(--ink);border-radius:6px;padding:4px 8px;cursor:pointer}
+@media print{nav{display:none}.wrap{display:block}main{max-width:none;padding:0}th{position:static}table{display:table;font-size:10.5px}h2{break-after:avoid}}
+@media (max-width:860px){.wrap{grid-template-columns:1fr}nav{position:static;height:auto;max-height:200px;border-right:0;border-bottom:1px solid var(--line)}main{padding:20px 16px}}
+</style></head><body><div class="wrap"><nav>
+<div class="brand"><a href="index.html" style="padding:0;color:inherit">VELOOP Analytics Blueprint</a></div>
+<a class="" href="index.html">Overview</a><a class='' href='01_Executive_Summary.html'>01 · Executive Summary</a><a class='' href='02_Product_Data_Audit.html'>02 · Product Data Readiness Audit</a><a class='' href='03_Data_Coverage_Matrix.html'>03 · Data Coverage Matrix</a><a class='on' href='04_User_Analytics_Specification.html'>04 · User & Account Analytics Specification</a><a class='' href='05_Earning_Reward_Analytics_Specification.html'>05 · Earning & Reward Analytics Specification</a><a class='' href='06_Wallet_Withdrawal_Analytics_Specification.html'>06 · Wallet & Withdrawal Analytics Specification</a><a class='' href='07_Referral_Engagement_Analytics.html'>07 · Referral & Engagement Analytics</a><a class='' href='08_Event_Tracking_Plan.html'>08 · Event Tracking Plan</a><a class='' href='09_Data_Dictionary.html'>09 · Data Dictionary</a><a class='' href='10_Logical_Data_Model.html'>10 · Logical Data Model</a><a class='' href='11_KPI_Catalogue.html'>11 · KPI Catalogue</a><a class='' href='12_Simulated_Data_Profiling.html'>12 · Simulated Data Profiling: Findings</a><a class='' href='13_Data_Quality_Audit.html'>13 · Data Quality Audit: Report</a><a class='' href='14_Dashboard_Blueprint.html'>14 · Analytics Dashboard Blueprint</a><a class='' href='15_Developer_Analytics_Handoff.html'>15 · Developer Analytics Handoff</a><a class='' href='16_Data_Pipeline_Proposal.html'>16 · Data Pipeline & Operating Model</a><a class='' href='17_Privacy_Governance_Proposal.html'>17 · Data Access, Privacy & Governance Proposal</a><a class='' href='18_Analytics_Readiness_Assessment.html'>18 · Analytics Readiness Assessment</a><a class='' href='19_Assumption_Verification_Register.html'>19 · Assumption & Verification Register</a><a class='' href='20_Implementation_Backlog.html'>20 · Implementation Backlog</a><a class='' href='21_Final_Consolidated_Report.html'>21 · Final Consolidated Report</a><a href="downloads.html" class="">Downloads</a>
+<button class="toggle" onclick="var r=document.documentElement;r.dataset.theme=(r.dataset.theme==='dark'?'light':'dark');try{localStorage.setItem('t',r.dataset.theme)}catch(e){}">Toggle theme</button>
+</nav><main><h1>04 · User &amp; Account Analytics Specification</h1>
+<blockquote>
+<p><strong>Status:</strong> proposed specification. No event, field, table or KPI in this document has been verified as implemented in VELOOP production (see Assumption A-001). Facts taken from official VELOOP pages cite a source ID from the Source &amp; Verification Register (deliverable 19).</p>
+</blockquote>
+<h2>Requirements by lifecycle stage</h2>
+<table>
+<thead>
+<tr>
+<th>Stage</th>
+<th>Required data</th>
+<th>Events</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Registration</td>
+<td>user_id, registration_at_utc, acquisition_source (+ campaign, referral_id), signup_platform, signup_device_type, registration_method</td>
+<td><code>user_registered</code></td>
+</tr>
+<tr>
+<td>Login</td>
+<td>login event, timestamp, session_id, device/platform</td>
+<td><code>user_logged_in</code>, <code>user_logged_out</code> (where a logout exists)</td>
+</tr>
+<tr>
+<td>Onboarding</td>
+<td>started, completed, step milestones</td>
+<td><code>onboarding_started</code>, <code>onboarding_step_completed</code>, <code>onboarding_completed</code></td>
+</tr>
+<tr>
+<td>Account lifecycle</td>
+<td>account created, current status, every status change with timestamp and reason category, last activity</td>
+<td><code>account_status_changed</code>, <code>email_verified</code>; <code>users.last_activity_at_utc</code> derived</td>
+</tr>
+</tbody>
+</table>
+<h2>B1 Identity requirements</h2>
+<table>
+<thead>
+<tr>
+<th>identifier</th>
+<th>field</th>
+<th>why_needed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stable user identifier</td>
+<td>user_id</td>
+<td>Joins every table; must survive email change, re-login and device change. Never email or phone (they change, and they are personal data).</td>
+</tr>
+<tr>
+<td>Event identifier</td>
+<td>event_id</td>
+<td>Makes each event unique so retries and duplicate deliveries can be removed (DQ-M12 shows what happens without it).</td>
+</tr>
+<tr>
+<td>Session identifier</td>
+<td>session_id</td>
+<td>Groups events into visits; needed for returning users, session length and funnels inside one visit. Proposed, because current implementation needs engineering verification.</td>
+</tr>
+<tr>
+<td>Transaction identifier</td>
+<td>transaction_id (wallet), activity_id (task), reward_id, withdrawal_id, referral_id</td>
+<td>Uniquely identifies each business transaction so money can be deduplicated, reversed with a link to the original, and reconciled across tables.</td>
+</tr>
+</tbody>
+</table>
+<h2>B2 User analytics specification</h2>
+<table>
+<thead>
+<tr>
+<th>entity</th>
+<th>field</th>
+<th>type</th>
+<th>required?</th>
+<th>purpose</th>
+<th>source</th>
+<th>validation</th>
+<th>status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>users</td>
+<td>user_id</td>
+<td>string</td>
+<td>Yes</td>
+<td>Join key across every user-level table; enables cross-feature analysis.</td>
+<td>Backend (auth/account service)</td>
+<td>Non-null; immutable; unique within entity; pattern agreed with engineering (simulated: ^VLUSR\d{6}$)</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>users</td>
+<td>registration_at_utc</td>
+<td>timestamp</td>
+<td>Yes</td>
+<td>Registrations KPI, cohort assignment, time-to-activation.</td>
+<td>Backend</td>
+<td>ISO 8601 UTC with Z suffix; not in the future beyond 5 min clock skew; not before product launch date</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>users</td>
+<td>registration_method</td>
+<td>enum</td>
+<td>Yes</td>
+<td>Compare activation by sign-up method.</td>
+<td>Backend</td>
+<td>Must be in allowed list</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>users</td>
+<td>acquisition_source</td>
+<td>enum</td>
+<td>Yes</td>
+<td>Acquisition mix and channel quality.</td>
+<td>Frontend (UTM/referrer) + backend</td>
+<td>Must be in allowed list; 'referral' requires referral_id</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>users</td>
+<td>acquisition_campaign</td>
+<td>string</td>
+<td>No</td>
+<td>Campaign-level acquisition analysis.</td>
+<td>Frontend (UTM)</td>
+<td>Max 100 chars; lowercase snake_case</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>users</td>
+<td>referral_id</td>
+<td>string</td>
+<td>Conditional</td>
+<td>Links referred users to referrers (missing in supplied data, gap G02).</td>
+<td>Backend (referral service)</td>
+<td>Must exist in referrals.referral_id when present</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>users</td>
+<td>signup_platform</td>
+<td>enum</td>
+<td>Yes</td>
+<td>Platform mix; separates web from future app.</td>
+<td>Frontend</td>
+<td>Must be in allowed list</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>users</td>
+<td>signup_device_type</td>
+<td>enum</td>
+<td>No</td>
+<td>Device mix for UX prioritisation.</td>
+<td>Frontend</td>
+<td>Must be in allowed list</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>users</td>
+<td>country_code</td>
+<td>string</td>
+<td>Yes</td>
+<td>Region eligibility reporting (official pages mention region support).</td>
+<td>Backend (profile/region check)</td>
+<td>Two uppercase letters</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>users</td>
+<td>state_region</td>
+<td>string</td>
+<td>No</td>
+<td>Geographic distribution at state level only.</td>
+<td>Backend</td>
+<td>Must match approved state list</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>users</td>
+<td>account_status</td>
+<td>enum</td>
+<td>Yes</td>
+<td>Active base, suspensions, lifecycle reporting.</td>
+<td>Backend</td>
+<td>Must be in allowed list; changes must create a user_status_history row</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>users</td>
+<td>account_status_updated_at_utc</td>
+<td>timestamp</td>
+<td>Yes</td>
+<td>Freshness of status; joins to status history.</td>
+<td>Backend</td>
+<td>ISO 8601 UTC with Z suffix; not in the future beyond 5 min clock skew; &gt;= registration_at_utc</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>users</td>
+<td>email_verification_status</td>
+<td>enum</td>
+<td>Yes</td>
+<td>Verification funnel.</td>
+<td>Backend</td>
+<td>Must be in allowed list</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>users</td>
+<td>email_verified_at_utc</td>
+<td>timestamp</td>
+<td>Conditional</td>
+<td>Time-to-verify.</td>
+<td>Backend</td>
+<td>ISO 8601 UTC with Z suffix; not in the future beyond 5 min clock skew; required when status = verified</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>users</td>
+<td>onboarding_status</td>
+<td>enum</td>
+<td>Yes</td>
+<td>Onboarding completion rate.</td>
+<td>Backend (from onboarding events)</td>
+<td>Must be in allowed list</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>users</td>
+<td>onboarding_started_at_utc</td>
+<td>timestamp</td>
+<td>Conditional</td>
+<td>Time-to-onboard.</td>
+<td>Derived from events</td>
+<td>ISO 8601 UTC with Z suffix; not in the future beyond 5 min clock skew; &gt;= registration_at_utc</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>users</td>
+<td>onboarding_completed_at_utc</td>
+<td>timestamp</td>
+<td>Conditional</td>
+<td>Time-to-onboard.</td>
+<td>Derived from events</td>
+<td>ISO 8601 UTC with Z suffix; not in the future beyond 5 min clock skew; &gt;= onboarding_started_at_utc</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>users</td>
+<td>consent_status</td>
+<td>enum</td>
+<td>Yes</td>
+<td>Governance: only consented users in analytics where required.</td>
+<td>Backend</td>
+<td>Must be in allowed list</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>users</td>
+<td>marketing_opt_in</td>
+<td>boolean</td>
+<td>Yes</td>
+<td>Reachable audience sizing.</td>
+<td>Backend</td>
+<td>false when consent_status != accepted</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>users</td>
+<td>last_activity_at_utc</td>
+<td>timestamp</td>
+<td>No</td>
+<td>Inactive users, recency segmentation.</td>
+<td>Derived (analytics layer)</td>
+<td>ISO 8601 UTC with Z suffix; not in the future beyond 5 min clock skew; &gt;= registration_at_utc</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>users</td>
+<td>current_level</td>
+<td>integer</td>
+<td>No</td>
+<td>Progression distribution.</td>
+<td>Backend (progression service)</td>
+<td>&gt;= 1</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>users</td>
+<td>age_band</td>
+<td>enum</td>
+<td>No</td>
+<td>Optional segmentation; replaces exact age.</td>
+<td>Backend</td>
+<td>Must be in allowed list; never store date of birth in analytics</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>user_status_history</td>
+<td>status_change_id</td>
+<td>string</td>
+<td>Yes</td>
+<td>Primary key; dedup.</td>
+<td>Backend</td>
+<td>Non-null; immutable; unique within entity</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>user_status_history</td>
+<td>user_id</td>
+<td>string</td>
+<td>Yes</td>
+<td>Join to users.</td>
+<td>Backend</td>
+<td>Must exist in users</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>user_status_history</td>
+<td>previous_status</td>
+<td>enum</td>
+<td>Yes</td>
+<td>Transition analysis.</td>
+<td>Backend</td>
+<td>Must differ from new_status</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>user_status_history</td>
+<td>new_status</td>
+<td>enum</td>
+<td>Yes</td>
+<td>Suspension and reactivation counts.</td>
+<td>Backend</td>
+<td>Must be an allowed transition (deliverable 13 state rules)</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>user_status_history</td>
+<td>changed_at_utc</td>
+<td>timestamp</td>
+<td>Yes</td>
+<td>Lifecycle timing.</td>
+<td>Backend</td>
+<td>ISO 8601 UTC with Z suffix; not in the future beyond 5 min clock skew</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>user_status_history</td>
+<td>change_reason_category</td>
+<td>enum</td>
+<td>Yes</td>
+<td>Explains lifecycle movement without exposing security controls.</td>
+<td>Backend</td>
+<td>Must be in allowed list</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>user_status_history</td>
+<td>changed_by_type</td>
+<td>enum</td>
+<td>Yes</td>
+<td>Separates automated from manual decisions.</td>
+<td>Backend</td>
+<td>Must be in allowed list</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>sessions</td>
+<td>session_id</td>
+<td>string</td>
+<td>Yes</td>
+<td>Session-level analysis; groups events.</td>
+<td>Frontend/backend session service</td>
+<td>Non-null; immutable; unique within entity; timeout rule To Be Verified (A-007)</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>sessions</td>
+<td>user_id</td>
+<td>string</td>
+<td>Yes</td>
+<td>Join key.</td>
+<td>Backend</td>
+<td>Must exist in users</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>sessions</td>
+<td>session_start_utc</td>
+<td>timestamp</td>
+<td>Yes</td>
+<td>Sessions per user, returning users.</td>
+<td>Frontend/backend</td>
+<td>ISO 8601 UTC with Z suffix; not in the future beyond 5 min clock skew</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>sessions</td>
+<td>session_end_utc</td>
+<td>timestamp</td>
+<td>No</td>
+<td>Session duration.</td>
+<td>Derived</td>
+<td>ISO 8601 UTC with Z suffix; not in the future beyond 5 min clock skew; &gt;= session_start_utc</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>sessions</td>
+<td>platform</td>
+<td>enum</td>
+<td>Yes</td>
+<td>Platform split.</td>
+<td>Frontend</td>
+<td>Must be in allowed list</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>sessions</td>
+<td>device_type</td>
+<td>enum</td>
+<td>No</td>
+<td>Device split.</td>
+<td>Frontend</td>
+<td>Must be in allowed list</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>sessions</td>
+<td>app_version</td>
+<td>string</td>
+<td>No</td>
+<td>Attributes data issues to releases.</td>
+<td>Frontend</td>
+<td>Semantic or dated version string</td>
+<td>Proposed</td>
+</tr>
+</tbody>
+</table>
+<h2>From the supplied Users structure to the proposed one</h2>
+<p>The supplied structure asks for more personal data than analytics needs and less behavioural data than it needs.</p>
+<table>
+<thead>
+<tr>
+<th>supplied_field</th>
+<th>proposed</th>
+<th>reason</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>user_id</td>
+<td>user_id</td>
+<td>Keep</td>
+</tr>
+<tr>
+<td>full_name</td>
+<td>(removed)</td>
+<td>Not needed for analytics; identity store only</td>
+</tr>
+<tr>
+<td>email</td>
+<td>(removed)</td>
+<td>Not needed; identity store only</td>
+</tr>
+<tr>
+<td>age</td>
+<td>age_band (optional)</td>
+<td>Exact age unnecessary</td>
+</tr>
+<tr>
+<td>gender</td>
+<td>(removed)</td>
+<td>No approved business question</td>
+</tr>
+<tr>
+<td>state</td>
+<td>state_region (optional)</td>
+<td>Coarse region only</td>
+</tr>
+<tr>
+<td>city</td>
+<td>(removed)</td>
+<td>Too granular</td>
+</tr>
+<tr>
+<td>registration_datetime</td>
+<td>registration_at_utc</td>
+<td>Add timezone</td>
+</tr>
+<tr>
+<td>acquisition_source</td>
+<td>acquisition_source</td>
+<td>Normalise to snake_case</td>
+</tr>
+<tr>
+<td>referral_source_detail</td>
+<td>referral_id</td>
+<td>Link to referrer instead of free text</td>
+</tr>
+<tr>
+<td>primary_device</td>
+<td>signup_device_type + sessions.device_type</td>
+<td>Separate device class from OS</td>
+</tr>
+<tr>
+<td>platform</td>
+<td>signup_platform</td>
+<td>Document meaning</td>
+</tr>
+<tr>
+<td>account_status</td>
+<td>account_status + user_status_history</td>
+<td>Add history</td>
+</tr>
+<tr>
+<td>email_verification_status</td>
+<td>email_verification_status + email_verified_at_utc</td>
+<td>Add timestamp</td>
+</tr>
+<tr>
+<td>onboarding_status</td>
+<td>onboarding_status + started/completed timestamps</td>
+<td>Add timestamps</td>
+</tr>
+<tr>
+<td>last_login_datetime</td>
+<td>sessions + last_activity_at_utc</td>
+<td>Login is not activity</td>
+</tr>
+<tr>
+<td>lifetime_sessions</td>
+<td>(derived from sessions)</td>
+<td>Do not store counters in source</td>
+</tr>
+<tr>
+<td>active_days</td>
+<td>(derived from events)</td>
+<td>Inconsistent in supplied data (DQ-C01)</td>
+</tr>
+<tr>
+<td>xp_balance</td>
+<td>(derived from rewards, unit XP)</td>
+<td>Balance needs a ledger</td>
+</tr>
+<tr>
+<td>referral_code</td>
+<td>referrals.referral_code</td>
+<td>Public share code</td>
+</tr>
+<tr>
+<td>days_since_registration</td>
+<td>(derived downstream)</td>
+<td>Stale / negative values</td>
+</tr>
+<tr>
+<td>is_active_7d / is_active_30d</td>
+<td>K-USR-03 / K-USR-04</td>
+<td>Recomputed, documented</td>
+</tr>
+<tr>
+<td>consent_status</td>
+<td>consent_status</td>
+<td>Keep</td>
+</tr>
+<tr>
+<td>marketing_opt_in</td>
+<td>marketing_opt_in</td>
+<td>Must respect consent</td>
+</tr>
+<tr>
+<td>account_created_via</td>
+<td>registration_method</td>
+<td>Rename</td>
+</tr>
+<tr>
+<td>country</td>
+<td>country_code</td>
+<td>ISO code</td>
+</tr>
+</tbody>
+</table></main></div>
+<script>try{var t=localStorage.getItem('t');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script type="module">if(document.querySelector('.mermaid')){const m=await import('https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs');m.default.initialize({startOnLoad:true,theme:'neutral'});m.default.run();}</script>
+</body></html>

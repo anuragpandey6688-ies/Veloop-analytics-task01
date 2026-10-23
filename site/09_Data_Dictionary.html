@@ -1,0 +1,1772 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>09 · Data Dictionary | VELOOP Analytics Task 01</title><style>
+:root{--bg:#f6f8fb;--panel:#fff;--ink:#10233d;--muted:#5a6b7d;--line:#dbe3ee;--accent:#1f3a5f;--accent2:#5b8def;--warn:#7a2e00;--warnbg:#fff4e0}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0f141b;--panel:#161d27;--ink:#e6edf5;--muted:#9aa9ba;--line:#2a3544;--accent:#9db8f2;--accent2:#7ea4f5;--warn:#ffcf99;--warnbg:#2b2214}}
+:root[data-theme="dark"]{--bg:#0f141b;--panel:#161d27;--ink:#e6edf5;--muted:#9aa9ba;--line:#2a3544;--accent:#9db8f2;--accent2:#7ea4f5;--warn:#ffcf99;--warnbg:#2b2214}
+*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+a{color:var(--accent2)}.wrap{display:grid;grid-template-columns:280px minmax(0,1fr);min-height:100vh}
+nav{background:var(--panel);border-right:1px solid var(--line);padding:20px 14px;position:sticky;top:0;height:100vh;overflow:auto}
+nav .brand{font-weight:800;font-size:16px;margin:0 6px 14px}nav a{display:block;padding:6px 8px;border-radius:6px;color:var(--ink);text-decoration:none;font-size:13.5px}
+nav a:hover,nav a.on{background:var(--bg);color:var(--accent2)}main{padding:32px 40px;max-width:1200px;min-width:0}
+h1{font-size:28px;line-height:1.25;margin-top:0}h2{margin-top:36px;border-bottom:1px solid var(--line);padding-bottom:6px}h3{margin-top:26px}
+table{border-collapse:collapse;width:100%;font-size:13px;margin:14px 0;display:block;overflow-x:auto}
+th,td{border:1px solid var(--line);padding:6px 9px;text-align:left;vertical-align:top}th{background:var(--accent);color:#fff;position:sticky;top:0}
+:root[data-theme="dark"] th{color:#0f141b}tr:nth-child(even) td{background:color-mix(in srgb,var(--panel) 92%,var(--accent2))}
+blockquote{margin:16px 0;padding:12px 16px;background:var(--warnbg);border-left:4px solid var(--warn);color:var(--warn);border-radius:6px}
+code{background:color-mix(in srgb,var(--panel) 80%,var(--accent2));padding:1px 5px;border-radius:4px;font-size:12.5px}
+pre{background:var(--panel);border:1px solid var(--line);padding:14px;border-radius:8px;overflow:auto}pre code{background:none;padding:0}
+img{max-width:100%;height:auto;background:#fff;border:1px solid var(--line);border-radius:8px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px;margin:18px 0}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px;text-decoration:none;color:var(--ink)}
+.card b{display:block;margin-bottom:4px}.card span{color:var(--muted);font-size:13px}
+.stats{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin:18px 0}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px}.stat b{font-size:24px;display:block;color:var(--accent2)}
+.stat span{font-size:12.5px;color:var(--muted)}.toggle{margin:12px 6px 0;font-size:12px;background:none;border:1px solid var(--line);color:var(--ink);border-radius:6px;padding:4px 8px;cursor:pointer}
+@media print{nav{display:none}.wrap{display:block}main{max-width:none;padding:0}th{position:static}table{display:table;font-size:10.5px}h2{break-after:avoid}}
+@media (max-width:860px){.wrap{grid-template-columns:1fr}nav{position:static;height:auto;max-height:200px;border-right:0;border-bottom:1px solid var(--line)}main{padding:20px 16px}}
+</style></head><body><div class="wrap"><nav>
+<div class="brand"><a href="index.html" style="padding:0;color:inherit">VELOOP Analytics Blueprint</a></div>
+<a class="" href="index.html">Overview</a><a class='' href='01_Executive_Summary.html'>01 · Executive Summary</a><a class='' href='02_Product_Data_Audit.html'>02 · Product Data Readiness Audit</a><a class='' href='03_Data_Coverage_Matrix.html'>03 · Data Coverage Matrix</a><a class='' href='04_User_Analytics_Specification.html'>04 · User & Account Analytics Specification</a><a class='' href='05_Earning_Reward_Analytics_Specification.html'>05 · Earning & Reward Analytics Specification</a><a class='' href='06_Wallet_Withdrawal_Analytics_Specification.html'>06 · Wallet & Withdrawal Analytics Specification</a><a class='' href='07_Referral_Engagement_Analytics.html'>07 · Referral & Engagement Analytics</a><a class='' href='08_Event_Tracking_Plan.html'>08 · Event Tracking Plan</a><a class='on' href='09_Data_Dictionary.html'>09 · Data Dictionary</a><a class='' href='10_Logical_Data_Model.html'>10 · Logical Data Model</a><a class='' href='11_KPI_Catalogue.html'>11 · KPI Catalogue</a><a class='' href='12_Simulated_Data_Profiling.html'>12 · Simulated Data Profiling: Findings</a><a class='' href='13_Data_Quality_Audit.html'>13 · Data Quality Audit: Report</a><a class='' href='14_Dashboard_Blueprint.html'>14 · Analytics Dashboard Blueprint</a><a class='' href='15_Developer_Analytics_Handoff.html'>15 · Developer Analytics Handoff</a><a class='' href='16_Data_Pipeline_Proposal.html'>16 · Data Pipeline & Operating Model</a><a class='' href='17_Privacy_Governance_Proposal.html'>17 · Data Access, Privacy & Governance Proposal</a><a class='' href='18_Analytics_Readiness_Assessment.html'>18 · Analytics Readiness Assessment</a><a class='' href='19_Assumption_Verification_Register.html'>19 · Assumption & Verification Register</a><a class='' href='20_Implementation_Backlog.html'>20 · Implementation Backlog</a><a class='' href='21_Final_Consolidated_Report.html'>21 · Final Consolidated Report</a><a href="downloads.html" class="">Downloads</a>
+<button class="toggle" onclick="var r=document.documentElement;r.dataset.theme=(r.dataset.theme==='dark'?'light':'dark');try{localStorage.setItem('t',r.dataset.theme)}catch(e){}">Toggle theme</button>
+</nav><main><h1>09 · Data Dictionary</h1>
+<blockquote>
+<p><strong>Status:</strong> proposed specification. No event, field, table or KPI in this document has been verified as implemented in VELOOP production (see Assumption A-001). Facts taken from official VELOOP pages cite a source ID from the Source &amp; Verification Register (deliverable 19).</p>
+</blockquote>
+<p>Spreadsheet: <a href="files/09_Data_Dictionary.xlsx"><code>09_Data_Dictionary.xlsx</code></a>. It defines <strong>181 fields</strong> (the brief's minimum is 75), each with all 12 required attributes plus a <code>basis</code> column.</p>
+<p><strong>Why more than 75:</strong> every event property and every field a KPI needs must be defined somewhere, or developers would have to guess. The validator fails the build if an event or KPI references an undefined field. Nothing was added just to reach the number.</p>
+<p><strong>Fields deliberately excluded</strong> from the analytics model even though the supplied dataset has them: <code>full_name</code>, <code>email</code>, exact <code>age</code> (replaced by an optional <code>age_band</code>), <code>gender</code> and <code>city</code>. They have no approved analytical use, and keeping them would breach the brief's rule against unnecessary personal information (see 17).</p>
+<h2>Fields per entity</h2>
+<table>
+<thead>
+<tr>
+<th>entity</th>
+<th>fields</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>all_entities</td>
+<td>1</td>
+</tr>
+<tr>
+<td>badges</td>
+<td>2</td>
+</tr>
+<tr>
+<td>content</td>
+<td>3</td>
+</tr>
+<tr>
+<td>event_properties</td>
+<td>25</td>
+</tr>
+<tr>
+<td>feature_events</td>
+<td>11</td>
+</tr>
+<tr>
+<td>mission_progress</td>
+<td>6</td>
+</tr>
+<tr>
+<td>missions</td>
+<td>2</td>
+</tr>
+<tr>
+<td>referrals</td>
+<td>12</td>
+</tr>
+<tr>
+<td>rewards</td>
+<td>15</td>
+</tr>
+<tr>
+<td>sessions</td>
+<td>7</td>
+</tr>
+<tr>
+<td>support_tickets</td>
+<td>9</td>
+</tr>
+<tr>
+<td>task_activity</td>
+<td>16</td>
+</tr>
+<tr>
+<td>tasks</td>
+<td>8</td>
+</tr>
+<tr>
+<td>user_badges</td>
+<td>3</td>
+</tr>
+<tr>
+<td>user_status_history</td>
+<td>7</td>
+</tr>
+<tr>
+<td>users</td>
+<td>22</td>
+</tr>
+<tr>
+<td>wallet_transactions</td>
+<td>14</td>
+</tr>
+<tr>
+<td>withdrawal_status_history</td>
+<td>5</td>
+</tr>
+<tr>
+<td>withdrawals</td>
+<td>13</td>
+</tr>
+</tbody>
+</table>
+<h2>Full dictionary</h2>
+<table>
+<thead>
+<tr>
+<th>entity</th>
+<th>field_name</th>
+<th>data_type</th>
+<th>required</th>
+<th>allowed_values</th>
+<th>sensitivity</th>
+<th>definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>all_entities</td>
+<td>data_environment</td>
+<td>enum</td>
+<td>Yes</td>
+<td>production, staging, simulated</td>
+<td>Internal</td>
+<td>Marks whether a record is production, staging or simulated data. Required on every analytics table so simulated rows can never be mixed into production reporting silently.</td>
+</tr>
+<tr>
+<td>users</td>
+<td>user_id</td>
+<td>string</td>
+<td>Yes</td>
+<td></td>
+<td>Internal</td>
+<td>Stable, opaque identifier for one VELOOP account. Never reused, never derived from email or phone.</td>
+</tr>
+<tr>
+<td>users</td>
+<td>registration_at_utc</td>
+<td>timestamp</td>
+<td>Yes</td>
+<td></td>
+<td>Internal</td>
+<td>Moment the account record was successfully created.</td>
+</tr>
+<tr>
+<td>users</td>
+<td>registration_method</td>
+<td>enum</td>
+<td>Yes</td>
+<td>web_registration, google_sign_in</td>
+<td>Internal</td>
+<td>How the account was created.</td>
+</tr>
+<tr>
+<td>users</td>
+<td>acquisition_source</td>
+<td>enum</td>
+<td>Yes</td>
+<td>organic_search, direct, social_media, referral, whatsapp, telegram, other</td>
+<td>Internal</td>
+<td>Channel the user arrived from at registration, captured once and never overwritten.</td>
+</tr>
+<tr>
+<td>users</td>
+<td>acquisition_campaign</td>
+<td>string</td>
+<td>No</td>
+<td></td>
+<td>Internal</td>
+<td>Campaign identifier from UTM or partner link, if any.</td>
+</tr>
+<tr>
+<td>users</td>
+<td>referral_id</td>
+<td>string</td>
+<td>Conditional</td>
+<td></td>
+<td>Internal</td>
+<td>Referral record that brought this user, when acquisition_source = referral.</td>
+</tr>
+<tr>
+<td>users</td>
+<td>signup_platform</td>
+<td>enum</td>
+<td>Yes</td>
+<td>web, android, ios</td>
+<td>Internal</td>
+<td>Client platform used at registration.</td>
+</tr>
+<tr>
+<td>users</td>
+<td>signup_device_type</td>
+<td>enum</td>
+<td>No</td>
+<td>mobile, tablet, desktop</td>
+<td>Internal</td>
+<td>Device class at registration, derived from user agent.</td>
+</tr>
+<tr>
+<td>users</td>
+<td>country_code</td>
+<td>string</td>
+<td>Yes</td>
+<td></td>
+<td>Internal</td>
+<td>ISO 3166-1 alpha-2 country of the account.</td>
+</tr>
+<tr>
+<td>users</td>
+<td>state_region</td>
+<td>string</td>
+<td>No</td>
+<td></td>
+<td>Restricted</td>
+<td>Coarse region (Indian state) if collected for eligibility. Not city, not address.</td>
+</tr>
+<tr>
+<td>users</td>
+<td>account_status</td>
+<td>enum</td>
+<td>Yes</td>
+<td>pending_verification, active, inactive, suspended, closed</td>
+<td>Internal</td>
+<td>Current lifecycle status of the account.</td>
+</tr>
+<tr>
+<td>users</td>
+<td>account_status_updated_at_utc</td>
+<td>timestamp</td>
+<td>Yes</td>
+<td></td>
+<td>Internal</td>
+<td>When account_status last changed.</td>
+</tr>
+<tr>
+<td>users</td>
+<td>email_verification_status</td>
+<td>enum</td>
+<td>Yes</td>
+<td>pending, verified</td>
+<td>Internal</td>
+<td>Whether the email address has been verified.</td>
+</tr>
+<tr>
+<td>users</td>
+<td>email_verified_at_utc</td>
+<td>timestamp</td>
+<td>Conditional</td>
+<td></td>
+<td>Internal</td>
+<td>When email verification succeeded.</td>
+</tr>
+<tr>
+<td>users</td>
+<td>onboarding_status</td>
+<td>enum</td>
+<td>Yes</td>
+<td>not_started, started, completed</td>
+<td>Internal</td>
+<td>Furthest onboarding state reached.</td>
+</tr>
+<tr>
+<td>users</td>
+<td>onboarding_started_at_utc</td>
+<td>timestamp</td>
+<td>Conditional</td>
+<td></td>
+<td>Internal</td>
+<td>First onboarding_started event time.</td>
+</tr>
+<tr>
+<td>users</td>
+<td>onboarding_completed_at_utc</td>
+<td>timestamp</td>
+<td>Conditional</td>
+<td></td>
+<td>Internal</td>
+<td>First onboarding_completed event time.</td>
+</tr>
+<tr>
+<td>users</td>
+<td>consent_status</td>
+<td>enum</td>
+<td>Yes</td>
+<td>pending, accepted, withdrawn</td>
+<td>Internal</td>
+<td>Status of acceptance of terms/privacy notice required to use the platform.</td>
+</tr>
+<tr>
+<td>users</td>
+<td>marketing_opt_in</td>
+<td>boolean</td>
+<td>Yes</td>
+<td>true, false</td>
+<td>Internal</td>
+<td>Whether the user opted in to marketing messages. Must be false unless consent_status = accepted.</td>
+</tr>
+<tr>
+<td>users</td>
+<td>last_activity_at_utc</td>
+<td>timestamp</td>
+<td>No</td>
+<td></td>
+<td>Internal</td>
+<td>Timestamp of the user's most recent qualifying activity event (see KPI K-USR-02 definition).</td>
+</tr>
+<tr>
+<td>users</td>
+<td>current_level</td>
+<td>integer</td>
+<td>No</td>
+<td></td>
+<td>Internal</td>
+<td>Current level in the level system.</td>
+</tr>
+<tr>
+<td>users</td>
+<td>age_band</td>
+<td>enum</td>
+<td>No</td>
+<td>18-24, 25-34, 35-44, 45+</td>
+<td>Restricted</td>
+<td>Age band, collected only if an approved business question needs it.</td>
+</tr>
+<tr>
+<td>user_status_history</td>
+<td>status_change_id</td>
+<td>string</td>
+<td>Yes</td>
+<td></td>
+<td>Internal</td>
+<td>Unique identifier of one account status change.</td>
+</tr>
+<tr>
+<td>user_status_history</td>
+<td>user_id</td>
+<td>string</td>
+<td>Yes</td>
+<td></td>
+<td>Internal</td>
+<td>Account whose status changed.</td>
+</tr>
+<tr>
+<td>user_status_history</td>
+<td>previous_status</td>
+<td>enum</td>
+<td>Yes</td>
+<td>pending_verification, active, inactive, suspended, closed</td>
+<td>Internal</td>
+<td>Status before the change.</td>
+</tr>
+<tr>
+<td>user_status_history</td>
+<td>new_status</td>
+<td>enum</td>
+<td>Yes</td>
+<td>pending_verification, active, inactive, suspended, closed</td>
+<td>Internal</td>
+<td>Status after the change.</td>
+</tr>
+<tr>
+<td>user_status_history</td>
+<td>changed_at_utc</td>
+<td>timestamp</td>
+<td>Yes</td>
+<td></td>
+<td>Internal</td>
+<td>When the change took effect.</td>
+</tr>
+<tr>
+<td>user_status_history</td>
+<td>change_reason_category</td>
+<td>enum</td>
+<td>Yes</td>
+<td>email_verified, inactivity_rule, policy_enforcement, user_request, appeal_upheld, other</td>
+<td>Restricted</td>
+<td>High-level reason category. Not the internal enforcement rule or threshold.</td>
+</tr>
+<tr>
+<td>user_status_history</td>
+<td>changed_by_type</td>
+<td>enum</td>
+<td>Yes</td>
+<td>system, admin, user</td>
+<td>Internal</td>
+<td>Type of actor that made the change.</td>
+</tr>
+<tr>
+<td>sessions</td>
+<td>session_id</td>
+<td>string</td>
+<td>Yes</td>
+<td></td>
+<td>Internal</td>
+<td>Identifier of one continuous period of use, created at login or app open and closed after inactivity timeout.</td>
+</tr>
+<tr>
+<td>sessions</td>
+<td>user_id</td>
+<td>string</td>
+<td>Yes</td>
+<td></td>
+<td>Internal</td>
+<td>Owner of the session.</td>
+</tr>
+<tr>
+<td>sessions</td>
+<td>session_start_utc</td>
+<td>timestamp</td>
+<td>Yes</td>
+<td></td>
+<td>Internal</td>
+<td>Start of the session.</td>
+</tr>
+<tr>
+<td>sessions</td>
+<td>session_end_utc</td>
+<td>timestamp</td>
+<td>No</td>
+<td></td>
+<td>Internal</td>
+<td>End of the session (last event + timeout, or logout).</td>
+</tr>
+<tr>
+<td>sessions</td>
+<td>platform</td>
+<td>enum</td>
+<td>Yes</td>
+<td>web, android, ios</td>
+<td>Internal</td>
+<td>Platform of the session.</td>
+</tr>
+<tr>
+<td>sessions</td>
+<td>device_type</td>
+<td>enum</td>
+<td>No</td>
+<td>mobile, tablet, desktop</td>
+<td>Internal</td>
+<td>Device class of the session.</td>
+</tr>
+<tr>
+<td>sessions</td>
+<td>app_version</td>
+<td>string</td>
+<td>No</td>
+<td></td>
+<td>Internal</td>
+<td>Client build version.</td>
+</tr>
+<tr>
+<td>feature_events</td>
+<td>event_id</td>
+<td>string</td>
+<td>Yes</td>
+<td></td>
+<td>Internal</td>
+<td>Globally unique identifier for one event occurrence, generated once at the producer and reused on every retry.</td>
+</tr>
+<tr>
+<td>feature_events</td>
+<td>event_name</td>
+<td>enum</td>
+<td>Yes</td>
+<td>See deliverable 08</td>
+<td>Internal</td>
+<td>Name of the event from the approved catalogue (deliverable 08).</td>
+</tr>
+<tr>
+<td>feature_events</td>
+<td>user_id</td>
+<td>string</td>
+<td>Yes</td>
+<td></td>
+<td>Internal</td>
+<td>Account that performed or received the event.</td>
+</tr>
+<tr>
+<td>feature_events</td>
+<td>session_id</td>
+<td>string</td>
+<td>Conditional</td>
+<td></td>
+<td>Internal</td>
+<td>Session in which a client event happened. Server events may carry the originating session when known.</td>
+</tr>
+<tr>
+<td>feature_events</td>
+<td>event_timestamp_utc</td>
+<td>timestamp</td>
+<td>Yes</td>
+<td></td>
+<td>Internal</td>
+<td>When the event happened at the producer.</td>
+</tr>
+<tr>
+<td>feature_events</td>
+<td>received_at_utc</td>
+<td>timestamp</td>
+<td>Yes</td>
+<td></td>
+<td>Internal</td>
+<td>When the collection layer received the event.</td>
+</tr>
+<tr>
+<td>feature_events</td>
+<td>feature</td>
+<td>enum</td>
+<td>Yes</td>
+<td>watch_ads, surveys, app_tasks, captcha, tap_earn, earning_session, games, follow_earn, tasks, daily_rewards, spin, missions, badges, level_dashboard, leaderboard, promo_codes, wallet, exchange, withdrawals, referrals, account, onboarding, home, help_center, support</td>
+<td>Internal</td>
+<td>Product feature the event belongs to.</td>
+</tr>
+<tr>
+<td>feature_events</td>
+<td>platform</td>
+<td>enum</td>
+<td>Yes</td>
+<td>web, android, ios</td>
+<td>Internal</td>
+<td>Platform where the event was produced.</td>
+</tr>
+<tr>
+<td>feature_events</td>
+<td>event_source</td>
+<td>enum</td>
+<td>Yes</td>
+<td>client, server</td>
+<td>Internal</td>
+<td>Whether the event was emitted by the client or the server.</td>
+</tr>
+<tr>
+<td>feature_events</td>
+<td>schema_version</td>
+<td>integer</td>
+<td>Yes</td>
+<td></td>
+<td>Internal</td>
+<td>Version of the event's property schema.</td>
+</tr>
+<tr>
+<td>feature_events</td>
+<td>app_version</td>
+<td>string</td>
+<td>No</td>
+<td></td>
+<td>Internal</td>
+<td>Client build version for client events.</td>
+</tr>
+<tr>
+<td>event_properties</td>
+<td>login_method</td>
+<td>enum</td>
+<td>Yes</td>
+<td>password, google_sign_in</td>
+<td>Internal</td>
+<td>Authentication method used for the login.</td>
+</tr>
+<tr>
+<td>event_properties</td>
+<td>logout_type</td>
+<td>enum</td>
+<td>Yes</td>
+<td>user_initiated, session_expired, forced</td>
+<td>Internal</td>
+<td>How the session ended.</td>
+</tr>
+<tr>
+<td>event_properties</td>
+<td>onboarding_version</td>
+<td>string</td>
+<td>Yes</td>
+<td></td>
+<td>Internal</td>
+<td>Identifier of the onboarding flow version shown.</td>
+</tr>
+<tr>
+<td>event_properties</td>
+<td>step_key</td>
+<td>string</td>
+<td>Yes</td>
+<td></td>
+<td>Internal</td>
+<td>Stable key of an onboarding step.</td>
+</tr>
+<tr>
+<td>event_properties</td>
+<td>step_index</td>
+<td>integer</td>
+<td>Yes</td>
+<td></td>
+<td>Internal</td>
+<td>Position of the onboarding step (1-based).</td>
+</tr>
+<tr>
+<td>event_properties</td>
+<td>list_position</td>
+<td>integer</td>
+<td>No</td>
+<td></td>
+<td>Internal</td>
+<td>Position of a task card in the task list when viewed.</td>
+</tr>
+<tr>
+<td>event_properties</td>
+<td>failure_stage</td>
+<td>enum</td>
+<td>Yes</td>
+<td>start, in_task, tracking, validation</td>
+<td>Internal</td>
+<td>Stage of the task lifecycle where failure happened.</td>
+</tr>
+<tr>
+<td>event_properties</td>
+<td>previous_amount</td>
+<td>integer</td>
+<td>Yes</td>
+<td></td>
+<td>Internal</td>
+<td>Amount before a reward correction.</td>
+</tr>
+<tr>
+<td>event_properties</td>
+<td>claim_date_ist</td>
+<td>date</td>
+<td>Yes</td>
+<td></td>
+<td>Internal</td>
+<td>IST calendar day the daily reward was claimed for.</td>
+</tr>
+<tr>
+<td>event_properties</td>
+<td>streak_length</td>
+<td>integer</td>
+<td>Yes</td>
+<td></td>
+<td>Internal</td>
+<td>Consecutive-day streak after the update.</td>
+</tr>
+<tr>
+<td>event_properties</td>
+<td>previous_streak_length</td>
+<td>integer</td>
+<td>Yes</td>
+<td></td>
+<td>Internal</td>
+<td>Streak before the update.</td>
+</tr>
+<tr>
+<td>event_properties</td>
+<td>streak_action</td>
+<td>enum</td>
+<td>Yes</td>
+<td>incremented, reset, started</td>
+<td>Internal</td>
+<td>What happened to the streak.</td>
+</tr>
+<tr>
+<td>event_properties</td>
+<td>spin_id</td>
+<td>string</td>
+<td>Yes</td>
+<td></td>
+<td>Internal</td>
+<td>Identifier of one spin attempt.</td>
+</tr>
+<tr>
+<td>event_properties</td>
+<td>spin_cost_unit</td>
+<td>enum</td>
+<td>Yes</td>
+<td>VE, GEM, XP, TOKEN, SPIN</td>
+<td>Internal</td>
+<td>Credit consumed to spin.</td>
+</tr>
+<tr>
+<td>event_properties</td>
+<td>outcome_type</td>
+<td>enum</td>
+<td>Yes</td>
+<td>reward, no_reward, interrupted</td>
+<td>Internal</td>
+<td>Result class of the spin. The prize logic itself is not recorded here.</td>
+</tr>
+<tr>
+<td>event_properties</td>
+<td>previous_level</td>
+<td>integer</td>
+<td>Yes</td>
+<td></td>
+<td>Internal</td>
+<td>Level before a level change.</td>
+</tr>
+<tr>
+<td>event_properties</td>
+<td>new_level</td>
+<td>integer</td>
+<td>Yes</td>
+<td></td>
+<td>Internal</td>
+<td>Level after a level change.</td>
+</tr>
+<tr>
+<td>event_properties</td>
+<td>promo_code_id</td>
+<td>string</td>
+<td>Yes</td>
+<td></td>
+<td>Internal</td>
+<td>Internal identifier of the promo code (not the code text).</td>
+</tr>
+<tr>
+<td>event_properties</td>
+<td>screen_name</td>
+<td>string</td>
+<td>Yes</td>
+<td></td>
+<td>Internal</td>
+<td>Stable name of the screen viewed.</td>
+</tr>
+<tr>
+<td>event_properties</td>
+<td>from_unit</td>
+<td>enum</td>
+<td>Yes</td>
+<td>VE, GEM, TOKEN, SPIN</td>
+<td>Internal</td>
+<td>Unit given up in an exchange.</td>
+</tr>
+<tr>
+<td>event_properties</td>
+<td>to_unit</td>
+<td>enum</td>
+<td>Yes</td>
+<td>VE, GEM, TOKEN, SPIN</td>
+<td>Internal</td>
+<td>Unit received in an exchange.</td>
+</tr>
+<tr>
+<td>event_properties</td>
+<td>from_amount</td>
+<td>integer</td>
+<td>Yes</td>
+<td></td>
+<td>Internal</td>
+<td>Amount given up.</td>
+</tr>
+<tr>
+<td>event_properties</td>
+<td>to_amount</td>
+<td>integer</td>
+<td>Yes</td>
+<td></td>
+<td>Internal</td>
+<td>Amount received.</td>
+</tr>
+<tr>
+<td>event_properties</td>
+<td>credit_transaction_id</td>
+<td>string</td>
+<td>Yes</td>
+<td></td>
+<td>Internal</td>
+<td>Wallet transaction that credited the received unit.</td>
+</tr>
+<tr>
+<td>event_properties</td>
+<td>refund_transaction_id</td>
+<td>string</td>
+<td>Yes</td>
+<td></td>
+<td>Internal</td>
+<td>Wallet transaction that returned funds after a rejected or reversed withdrawal.</td>
+</tr>
+<tr>
+<td>tasks</td>
+<td>task_id</td>
+<td>string</td>
+<td>Yes</td>
+<td></td>
+<td>Internal</td>
+<td>Identifier of one configured task/offer.</td>
+</tr>
+<tr>
+<td>tasks</td>
+<td>task_type</td>
+<td>enum</td>
+<td>Yes</td>
+<td>watch_ad, survey, app_task, captcha, tap_earn, earning_session, game, social_follow</td>
+<td>Internal</td>
+<td>Kind of task.</td>
+</tr>
+<tr>
+<td>tasks</td>
+<td>feature</td>
+<td>enum</td>
+<td>Yes</td>
+<td>watch_ads, surveys, app_tasks, captcha, tap_earn, earning_session, games, follow_earn, tasks, daily_rewards, spin, missions, badges, level_dashboard, leaderboard, promo_codes, wallet, exchange, withdrawals, referrals, account, onboarding, home, help_center, support</td>
+<td>Internal</td>
+<td>Feature the task is shown in.</td>
+</tr>
+<tr>
+<td>tasks</td>
+<td>fulfilment_source</td>
+<td>enum</td>
+<td>Yes</td>
+<td>veloop_internal, external_partner</td>
+<td>Internal</td>
+<td>Whether completion is decided by VELOOP or by an external partner (ads, surveys, offers).</td>
+</tr>
+<tr>
+<td>tasks</td>
+<td>provider_id</td>
+<td>string</td>
+<td>Conditional</td>
+<td></td>
+<td>Internal</td>
+<td>Pseudonymous identifier of the external partner.</td>
+</tr>
+<tr>
+<td>tasks</td>
+<td>reward_unit</td>
+<td>enum</td>
+<td>Yes</td>
+<td>VE, GEM, XP, TOKEN, SPIN</td>
+<td>Internal</td>
+<td>Unit the task pays in.</td>
+</tr>
+<tr>
+<td>tasks</td>
+<td>reward_amount</td>
+<td>integer</td>
+<td>Yes</td>
+<td></td>
+<td>Internal</td>
+<td>Configured reward amount for one valid completion.</td>
+</tr>
+<tr>
+<td>tasks</td>
+<td>task_config_status</td>
+<td>enum</td>
+<td>Yes</td>
+<td>active, paused, retired</td>
+<td>Internal</td>
+<td>Whether the task is currently offered.</td>
+</tr>
+<tr>
+<td>task_activity</td>
+<td>activity_id</td>
+<td>string</td>
+<td>Yes</td>
+<td></td>
+<td>Internal</td>
+<td>Identifier of one user's attempt at one task, created when the task is started.</td>
+</tr>
+<tr>
+<td>task_activity</td>
+<td>user_id</td>
+<td>string</td>
+<td>Yes</td>
+<td></td>
+<td>Internal</td>
+<td>User attempting the task.</td>
+</tr>
+<tr>
+<td>task_activity</td>
+<td>task_id</td>
+<td>string</td>
+<td>Yes</td>
+<td></td>
+<td>Internal</td>
+<td>Task attempted.</td>
+</tr>
+<tr>
+<td>task_activity</td>
+<td>task_type</td>
+<td>enum</td>
+<td>Yes</td>
+<td>watch_ad, survey, app_task, captcha, tap_earn, earning_session, game, social_follow</td>
+<td>Internal</td>
+<td>Copied from tasks at start time so history survives config changes.</td>
+</tr>
+<tr>
+<td>task_activity</td>
+<td>feature</td>
+<td>enum</td>
+<td>Yes</td>
+<td>watch_ads, surveys, app_tasks, captcha, tap_earn, earning_session, games, follow_earn, tasks, daily_rewards, spin, missions, badges, level_dashboard, leaderboard, promo_codes, wallet, exchange, withdrawals, referrals, account, onboarding, home, help_center, support</td>
+<td>Internal</td>
+<td>Feature where the task was started.</td>
+</tr>
+<tr>
+<td>task_activity</td>
+<td>session_id</td>
+<td>string</td>
+<td>No</td>
+<td></td>
+<td>Internal</td>
+<td>Session in which the task was started.</td>
+</tr>
+<tr>
+<td>task_activity</td>
+<td>started_at_utc</td>
+<td>timestamp</td>
+<td>Yes</td>
+<td></td>
+<td>Internal</td>
+<td>When the user started the task.</td>
+</tr>
+<tr>
+<td>task_activity</td>
+<td>completed_at_utc</td>
+<td>timestamp</td>
+<td>Conditional</td>
+<td></td>
+<td>Internal</td>
+<td>When the user finished the task action (before validation).</td>
+</tr>
+<tr>
+<td>task_activity</td>
+<td>validated_at_utc</td>
+<td>timestamp</td>
+<td>Conditional</td>
+<td></td>
+<td>Internal</td>
+<td>When validation reached a final result.</td>
+</tr>
+<tr>
+<td>task_activity</td>
+<td>activity_status</td>
+<td>enum</td>
+<td>Yes</td>
+<td>in_progress, pending_validation, completed, failed, abandoned</td>
+<td>Internal</td>
+<td>Lifecycle status of the attempt. Describes the activity, not whether a reward was credited.</td>
+</tr>
+<tr>
+<td>task_activity</td>
+<td>validation_status</td>
+<td>enum</td>
+<td>Yes</td>
+<td>pending, passed, failed, not_reached</td>
+<td>Internal</td>
+<td>Result of completion validation.</td>
+</tr>
+<tr>
+<td>task_activity</td>
+<td>failure_category</td>
+<td>enum</td>
+<td>Conditional</td>
+<td>task_failed, tracking_failed, validation_failed, user_abandoned, system_error</td>
+<td>Internal</td>
+<td>Proposed failure classification. Not an internal error code.</td>
+</tr>
+<tr>
+<td>task_activity</td>
+<td>tracking_source</td>
+<td>string</td>
+<td>Yes</td>
+<td></td>
+<td>Internal</td>
+<td>Who reported the completion: 'veloop' or a registered partner code.</td>
+</tr>
+<tr>
+<td>task_activity</td>
+<td>external_reference_id</td>
+<td>string</td>
+<td>Conditional</td>
+<td></td>
+<td>Restricted</td>
+<td>Partner's own transaction reference for the completion (postback ID).</td>
+</tr>
+<tr>
+<td>task_activity</td>
+<td>reward_amount</td>
+<td>integer</td>
+<td>Conditional</td>
+<td></td>
+<td>Internal</td>
+<td>Expected reward amount for the attempt at the time of start.</td>
+</tr>
+<tr>
+<td>task_activity</td>
+<td>reward_unit</td>
+<td>enum</td>
+<td>Conditional</td>
+<td>VE, GEM, XP, TOKEN, SPIN</td>
+<td>Internal</td>
+<td>Unit of reward_amount.</td>
+</tr>
+<tr>
+<td>rewards</td>
+<td>reward_id</td>
+<td>string</td>
+<td>Yes</td>
+<td></td>
+<td>Internal</td>
+<td>Identifier of one reward decision (pending, credited, reversed, corrected).</td>
+</tr>
+<tr>
+<td>rewards</td>
+<td>user_id</td>
+<td>string</td>
+<td>Yes</td>
+<td></td>
+<td>Internal</td>
+<td>User receiving the reward.</td>
+</tr>
+<tr>
+<td>rewards</td>
+<td>source_type</td>
+<td>enum</td>
+<td>Yes</td>
+<td>task, daily_reward, streak, spin, mission, badge, referral, promo_code, leaderboard, manual_adjustment</td>
+<td>Internal</td>
+<td>What generated the reward.</td>
+</tr>
+<tr>
+<td>rewards</td>
+<td>source_id</td>
+<td>string</td>
+<td>Yes</td>
+<td></td>
+<td>Internal</td>
+<td>Identifier of the generating record (activity_id, event_id, referral_id...).</td>
+</tr>
+<tr>
+<td>rewards</td>
+<td>feature</td>
+<td>enum</td>
+<td>Yes</td>
+<td>watch_ads, surveys, app_tasks, captcha, tap_earn, earning_session, games, follow_earn, tasks, daily_rewards, spin, missions, badges, level_dashboard, leaderboard, promo_codes, wallet, exchange, withdrawals, referrals, account, onboarding, home, help_center, support</td>
+<td>Internal</td>
+<td>Feature credited for the reward.</td>
+</tr>
+<tr>
+<td>rewards</td>
+<td>amount</td>
+<td>integer</td>
+<td>Yes</td>
+<td></td>
+<td>Internal</td>
+<td>Amount originally granted or expected.</td>
+</tr>
+<tr>
+<td>rewards</td>
+<td>final_amount</td>
+<td>integer</td>
+<td>Yes</td>
+<td></td>
+<td>Internal</td>
+<td>Amount that stands after corrections or reversal (0 if reversed).</td>
+</tr>
+<tr>
+<td>rewards</td>
+<td>unit</td>
+<td>enum</td>
+<td>Yes</td>
+<td>VE, GEM, XP, TOKEN, SPIN</td>
+<td>Internal</td>
+<td>Unit of the reward.</td>
+</tr>
+<tr>
+<td>rewards</td>
+<td>reward_status</td>
+<td>enum</td>
+<td>Yes</td>
+<td>pending, credited, rejected, reversed, corrected</td>
+<td>Internal</td>
+<td>Current reward state. Distinguishes 'activity occurred' from 'reward actually credited'.</td>
+</tr>
+<tr>
+<td>rewards</td>
+<td>created_at_utc</td>
+<td>timestamp</td>
+<td>Yes</td>
+<td></td>
+<td>Internal</td>
+<td>When the reward record was created.</td>
+</tr>
+<tr>
+<td>rewards</td>
+<td>credited_at_utc</td>
+<td>timestamp</td>
+<td>Conditional</td>
+<td></td>
+<td>Internal</td>
+<td>When the reward was credited to the user.</td>
+</tr>
+<tr>
+<td>rewards</td>
+<td>reversed_at_utc</td>
+<td>timestamp</td>
+<td>Conditional</td>
+<td></td>
+<td>Internal</td>
+<td>When a credited reward was reversed.</td>
+</tr>
+<tr>
+<td>rewards</td>
+<td>reversal_reason_category</td>
+<td>enum</td>
+<td>Conditional</td>
+<td>invalid_activity, tracking_dispute, duplicate_credit, technical_correction, policy_violation</td>
+<td>Restricted</td>
+<td>Reason category for reversal or correction. Not a fraud threshold.</td>
+</tr>
+<tr>
+<td>rewards</td>
+<td>wallet_transaction_id</td>
+<td>string</td>
+<td>Conditional</td>
+<td></td>
+<td>Internal</td>
+<td>Wallet transaction created by crediting this reward (spendable units only).</td>
+</tr>
+<tr>
+<td>rewards</td>
+<td>idempotency_key</td>
+<td>string</td>
+<td>Yes</td>
+<td></td>
+<td>Internal</td>
+<td>Key that guarantees one reward per source event even if the request is retried.</td>
+</tr>
+<tr>
+<td>wallet_transactions</td>
+<td>transaction_id</td>
+<td>string</td>
+<td>Yes</td>
+<td></td>
+<td>Internal</td>
+<td>Identifier of one ledger movement. Never reused.</td>
+</tr>
+<tr>
+<td>wallet_transactions</td>
+<td>user_id</td>
+<td>string</td>
+<td>Yes</td>
+<td></td>
+<td>Internal</td>
+<td>Wallet owner.</td>
+</tr>
+<tr>
+<td>wallet_transactions</td>
+<td>transaction_type</td>
+<td>enum</td>
+<td>Yes</td>
+<td>reward_credit, reversal, adjustment, exchange_debit, exchange_credit, redemption_debit, redemption_refund</td>
+<td>Internal</td>
+<td>Business type of the movement.</td>
+</tr>
+<tr>
+<td>wallet_transactions</td>
+<td>direction</td>
+<td>enum</td>
+<td>Yes</td>
+<td>credit, debit</td>
+<td>Internal</td>
+<td>Whether the balance goes up (credit) or down (debit).</td>
+</tr>
+<tr>
+<td>wallet_transactions</td>
+<td>amount</td>
+<td>integer</td>
+<td>Yes</td>
+<td></td>
+<td>Internal</td>
+<td>Absolute amount moved. Sign is carried by direction.</td>
+</tr>
+<tr>
+<td>wallet_transactions</td>
+<td>unit</td>
+<td>enum</td>
+<td>Yes</td>
+<td>VE, GEM, TOKEN, SPIN</td>
+<td>Internal</td>
+<td>Wallet unit moved.</td>
+</tr>
+<tr>
+<td>wallet_transactions</td>
+<td>transaction_status</td>
+<td>enum</td>
+<td>Yes</td>
+<td>pending, completed, failed, reversed</td>
+<td>Internal</td>
+<td>Current state of the movement.</td>
+</tr>
+<tr>
+<td>wallet_transactions</td>
+<td>reference_type</td>
+<td>enum</td>
+<td>Yes</td>
+<td>reward, withdrawal, exchange, manual_adjustment</td>
+<td>Internal</td>
+<td>Kind of business record that caused the movement.</td>
+</tr>
+<tr>
+<td>wallet_transactions</td>
+<td>reference_id</td>
+<td>string</td>
+<td>Conditional</td>
+<td></td>
+<td>Internal</td>
+<td>Identifier of the causing record (reward_id, withdrawal_id...).</td>
+</tr>
+<tr>
+<td>wallet_transactions</td>
+<td>related_transaction_id</td>
+<td>string</td>
+<td>Conditional</td>
+<td></td>
+<td>Internal</td>
+<td>Original transaction that this one reverses, corrects or pairs with.</td>
+</tr>
+<tr>
+<td>wallet_transactions</td>
+<td>created_at_utc</td>
+<td>timestamp</td>
+<td>Yes</td>
+<td></td>
+<td>Internal</td>
+<td>When the movement was recorded.</td>
+</tr>
+<tr>
+<td>wallet_transactions</td>
+<td>completed_at_utc</td>
+<td>timestamp</td>
+<td>Conditional</td>
+<td></td>
+<td>Internal</td>
+<td>When the movement became final.</td>
+</tr>
+<tr>
+<td>wallet_transactions</td>
+<td>balance_after</td>
+<td>integer</td>
+<td>No</td>
+<td></td>
+<td>Restricted</td>
+<td>Balance of this unit after the movement.</td>
+</tr>
+<tr>
+<td>wallet_transactions</td>
+<td>idempotency_key</td>
+<td>string</td>
+<td>Yes</td>
+<td></td>
+<td>Internal</td>
+<td>Key that prevents the same business action creating two ledger rows.</td>
+</tr>
+<tr>
+<td>withdrawals</td>
+<td>withdrawal_id</td>
+<td>string</td>
+<td>Yes</td>
+<td></td>
+<td>Internal</td>
+<td>Identifier of one withdrawal/redemption request.</td>
+</tr>
+<tr>
+<td>withdrawals</td>
+<td>user_id</td>
+<td>string</td>
+<td>Yes</td>
+<td></td>
+<td>Internal</td>
+<td>Requesting user.</td>
+</tr>
+<tr>
+<td>withdrawals</td>
+<td>amount_inr</td>
+<td>decimal</td>
+<td>Yes</td>
+<td></td>
+<td>Internal</td>
+<td>Requested payout value in Indian rupees.</td>
+</tr>
+<tr>
+<td>withdrawals</td>
+<td>ve_debited</td>
+<td>integer</td>
+<td>Yes</td>
+<td></td>
+<td>Internal</td>
+<td>VEs debited from the wallet for the request.</td>
+</tr>
+<tr>
+<td>withdrawals</td>
+<td>payout_method</td>
+<td>enum</td>
+<td>Yes</td>
+<td>UPI, PayPal, Amazon Gift Card, Google Play Gift Card</td>
+<td>Internal</td>
+<td>Requested payout method.</td>
+</tr>
+<tr>
+<td>withdrawals</td>
+<td>withdrawal_status</td>
+<td>enum</td>
+<td>Yes</td>
+<td>requested, processing, completed, rejected, reversed</td>
+<td>Internal</td>
+<td>Current lifecycle state.</td>
+</tr>
+<tr>
+<td>withdrawals</td>
+<td>requested_at_utc</td>
+<td>timestamp</td>
+<td>Yes</td>
+<td></td>
+<td>Internal</td>
+<td>When the user submitted the request.</td>
+</tr>
+<tr>
+<td>withdrawals</td>
+<td>processing_at_utc</td>
+<td>timestamp</td>
+<td>Conditional</td>
+<td></td>
+<td>Internal</td>
+<td>When review/processing started.</td>
+</tr>
+<tr>
+<td>withdrawals</td>
+<td>final_at_utc</td>
+<td>timestamp</td>
+<td>Conditional</td>
+<td></td>
+<td>Internal</td>
+<td>When the request reached completed, rejected or reversed.</td>
+</tr>
+<tr>
+<td>withdrawals</td>
+<td>reason_category</td>
+<td>enum</td>
+<td>Conditional</td>
+<td>verification_failed, payout_details_invalid, policy_violation, payout_partner_failure</td>
+<td>Restricted</td>
+<td>Reason category for rejection or reversal.</td>
+</tr>
+<tr>
+<td>withdrawals</td>
+<td>review_type</td>
+<td>enum</td>
+<td>No</td>
+<td>system, manual</td>
+<td>Internal</td>
+<td>Whether the request went through system-only or manual review.</td>
+</tr>
+<tr>
+<td>withdrawals</td>
+<td>debit_transaction_id</td>
+<td>string</td>
+<td>Yes</td>
+<td></td>
+<td>Internal</td>
+<td>Wallet redemption_debit created for this request.</td>
+</tr>
+<tr>
+<td>withdrawals</td>
+<td>payout_reference_id</td>
+<td>string</td>
+<td>Conditional</td>
+<td></td>
+<td>Restricted</td>
+<td>Payout partner's reference for the transfer. Never a UPI ID, account number or card number.</td>
+</tr>
+<tr>
+<td>withdrawal_status_history</td>
+<td>status_history_id</td>
+<td>string</td>
+<td>Yes</td>
+<td></td>
+<td>Internal</td>
+<td>Identifier of one withdrawal status transition.</td>
+</tr>
+<tr>
+<td>withdrawal_status_history</td>
+<td>withdrawal_id</td>
+<td>string</td>
+<td>Yes</td>
+<td></td>
+<td>Internal</td>
+<td>Withdrawal that changed status.</td>
+</tr>
+<tr>
+<td>withdrawal_status_history</td>
+<td>from_status</td>
+<td>enum</td>
+<td>Conditional</td>
+<td>requested, processing, completed, rejected, reversed</td>
+<td>Internal</td>
+<td>Status before the transition (blank for creation).</td>
+</tr>
+<tr>
+<td>withdrawal_status_history</td>
+<td>to_status</td>
+<td>enum</td>
+<td>Yes</td>
+<td>requested, processing, completed, rejected, reversed</td>
+<td>Internal</td>
+<td>Status after the transition.</td>
+</tr>
+<tr>
+<td>withdrawal_status_history</td>
+<td>changed_at_utc</td>
+<td>timestamp</td>
+<td>Yes</td>
+<td></td>
+<td>Internal</td>
+<td>When the transition happened.</td>
+</tr>
+<tr>
+<td>referrals</td>
+<td>referral_id</td>
+<td>string</td>
+<td>Yes</td>
+<td></td>
+<td>Internal</td>
+<td>Identifier of one referral relationship.</td>
+</tr>
+<tr>
+<td>referrals</td>
+<td>referrer_user_id</td>
+<td>string</td>
+<td>Yes</td>
+<td></td>
+<td>Internal</td>
+<td>User who referred.</td>
+</tr>
+<tr>
+<td>referrals</td>
+<td>referred_user_id</td>
+<td>string</td>
+<td>Conditional</td>
+<td></td>
+<td>Internal</td>
+<td>User who registered through the referral. Blank until registration.</td>
+</tr>
+<tr>
+<td>referrals</td>
+<td>referral_code</td>
+<td>string</td>
+<td>Yes</td>
+<td></td>
+<td>Internal</td>
+<td>Referrer's code used. Codes are public share codes, not secrets.</td>
+</tr>
+<tr>
+<td>referrals</td>
+<td>referral_channel</td>
+<td>enum</td>
+<td>No</td>
+<td>whatsapp, telegram, copy_link, other</td>
+<td>Internal</td>
+<td>Channel used to share the invite, when known.</td>
+</tr>
+<tr>
+<td>referrals</td>
+<td>referral_status</td>
+<td>enum</td>
+<td>Yes</td>
+<td>created, registered, activated, converted, rejected, expired</td>
+<td>Internal</td>
+<td>Furthest stage reached. Registration alone is NOT conversion.</td>
+</tr>
+<tr>
+<td>referrals</td>
+<td>created_at_utc</td>
+<td>timestamp</td>
+<td>Yes</td>
+<td></td>
+<td>Internal</td>
+<td>When the referral record was created.</td>
+</tr>
+<tr>
+<td>referrals</td>
+<td>registered_at_utc</td>
+<td>timestamp</td>
+<td>Conditional</td>
+<td></td>
+<td>Internal</td>
+<td>When the referred user registered.</td>
+</tr>
+<tr>
+<td>referrals</td>
+<td>activated_at_utc</td>
+<td>timestamp</td>
+<td>Conditional</td>
+<td></td>
+<td>Internal</td>
+<td>When the referred user completed the first eligible activity.</td>
+</tr>
+<tr>
+<td>referrals</td>
+<td>converted_at_utc</td>
+<td>timestamp</td>
+<td>Conditional</td>
+<td></td>
+<td>Internal</td>
+<td>When the referral passed validation and the referral reward was approved.</td>
+</tr>
+<tr>
+<td>referrals</td>
+<td>rejection_reason_category</td>
+<td>enum</td>
+<td>Conditional</td>
+<td>verification_failed, policy_violation</td>
+<td>Restricted</td>
+<td>Why a referral was rejected.</td>
+</tr>
+<tr>
+<td>referrals</td>
+<td>reward_id</td>
+<td>string</td>
+<td>Conditional</td>
+<td></td>
+<td>Internal</td>
+<td>Referral reward issued on conversion.</td>
+</tr>
+<tr>
+<td>missions</td>
+<td>mission_id</td>
+<td>string</td>
+<td>Yes</td>
+<td></td>
+<td>Internal</td>
+<td>Identifier of a configured mission.</td>
+</tr>
+<tr>
+<td>missions</td>
+<td>mission_type</td>
+<td>string</td>
+<td>Yes</td>
+<td></td>
+<td>Internal</td>
+<td>Mission category (daily activity, referral, ads...).</td>
+</tr>
+<tr>
+<td>mission_progress</td>
+<td>mission_progress_id</td>
+<td>string</td>
+<td>Yes</td>
+<td></td>
+<td>Internal</td>
+<td>One user's progress record on one mission.</td>
+</tr>
+<tr>
+<td>mission_progress</td>
+<td>user_id</td>
+<td>string</td>
+<td>Yes</td>
+<td></td>
+<td>Internal</td>
+<td>User working on the mission.</td>
+</tr>
+<tr>
+<td>mission_progress</td>
+<td>mission_id</td>
+<td>string</td>
+<td>Yes</td>
+<td></td>
+<td>Internal</td>
+<td>Mission being progressed.</td>
+</tr>
+<tr>
+<td>mission_progress</td>
+<td>mission_status</td>
+<td>enum</td>
+<td>Yes</td>
+<td>started, completed, expired</td>
+<td>Internal</td>
+<td>User's state on the mission.</td>
+</tr>
+<tr>
+<td>mission_progress</td>
+<td>started_at_utc</td>
+<td>timestamp</td>
+<td>Yes</td>
+<td></td>
+<td>Internal</td>
+<td>When the user started the mission.</td>
+</tr>
+<tr>
+<td>mission_progress</td>
+<td>completed_at_utc</td>
+<td>timestamp</td>
+<td>Conditional</td>
+<td></td>
+<td>Internal</td>
+<td>When all mission conditions were met.</td>
+</tr>
+<tr>
+<td>badges</td>
+<td>badge_id</td>
+<td>string</td>
+<td>Yes</td>
+<td></td>
+<td>Internal</td>
+<td>Identifier of a configured badge.</td>
+</tr>
+<tr>
+<td>badges</td>
+<td>badge_type</td>
+<td>enum</td>
+<td>Yes</td>
+<td>reward, recognition_only</td>
+<td>Internal</td>
+<td>Whether the badge carries a reward or is recognition only.</td>
+</tr>
+<tr>
+<td>user_badges</td>
+<td>user_id</td>
+<td>string</td>
+<td>Yes</td>
+<td></td>
+<td>Internal</td>
+<td>Badge holder. Part of the composite primary key.</td>
+</tr>
+<tr>
+<td>user_badges</td>
+<td>badge_id</td>
+<td>string</td>
+<td>Yes</td>
+<td></td>
+<td>Internal</td>
+<td>Badge earned. Part of the composite primary key.</td>
+</tr>
+<tr>
+<td>user_badges</td>
+<td>earned_at_utc</td>
+<td>timestamp</td>
+<td>Yes</td>
+<td></td>
+<td>Internal</td>
+<td>When the user earned the badge.</td>
+</tr>
+<tr>
+<td>support_tickets</td>
+<td>ticket_id</td>
+<td>string</td>
+<td>Yes</td>
+<td></td>
+<td>Internal</td>
+<td>Identifier of one support request.</td>
+</tr>
+<tr>
+<td>support_tickets</td>
+<td>user_id</td>
+<td>string</td>
+<td>Conditional</td>
+<td></td>
+<td>Internal</td>
+<td>User who raised the request, if known.</td>
+</tr>
+<tr>
+<td>support_tickets</td>
+<td>issue_category</td>
+<td>enum</td>
+<td>Yes</td>
+<td>withdrawal, missing_reward, account_access, account_restriction, referral, technical, privacy_request, other</td>
+<td>Internal</td>
+<td>Agent-assigned issue category.</td>
+</tr>
+<tr>
+<td>support_tickets</td>
+<td>ticket_status</td>
+<td>enum</td>
+<td>Yes</td>
+<td>open, pending_user, resolved, closed</td>
+<td>Internal</td>
+<td>Ticket state.</td>
+</tr>
+<tr>
+<td>support_tickets</td>
+<td>created_at_utc</td>
+<td>timestamp</td>
+<td>Yes</td>
+<td></td>
+<td>Internal</td>
+<td>When the request was received.</td>
+</tr>
+<tr>
+<td>support_tickets</td>
+<td>first_response_at_utc</td>
+<td>timestamp</td>
+<td>Conditional</td>
+<td></td>
+<td>Internal</td>
+<td>First support reply.</td>
+</tr>
+<tr>
+<td>support_tickets</td>
+<td>resolved_at_utc</td>
+<td>timestamp</td>
+<td>Conditional</td>
+<td></td>
+<td>Internal</td>
+<td>When the ticket was resolved.</td>
+</tr>
+<tr>
+<td>support_tickets</td>
+<td>related_entity_type</td>
+<td>enum</td>
+<td>No</td>
+<td>withdrawal, reward, referral, account, other</td>
+<td>Internal</td>
+<td>Business object the ticket is about.</td>
+</tr>
+<tr>
+<td>support_tickets</td>
+<td>related_entity_id</td>
+<td>string</td>
+<td>No</td>
+<td></td>
+<td>Internal</td>
+<td>ID of that object (withdrawal_id, reward_id...).</td>
+</tr>
+<tr>
+<td>content</td>
+<td>content_id</td>
+<td>string</td>
+<td>Yes</td>
+<td></td>
+<td>Public</td>
+<td>Identifier of a help-center article.</td>
+</tr>
+<tr>
+<td>content</td>
+<td>content_category</td>
+<td>enum</td>
+<td>Yes</td>
+<td>getting_started, earning, wallet, withdrawals, safety, future_features, legal</td>
+<td>Public</td>
+<td>Help-center category.</td>
+</tr>
+<tr>
+<td>content</td>
+<td>content_last_updated_date</td>
+<td>date</td>
+<td>No</td>
+<td></td>
+<td>Public</td>
+<td>Last updated date shown on the article.</td>
+</tr>
+</tbody>
+</table></main></div>
+<script>try{var t=localStorage.getItem('t');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script type="module">if(document.querySelector('.mermaid')){const m=await import('https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs');m.default.initialize({startOnLoad:true,theme:'neutral'});m.default.run();}</script>
+</body></html>

@@ -1,0 +1,491 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>19 · Assumption & Verification Register | VELOOP Analytics Task 01</title><style>
+:root{--bg:#f6f8fb;--panel:#fff;--ink:#10233d;--muted:#5a6b7d;--line:#dbe3ee;--accent:#1f3a5f;--accent2:#5b8def;--warn:#7a2e00;--warnbg:#fff4e0}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0f141b;--panel:#161d27;--ink:#e6edf5;--muted:#9aa9ba;--line:#2a3544;--accent:#9db8f2;--accent2:#7ea4f5;--warn:#ffcf99;--warnbg:#2b2214}}
+:root[data-theme="dark"]{--bg:#0f141b;--panel:#161d27;--ink:#e6edf5;--muted:#9aa9ba;--line:#2a3544;--accent:#9db8f2;--accent2:#7ea4f5;--warn:#ffcf99;--warnbg:#2b2214}
+*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+a{color:var(--accent2)}.wrap{display:grid;grid-template-columns:280px minmax(0,1fr);min-height:100vh}
+nav{background:var(--panel);border-right:1px solid var(--line);padding:20px 14px;position:sticky;top:0;height:100vh;overflow:auto}
+nav .brand{font-weight:800;font-size:16px;margin:0 6px 14px}nav a{display:block;padding:6px 8px;border-radius:6px;color:var(--ink);text-decoration:none;font-size:13.5px}
+nav a:hover,nav a.on{background:var(--bg);color:var(--accent2)}main{padding:32px 40px;max-width:1200px;min-width:0}
+h1{font-size:28px;line-height:1.25;margin-top:0}h2{margin-top:36px;border-bottom:1px solid var(--line);padding-bottom:6px}h3{margin-top:26px}
+table{border-collapse:collapse;width:100%;font-size:13px;margin:14px 0;display:block;overflow-x:auto}
+th,td{border:1px solid var(--line);padding:6px 9px;text-align:left;vertical-align:top}th{background:var(--accent);color:#fff;position:sticky;top:0}
+:root[data-theme="dark"] th{color:#0f141b}tr:nth-child(even) td{background:color-mix(in srgb,var(--panel) 92%,var(--accent2))}
+blockquote{margin:16px 0;padding:12px 16px;background:var(--warnbg);border-left:4px solid var(--warn);color:var(--warn);border-radius:6px}
+code{background:color-mix(in srgb,var(--panel) 80%,var(--accent2));padding:1px 5px;border-radius:4px;font-size:12.5px}
+pre{background:var(--panel);border:1px solid var(--line);padding:14px;border-radius:8px;overflow:auto}pre code{background:none;padding:0}
+img{max-width:100%;height:auto;background:#fff;border:1px solid var(--line);border-radius:8px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px;margin:18px 0}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px;text-decoration:none;color:var(--ink)}
+.card b{display:block;margin-bottom:4px}.card span{color:var(--muted);font-size:13px}
+.stats{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin:18px 0}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px}.stat b{font-size:24px;display:block;color:var(--accent2)}
+.stat span{font-size:12.5px;color:var(--muted)}.toggle{margin:12px 6px 0;font-size:12px;background:none;border:1px solid var(--line);color:var(--ink);border-radius:6px;padding:4px 8px;cursor:pointer}
+@media print{nav{display:none}.wrap{display:block}main{max-width:none;padding:0}th{position:static}table{display:table;font-size:10.5px}h2{break-after:avoid}}
+@media (max-width:860px){.wrap{grid-template-columns:1fr}nav{position:static;height:auto;max-height:200px;border-right:0;border-bottom:1px solid var(--line)}main{padding:20px 16px}}
+</style></head><body><div class="wrap"><nav>
+<div class="brand"><a href="index.html" style="padding:0;color:inherit">VELOOP Analytics Blueprint</a></div>
+<a class="" href="index.html">Overview</a><a class='' href='01_Executive_Summary.html'>01 · Executive Summary</a><a class='' href='02_Product_Data_Audit.html'>02 · Product Data Readiness Audit</a><a class='' href='03_Data_Coverage_Matrix.html'>03 · Data Coverage Matrix</a><a class='' href='04_User_Analytics_Specification.html'>04 · User & Account Analytics Specification</a><a class='' href='05_Earning_Reward_Analytics_Specification.html'>05 · Earning & Reward Analytics Specification</a><a class='' href='06_Wallet_Withdrawal_Analytics_Specification.html'>06 · Wallet & Withdrawal Analytics Specification</a><a class='' href='07_Referral_Engagement_Analytics.html'>07 · Referral & Engagement Analytics</a><a class='' href='08_Event_Tracking_Plan.html'>08 · Event Tracking Plan</a><a class='' href='09_Data_Dictionary.html'>09 · Data Dictionary</a><a class='' href='10_Logical_Data_Model.html'>10 · Logical Data Model</a><a class='' href='11_KPI_Catalogue.html'>11 · KPI Catalogue</a><a class='' href='12_Simulated_Data_Profiling.html'>12 · Simulated Data Profiling: Findings</a><a class='' href='13_Data_Quality_Audit.html'>13 · Data Quality Audit: Report</a><a class='' href='14_Dashboard_Blueprint.html'>14 · Analytics Dashboard Blueprint</a><a class='' href='15_Developer_Analytics_Handoff.html'>15 · Developer Analytics Handoff</a><a class='' href='16_Data_Pipeline_Proposal.html'>16 · Data Pipeline & Operating Model</a><a class='' href='17_Privacy_Governance_Proposal.html'>17 · Data Access, Privacy & Governance Proposal</a><a class='' href='18_Analytics_Readiness_Assessment.html'>18 · Analytics Readiness Assessment</a><a class='on' href='19_Assumption_Verification_Register.html'>19 · Assumption & Verification Register</a><a class='' href='20_Implementation_Backlog.html'>20 · Implementation Backlog</a><a class='' href='21_Final_Consolidated_Report.html'>21 · Final Consolidated Report</a><a href="downloads.html" class="">Downloads</a>
+<button class="toggle" onclick="var r=document.documentElement;r.dataset.theme=(r.dataset.theme==='dark'?'light':'dark');try{localStorage.setItem('t',r.dataset.theme)}catch(e){}">Toggle theme</button>
+</nav><main><h1>19 · Assumption &amp; Verification Register</h1>
+<p>Spreadsheet: <a href="files/19_Assumption_Verification_Register.xlsx"><code>19_Assumption_Verification_Register.xlsx</code></a>. It records 27 open questions and 17 sources.</p>
+<h2>Assumption &amp; Verification Register</h2>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>unknown</th>
+<th>why_it_matters</th>
+<th>source_checked</th>
+<th>risk</th>
+<th>verification</th>
+<th>owner</th>
+<th>status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A-001</td>
+<td>Does the backend or frontend currently emit ANY analytics events (task, reward, wallet, withdrawal)?</td>
+<td>Every event in deliverable 08 is proposed until this is known.</td>
+<td>Help center, brief</td>
+<td>High</td>
+<td>Engineering walkthrough of current logging</td>
+<td>Engineering</td>
+<td>To Be Verified</td>
+</tr>
+<tr>
+<td>A-002</td>
+<td>Which features are live in production today (vs help-page only)?</td>
+<td>Instrumentation priority and coverage matrix status.</td>
+<td>Help center, homepage</td>
+<td>High</td>
+<td>Product owner confirms feature list</td>
+<td>Product</td>
+<td>To Be Verified</td>
+</tr>
+<tr>
+<td>A-003</td>
+<td>Is user_id stable, opaque and never reused? What is its real format?</td>
+<td>All joins depend on it.</td>
+<td>Supplied data (simulated format only)</td>
+<td>High</td>
+<td>Inspect auth/account schema</td>
+<td>Engineering</td>
+<td>To Be Verified</td>
+</tr>
+<tr>
+<td>A-004</td>
+<td>Timezone of stored timestamps (supplied data has none; assumed IST).</td>
+<td>Daily KPIs shift by 5.5 h if wrong.</td>
+<td>Supplied data; daily-reward page uses IST</td>
+<td>High</td>
+<td>Check DB column types and server TZ</td>
+<td>Engineering</td>
+<td>To Be Verified</td>
+</tr>
+<tr>
+<td>A-005</td>
+<td>Is there a stored event_id / idempotency key on rewards and wallet writes?</td>
+<td>Without it duplicate credits cannot be detected reliably.</td>
+<td>None found</td>
+<td>High</td>
+<td>Engineering review of reward and wallet services</td>
+<td>Engineering</td>
+<td>To Be Verified</td>
+</tr>
+<tr>
+<td>A-006</td>
+<td>Does a wallet ledger (one row per movement) exist, or only balances?</td>
+<td>Wallet KPIs and reconciliation need a ledger.</td>
+<td>Wallet help page mentions 'balance movement'</td>
+<td>High</td>
+<td>Inspect wallet tables</td>
+<td>Engineering</td>
+<td>To Be Verified</td>
+</tr>
+<tr>
+<td>A-007</td>
+<td>Session definition and inactivity timeout.</td>
+<td>Sessions, returning users, session duration.</td>
+<td>None found</td>
+<td>Medium</td>
+<td>Agree definition (proposal: 30 min inactivity)</td>
+<td>Engineering + Data</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>A-008</td>
+<td>Can 'Pending Verification' users have sessions without a login record?</td>
+<td>Explains DQ-C03 (72 users).</td>
+<td>Supplied data</td>
+<td>Medium</td>
+<td>Product confirms rule</td>
+<td>Product</td>
+<td>To Be Verified</td>
+</tr>
+<tr>
+<td>A-009</td>
+<td>Is email verification required for an account to be Active?</td>
+<td>Explains DQ-C08 (42 users).</td>
+<td>Supplied data</td>
+<td>Low</td>
+<td>Product confirms rule</td>
+<td>Product</td>
+<td>To Be Verified</td>
+</tr>
+<tr>
+<td>A-010</td>
+<td>VE, Gem and Token conversion rates to INR, and their effective dates.</td>
+<td>Reward liability in INR cannot be computed (K-RWD-02 INR).</td>
+<td>Help center: rates 'set by the platform', not published</td>
+<td>High</td>
+<td>Finance provides rate table with history</td>
+<td>Finance / Founder</td>
+<td>To Be Verified</td>
+</tr>
+<tr>
+<td>A-011</td>
+<td>Real withdrawal statuses and reason codes used by operations.</td>
+<td>D2 lifecycle and K-WDR-04 categories are proposed.</td>
+<td>Withdrawal help pages</td>
+<td>High</td>
+<td>Operations shares current workflow</td>
+<td>Operations</td>
+<td>To Be Verified</td>
+</tr>
+<tr>
+<td>A-012</td>
+<td>Is XP stored in the wallet ledger or only on the profile?</td>
+<td>Decides whether XP rows belong in wallet_transactions.</td>
+<td>Currencies page: XP is progression</td>
+<td>Medium</td>
+<td>Engineering confirms</td>
+<td>Engineering</td>
+<td>Proposed (assumed: not in wallet)</td>
+</tr>
+<tr>
+<td>A-013</td>
+<td>Abandonment timeout for a started task (how long before 'abandoned').</td>
+<td>K-ENG-05 depends on it.</td>
+<td>None found</td>
+<td>Medium</td>
+<td>Product/engineering agree per task type</td>
+<td>Product + Engineering</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>A-014</td>
+<td>Which ad/survey/offer partners are used and what callbacks (postbacks) they send.</td>
+<td>Third-party tracking reliability (C4).</td>
+<td>Privacy policy names partner categories only</td>
+<td>High</td>
+<td>Engineering lists partners and callback fields</td>
+<td>Engineering</td>
+<td>To Be Verified</td>
+</tr>
+<tr>
+<td>A-015</td>
+<td>Approved reason categories for reward reversal and withdrawal rejection.</td>
+<td>Proposed categories may not match operations.</td>
+<td>Help pages list reasons in prose</td>
+<td>Medium</td>
+<td>Operations + Trust &amp; Safety review</td>
+<td>Operations</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>A-016</td>
+<td>When is a referral record created: at share, at link click, or at registration?</td>
+<td>K-REF-01 meaning.</td>
+<td>Referral page</td>
+<td>Medium</td>
+<td>Engineering confirms flow</td>
+<td>Engineering</td>
+<td>To Be Verified</td>
+</tr>
+<tr>
+<td>A-017</td>
+<td>What counts as the 'first eligible activity' for referral activation?</td>
+<td>K-REF-03 definition.</td>
+<td>Referral page ('may need')</td>
+<td>Medium</td>
+<td>Product defines</td>
+<td>Product</td>
+<td>To Be Verified</td>
+</tr>
+<tr>
+<td>A-018</td>
+<td>Is a mobile app live? Homepage says 'Get Soon The App'; supplied platform is 100% Web.</td>
+<td>Platform dimension and SDK choice.</td>
+<td>Homepage, supplied data</td>
+<td>Medium</td>
+<td>Product confirms</td>
+<td>Product</td>
+<td>To Be Verified</td>
+</tr>
+<tr>
+<td>A-019</td>
+<td>Is support handled in a ticketing tool or only by email?</td>
+<td>Support KPIs need structured tickets.</td>
+<td>Help center lists Gmail addresses</td>
+<td>Medium</td>
+<td>Operations confirms</td>
+<td>Operations</td>
+<td>To Be Verified</td>
+</tr>
+<tr>
+<td>A-020</td>
+<td>What happens to a balance when a reward is reversed after the VEs were already withdrawn (negative balance allowed? debt? write-off?).</td>
+<td>Ledger rules and reversal KPIs. Simulated data shows 5 users go negative (check S08).</td>
+<td>Gems/currency pages mention reversal and forfeit, not negative balances</td>
+<td>High</td>
+<td>Finance + Product policy</td>
+<td>Finance / Product</td>
+<td>To Be Verified</td>
+</tr>
+<tr>
+<td>A-021</td>
+<td>Homepage figures (1,570,253+ users, 1,500,470+ paid out): source and definition.</td>
+<td>Must not be used as metrics; conflict with the brief.</td>
+<td>Homepage</td>
+<td>High</td>
+<td>Founder confirms whether these are real, demo or placeholder</td>
+<td>Founder</td>
+<td>To Be Verified</td>
+</tr>
+<tr>
+<td>A-022</td>
+<td>Crypto wallet payouts and 'Staking' link on homepage vs UPI/PayPal/gift cards on help center.</td>
+<td>Payout method allowed values.</td>
+<td>Homepage vs withdrawal page</td>
+<td>Medium</td>
+<td>Founder confirms current payout methods</td>
+<td>Founder</td>
+<td>To Be Verified</td>
+</tr>
+<tr>
+<td>A-023</td>
+<td>Reference date and logic used to derive is_active_7d/30d and days_since_registration in the supplied data (inferred 2026-09-15 00:00, login-based).</td>
+<td>Reproducibility of activity flags.</td>
+<td>Supplied data (reverse-engineered)</td>
+<td>Low</td>
+<td>Dataset owner confirms</td>
+<td>Dataset owner</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>A-024</td>
+<td>Data retention period for raw events and personal data.</td>
+<td>Storage design and privacy.</td>
+<td>Privacy policy: 'as long as reasonably necessary'</td>
+<td>Medium</td>
+<td>Legal/founder sets periods</td>
+<td>Founder / Legal</td>
+<td>To Be Verified</td>
+</tr>
+<tr>
+<td>A-025</td>
+<td>Which analytics/BI tools VELOOP already uses (if any).</td>
+<td>Pipeline proposal should reuse existing tools.</td>
+<td>Privacy policy mentions analytics tools generically</td>
+<td>Medium</td>
+<td>Engineering lists current stack</td>
+<td>Engineering</td>
+<td>To Be Verified</td>
+</tr>
+<tr>
+<td>A-026</td>
+<td>Is promo-code text sensitive (shared publicly) or single-use secrets?</td>
+<td>Whether promo_code_id is enough.</td>
+<td>Promo code page</td>
+<td>Low</td>
+<td>Product confirms</td>
+<td>Product</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>A-027</td>
+<td>Which email address is the official channel for this assignment (velooprewardsofficial@ vs velooprewardsteam@)?</td>
+<td>Correct submission/support channel.</td>
+<td>Email vs help center</td>
+<td>Low</td>
+<td>Ask in reply email</td>
+<td>Intern</td>
+<td>To Be Verified</td>
+</tr>
+</tbody>
+</table>
+<h2>Source &amp; Verification Register (section 6)</h2>
+<table>
+<thead>
+<tr>
+<th>source_id</th>
+<th>information</th>
+<th>source</th>
+<th>source_type</th>
+<th>date_checked</th>
+<th>status</th>
+<th>notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SRC-01</td>
+<td>Task brief: deliverables, rules, minimum events, KPI areas, dataset expectations.</td>
+<td>Data_Analyst_01.pdf (VELOOP Rewards, Task 01)</td>
+<td>Internal</td>
+<td>2026-10-01</td>
+<td>Confirmed</td>
+<td>Sections 1, 3 and 4 are missing from the PDF (numbering jumps 2 -&gt; 5). No explicit calendar deadline in the PDF; duration stated as 22-24 days and 22-25 days in two places.</td>
+</tr>
+<tr>
+<td>SRC-02</td>
+<td>Assignment email: GitHub repo + README, deploy on Vercel/Netlify, submit both links.</td>
+<td>Email from VELOOP Rewards (Ayan Alam), 12:46 PM</td>
+<td>Internal</td>
+<td>2026-10-01</td>
+<td>Confirmed</td>
+<td>Email is addressed to 'Anurag'. Support email given as velooprewardsofficial@gmail.com, which differs from the help-center address (SRC-12).</td>
+</tr>
+<tr>
+<td>SRC-03</td>
+<td>Supplied dataset: Users_1000_Clean (1,000 x 27), Users_Messy_Audit (1,008 x 28), Data_Dictionary (25 fields), Synthetic_Summary, README_Data_Status.</td>
+<td>VELoop_Rewards_Data_01.xlsx (Google Drive folder in brief)</td>
+<td>Simulated</td>
+<td>2026-10-01</td>
+<td>Confirmed</td>
+<td>Only Users data supplied. Task Activity, Rewards, Wallet, Withdrawals, Referrals, Feature Events and Messy Data sheets expected by the brief are absent.</td>
+</tr>
+<tr>
+<td>SRC-04</td>
+<td>Platform currencies: VEs (main reward credits), XP (progression), Gems (exchangeable), Tokens (selected purchases/actions), Spins (wheel). Virtual credits, not bank balances.</td>
+<td>https://www.velooprewards.in/help-center/getting-started/platform-currencies</td>
+<td>Official</td>
+<td>2026-10-01</td>
+<td>Confirmed</td>
+<td>Published policy. Conversion rates not published.</td>
+</tr>
+<tr>
+<td>SRC-05</td>
+<td>Withdrawals: minimum Rs. 10; methods UPI, PayPal, Amazon Gift Cards, Google Play Gift Cards; usually within 24 h, up to 72 h in review cases.</td>
+<td>https://www.velooprewards.in/help-center/withdrawals/how-withdrawals-work</td>
+<td>Official</td>
+<td>2026-10-01</td>
+<td>Confirmed</td>
+<td>Last updated May 23, 2026. Methods 'may vary based on user eligibility, region, payout partner support'.</td>
+</tr>
+<tr>
+<td>SRC-06</td>
+<td>Reward verification is 'manual and system-based'; rewards/withdrawals may be delayed, rejected or reversed; may apply before or after a reward is granted.</td>
+<td>https://www.velooprewards.in/help-center/withdrawals/reward-verification</td>
+<td>Official</td>
+<td>2026-10-01</td>
+<td>Confirmed</td>
+<td>No thresholds published; none are invented here (integrity rule 4).</td>
+</tr>
+<tr>
+<td>SRC-07</td>
+<td>Watch Ads: rewards depend on partner tracking; users should wait ~15 minutes for tracking; third-party failures may prevent credit.</td>
+<td>https://www.velooprewards.in/help-center/earning/watch-ads</td>
+<td>Official</td>
+<td>2026-10-01</td>
+<td>Confirmed</td>
+<td>Supports C4 third-party dependency design.</td>
+</tr>
+<tr>
+<td>SRC-08</td>
+<td>Daily Check-In claim window 00:00-23:59 IST; missing a window may reset the streak.</td>
+<td>https://www.velooprewards.in/help-center/earning/daily-rewards</td>
+<td>Official</td>
+<td>2026-10-01</td>
+<td>Confirmed</td>
+<td>Basis for IST reporting day.</td>
+</tr>
+<tr>
+<td>SRC-09</td>
+<td>Referral reward is fixed; referred user may need to complete a first eligible activity and pass verification before reward approval.</td>
+<td>https://www.velooprewards.in/help-center/safety/referral-rewards</td>
+<td>Official</td>
+<td>2026-10-01</td>
+<td>Confirmed</td>
+<td>Supports registered != converted distinction.</td>
+</tr>
+<tr>
+<td>SRC-10</td>
+<td>Earning Session ('Mine &amp; earn') lasts up to 1 h 30 min; simulated mechanic, not crypto mining or staking.</td>
+<td>https://www.velooprewards.in/help-center/earning/mining-rewards</td>
+<td>Official</td>
+<td>2026-10-01</td>
+<td>Confirmed</td>
+<td>Conflicts with homepage footer link 'Staking' (SRC-14).</td>
+</tr>
+<tr>
+<td>SRC-11</td>
+<td>Live help topics: watch ads, daily rewards, mine &amp; earn, tap &amp; earn, captcha, streaks, spin, missions &amp; badges, levels, leaderboard, follow &amp; earn, wallet, Gems Exchange, Swap Center, withdrawals, referrals, promo codes. Future (not live): Lucky Draw, Team Battle, Referral Milestones, Collect Cards, Surprise Rewards, Mystery Rewards.</td>
+<td>https://www.velooprewards.in/help-center</td>
+<td>Official</td>
+<td>2026-10-01</td>
+<td>Confirmed</td>
+<td>A help page existing does not prove the feature is implemented or instrumented.</td>
+</tr>
+<tr>
+<td>SRC-12</td>
+<td>Support email velooprewardsteam@gmail.com; business/legal veloop.ifratech@gmail.com; base Ramgarh, Jharkhand, India; reply 24-48 h (pages) vs 24-72 h (help-center header).</td>
+<td>https://www.velooprewards.in/help-center</td>
+<td>Official</td>
+<td>2026-10-01</td>
+<td>To Be Verified</td>
+<td>Reply time stated two ways; homepage lists business@veloop.com; email lists velooprewardsofficial@gmail.com.</td>
+</tr>
+<tr>
+<td>SRC-13</td>
+<td>Privacy policy: collects name, email, login credentials, device identifiers, IP, approximate location, Google login signals, reward/withdrawal records, cookies and ad events; shares with ad, offerwall, payout partners.</td>
+<td>https://www.velooprewards.in/privacy-policy</td>
+<td>Official</td>
+<td>2026-10-01</td>
+<td>Confirmed</td>
+<td>Last updated May 18, 2026. Basis for governance proposal (deliverable 17).</td>
+</tr>
+<tr>
+<td>SRC-14</td>
+<td>Homepage claims 'Registered Users 1 570 253+', 'Total Paid Out 1 500 470+', crypto-wallet payouts, sign-up with Google/Facebook/Apple/crypto wallet, 'Get Soon The App', footer link 'Staking', copyright 2025.</td>
+<td>https://www.velooprewards.in/</td>
+<td>Official</td>
+<td>2026-10-01</td>
+<td>To Be Verified</td>
+<td>NOT used as data. Conflicts with brief (VELOOP 'does not have the volume of production data') and with help pages (UPI/PayPal/gift cards; mining page says no staking).</td>
+</tr>
+<tr>
+<td>SRC-15</td>
+<td>Missions and badges: badges may carry a reward or be recognition-only; rewards usually verified automatically after valid completion.</td>
+<td>https://www.velooprewards.in/help-center/earning/missions-and-badges</td>
+<td>Official</td>
+<td>2026-10-01</td>
+<td>Confirmed</td>
+<td></td>
+</tr>
+<tr>
+<td>SRC-16</td>
+<td>Gems Exchange Center: Gems convert to supported credits such as VEs at platform-set rates; exchanges may be reversed if invalid.</td>
+<td>https://www.velooprewards.in/help-center/wallet/gems-exchange-center</td>
+<td>Official</td>
+<td>2026-10-01</td>
+<td>Confirmed</td>
+<td>Rates not published.</td>
+</tr>
+<tr>
+<td>SRC-17</td>
+<td>Companion simulated datasets (Task_Activity, Rewards, Wallet, Withdrawals, Referrals, Feature_Events, Messy_Data, Tasks, Sessions).</td>
+<td>data/simulated/ (scripts/generate_companion_data.py, seed 20260915)</td>
+<td>Simulated</td>
+<td>2026-10-01</td>
+<td>Confirmed</td>
+<td>Created by the analyst under section 28; labelled 'SIMULATED DATA — CREATED FOR ANALYTICAL TESTING'. Not VELOOP data.</td>
+</tr>
+</tbody>
+</table></main></div>
+<script>try{var t=localStorage.getItem('t');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script type="module">if(document.querySelector('.mermaid')){const m=await import('https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs');m.default.initialize({startOnLoad:true,theme:'neutral'});m.default.run();}</script>
+</body></html>

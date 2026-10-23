@@ -1,0 +1,45 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='1160' height='630' viewBox='0 0 1160 630'>
+<rect width='100%' height='100%' fill='#F6F8FB'/>
+<text x='30' y='40' font-size='22' font-weight='700' fill='#10233D' font-family='Inter, Helvetica, Arial, sans-serif'>Dashboard 6 Withdrawals</text>
+<text x='30' y='64' font-size='12' fill='#7A2E00' font-family='Inter, Helvetica, Arial, sans-serif'>WIREFRAME. Layout only, no data. Production data only (data_environment = production). Shows 'data as of' time.</text>
+<rect x='30' y='78' width='1100' height='30' rx='6' fill='white' stroke='#C9D7F7'/>
+<text x='42' y='98' font-size='12' fill='#33475B' font-family='Inter, Helvetica, Arial, sans-serif'>Filters: Date range | payout_method | review_type   ·   Data as of: [timestamp]</text>
+<rect x='30' y='122' width='540' height='230' rx='10' fill='white' stroke='#C9D7F7'/>
+<text x='44' y='146' font-size='14' font-weight='700' fill='#10233D' font-family='Inter, Helvetica, Arial, sans-serif'>Requests and status</text>
+<text x='44' y='164' font-size='11' fill='#5A6B7D' font-family='Inter, Helvetica, Arial, sans-serif'>K-WDR-01, K-WDR-02, K-WDR-04, K-WDR-05 · Stacked column · refresh Hourly</text>
+<rect x='56.0' y='275.0' width='63.71428571428571' height='27.0' fill='#9DB8F2'/>
+<rect x='125.71428571428571' y='235.85' width='63.71428571428571' height='66.15' fill='#9DB8F2'/>
+<rect x='195.42857142857142' y='270.95' width='63.71428571428571' height='31.05' fill='#9DB8F2'/>
+<rect x='265.1428571428571' y='231.8' width='63.71428571428571' height='70.2' fill='#9DB8F2'/>
+<rect x='334.85714285714283' y='266.9' width='63.71428571428571' height='35.1' fill='#9DB8F2'/>
+<rect x='404.57142857142856' y='227.75' width='63.71428571428571' height='74.25' fill='#9DB8F2'/>
+<rect x='474.2857142857143' y='262.85' width='63.71428571428571' height='39.15' fill='#9DB8F2'/>
+<text x='44' y='338' font-size='11' fill='#33475B' font-family='Inter, Helvetica, Arial, sans-serif'>Q: How many payouts succeed?</text>
+<rect x='590' y='122' width='540' height='230' rx='10' fill='white' stroke='#C9D7F7'/>
+<text x='604' y='146' font-size='14' font-weight='700' fill='#10233D' font-family='Inter, Helvetica, Arial, sans-serif'>Processing duration</text>
+<text x='604' y='164' font-size='11' fill='#5A6B7D' font-family='Inter, Helvetica, Arial, sans-serif'>K-WDR-06, K-WDR-10 · Line + reference line at published 72 h · refresh Daily</text>
+<polyline points='614.0,297.0 668.6666666666666,236.56666666666666 723.3333333333334,274.1333333333333 778.0,213.7 832.6666666666666,251.26666666666665 887.3333333333333,288.8333333333333 942.0,228.4 996.6666666666667,265.96666666666664 1051.3333333333333,205.53333333333333 1106.0,243.1' fill='none' stroke='#5B8DEF' stroke-width='2.5'/>
+<text x='604' y='338' font-size='11' fill='#33475B' font-family='Inter, Helvetica, Arial, sans-serif'>Q: Are we meeting the published window?</text>
+<rect x='30' y='372' width='540' height='230' rx='10' fill='white' stroke='#C9D7F7'/>
+<text x='44' y='396' font-size='14' font-weight='700' fill='#10233D' font-family='Inter, Helvetica, Arial, sans-serif'>Pending queue</text>
+<text x='44' y='414' font-size='11' fill='#5A6B7D' font-family='Inter, Helvetica, Arial, sans-serif'>K-WDR-03 · Aged bar · refresh Hourly</text>
+<rect x='56.0' y='525.0' width='63.71428571428571' height='27.0' fill='#9DB8F2'/>
+<rect x='125.71428571428571' y='485.85' width='63.71428571428571' height='66.15' fill='#9DB8F2'/>
+<rect x='195.42857142857142' y='520.95' width='63.71428571428571' height='31.05' fill='#9DB8F2'/>
+<rect x='265.1428571428571' y='481.8' width='63.71428571428571' height='70.2' fill='#9DB8F2'/>
+<rect x='334.85714285714283' y='516.9' width='63.71428571428571' height='35.1' fill='#9DB8F2'/>
+<rect x='404.57142857142856' y='477.75' width='63.71428571428571' height='74.25' fill='#9DB8F2'/>
+<rect x='474.2857142857143' y='512.85' width='63.71428571428571' height='39.15' fill='#9DB8F2'/>
+<text x='44' y='588' font-size='11' fill='#33475B' font-family='Inter, Helvetica, Arial, sans-serif'>Q: What needs action now?</text>
+<rect x='590' y='372' width='540' height='230' rx='10' fill='white' stroke='#C9D7F7'/>
+<text x='604' y='396' font-size='14' font-weight='700' fill='#10233D' font-family='Inter, Helvetica, Arial, sans-serif'>Payout methods</text>
+<text x='604' y='414' font-size='11' fill='#5A6B7D' font-family='Inter, Helvetica, Arial, sans-serif'>K-WDR-09 · Bar · refresh Weekly</text>
+<rect x='616.0' y='525.0' width='63.71428571428571' height='27.0' fill='#9DB8F2'/>
+<rect x='685.7142857142857' y='485.85' width='63.71428571428571' height='66.15' fill='#9DB8F2'/>
+<rect x='755.4285714285714' y='520.95' width='63.71428571428571' height='31.05' fill='#9DB8F2'/>
+<rect x='825.1428571428571' y='481.8' width='63.71428571428571' height='70.2' fill='#9DB8F2'/>
+<rect x='894.8571428571429' y='516.9' width='63.71428571428571' height='35.1' fill='#9DB8F2'/>
+<rect x='964.5714285714286' y='477.75' width='63.71428571428571' height='74.25' fill='#9DB8F2'/>
+<rect x='1034.2857142857142' y='512.85' width='63.71428571428571' height='39.15' fill='#9DB8F2'/>
+<text x='604' y='588' font-size='11' fill='#33475B' font-family='Inter, Helvetica, Arial, sans-serif'>Q: Which methods cause problems?</text>
+</svg>

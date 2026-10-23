@@ -1,0 +1,251 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>17 · Data Access, Privacy & Governance Proposal | VELOOP Analytics Task 01</title><style>
+:root{--bg:#f6f8fb;--panel:#fff;--ink:#10233d;--muted:#5a6b7d;--line:#dbe3ee;--accent:#1f3a5f;--accent2:#5b8def;--warn:#7a2e00;--warnbg:#fff4e0}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0f141b;--panel:#161d27;--ink:#e6edf5;--muted:#9aa9ba;--line:#2a3544;--accent:#9db8f2;--accent2:#7ea4f5;--warn:#ffcf99;--warnbg:#2b2214}}
+:root[data-theme="dark"]{--bg:#0f141b;--panel:#161d27;--ink:#e6edf5;--muted:#9aa9ba;--line:#2a3544;--accent:#9db8f2;--accent2:#7ea4f5;--warn:#ffcf99;--warnbg:#2b2214}
+*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+a{color:var(--accent2)}.wrap{display:grid;grid-template-columns:280px minmax(0,1fr);min-height:100vh}
+nav{background:var(--panel);border-right:1px solid var(--line);padding:20px 14px;position:sticky;top:0;height:100vh;overflow:auto}
+nav .brand{font-weight:800;font-size:16px;margin:0 6px 14px}nav a{display:block;padding:6px 8px;border-radius:6px;color:var(--ink);text-decoration:none;font-size:13.5px}
+nav a:hover,nav a.on{background:var(--bg);color:var(--accent2)}main{padding:32px 40px;max-width:1200px;min-width:0}
+h1{font-size:28px;line-height:1.25;margin-top:0}h2{margin-top:36px;border-bottom:1px solid var(--line);padding-bottom:6px}h3{margin-top:26px}
+table{border-collapse:collapse;width:100%;font-size:13px;margin:14px 0;display:block;overflow-x:auto}
+th,td{border:1px solid var(--line);padding:6px 9px;text-align:left;vertical-align:top}th{background:var(--accent);color:#fff;position:sticky;top:0}
+:root[data-theme="dark"] th{color:#0f141b}tr:nth-child(even) td{background:color-mix(in srgb,var(--panel) 92%,var(--accent2))}
+blockquote{margin:16px 0;padding:12px 16px;background:var(--warnbg);border-left:4px solid var(--warn);color:var(--warn);border-radius:6px}
+code{background:color-mix(in srgb,var(--panel) 80%,var(--accent2));padding:1px 5px;border-radius:4px;font-size:12.5px}
+pre{background:var(--panel);border:1px solid var(--line);padding:14px;border-radius:8px;overflow:auto}pre code{background:none;padding:0}
+img{max-width:100%;height:auto;background:#fff;border:1px solid var(--line);border-radius:8px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px;margin:18px 0}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px;text-decoration:none;color:var(--ink)}
+.card b{display:block;margin-bottom:4px}.card span{color:var(--muted);font-size:13px}
+.stats{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin:18px 0}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px}.stat b{font-size:24px;display:block;color:var(--accent2)}
+.stat span{font-size:12.5px;color:var(--muted)}.toggle{margin:12px 6px 0;font-size:12px;background:none;border:1px solid var(--line);color:var(--ink);border-radius:6px;padding:4px 8px;cursor:pointer}
+@media print{nav{display:none}.wrap{display:block}main{max-width:none;padding:0}th{position:static}table{display:table;font-size:10.5px}h2{break-after:avoid}}
+@media (max-width:860px){.wrap{grid-template-columns:1fr}nav{position:static;height:auto;max-height:200px;border-right:0;border-bottom:1px solid var(--line)}main{padding:20px 16px}}
+</style></head><body><div class="wrap"><nav>
+<div class="brand"><a href="index.html" style="padding:0;color:inherit">VELOOP Analytics Blueprint</a></div>
+<a class="" href="index.html">Overview</a><a class='' href='01_Executive_Summary.html'>01 · Executive Summary</a><a class='' href='02_Product_Data_Audit.html'>02 · Product Data Readiness Audit</a><a class='' href='03_Data_Coverage_Matrix.html'>03 · Data Coverage Matrix</a><a class='' href='04_User_Analytics_Specification.html'>04 · User & Account Analytics Specification</a><a class='' href='05_Earning_Reward_Analytics_Specification.html'>05 · Earning & Reward Analytics Specification</a><a class='' href='06_Wallet_Withdrawal_Analytics_Specification.html'>06 · Wallet & Withdrawal Analytics Specification</a><a class='' href='07_Referral_Engagement_Analytics.html'>07 · Referral & Engagement Analytics</a><a class='' href='08_Event_Tracking_Plan.html'>08 · Event Tracking Plan</a><a class='' href='09_Data_Dictionary.html'>09 · Data Dictionary</a><a class='' href='10_Logical_Data_Model.html'>10 · Logical Data Model</a><a class='' href='11_KPI_Catalogue.html'>11 · KPI Catalogue</a><a class='' href='12_Simulated_Data_Profiling.html'>12 · Simulated Data Profiling: Findings</a><a class='' href='13_Data_Quality_Audit.html'>13 · Data Quality Audit: Report</a><a class='' href='14_Dashboard_Blueprint.html'>14 · Analytics Dashboard Blueprint</a><a class='' href='15_Developer_Analytics_Handoff.html'>15 · Developer Analytics Handoff</a><a class='' href='16_Data_Pipeline_Proposal.html'>16 · Data Pipeline & Operating Model</a><a class='on' href='17_Privacy_Governance_Proposal.html'>17 · Data Access, Privacy & Governance Proposal</a><a class='' href='18_Analytics_Readiness_Assessment.html'>18 · Analytics Readiness Assessment</a><a class='' href='19_Assumption_Verification_Register.html'>19 · Assumption & Verification Register</a><a class='' href='20_Implementation_Backlog.html'>20 · Implementation Backlog</a><a class='' href='21_Final_Consolidated_Report.html'>21 · Final Consolidated Report</a><a href="downloads.html" class="">Downloads</a>
+<button class="toggle" onclick="var r=document.documentElement;r.dataset.theme=(r.dataset.theme==='dark'?'light':'dark');try{localStorage.setItem('t',r.dataset.theme)}catch(e){}">Toggle theme</button>
+</nav><main><h1>17 · Data Access, Privacy &amp; Governance Proposal</h1>
+<blockquote>
+<p><strong>Status:</strong> proposed specification. No event, field, table or KPI in this document has been verified as implemented in VELOOP production (see Assumption A-001). Facts taken from official VELOOP pages cite a source ID from the Source &amp; Verification Register (deliverable 19).</p>
+</blockquote>
+<p>VELOOP's own privacy policy (SRC-13) says it collects identity data, device identifiers, IP address, approximate location, login signals, reward and withdrawal records, and ad-tracking data, and shares some of it with ad, offerwall and payout partners. The analytics layer should use <strong>as little of that as possible</strong>.</p>
+<h2>Principles</h2>
+<ol>
+<li><strong>Pseudonymous analytics.</strong> Analytics tables are keyed on <code>user_id</code> only. Identity data (name, email, phone) stays in the account/auth system.</li>
+<li><strong>Minimisation.</strong> A field enters analytics only if the dictionary (09) names its analytical use. This removes <code>full_name</code>, <code>email</code>, exact <code>age</code>, <code>gender</code> and <code>city</code> from the supplied structure (DQ-C10).</li>
+<li><strong>Consent respected in data.</strong> <code>marketing_opt_in</code> can only be true when <code>consent_status = accepted</code> (DQ-C04, QC-10).</li>
+<li><strong>Environment separation.</strong> Simulated, staging and production data are labelled (<code>data_environment</code>) and never mixed (brief rule 12).</li>
+<li><strong>No security internals in analytics.</strong> Reason categories are allowed. Fraud thresholds, detection rules and device-fingerprint logic are not (brief rule 4).</li>
+<li><strong>Retention.</strong> Raw events and personal data are kept only as long as VELOOP's legal and operational needs require. The periods must be set by VELOOP (A-024). The analyst does not invent them.</li>
+</ol>
+<h2>Access model</h2>
+<table>
+<thead>
+<tr>
+<th>role</th>
+<th>access</th>
+<th>purpose</th>
+<th>restriction</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Engineering</td>
+<td>Raw events, business tables, quarantine</td>
+<td>Technical event implementation and debugging</td>
+<td>Restricted fields only in production systems, never in exports</td>
+</tr>
+<tr>
+<td>Data Analyst</td>
+<td>Approved analytical datasets (pseudonymous) + quarantine summaries</td>
+<td>KPI computation, quality monitoring</td>
+<td>No names, emails, payout details</td>
+</tr>
+<tr>
+<td>Product / Operations</td>
+<td>Dashboards and aggregated tables; operations queue views for withdrawals with withdrawal_id only</td>
+<td>Business reporting and operations</td>
+<td>Aggregates; record-level only where operationally needed</td>
+</tr>
+<tr>
+<td>Finance</td>
+<td>Wallet, withdrawal and reward aggregates; reconciliation exceptions</td>
+<td>Liability and payout tracking</td>
+<td>No credentials or payout account details</td>
+</tr>
+<tr>
+<td>Content Team</td>
+<td>Aggregated help-center and feature engagement</td>
+<td>Content performance</td>
+<td>Aggregates only, minimum group size 10</td>
+</tr>
+<tr>
+<td>Intern</td>
+<td>Only approved, sanitised or simulated datasets</td>
+<td>Learning and analysis tasks</td>
+<td>No production personal data</td>
+</tr>
+<tr>
+<td>Partners (ad/offer/payout)</td>
+<td>Nothing from the analytics layer</td>
+<td>n/a</td>
+<td>Data sharing only through engineering integrations under the privacy policy</td>
+</tr>
+</tbody>
+</table>
+<h2>Sensitivity classes</h2>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Examples</th>
+<th>Rule</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Public</td>
+<td>Help-center content IDs and categories</td>
+<td>No restriction</td>
+</tr>
+<tr>
+<td>Internal</td>
+<td>user_id, events, statuses, amounts</td>
+<td>Role-based access; pseudonymous</td>
+</tr>
+<tr>
+<td>Restricted</td>
+<td>state_region, age_band, reason categories, external/payout reference IDs, balance_after</td>
+<td>Named roles only; aggregated outputs with a minimum group size of 10</td>
+</tr>
+<tr>
+<td>Never in analytics</td>
+<td>See list below</td>
+<td>Must not leave the source system</td>
+</tr>
+</tbody>
+</table>
+<h2>Information that must never be exposed in analytics</h2>
+<ul>
+<li>Passwords and password hashes</li>
+<li>Authentication secrets, session tokens, OAuth tokens</li>
+<li>API keys and partner secrets</li>
+<li>Payment credentials: UPI IDs, bank account numbers, card numbers, PayPal login</li>
+<li>Private credentials of staff or users</li>
+<li>Sensitive security controls: fraud thresholds, detection rules, device-fingerprint logic</li>
+<li>Full names and email addresses in analytics tables</li>
+<li>Precise location and IP addresses in analytics tables</li>
+<li>Government ID or KYC documents (if ever collected)</li>
+</ul>
+<h2>Requests from users</h2>
+<p>The privacy policy offers access, correction and deletion (SRC-13). Analytics must support deletion: a deleted <code>user_id</code> is removed from, or irreversibly anonymised in, analytics tables within the same retention cycle, and the action is logged in the change log.</p>
+<h2>Work Package Q: analytics change management</h2>
+<table>
+<thead>
+<tr>
+<th>when</th>
+<th>what_to_do</th>
+<th>owner</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A feature changes</td>
+<td>Update coverage matrix row; add/retire events; bump schema_version of affected events; note affected KPIs.</td>
+<td>Product</td>
+</tr>
+<tr>
+<td>An event changes</td>
+<td>New schema_version; old and new versions accepted in parallel for a transition window; transformation maps both.</td>
+<td>Engineering</td>
+</tr>
+<tr>
+<td>A reward mechanic changes</td>
+<td>Log effective date; KPIs compare only like-for-like periods; annotate dashboards.</td>
+<td>Product + Finance</td>
+</tr>
+<tr>
+<td>A withdrawal method changes</td>
+<td>Update payout_method allowed values with effective date; historic values kept.</td>
+<td>Operations</td>
+</tr>
+<tr>
+<td>A field is renamed</td>
+<td>Add new field, backfill, deprecate old after one release; never rename in place.</td>
+<td>Engineering + Data</td>
+</tr>
+<tr>
+<td>A KPI definition changes</td>
+<td>New KPI version (e.g. K-USR-02 v2); restate history or show break line; founder approval.</td>
+<td>Data/Analytics + Founder</td>
+</tr>
+<tr>
+<td>A dashboard changes</td>
+<td>Change log entry; screenshot before/after; notify stakeholders.</td>
+<td>Data/Analytics</td>
+</tr>
+</tbody>
+</table>
+<h3>Metric/Event Change Log</h3>
+<table>
+<thead>
+<tr>
+<th>date</th>
+<th>change</th>
+<th>old_definition</th>
+<th>new_definition</th>
+<th>reason</th>
+<th>affected_kpis</th>
+<th>affected_dashboards</th>
+<th>affected_reports</th>
+<th>owner</th>
+<th>version</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2026-10-01</td>
+<td>Initial analytics specification v1.0 (this submission)</td>
+<td>None (no documented tracking plan)</td>
+<td>46 proposed events, 53 KPIs, 17-entity model, 181-field dictionary</td>
+<td>Task 01 foundation</td>
+<td>All</td>
+<td>All (blueprint)</td>
+<td>None yet</td>
+<td>Data Analyst (intern)</td>
+<td>1.0.0</td>
+</tr>
+<tr>
+<td>2026-10-01</td>
+<td>EXAMPLE: DAU definition</td>
+<td>Supplied is_active flags: login within N days of 2026-09-15 00:00</td>
+<td>K-USR-02: qualifying activity event per IST day</td>
+<td>Logins without activity overstate engagement; reference date undocumented</td>
+<td>K-USR-02, K-USR-03, K-USR-04, K-USR-05</td>
+<td>1, 2</td>
+<td>Weekly founder update</td>
+<td>Data/Analytics</td>
+<td>1.0.0</td>
+</tr>
+<tr>
+<td>YYYY-MM-DD</td>
+<td>TEMPLATE: event field renamed</td>
+<td>old_field</td>
+<td>new_field (old kept until vX)</td>
+<td>reason</td>
+<td>list</td>
+<td>list</td>
+<td>list</td>
+<td>owner</td>
+<td>x.y.z</td>
+</tr>
+</tbody>
+</table>
+<p>Process: proposer fills a change-log row, the data owner reviews the impact on KPIs and dashboards, the founder approves KPI definition changes, engineering ships with a new <code>schema_version</code>, and the dashboards are annotated on the effective date.</p></main></div>
+<script>try{var t=localStorage.getItem('t');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script type="module">if(document.querySelector('.mermaid')){const m=await import('https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs');m.default.initialize({startOnLoad:true,theme:'neutral'});m.default.run();}</script>
+</body></html>

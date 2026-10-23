@@ -1,0 +1,695 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>12 · Simulated Data Profiling: Findings | VELOOP Analytics Task 01</title><style>
+:root{--bg:#f6f8fb;--panel:#fff;--ink:#10233d;--muted:#5a6b7d;--line:#dbe3ee;--accent:#1f3a5f;--accent2:#5b8def;--warn:#7a2e00;--warnbg:#fff4e0}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0f141b;--panel:#161d27;--ink:#e6edf5;--muted:#9aa9ba;--line:#2a3544;--accent:#9db8f2;--accent2:#7ea4f5;--warn:#ffcf99;--warnbg:#2b2214}}
+:root[data-theme="dark"]{--bg:#0f141b;--panel:#161d27;--ink:#e6edf5;--muted:#9aa9ba;--line:#2a3544;--accent:#9db8f2;--accent2:#7ea4f5;--warn:#ffcf99;--warnbg:#2b2214}
+*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+a{color:var(--accent2)}.wrap{display:grid;grid-template-columns:280px minmax(0,1fr);min-height:100vh}
+nav{background:var(--panel);border-right:1px solid var(--line);padding:20px 14px;position:sticky;top:0;height:100vh;overflow:auto}
+nav .brand{font-weight:800;font-size:16px;margin:0 6px 14px}nav a{display:block;padding:6px 8px;border-radius:6px;color:var(--ink);text-decoration:none;font-size:13.5px}
+nav a:hover,nav a.on{background:var(--bg);color:var(--accent2)}main{padding:32px 40px;max-width:1200px;min-width:0}
+h1{font-size:28px;line-height:1.25;margin-top:0}h2{margin-top:36px;border-bottom:1px solid var(--line);padding-bottom:6px}h3{margin-top:26px}
+table{border-collapse:collapse;width:100%;font-size:13px;margin:14px 0;display:block;overflow-x:auto}
+th,td{border:1px solid var(--line);padding:6px 9px;text-align:left;vertical-align:top}th{background:var(--accent);color:#fff;position:sticky;top:0}
+:root[data-theme="dark"] th{color:#0f141b}tr:nth-child(even) td{background:color-mix(in srgb,var(--panel) 92%,var(--accent2))}
+blockquote{margin:16px 0;padding:12px 16px;background:var(--warnbg);border-left:4px solid var(--warn);color:var(--warn);border-radius:6px}
+code{background:color-mix(in srgb,var(--panel) 80%,var(--accent2));padding:1px 5px;border-radius:4px;font-size:12.5px}
+pre{background:var(--panel);border:1px solid var(--line);padding:14px;border-radius:8px;overflow:auto}pre code{background:none;padding:0}
+img{max-width:100%;height:auto;background:#fff;border:1px solid var(--line);border-radius:8px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px;margin:18px 0}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px;text-decoration:none;color:var(--ink)}
+.card b{display:block;margin-bottom:4px}.card span{color:var(--muted);font-size:13px}
+.stats{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin:18px 0}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px}.stat b{font-size:24px;display:block;color:var(--accent2)}
+.stat span{font-size:12.5px;color:var(--muted)}.toggle{margin:12px 6px 0;font-size:12px;background:none;border:1px solid var(--line);color:var(--ink);border-radius:6px;padding:4px 8px;cursor:pointer}
+@media print{nav{display:none}.wrap{display:block}main{max-width:none;padding:0}th{position:static}table{display:table;font-size:10.5px}h2{break-after:avoid}}
+@media (max-width:860px){.wrap{grid-template-columns:1fr}nav{position:static;height:auto;max-height:200px;border-right:0;border-bottom:1px solid var(--line)}main{padding:20px 16px}}
+</style></head><body><div class="wrap"><nav>
+<div class="brand"><a href="index.html" style="padding:0;color:inherit">VELOOP Analytics Blueprint</a></div>
+<a class="" href="index.html">Overview</a><a class='' href='01_Executive_Summary.html'>01 · Executive Summary</a><a class='' href='02_Product_Data_Audit.html'>02 · Product Data Readiness Audit</a><a class='' href='03_Data_Coverage_Matrix.html'>03 · Data Coverage Matrix</a><a class='' href='04_User_Analytics_Specification.html'>04 · User & Account Analytics Specification</a><a class='' href='05_Earning_Reward_Analytics_Specification.html'>05 · Earning & Reward Analytics Specification</a><a class='' href='06_Wallet_Withdrawal_Analytics_Specification.html'>06 · Wallet & Withdrawal Analytics Specification</a><a class='' href='07_Referral_Engagement_Analytics.html'>07 · Referral & Engagement Analytics</a><a class='' href='08_Event_Tracking_Plan.html'>08 · Event Tracking Plan</a><a class='' href='09_Data_Dictionary.html'>09 · Data Dictionary</a><a class='' href='10_Logical_Data_Model.html'>10 · Logical Data Model</a><a class='' href='11_KPI_Catalogue.html'>11 · KPI Catalogue</a><a class='on' href='12_Simulated_Data_Profiling.html'>12 · Simulated Data Profiling: Findings</a><a class='' href='13_Data_Quality_Audit.html'>13 · Data Quality Audit: Report</a><a class='' href='14_Dashboard_Blueprint.html'>14 · Analytics Dashboard Blueprint</a><a class='' href='15_Developer_Analytics_Handoff.html'>15 · Developer Analytics Handoff</a><a class='' href='16_Data_Pipeline_Proposal.html'>16 · Data Pipeline & Operating Model</a><a class='' href='17_Privacy_Governance_Proposal.html'>17 · Data Access, Privacy & Governance Proposal</a><a class='' href='18_Analytics_Readiness_Assessment.html'>18 · Analytics Readiness Assessment</a><a class='' href='19_Assumption_Verification_Register.html'>19 · Assumption & Verification Register</a><a class='' href='20_Implementation_Backlog.html'>20 · Implementation Backlog</a><a class='' href='21_Final_Consolidated_Report.html'>21 · Final Consolidated Report</a><a href="downloads.html" class="">Downloads</a>
+<button class="toggle" onclick="var r=document.documentElement;r.dataset.theme=(r.dataset.theme==='dark'?'light':'dark');try{localStorage.setItem('t',r.dataset.theme)}catch(e){}">Toggle theme</button>
+</nav><main><h1>12 · Simulated Data Profiling: Findings</h1>
+<blockquote>
+<p><strong>SIMULATED DATA NOTICE.</strong> Every number below that describes data comes from fictional datasets (supplied by VELOOP for this task, or generated by the analyst and labelled "SIMULATED DATA — CREATED FOR ANALYTICAL TESTING"). None of it describes actual VELOOP users, earnings, withdrawals, revenue, retention, conversion or performance.</p>
+</blockquote>
+<p>Workbook: <a href="files/12_Simulated_Data_Profiling.xlsx"><code>12_Simulated_Data_Profiling.xlsx</code></a>. It is produced by <code>scripts/profile_data.py</code>.</p>
+<h2>The most important finding: the supplied workbook contains only Users data</h2>
+<p>The brief (sections 16 and 28) expects eight sheets: Users, Task Activity, Rewards, Wallet, Withdrawals, Referrals, Feature Events and Messy Data. The supplied <code>VELoop_Rewards_Data_01.xlsx</code> contains <strong>Users_1000_Clean</strong> (1000 rows × 27 columns), <strong>Users_Messy_Audit</strong> (1008 × 28), a 25-row Data_Dictionary, Synthetic_Summary and README_Data_Status.</p>
+<p>What was done about it:
+1. The supplied sheets were profiled and audited in full. Every Synthetic_Summary metric reconciles exactly: all 8 of 8 match.
+2. Under section 28 ("they may also create additional simulated data if required"), the missing datasets were generated with a fixed seed, anchored to the 1,000 supplied user IDs, and every row was labelled <code>SIMULATED DATA — CREATED FOR ANALYTICAL TESTING</code>. The method is documented in <code>data/simulated/GENERATION_METHODOLOGY.md</code>.
+3. J2 records that the relationship tests on <strong>supplied</strong> data are NOT TESTABLE (6 tests), because the child tables do not exist. Results on generated data show the model works. They do not show that VELOOP data is clean.</p>
+<h2>J1 Dataset summary</h2>
+<table>
+<thead>
+<tr>
+<th>dataset</th>
+<th>origin</th>
+<th>records</th>
+<th>columns</th>
+<th>unique_ids</th>
+<th>duplicate_ids</th>
+<th>exact_duplicate_rows</th>
+<th>missing_cells</th>
+<th>date_min</th>
+<th>date_max</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Users_1000_Clean</td>
+<td>Supplied</td>
+<td>1000</td>
+<td>27</td>
+<td>1000</td>
+<td>0</td>
+<td>0</td>
+<td>953</td>
+<td>2026-04-01 02:10:00</td>
+<td>2026-09-17 10:08:00</td>
+</tr>
+<tr>
+<td>Users_Messy_Audit</td>
+<td>Supplied</td>
+<td>1008</td>
+<td>28</td>
+<td>1000</td>
+<td>8</td>
+<td>8</td>
+<td>965</td>
+<td>2026-04-01 02:10:00</td>
+<td>2026-09-17 10:08:00</td>
+</tr>
+<tr>
+<td>Task_Activity</td>
+<td>Analyst-generated</td>
+<td>6000</td>
+<td>15</td>
+<td>6000</td>
+<td>0</td>
+<td>0</td>
+<td>10701</td>
+<td>2026-04-03 10:44:50</td>
+<td>2026-09-15 18:28:00</td>
+</tr>
+<tr>
+<td>Rewards</td>
+<td>Analyst-generated</td>
+<td>5651</td>
+<td>15</td>
+<td>5651</td>
+<td>0</td>
+<td>0</td>
+<td>12037</td>
+<td>2026-04-04 03:17:14</td>
+<td>2026-09-15 18:28:00</td>
+</tr>
+<tr>
+<td>Wallet</td>
+<td>Analyst-generated</td>
+<td>6656</td>
+<td>13</td>
+<td>6656</td>
+<td>0</td>
+<td>0</td>
+<td>6517</td>
+<td>2026-04-05 12:58:11</td>
+<td>2026-09-15 18:29:59</td>
+</tr>
+<tr>
+<td>Withdrawals</td>
+<td>Analyst-generated</td>
+<td>1200</td>
+<td>12</td>
+<td>1200</td>
+<td>0</td>
+<td>0</td>
+<td>1148</td>
+<td>2026-04-18 19:07:27</td>
+<td>2026-09-15 18:25:01</td>
+</tr>
+<tr>
+<td>Referrals</td>
+<td>Analyst-generated</td>
+<td>900</td>
+<td>12</td>
+<td>900</td>
+<td>0</td>
+<td>0</td>
+<td>4076</td>
+<td>2026-04-01 16:05:56</td>
+<td>2026-09-15 16:32:15</td>
+</tr>
+<tr>
+<td>Feature_Events</td>
+<td>Analyst-generated</td>
+<td>12000</td>
+<td>8</td>
+<td>12000</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>2026-04-03 22:37:19</td>
+<td>2026-09-15 18:29:59</td>
+</tr>
+<tr>
+<td>Messy_Data</td>
+<td>Analyst-generated</td>
+<td>522</td>
+<td>11</td>
+<td>517</td>
+<td>5</td>
+<td>0</td>
+<td>504</td>
+<td>2026-04-05 12:36:00</td>
+<td>2026-09-15 14:11:48</td>
+</tr>
+<tr>
+<td>Tasks</td>
+<td>Analyst-generated (helper)</td>
+<td>40</td>
+<td>7</td>
+<td>40</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Sessions</td>
+<td>Analyst-generated (helper)</td>
+<td>11649</td>
+<td>4</td>
+<td>11649</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>2026-04-03 10:28:10</td>
+<td>2026-09-15 18:29:59</td>
+</tr>
+</tbody>
+</table>
+<p>Missing cells in analyst-generated tables are mostly <strong>conditional blanks by design</strong>: for example, <code>completed_at_utc</code> is empty for abandoned tasks and <code>referred_user_id</code> is empty until registration. They are not defects. The per-column profile in the workbook separates them.</p>
+<p>Notes on generated volumes compared with the brief's approximate targets: Rewards 5,651 (target about 5,000) and Wallet 6,656 (target about 3,500). The wallet is larger because the ledger must hold one row for <strong>every</strong> balance movement: each credited VE/GEM reward, each reversal and correction, each redemption and refund, and each exchange pair. Cutting rows to hit 3,500 would break the reconciliation the model is meant to prove.</p>
+<h2>J2 Relationship tests</h2>
+<table>
+<thead>
+<tr>
+<th>test_id</th>
+<th>child</th>
+<th>parent</th>
+<th>child_rows_tested</th>
+<th>orphans</th>
+<th>result</th>
+<th>note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R00a</td>
+<td>Task Activity.user_id (supplied)</td>
+<td>Users_1000_Clean.user_id</td>
+<td>0</td>
+<td>0</td>
+<td>NOT TESTABLE</td>
+<td>Supplied workbook has no Task Activity sheet.</td>
+</tr>
+<tr>
+<td>R00b</td>
+<td>Rewards.user_id (supplied)</td>
+<td>Users_1000_Clean.user_id</td>
+<td>0</td>
+<td>0</td>
+<td>NOT TESTABLE</td>
+<td>Supplied workbook has no Rewards sheet.</td>
+</tr>
+<tr>
+<td>R00c</td>
+<td>Wallet.user_id (supplied)</td>
+<td>Users_1000_Clean.user_id</td>
+<td>0</td>
+<td>0</td>
+<td>NOT TESTABLE</td>
+<td>Supplied workbook has no Wallet sheet.</td>
+</tr>
+<tr>
+<td>R00d</td>
+<td>Withdrawals.user_id (supplied)</td>
+<td>Users_1000_Clean.user_id</td>
+<td>0</td>
+<td>0</td>
+<td>NOT TESTABLE</td>
+<td>Supplied workbook has no Withdrawals sheet.</td>
+</tr>
+<tr>
+<td>R00e</td>
+<td>Referrals.user_id (supplied)</td>
+<td>Users_1000_Clean.user_id</td>
+<td>0</td>
+<td>0</td>
+<td>NOT TESTABLE</td>
+<td>Supplied workbook has no Referrals sheet; Users has no referrer field.</td>
+</tr>
+<tr>
+<td>R00f</td>
+<td>Feature Events.user_id (supplied)</td>
+<td>Users_1000_Clean.user_id</td>
+<td>0</td>
+<td>0</td>
+<td>NOT TESTABLE</td>
+<td>Supplied workbook has no Feature Events sheet.</td>
+</tr>
+<tr>
+<td>R01</td>
+<td>Users_Messy_Audit.user_id</td>
+<td>Users_1000_Clean.user_id</td>
+<td>1008</td>
+<td>0</td>
+<td>PASS</td>
+<td>Supplied audit sheet against supplied clean sheet.</td>
+</tr>
+<tr>
+<td>R02</td>
+<td>Task_Activity.user_id</td>
+<td>Users_1000_Clean.user_id</td>
+<td>6000</td>
+<td>0</td>
+<td>PASS</td>
+<td></td>
+</tr>
+<tr>
+<td>R03</td>
+<td>Rewards.user_id</td>
+<td>Users_1000_Clean.user_id</td>
+<td>5651</td>
+<td>0</td>
+<td>PASS</td>
+<td></td>
+</tr>
+<tr>
+<td>R04</td>
+<td>Wallet.user_id</td>
+<td>Users_1000_Clean.user_id</td>
+<td>6656</td>
+<td>0</td>
+<td>PASS</td>
+<td></td>
+</tr>
+<tr>
+<td>R05</td>
+<td>Withdrawals.user_id</td>
+<td>Users_1000_Clean.user_id</td>
+<td>1200</td>
+<td>0</td>
+<td>PASS</td>
+<td></td>
+</tr>
+<tr>
+<td>R06</td>
+<td>Referrals.referrer_user_id</td>
+<td>Users_1000_Clean.user_id</td>
+<td>900</td>
+<td>0</td>
+<td>PASS</td>
+<td></td>
+</tr>
+<tr>
+<td>R07</td>
+<td>Referrals.referred_user_id</td>
+<td>Users_1000_Clean.user_id</td>
+<td>119</td>
+<td>0</td>
+<td>PASS</td>
+<td></td>
+</tr>
+<tr>
+<td>R08</td>
+<td>Feature_Events.user_id</td>
+<td>Users_1000_Clean.user_id</td>
+<td>12000</td>
+<td>0</td>
+<td>PASS</td>
+<td></td>
+</tr>
+<tr>
+<td>R09</td>
+<td>Sessions.user_id</td>
+<td>Users_1000_Clean.user_id</td>
+<td>11649</td>
+<td>0</td>
+<td>PASS</td>
+<td></td>
+</tr>
+<tr>
+<td>R10</td>
+<td>Task_Activity.task_id</td>
+<td>Tasks.task_id</td>
+<td>6000</td>
+<td>0</td>
+<td>PASS</td>
+<td></td>
+</tr>
+<tr>
+<td>R11</td>
+<td>Task_Activity.session_id</td>
+<td>Sessions.session_id</td>
+<td>6000</td>
+<td>0</td>
+<td>PASS</td>
+<td></td>
+</tr>
+<tr>
+<td>R12</td>
+<td>Feature_Events.session_id</td>
+<td>Sessions.session_id</td>
+<td>12000</td>
+<td>0</td>
+<td>PASS</td>
+<td></td>
+</tr>
+<tr>
+<td>R13</td>
+<td>Rewards.source_id</td>
+<td>Task_Activity.activity_id</td>
+<td>3882</td>
+<td>0</td>
+<td>PASS</td>
+<td></td>
+</tr>
+<tr>
+<td>R14</td>
+<td>Rewards.source_id</td>
+<td>Feature_Events.event_id</td>
+<td>1681</td>
+<td>0</td>
+<td>PASS</td>
+<td></td>
+</tr>
+<tr>
+<td>R15</td>
+<td>Rewards.source_id</td>
+<td>Referrals.referral_id</td>
+<td>88</td>
+<td>0</td>
+<td>PASS</td>
+<td></td>
+</tr>
+<tr>
+<td>R16</td>
+<td>Rewards.wallet_transaction_id</td>
+<td>Wallet.transaction_id</td>
+<td>4803</td>
+<td>0</td>
+<td>PASS</td>
+<td></td>
+</tr>
+<tr>
+<td>R17</td>
+<td>Wallet.related_transaction_id</td>
+<td>Wallet.transaction_id</td>
+<td>552</td>
+<td>0</td>
+<td>PASS</td>
+<td></td>
+</tr>
+<tr>
+<td>R18</td>
+<td>Wallet.reference_id</td>
+<td>Rewards.reward_id</td>
+<td>5111</td>
+<td>0</td>
+<td>PASS</td>
+<td></td>
+</tr>
+<tr>
+<td>R19</td>
+<td>Wallet.reference_id</td>
+<td>Withdrawals.withdrawal_id</td>
+<td>1343</td>
+<td>0</td>
+<td>PASS</td>
+<td></td>
+</tr>
+<tr>
+<td>R20</td>
+<td>Withdrawals.debit_transaction_id</td>
+<td>Wallet.transaction_id</td>
+<td>1200</td>
+<td>0</td>
+<td>PASS</td>
+<td></td>
+</tr>
+<tr>
+<td>R21</td>
+<td>Messy_Data.user_id</td>
+<td>Users_1000_Clean.user_id</td>
+<td>516</td>
+<td>6</td>
+<td>FAIL</td>
+<td>Orphans expected: injected defect.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>test_id</th>
+<th>check</th>
+<th>violations</th>
+<th>rows_tested</th>
+<th>result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>S01</td>
+<td>Task activity starts on or after the user's registration</td>
+<td>0</td>
+<td>6000</td>
+<td>PASS</td>
+</tr>
+<tr>
+<td>S02</td>
+<td>Feature events on or after the user's registration</td>
+<td>0</td>
+<td>12000</td>
+<td>PASS</td>
+</tr>
+<tr>
+<td>S03</td>
+<td>No task activity for 'Pending Verification' users (they have no login)</td>
+<td>0</td>
+<td>6000</td>
+<td>PASS</td>
+</tr>
+<tr>
+<td>S04</td>
+<td>Every supplied user with acquisition_source = Referral can be linked to a referrer (only in companion data)</td>
+<td>0</td>
+<td>119</td>
+<td>PASS</td>
+</tr>
+<tr>
+<td>S05</td>
+<td>No self-referrals</td>
+<td>0</td>
+<td>900</td>
+<td>PASS</td>
+</tr>
+<tr>
+<td>S06</td>
+<td>Every credited/reversed/corrected VE or GEM reward has a wallet credit</td>
+<td>0</td>
+<td>4803</td>
+<td>PASS</td>
+</tr>
+<tr>
+<td>S07</td>
+<td>Every withdrawal has exactly one redemption debit</td>
+<td>0</td>
+<td>1200</td>
+<td>PASS</td>
+</tr>
+<tr>
+<td>S08</td>
+<td>Simulated VE running balance never negative (a negative balance means a reward was reversed after its VEs were redeemed)</td>
+<td>5</td>
+<td>829</td>
+<td>FLAG (kept on purpose, see A-020)</td>
+</tr>
+<tr>
+<td>S09</td>
+<td>Withdrawal timestamps ordered: requested &lt;= processing &lt;= final</td>
+<td>0</td>
+<td>1200</td>
+<td>PASS</td>
+</tr>
+<tr>
+<td>S10</td>
+<td>Task timestamps ordered: started &lt;= completed</td>
+<td>0</td>
+<td>6000</td>
+<td>PASS</td>
+</tr>
+<tr>
+<td>S11</td>
+<td>Reward timestamps ordered: created &lt;= credited &lt;= reversed</td>
+<td>0</td>
+<td>5651</td>
+<td>PASS</td>
+</tr>
+<tr>
+<td>S12</td>
+<td>Referral timestamps ordered: created &lt;= registered &lt;= activated &lt;= converted</td>
+<td>0</td>
+<td>900</td>
+<td>PASS</td>
+</tr>
+<tr>
+<td>S13</td>
+<td>Wallet timestamps ordered: created &lt;= completed</td>
+<td>0</td>
+<td>6656</td>
+<td>PASS</td>
+</tr>
+</tbody>
+</table>
+<p>Problems documented:
+* <strong>R00a–R00f: not testable on supplied data.</strong> There are no child tables.
+* <strong>No referrer link in supplied Users.</strong> <code>referral_source_detail</code> only says "Friend/Family", so the 119 referral-acquired users cannot be connected to whoever referred them (gap G02). The companion Referrals table shows the structure that fixes this.
+* <strong>R21 fails on purpose.</strong> Messy_Data contains 6 injected orphan user IDs.
+* <strong>S08 is flagged on purpose.</strong> When a reward is reversed after its VEs were withdrawn, the simulated balance goes negative for 5 users. VELOOP needs a policy for this (A-020).</p>
+<h2>J3 Can the proposed KPIs be calculated from the supplied structure?</h2>
+<table>
+<thead>
+<tr>
+<th>kpi_id</th>
+<th>kpi</th>
+<th>computable_from_supplied</th>
+<th>why</th>
+<th>additional_data_required</th>
+<th>result_on_simulated_data</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>K-USR-01</td>
+<td>New Registrations</td>
+<td>Yes</td>
+<td>registration_datetime exists, one row per user_id.</td>
+<td>Timezone of registration_datetime (assumed IST, A-004).</td>
+<td>1000 registrations between 2026-04-01 and 2026-09-15</td>
+</tr>
+<tr>
+<td>K-USR-02</td>
+<td>Daily Active Users</td>
+<td>No</td>
+<td>Supplied data has only last_login_datetime (a single latest snapshot) and login-based flags; no per-day activity history.</td>
+<td>Event-level activity: feature_events with user_id, event_name, event_timestamp_utc; agreed qualifying-event list.</td>
+<td>6 users on 2026-09-15 (IST) in companion Feature_Events + Task_Activity</td>
+</tr>
+<tr>
+<td>K-USR-03</td>
+<td>Weekly Active Users</td>
+<td>Partial</td>
+<td>is_active_7d exists but is login-based, uses an undocumented reference date (inferred 2026-09-15 00:00) and cannot be recomputed for other weeks.</td>
+<td>Event history + documented reference date.</td>
+<td>49 users in the 7 IST days to 2026-09-15 (companion)</td>
+</tr>
+<tr>
+<td>K-USR-04</td>
+<td>Monthly Active Users</td>
+<td>Partial</td>
+<td>Same limitation as WAU (is_active_30d).</td>
+<td>Event history.</td>
+<td>273 users in the 30 IST days to 2026-09-15 (companion)</td>
+</tr>
+<tr>
+<td>K-USR-06</td>
+<td>Returning Users</td>
+<td>No</td>
+<td>No session or login history; only a lifetime_sessions counter.</td>
+<td>sessions table or user_logged_in events with timestamps.</td>
+<td>85 of 273 users active in the 30 IST days to 2026-09-15 were also active earlier and registered before the window (companion)</td>
+</tr>
+<tr>
+<td>K-USR-08</td>
+<td>Onboarding Completion Rate</td>
+<td>Partial</td>
+<td>onboarding_status exists but no start/complete timestamps, so no cohort or 7-day window.</td>
+<td>onboarding_started_at_utc, onboarding_completed_at_utc.</td>
+<td>Snapshot only: 722 of 1000 users show 'Completed'</td>
+</tr>
+<tr>
+<td>K-USR-09</td>
+<td>Email Verification Rate</td>
+<td>Partial</td>
+<td>Status exists; no verification timestamp so the 7-day window cannot be applied.</td>
+<td>email_verified_at_utc.</td>
+<td>Snapshot only: 85.5% of supplied users 'Verified'</td>
+</tr>
+<tr>
+<td>K-USR-11</td>
+<td>Account Suspensions</td>
+<td>No</td>
+<td>account_status is a snapshot; when a user became Suspended is unknown.</td>
+<td>user_status_history.</td>
+<td>Not computable from either structure</td>
+</tr>
+<tr>
+<td>K-ENG-04</td>
+<td>Task Completion Rate</td>
+<td>No (supplied) / Yes (companion)</td>
+<td>No task data supplied.</td>
+<td>task_activity with activity_status and validation_status.</td>
+<td>57.3% of companion attempts started up to 3 days before period end were validated completions</td>
+</tr>
+<tr>
+<td>K-RWD-02</td>
+<td>Rewards Credited</td>
+<td>No (supplied) / Yes (companion)</td>
+<td>No reward data supplied; xp_balance is a balance without a ledger.</td>
+<td>rewards with reward_status, final_amount, unit.</td>
+<td>5185 reward records reached credited at least once in companion data</td>
+</tr>
+<tr>
+<td>K-RWD-02 (INR)</td>
+<td>Reward cost in INR</td>
+<td>No</td>
+<td>No approved VE/GEM to INR conversion rate in any source.</td>
+<td>Official conversion rates with effective dates.</td>
+<td>Not computable</td>
+</tr>
+<tr>
+<td>K-WDR-06</td>
+<td>Withdrawal Processing Time</td>
+<td>No (supplied) / Yes (companion)</td>
+<td>No withdrawal data supplied.</td>
+<td>requested_at_utc and final_at_utc per withdrawal.</td>
+<td>Median 16.8 h, P90 66.1 h over 1132 resolved companion withdrawals</td>
+</tr>
+<tr>
+<td>K-REF-05</td>
+<td>Referral Conversion Rate</td>
+<td>No</td>
+<td>Supplied Users has referral_source_detail = 'Friend/Family' only: no referrer ID, no activation or conversion.</td>
+<td>referrals table with referrer_user_id, referred_user_id and stage timestamps.</td>
+<td>88 converted of 119 registered companion referrals</td>
+</tr>
+<tr>
+<td>K-SUP-01</td>
+<td>Support Requests</td>
+<td>No</td>
+<td>No support data supplied or generated as a table (only support_ticket_created events).</td>
+<td>support_tickets table from the support tool.</td>
+<td>65 support_ticket_created events in companion Feature_Events; no timestamps for response</td>
+</tr>
+</tbody>
+</table>
+<p>Of the 14 KPIs tested against the supplied structure, 1 can be computed fully, 4 only partially (snapshot status without timestamps), and 9 not at all. The supplied structure is a user snapshot, so it cannot support any time-based engagement, money or referral KPI. That is the strongest argument for the event and transaction model in deliverables 08 to 10.</p>
+<h3>How the supplied activity flags were derived (reverse-engineered)</h3>
+<p><code>is_active_7d</code> and <code>is_active_30d</code> reproduce with <strong>0 mismatches</strong> only when computed as "last_login_datetime ≥ 2026-09-15 00:00 minus 7/30 days". Any other reference moment gives mismatches (14 and 16 at 2026-09-15 23:59:59). <code>days_since_registration</code> uses the same reference, so users who registered later on 15 Sep get negative values (DQ-C05). Both flags are login-based, while the proposed DAU is based on qualifying activity. The two definitions will not match, and both are recorded in the change log.</p></main></div>
+<script>try{var t=localStorage.getItem('t');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script type="module">if(document.querySelector('.mermaid')){const m=await import('https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs');m.default.initialize({startOnLoad:true,theme:'neutral'});m.default.run();}</script>
+</body></html>

@@ -1,0 +1,106 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='1160' height='1130' viewBox='0 0 1160 1130'>
+<rect width='100%' height='100%' fill='#F6F8FB'/>
+<text x='30' y='40' font-size='22' font-weight='700' fill='#10233D' font-family='Inter, Helvetica, Arial, sans-serif'>Dashboard 2 User Analytics</text>
+<text x='30' y='64' font-size='12' fill='#7A2E00' font-family='Inter, Helvetica, Arial, sans-serif'>WIREFRAME. Layout only, no data. Production data only (data_environment = production). Shows 'data as of' time.</text>
+<rect x='30' y='78' width='1100' height='30' rx='6' fill='white' stroke='#C9D7F7'/>
+<text x='42' y='98' font-size='12' fill='#33475B' font-family='Inter, Helvetica, Arial, sans-serif'>Filters: Date range | acquisition_source | registration_method | signup_platform   ·   Data as of: [timestamp]</text>
+<rect x='30' y='122' width='540' height='230' rx='10' fill='white' stroke='#C9D7F7'/>
+<text x='44' y='146' font-size='14' font-weight='700' fill='#10233D' font-family='Inter, Helvetica, Arial, sans-serif'>Registrations</text>
+<text x='44' y='164' font-size='11' fill='#5A6B7D' font-family='Inter, Helvetica, Arial, sans-serif'>K-USR-01 · Column chart · refresh Daily</text>
+<rect x='56.0' y='275.0' width='63.71428571428571' height='27.0' fill='#9DB8F2'/>
+<rect x='125.71428571428571' y='235.85' width='63.71428571428571' height='66.15' fill='#9DB8F2'/>
+<rect x='195.42857142857142' y='270.95' width='63.71428571428571' height='31.05' fill='#9DB8F2'/>
+<rect x='265.1428571428571' y='231.8' width='63.71428571428571' height='70.2' fill='#9DB8F2'/>
+<rect x='334.85714285714283' y='266.9' width='63.71428571428571' height='35.1' fill='#9DB8F2'/>
+<rect x='404.57142857142856' y='227.75' width='63.71428571428571' height='74.25' fill='#9DB8F2'/>
+<rect x='474.2857142857143' y='262.85' width='63.71428571428571' height='39.15' fill='#9DB8F2'/>
+<text x='44' y='338' font-size='11' fill='#33475B' font-family='Inter, Helvetica, Arial, sans-serif'>Q: How many join and how?</text>
+<rect x='590' y='122' width='540' height='230' rx='10' fill='white' stroke='#C9D7F7'/>
+<text x='604' y='146' font-size='14' font-weight='700' fill='#10233D' font-family='Inter, Helvetica, Arial, sans-serif'>Active and returning users</text>
+<text x='604' y='164' font-size='11' fill='#5A6B7D' font-family='Inter, Helvetica, Arial, sans-serif'>K-USR-03, K-USR-06 · Stacked area · refresh Daily</text>
+<rect x='616.0' y='275.0' width='63.71428571428571' height='27.0' fill='#9DB8F2'/>
+<rect x='685.7142857142857' y='235.85' width='63.71428571428571' height='66.15' fill='#9DB8F2'/>
+<rect x='755.4285714285714' y='270.95' width='63.71428571428571' height='31.05' fill='#9DB8F2'/>
+<rect x='825.1428571428571' y='231.8' width='63.71428571428571' height='70.2' fill='#9DB8F2'/>
+<rect x='894.8571428571429' y='266.9' width='63.71428571428571' height='35.1' fill='#9DB8F2'/>
+<rect x='964.5714285714286' y='227.75' width='63.71428571428571' height='74.25' fill='#9DB8F2'/>
+<rect x='1034.2857142857142' y='262.85' width='63.71428571428571' height='39.15' fill='#9DB8F2'/>
+<text x='604' y='338' font-size='11' fill='#33475B' font-family='Inter, Helvetica, Arial, sans-serif'>Q: Is growth from new or retained users?</text>
+<rect x='30' y='372' width='540' height='230' rx='10' fill='white' stroke='#C9D7F7'/>
+<text x='44' y='396' font-size='14' font-weight='700' fill='#10233D' font-family='Inter, Helvetica, Arial, sans-serif'>Cohort retention</text>
+<text x='44' y='414' font-size='11' fill='#5A6B7D' font-family='Inter, Helvetica, Arial, sans-serif'>K-USR-10 · Cohort heatmap · refresh Weekly</text>
+<rect x='54.0' y='434.0' width='58.5' height='26.5' fill='#5B8DEF' fill-opacity='0.20'/>
+<rect x='115.5' y='434.0' width='58.5' height='26.5' fill='#5B8DEF' fill-opacity='0.70'/>
+<rect x='177.0' y='434.0' width='58.5' height='26.5' fill='#5B8DEF' fill-opacity='0.40'/>
+<rect x='238.5' y='434.0' width='58.5' height='26.5' fill='#5B8DEF' fill-opacity='0.90'/>
+<rect x='300.0' y='434.0' width='58.5' height='26.5' fill='#5B8DEF' fill-opacity='0.60'/>
+<rect x='361.5' y='434.0' width='58.5' height='26.5' fill='#5B8DEF' fill-opacity='0.30'/>
+<rect x='423.0' y='434.0' width='58.5' height='26.5' fill='#5B8DEF' fill-opacity='0.80'/>
+<rect x='484.5' y='434.0' width='58.5' height='26.5' fill='#5B8DEF' fill-opacity='0.50'/>
+<rect x='54.0' y='463.5' width='58.5' height='26.5' fill='#5B8DEF' fill-opacity='0.50'/>
+<rect x='115.5' y='463.5' width='58.5' height='26.5' fill='#5B8DEF' fill-opacity='0.20'/>
+<rect x='177.0' y='463.5' width='58.5' height='26.5' fill='#5B8DEF' fill-opacity='0.70'/>
+<rect x='238.5' y='463.5' width='58.5' height='26.5' fill='#5B8DEF' fill-opacity='0.40'/>
+<rect x='300.0' y='463.5' width='58.5' height='26.5' fill='#5B8DEF' fill-opacity='0.90'/>
+<rect x='361.5' y='463.5' width='58.5' height='26.5' fill='#5B8DEF' fill-opacity='0.60'/>
+<rect x='423.0' y='463.5' width='58.5' height='26.5' fill='#5B8DEF' fill-opacity='0.30'/>
+<rect x='484.5' y='463.5' width='58.5' height='26.5' fill='#5B8DEF' fill-opacity='0.80'/>
+<rect x='54.0' y='493.0' width='58.5' height='26.5' fill='#5B8DEF' fill-opacity='0.80'/>
+<rect x='115.5' y='493.0' width='58.5' height='26.5' fill='#5B8DEF' fill-opacity='0.50'/>
+<rect x='177.0' y='493.0' width='58.5' height='26.5' fill='#5B8DEF' fill-opacity='0.20'/>
+<rect x='238.5' y='493.0' width='58.5' height='26.5' fill='#5B8DEF' fill-opacity='0.70'/>
+<rect x='300.0' y='493.0' width='58.5' height='26.5' fill='#5B8DEF' fill-opacity='0.40'/>
+<rect x='361.5' y='493.0' width='58.5' height='26.5' fill='#5B8DEF' fill-opacity='0.90'/>
+<rect x='423.0' y='493.0' width='58.5' height='26.5' fill='#5B8DEF' fill-opacity='0.60'/>
+<rect x='484.5' y='493.0' width='58.5' height='26.5' fill='#5B8DEF' fill-opacity='0.30'/>
+<rect x='54.0' y='522.5' width='58.5' height='26.5' fill='#5B8DEF' fill-opacity='0.30'/>
+<rect x='115.5' y='522.5' width='58.5' height='26.5' fill='#5B8DEF' fill-opacity='0.80'/>
+<rect x='177.0' y='522.5' width='58.5' height='26.5' fill='#5B8DEF' fill-opacity='0.50'/>
+<rect x='238.5' y='522.5' width='58.5' height='26.5' fill='#5B8DEF' fill-opacity='0.20'/>
+<rect x='300.0' y='522.5' width='58.5' height='26.5' fill='#5B8DEF' fill-opacity='0.70'/>
+<rect x='361.5' y='522.5' width='58.5' height='26.5' fill='#5B8DEF' fill-opacity='0.40'/>
+<rect x='423.0' y='522.5' width='58.5' height='26.5' fill='#5B8DEF' fill-opacity='0.90'/>
+<rect x='484.5' y='522.5' width='58.5' height='26.5' fill='#5B8DEF' fill-opacity='0.60'/>
+<text x='44' y='588' font-size='11' fill='#33475B' font-family='Inter, Helvetica, Arial, sans-serif'>Q: Are newer cohorts retaining better?</text>
+<rect x='590' y='372' width='540' height='230' rx='10' fill='white' stroke='#C9D7F7'/>
+<text x='604' y='396' font-size='14' font-weight='700' fill='#10233D' font-family='Inter, Helvetica, Arial, sans-serif'>Acquisition source mix</text>
+<text x='604' y='414' font-size='11' fill='#5A6B7D' font-family='Inter, Helvetica, Arial, sans-serif'>K-USR-01 · 100% bar · refresh Weekly</text>
+<rect x='616.0' y='525.0' width='63.71428571428571' height='27.0' fill='#9DB8F2'/>
+<rect x='685.7142857142857' y='485.85' width='63.71428571428571' height='66.15' fill='#9DB8F2'/>
+<rect x='755.4285714285714' y='520.95' width='63.71428571428571' height='31.05' fill='#9DB8F2'/>
+<rect x='825.1428571428571' y='481.8' width='63.71428571428571' height='70.2' fill='#9DB8F2'/>
+<rect x='894.8571428571429' y='516.9' width='63.71428571428571' height='35.1' fill='#9DB8F2'/>
+<rect x='964.5714285714286' y='477.75' width='63.71428571428571' height='74.25' fill='#9DB8F2'/>
+<rect x='1034.2857142857142' y='512.85' width='63.71428571428571' height='39.15' fill='#9DB8F2'/>
+<text x='604' y='588' font-size='11' fill='#33475B' font-family='Inter, Helvetica, Arial, sans-serif'>Q: Which channels bring users?</text>
+<rect x='30' y='622' width='540' height='230' rx='10' fill='white' stroke='#C9D7F7'/>
+<text x='44' y='646' font-size='14' font-weight='700' fill='#10233D' font-family='Inter, Helvetica, Arial, sans-serif'>Device and platform</text>
+<text x='44' y='664' font-size='11' fill='#5A6B7D' font-family='Inter, Helvetica, Arial, sans-serif'>K-USR-01, K-USR-02 · Bar · refresh Weekly</text>
+<rect x='56.0' y='775.0' width='63.71428571428571' height='27.0' fill='#9DB8F2'/>
+<rect x='125.71428571428571' y='735.85' width='63.71428571428571' height='66.15' fill='#9DB8F2'/>
+<rect x='195.42857142857142' y='770.95' width='63.71428571428571' height='31.05' fill='#9DB8F2'/>
+<rect x='265.1428571428571' y='731.8' width='63.71428571428571' height='70.2' fill='#9DB8F2'/>
+<rect x='334.85714285714283' y='766.9' width='63.71428571428571' height='35.1' fill='#9DB8F2'/>
+<rect x='404.57142857142856' y='727.75' width='63.71428571428571' height='74.25' fill='#9DB8F2'/>
+<rect x='474.2857142857143' y='762.85' width='63.71428571428571' height='39.15' fill='#9DB8F2'/>
+<text x='44' y='838' font-size='11' fill='#33475B' font-family='Inter, Helvetica, Arial, sans-serif'>Q: Which devices to prioritise?</text>
+<rect x='590' y='622' width='540' height='230' rx='10' fill='white' stroke='#C9D7F7'/>
+<text x='604' y='646' font-size='14' font-weight='700' fill='#10233D' font-family='Inter, Helvetica, Arial, sans-serif'>Geographic distribution</text>
+<text x='604' y='664' font-size='11' fill='#5A6B7D' font-family='Inter, Helvetica, Arial, sans-serif'>K-USR-02 · Ranked bar (no map pins, no city) · refresh Weekly</text>
+<rect x='616.0' y='775.0' width='63.71428571428571' height='27.0' fill='#9DB8F2'/>
+<rect x='685.7142857142857' y='735.85' width='63.71428571428571' height='66.15' fill='#9DB8F2'/>
+<rect x='755.4285714285714' y='770.95' width='63.71428571428571' height='31.05' fill='#9DB8F2'/>
+<rect x='825.1428571428571' y='731.8' width='63.71428571428571' height='70.2' fill='#9DB8F2'/>
+<rect x='894.8571428571429' y='766.9' width='63.71428571428571' height='35.1' fill='#9DB8F2'/>
+<rect x='964.5714285714286' y='727.75' width='63.71428571428571' height='74.25' fill='#9DB8F2'/>
+<rect x='1034.2857142857142' y='762.85' width='63.71428571428571' height='39.15' fill='#9DB8F2'/>
+<text x='604' y='838' font-size='11' fill='#33475B' font-family='Inter, Helvetica, Arial, sans-serif'>Q: Where are users concentrated?</text>
+<rect x='30' y='872' width='540' height='230' rx='10' fill='white' stroke='#C9D7F7'/>
+<text x='44' y='896' font-size='14' font-weight='700' fill='#10233D' font-family='Inter, Helvetica, Arial, sans-serif'>User lifecycle</text>
+<text x='44' y='914' font-size='11' fill='#5A6B7D' font-family='Inter, Helvetica, Arial, sans-serif'>K-USR-07, K-USR-11, K-USR-08 · Sankey or table + funnel · refresh Weekly</text>
+<rect x='54' y='936.0' width='492' height='24.5' fill='#EEF3FD' stroke='#C9D7F7'/>
+<rect x='54' y='964.5' width='492' height='24.5' fill='#EEF3FD' stroke='#C9D7F7'/>
+<rect x='54' y='993.0' width='492' height='24.5' fill='#EEF3FD' stroke='#C9D7F7'/>
+<rect x='54' y='1021.5' width='492' height='24.5' fill='#EEF3FD' stroke='#C9D7F7'/>
+<text x='44' y='1088' font-size='11' fill='#33475B' font-family='Inter, Helvetica, Arial, sans-serif'>Q: Where do users get stuck or leave?</text>
+</svg>

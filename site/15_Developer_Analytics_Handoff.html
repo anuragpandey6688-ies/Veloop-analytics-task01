@@ -1,0 +1,2848 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>15 · Developer Analytics Handoff | VELOOP Analytics Task 01</title><style>
+:root{--bg:#f6f8fb;--panel:#fff;--ink:#10233d;--muted:#5a6b7d;--line:#dbe3ee;--accent:#1f3a5f;--accent2:#5b8def;--warn:#7a2e00;--warnbg:#fff4e0}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0f141b;--panel:#161d27;--ink:#e6edf5;--muted:#9aa9ba;--line:#2a3544;--accent:#9db8f2;--accent2:#7ea4f5;--warn:#ffcf99;--warnbg:#2b2214}}
+:root[data-theme="dark"]{--bg:#0f141b;--panel:#161d27;--ink:#e6edf5;--muted:#9aa9ba;--line:#2a3544;--accent:#9db8f2;--accent2:#7ea4f5;--warn:#ffcf99;--warnbg:#2b2214}
+*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+a{color:var(--accent2)}.wrap{display:grid;grid-template-columns:280px minmax(0,1fr);min-height:100vh}
+nav{background:var(--panel);border-right:1px solid var(--line);padding:20px 14px;position:sticky;top:0;height:100vh;overflow:auto}
+nav .brand{font-weight:800;font-size:16px;margin:0 6px 14px}nav a{display:block;padding:6px 8px;border-radius:6px;color:var(--ink);text-decoration:none;font-size:13.5px}
+nav a:hover,nav a.on{background:var(--bg);color:var(--accent2)}main{padding:32px 40px;max-width:1200px;min-width:0}
+h1{font-size:28px;line-height:1.25;margin-top:0}h2{margin-top:36px;border-bottom:1px solid var(--line);padding-bottom:6px}h3{margin-top:26px}
+table{border-collapse:collapse;width:100%;font-size:13px;margin:14px 0;display:block;overflow-x:auto}
+th,td{border:1px solid var(--line);padding:6px 9px;text-align:left;vertical-align:top}th{background:var(--accent);color:#fff;position:sticky;top:0}
+:root[data-theme="dark"] th{color:#0f141b}tr:nth-child(even) td{background:color-mix(in srgb,var(--panel) 92%,var(--accent2))}
+blockquote{margin:16px 0;padding:12px 16px;background:var(--warnbg);border-left:4px solid var(--warn);color:var(--warn);border-radius:6px}
+code{background:color-mix(in srgb,var(--panel) 80%,var(--accent2));padding:1px 5px;border-radius:4px;font-size:12.5px}
+pre{background:var(--panel);border:1px solid var(--line);padding:14px;border-radius:8px;overflow:auto}pre code{background:none;padding:0}
+img{max-width:100%;height:auto;background:#fff;border:1px solid var(--line);border-radius:8px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px;margin:18px 0}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px;text-decoration:none;color:var(--ink)}
+.card b{display:block;margin-bottom:4px}.card span{color:var(--muted);font-size:13px}
+.stats{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin:18px 0}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px}.stat b{font-size:24px;display:block;color:var(--accent2)}
+.stat span{font-size:12.5px;color:var(--muted)}.toggle{margin:12px 6px 0;font-size:12px;background:none;border:1px solid var(--line);color:var(--ink);border-radius:6px;padding:4px 8px;cursor:pointer}
+@media print{nav{display:none}.wrap{display:block}main{max-width:none;padding:0}th{position:static}table{display:table;font-size:10.5px}h2{break-after:avoid}}
+@media (max-width:860px){.wrap{grid-template-columns:1fr}nav{position:static;height:auto;max-height:200px;border-right:0;border-bottom:1px solid var(--line)}main{padding:20px 16px}}
+</style></head><body><div class="wrap"><nav>
+<div class="brand"><a href="index.html" style="padding:0;color:inherit">VELOOP Analytics Blueprint</a></div>
+<a class="" href="index.html">Overview</a><a class='' href='01_Executive_Summary.html'>01 · Executive Summary</a><a class='' href='02_Product_Data_Audit.html'>02 · Product Data Readiness Audit</a><a class='' href='03_Data_Coverage_Matrix.html'>03 · Data Coverage Matrix</a><a class='' href='04_User_Analytics_Specification.html'>04 · User & Account Analytics Specification</a><a class='' href='05_Earning_Reward_Analytics_Specification.html'>05 · Earning & Reward Analytics Specification</a><a class='' href='06_Wallet_Withdrawal_Analytics_Specification.html'>06 · Wallet & Withdrawal Analytics Specification</a><a class='' href='07_Referral_Engagement_Analytics.html'>07 · Referral & Engagement Analytics</a><a class='' href='08_Event_Tracking_Plan.html'>08 · Event Tracking Plan</a><a class='' href='09_Data_Dictionary.html'>09 · Data Dictionary</a><a class='' href='10_Logical_Data_Model.html'>10 · Logical Data Model</a><a class='' href='11_KPI_Catalogue.html'>11 · KPI Catalogue</a><a class='' href='12_Simulated_Data_Profiling.html'>12 · Simulated Data Profiling: Findings</a><a class='' href='13_Data_Quality_Audit.html'>13 · Data Quality Audit: Report</a><a class='' href='14_Dashboard_Blueprint.html'>14 · Analytics Dashboard Blueprint</a><a class='on' href='15_Developer_Analytics_Handoff.html'>15 · Developer Analytics Handoff</a><a class='' href='16_Data_Pipeline_Proposal.html'>16 · Data Pipeline & Operating Model</a><a class='' href='17_Privacy_Governance_Proposal.html'>17 · Data Access, Privacy & Governance Proposal</a><a class='' href='18_Analytics_Readiness_Assessment.html'>18 · Analytics Readiness Assessment</a><a class='' href='19_Assumption_Verification_Register.html'>19 · Assumption & Verification Register</a><a class='' href='20_Implementation_Backlog.html'>20 · Implementation Backlog</a><a class='' href='21_Final_Consolidated_Report.html'>21 · Final Consolidated Report</a><a href="downloads.html" class="">Downloads</a>
+<button class="toggle" onclick="var r=document.documentElement;r.dataset.theme=(r.dataset.theme==='dark'?'light':'dark');try{localStorage.setItem('t',r.dataset.theme)}catch(e){}">Toggle theme</button>
+</nav><main><h1>15 · Developer Analytics Handoff</h1>
+<blockquote>
+<p><strong>Status:</strong> proposed specification. No event, field, table or KPI in this document has been verified as implemented in VELOOP production (see Assumption A-001). Facts taken from official VELOOP pages cite a source ID from the Source &amp; Verification Register (deliverable 19).</p>
+</blockquote>
+<p>This document is written for the engineers who will implement tracking. It covers the 19 events whose errors would corrupt money, identity, lifecycle or referral reporting. The rest are in the tracking plan (08).</p>
+<h2>Global rules (apply to every event)</h2>
+<ol>
+<li><strong>Server is the source of truth</strong> for task completion, rewards, wallet, withdrawals, referrals and account status. Emit the event in the <strong>same database transaction</strong> as the business write (outbox pattern), so an event can never exist without its record, or the record without its event.</li>
+<li><strong><code>event_id</code> is generated once</strong> by the producer and reused on every retry. The collection layer deduplicates on it.</li>
+<li><strong>Idempotency keys</strong> on reward and wallet writes (<code>&lt;source_type&gt;:&lt;source_id&gt;</code>), with a unique index, so a retried request cannot credit twice.</li>
+<li><strong>UTC everywhere</strong> (ISO 8601 with <code>Z</code>). Reporting converts to IST day.</li>
+<li><strong>No personal data or secrets in payloads.</strong> Never include names, emails, phone numbers, UPI IDs, account or card numbers, tokens, passwords or fraud-rule details.</li>
+<li>Every payload carries <code>schema_version</code> and <code>data_environment</code>. Staging must emit <code>staging</code>.</li>
+<li>All values come from the allowed lists in the data dictionary (09). Unknown values are rejected, not coerced.</li>
+<li>These are proposals. Final implementation, especially idempotency, is engineering's decision. Anything that cannot be built as written goes back into the change log (Q).</li>
+</ol>
+<h3>REQ-001 · <code>user_registered</code></h3>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Specification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Requirement ID</td>
+<td>REQ-001</td>
+</tr>
+<tr>
+<td>Event</td>
+<td><code>user_registered</code></td>
+</tr>
+<tr>
+<td>Trigger</td>
+<td>Account record committed successfully in the backend.</td>
+</tr>
+<tr>
+<td>Source</td>
+<td>server</td>
+</tr>
+<tr>
+<td>Deduplication</td>
+<td>One per user_id; dedup on user_id. Collection layer drops repeated <code>event_id</code>.</td>
+</tr>
+<tr>
+<td>Timestamp</td>
+<td><code>event_timestamp_utc</code> = moment the business state changed (not when the event was sent), ISO 8601 UTC; <code>received_at_utc</code> stamped by collection.</td>
+</tr>
+<tr>
+<td>Why needed</td>
+<td>Registrations, cohorts, acquisition mix.</td>
+</tr>
+<tr>
+<td>KPI dependency</td>
+<td>K-USR-01, K-USR-10, K-REF-02</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>Critical</td>
+</tr>
+</tbody>
+</table>
+<p>Payload (required fields):</p>
+<table>
+<thead>
+<tr>
+<th>property</th>
+<th>data_type</th>
+<th>validation</th>
+<th>required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>event_id</td>
+<td>string</td>
+<td>Non-null; immutable; unique within entity; UUID in production; duplicates are dropped on ingestion</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>event_name</td>
+<td>enum</td>
+<td>Must match ^[a-z]+(_[a-z]+)+$ and be in catalogue</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>user_id</td>
+<td>string</td>
+<td>Non-null; immutable; unique within entity; pattern agreed with engineering (simulated: ^VLUSR\d{6}$)</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>event_timestamp_utc</td>
+<td>timestamp</td>
+<td>ISO 8601 UTC with Z suffix; not in the future beyond 5 min clock skew</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>received_at_utc</td>
+<td>timestamp</td>
+<td>ISO 8601 UTC with Z suffix; not in the future beyond 5 min clock skew; &gt;= event_timestamp_utc - 5 min</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>feature</td>
+<td>enum</td>
+<td>Must be in allowed list</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>platform</td>
+<td>enum</td>
+<td>Must be in allowed list</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>event_source</td>
+<td>enum</td>
+<td>Must match the catalogue's declared source</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>schema_version</td>
+<td>integer</td>
+<td>&gt;= 1; must match a version in the change log</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>data_environment</td>
+<td>enum</td>
+<td>Must equal 'production' in any table feeding management dashboards</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>registration_method</td>
+<td>enum</td>
+<td>Must be in allowed list</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>acquisition_source</td>
+<td>enum</td>
+<td>Must be in allowed list; 'referral' requires referral_id</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>signup_platform</td>
+<td>enum</td>
+<td>Must be in allowed list</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<p>Optional: <code>acquisition_campaign</code>, <code>referral_id</code>, <code>signup_device_type</code>, <code>app_version</code></p>
+<p>Acceptance tests:
+1. Creating an account emits exactly one user_registered with the new user_id.
+2. Failed sign-up (validation error) emits nothing.
+3. acquisition_source is captured once and is not overwritten by later visits.</p>
+<h3>REQ-002 · <code>account_status_changed</code></h3>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Specification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Requirement ID</td>
+<td>REQ-002</td>
+</tr>
+<tr>
+<td>Event</td>
+<td><code>account_status_changed</code></td>
+</tr>
+<tr>
+<td>Trigger</td>
+<td>account_status value changes in the backend.</td>
+</tr>
+<tr>
+<td>Source</td>
+<td>server</td>
+</tr>
+<tr>
+<td>Deduplication</td>
+<td>One per status_change_id. Collection layer drops repeated <code>event_id</code>.</td>
+</tr>
+<tr>
+<td>Timestamp</td>
+<td><code>event_timestamp_utc</code> = moment the business state changed (not when the event was sent), ISO 8601 UTC; <code>received_at_utc</code> stamped by collection.</td>
+</tr>
+<tr>
+<td>Why needed</td>
+<td>Lifecycle and enforcement reporting.</td>
+</tr>
+<tr>
+<td>KPI dependency</td>
+<td>K-USR-11, K-USR-07</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>Critical</td>
+</tr>
+</tbody>
+</table>
+<p>Payload (required fields):</p>
+<table>
+<thead>
+<tr>
+<th>property</th>
+<th>data_type</th>
+<th>validation</th>
+<th>required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>event_id</td>
+<td>string</td>
+<td>Non-null; immutable; unique within entity; UUID in production; duplicates are dropped on ingestion</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>event_name</td>
+<td>enum</td>
+<td>Must match ^[a-z]+(_[a-z]+)+$ and be in catalogue</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>user_id</td>
+<td>string</td>
+<td>Non-null; immutable; unique within entity; pattern agreed with engineering (simulated: ^VLUSR\d{6}$)</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>event_timestamp_utc</td>
+<td>timestamp</td>
+<td>ISO 8601 UTC with Z suffix; not in the future beyond 5 min clock skew</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>received_at_utc</td>
+<td>timestamp</td>
+<td>ISO 8601 UTC with Z suffix; not in the future beyond 5 min clock skew; &gt;= event_timestamp_utc - 5 min</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>feature</td>
+<td>enum</td>
+<td>Must be in allowed list</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>platform</td>
+<td>enum</td>
+<td>Must be in allowed list</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>event_source</td>
+<td>enum</td>
+<td>Must match the catalogue's declared source</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>schema_version</td>
+<td>integer</td>
+<td>&gt;= 1; must match a version in the change log</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>data_environment</td>
+<td>enum</td>
+<td>Must equal 'production' in any table feeding management dashboards</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>previous_status</td>
+<td>enum</td>
+<td>Must differ from new_status</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>new_status</td>
+<td>enum</td>
+<td>Must be an allowed transition (deliverable 13 state rules)</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>change_reason_category</td>
+<td>enum</td>
+<td>Must be in allowed list</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>changed_by_type</td>
+<td>enum</td>
+<td>Must be in allowed list</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<p>Optional: <code>app_version</code></p>
+<p>Acceptance tests:
+1. Suspending a test account emits one event with previous_status=active, new_status=suspended.
+2. Setting the same status again emits nothing.
+3. A matching user_status_history row exists with the same timestamp.</p>
+<h3>REQ-003 · <code>task_started</code></h3>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Specification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Requirement ID</td>
+<td>REQ-003</td>
+</tr>
+<tr>
+<td>Event</td>
+<td><code>task_started</code></td>
+</tr>
+<tr>
+<td>Trigger</td>
+<td>Backend creates the task_activity record (activity_id issued).</td>
+</tr>
+<tr>
+<td>Source</td>
+<td>server</td>
+</tr>
+<tr>
+<td>Deduplication</td>
+<td>One per activity_id. Collection layer drops repeated <code>event_id</code>.</td>
+</tr>
+<tr>
+<td>Timestamp</td>
+<td><code>event_timestamp_utc</code> = moment the business state changed (not when the event was sent), ISO 8601 UTC; <code>received_at_utc</code> stamped by collection.</td>
+</tr>
+<tr>
+<td>Why needed</td>
+<td>Start stage; denominator of completion rate.</td>
+</tr>
+<tr>
+<td>KPI dependency</td>
+<td>K-ENG-02, K-ENG-04</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>Critical</td>
+</tr>
+</tbody>
+</table>
+<p>Payload (required fields):</p>
+<table>
+<thead>
+<tr>
+<th>property</th>
+<th>data_type</th>
+<th>validation</th>
+<th>required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>event_id</td>
+<td>string</td>
+<td>Non-null; immutable; unique within entity; UUID in production; duplicates are dropped on ingestion</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>event_name</td>
+<td>enum</td>
+<td>Must match ^[a-z]+(_[a-z]+)+$ and be in catalogue</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>user_id</td>
+<td>string</td>
+<td>Non-null; immutable; unique within entity; pattern agreed with engineering (simulated: ^VLUSR\d{6}$)</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>event_timestamp_utc</td>
+<td>timestamp</td>
+<td>ISO 8601 UTC with Z suffix; not in the future beyond 5 min clock skew</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>received_at_utc</td>
+<td>timestamp</td>
+<td>ISO 8601 UTC with Z suffix; not in the future beyond 5 min clock skew; &gt;= event_timestamp_utc - 5 min</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>feature</td>
+<td>enum</td>
+<td>Must be in allowed list</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>platform</td>
+<td>enum</td>
+<td>Must be in allowed list</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>event_source</td>
+<td>enum</td>
+<td>Must match the catalogue's declared source</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>schema_version</td>
+<td>integer</td>
+<td>&gt;= 1; must match a version in the change log</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>data_environment</td>
+<td>enum</td>
+<td>Must equal 'production' in any table feeding management dashboards</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>activity_id</td>
+<td>string</td>
+<td>Non-null; immutable; unique within entity</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>task_id</td>
+<td>string</td>
+<td>Non-null; immutable; unique within entity</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>task_type</td>
+<td>enum</td>
+<td>Must be in allowed list</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>tracking_source</td>
+<td>string</td>
+<td>'veloop' or a value in the partner register</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<p>Optional: <code>session_id</code>, <code>app_version</code></p>
+<p>Acceptance tests:
+1. Starting a task creates exactly one activity_id and one task_started.
+2. Re-opening the same in-progress task does not create a second activity_id (within the timeout).</p>
+<h3>REQ-004 · <code>task_completed</code></h3>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Specification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Requirement ID</td>
+<td>REQ-004</td>
+</tr>
+<tr>
+<td>Event</td>
+<td><code>task_completed</code></td>
+</tr>
+<tr>
+<td>Trigger</td>
+<td>Task completion has passed the applicable validation process.</td>
+</tr>
+<tr>
+<td>Source</td>
+<td>server</td>
+</tr>
+<tr>
+<td>Deduplication</td>
+<td>One per activity_id; dedup on activity_id + event_name. Collection layer drops repeated <code>event_id</code>.</td>
+</tr>
+<tr>
+<td>Timestamp</td>
+<td><code>event_timestamp_utc</code> = moment the business state changed (not when the event was sent), ISO 8601 UTC; <code>received_at_utc</code> stamped by collection.</td>
+</tr>
+<tr>
+<td>Why needed</td>
+<td>Completion stage.</td>
+</tr>
+<tr>
+<td>KPI dependency</td>
+<td>K-ENG-03, K-ENG-04, K-RWD-06</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>Critical</td>
+</tr>
+</tbody>
+</table>
+<p>Payload (required fields):</p>
+<table>
+<thead>
+<tr>
+<th>property</th>
+<th>data_type</th>
+<th>validation</th>
+<th>required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>event_id</td>
+<td>string</td>
+<td>Non-null; immutable; unique within entity; UUID in production; duplicates are dropped on ingestion</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>event_name</td>
+<td>enum</td>
+<td>Must match ^[a-z]+(_[a-z]+)+$ and be in catalogue</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>user_id</td>
+<td>string</td>
+<td>Non-null; immutable; unique within entity; pattern agreed with engineering (simulated: ^VLUSR\d{6}$)</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>event_timestamp_utc</td>
+<td>timestamp</td>
+<td>ISO 8601 UTC with Z suffix; not in the future beyond 5 min clock skew</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>received_at_utc</td>
+<td>timestamp</td>
+<td>ISO 8601 UTC with Z suffix; not in the future beyond 5 min clock skew; &gt;= event_timestamp_utc - 5 min</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>feature</td>
+<td>enum</td>
+<td>Must be in allowed list</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>platform</td>
+<td>enum</td>
+<td>Must be in allowed list</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>event_source</td>
+<td>enum</td>
+<td>Must match the catalogue's declared source</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>schema_version</td>
+<td>integer</td>
+<td>&gt;= 1; must match a version in the change log</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>data_environment</td>
+<td>enum</td>
+<td>Must equal 'production' in any table feeding management dashboards</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>activity_id</td>
+<td>string</td>
+<td>Non-null; immutable; unique within entity</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>task_id</td>
+<td>string</td>
+<td>Non-null; immutable; unique within entity</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>task_type</td>
+<td>enum</td>
+<td>Must be in allowed list</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>activity_status</td>
+<td>enum</td>
+<td>Must be in allowed list; only forward transitions</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>validation_status</td>
+<td>enum</td>
+<td>'passed' only with activity_status = completed</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>reward_amount</td>
+<td>integer</td>
+<td>&gt;= 0</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>reward_unit</td>
+<td>enum</td>
+<td>Must be in allowed list</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<p>Optional: <code>external_reference_id</code>, <code>app_version</code></p>
+<p>Acceptance tests:
+1. When a valid task completion occurs, exactly one analytically usable completion event is recorded for the task/user transaction, subject to the final engineering implementation and idempotency design.
+2. A partner callback retried 3 times produces one task_completed.
+3. A completion that fails validation produces task_failed (validation_failed), not task_completed.</p>
+<h3>REQ-005 · <code>task_failed</code></h3>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Specification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Requirement ID</td>
+<td>REQ-005</td>
+</tr>
+<tr>
+<td>Event</td>
+<td><code>task_failed</code></td>
+</tr>
+<tr>
+<td>Trigger</td>
+<td>Attempt reaches a final failed state, including validation failure, tracking failure, system error, or abandonment timeout.</td>
+</tr>
+<tr>
+<td>Source</td>
+<td>server</td>
+</tr>
+<tr>
+<td>Deduplication</td>
+<td>One per activity_id. Collection layer drops repeated <code>event_id</code>.</td>
+</tr>
+<tr>
+<td>Timestamp</td>
+<td><code>event_timestamp_utc</code> = moment the business state changed (not when the event was sent), ISO 8601 UTC; <code>received_at_utc</code> stamped by collection.</td>
+</tr>
+<tr>
+<td>Why needed</td>
+<td>Failure analysis by category.</td>
+</tr>
+<tr>
+<td>KPI dependency</td>
+<td>K-ENG-05, K-ENG-06</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>Critical</td>
+</tr>
+</tbody>
+</table>
+<p>Payload (required fields):</p>
+<table>
+<thead>
+<tr>
+<th>property</th>
+<th>data_type</th>
+<th>validation</th>
+<th>required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>event_id</td>
+<td>string</td>
+<td>Non-null; immutable; unique within entity; UUID in production; duplicates are dropped on ingestion</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>event_name</td>
+<td>enum</td>
+<td>Must match ^[a-z]+(_[a-z]+)+$ and be in catalogue</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>user_id</td>
+<td>string</td>
+<td>Non-null; immutable; unique within entity; pattern agreed with engineering (simulated: ^VLUSR\d{6}$)</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>event_timestamp_utc</td>
+<td>timestamp</td>
+<td>ISO 8601 UTC with Z suffix; not in the future beyond 5 min clock skew</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>received_at_utc</td>
+<td>timestamp</td>
+<td>ISO 8601 UTC with Z suffix; not in the future beyond 5 min clock skew; &gt;= event_timestamp_utc - 5 min</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>feature</td>
+<td>enum</td>
+<td>Must be in allowed list</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>platform</td>
+<td>enum</td>
+<td>Must be in allowed list</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>event_source</td>
+<td>enum</td>
+<td>Must match the catalogue's declared source</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>schema_version</td>
+<td>integer</td>
+<td>&gt;= 1; must match a version in the change log</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>data_environment</td>
+<td>enum</td>
+<td>Must equal 'production' in any table feeding management dashboards</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>activity_id</td>
+<td>string</td>
+<td>Non-null; immutable; unique within entity</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>task_id</td>
+<td>string</td>
+<td>Non-null; immutable; unique within entity</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>task_type</td>
+<td>enum</td>
+<td>Must be in allowed list</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>failure_category</td>
+<td>enum</td>
+<td>Required when activity_status in (failed, abandoned)</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>failure_stage</td>
+<td>enum</td>
+<td>Must be in allowed list</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<p>Optional: <code>external_reference_id</code>, <code>app_version</code></p>
+<p>Acceptance tests:
+1. A simulated partner tracking timeout produces task_failed with failure_category=tracking_failed, failure_stage=tracking.
+2. No activity has both task_completed and task_failed.</p>
+<h3>REQ-006 · <code>reward_pending</code></h3>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Specification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Requirement ID</td>
+<td>REQ-006</td>
+</tr>
+<tr>
+<td>Event</td>
+<td><code>reward_pending</code></td>
+</tr>
+<tr>
+<td>Trigger</td>
+<td>Reward record created but awaiting validation.</td>
+</tr>
+<tr>
+<td>Source</td>
+<td>server</td>
+</tr>
+<tr>
+<td>Deduplication</td>
+<td>One per reward_id; reward idempotency_key = <source_type>:<source_id>. Collection layer drops repeated <code>event_id</code>.</td>
+</tr>
+<tr>
+<td>Timestamp</td>
+<td><code>event_timestamp_utc</code> = moment the business state changed (not when the event was sent), ISO 8601 UTC; <code>received_at_utc</code> stamped by collection.</td>
+</tr>
+<tr>
+<td>Why needed</td>
+<td>Pending backlog.</td>
+</tr>
+<tr>
+<td>KPI dependency</td>
+<td>K-RWD-01, K-RWD-04</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>Critical</td>
+</tr>
+</tbody>
+</table>
+<p>Payload (required fields):</p>
+<table>
+<thead>
+<tr>
+<th>property</th>
+<th>data_type</th>
+<th>validation</th>
+<th>required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>event_id</td>
+<td>string</td>
+<td>Non-null; immutable; unique within entity; UUID in production; duplicates are dropped on ingestion</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>event_name</td>
+<td>enum</td>
+<td>Must match ^[a-z]+(_[a-z]+)+$ and be in catalogue</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>user_id</td>
+<td>string</td>
+<td>Non-null; immutable; unique within entity; pattern agreed with engineering (simulated: ^VLUSR\d{6}$)</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>event_timestamp_utc</td>
+<td>timestamp</td>
+<td>ISO 8601 UTC with Z suffix; not in the future beyond 5 min clock skew</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>received_at_utc</td>
+<td>timestamp</td>
+<td>ISO 8601 UTC with Z suffix; not in the future beyond 5 min clock skew; &gt;= event_timestamp_utc - 5 min</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>feature</td>
+<td>enum</td>
+<td>Must be in allowed list</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>platform</td>
+<td>enum</td>
+<td>Must be in allowed list</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>event_source</td>
+<td>enum</td>
+<td>Must match the catalogue's declared source</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>schema_version</td>
+<td>integer</td>
+<td>&gt;= 1; must match a version in the change log</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>data_environment</td>
+<td>enum</td>
+<td>Must equal 'production' in any table feeding management dashboards</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>reward_id</td>
+<td>string</td>
+<td>Non-null; immutable; unique within entity</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>source_type</td>
+<td>enum</td>
+<td>Must be in allowed list</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>source_id</td>
+<td>string</td>
+<td>Must resolve in the table implied by source_type</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>integer</td>
+<td>&gt; 0</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>enum</td>
+<td>Must be in allowed list</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<p>Optional: <code>app_version</code></p>
+<p>Acceptance tests:
+1. A task awaiting partner validation shows one reward_pending and no reward_credited.</p>
+<h3>REQ-007 · <code>reward_credited</code></h3>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Specification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Requirement ID</td>
+<td>REQ-007</td>
+</tr>
+<tr>
+<td>Event</td>
+<td><code>reward_credited</code></td>
+</tr>
+<tr>
+<td>Trigger</td>
+<td>Reward committed to the user's balance.</td>
+</tr>
+<tr>
+<td>Source</td>
+<td>server</td>
+</tr>
+<tr>
+<td>Deduplication</td>
+<td>One per reward_id; idempotency_key unique. Collection layer drops repeated <code>event_id</code>.</td>
+</tr>
+<tr>
+<td>Timestamp</td>
+<td><code>event_timestamp_utc</code> = moment the business state changed (not when the event was sent), ISO 8601 UTC; <code>received_at_utc</code> stamped by collection.</td>
+</tr>
+<tr>
+<td>Why needed</td>
+<td>Actual reward cost.</td>
+</tr>
+<tr>
+<td>KPI dependency</td>
+<td>K-RWD-01, K-RWD-02, K-RWD-05, K-RWD-06</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>Critical</td>
+</tr>
+</tbody>
+</table>
+<p>Payload (required fields):</p>
+<table>
+<thead>
+<tr>
+<th>property</th>
+<th>data_type</th>
+<th>validation</th>
+<th>required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>event_id</td>
+<td>string</td>
+<td>Non-null; immutable; unique within entity; UUID in production; duplicates are dropped on ingestion</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>event_name</td>
+<td>enum</td>
+<td>Must match ^[a-z]+(_[a-z]+)+$ and be in catalogue</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>user_id</td>
+<td>string</td>
+<td>Non-null; immutable; unique within entity; pattern agreed with engineering (simulated: ^VLUSR\d{6}$)</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>event_timestamp_utc</td>
+<td>timestamp</td>
+<td>ISO 8601 UTC with Z suffix; not in the future beyond 5 min clock skew</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>received_at_utc</td>
+<td>timestamp</td>
+<td>ISO 8601 UTC with Z suffix; not in the future beyond 5 min clock skew; &gt;= event_timestamp_utc - 5 min</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>feature</td>
+<td>enum</td>
+<td>Must be in allowed list</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>platform</td>
+<td>enum</td>
+<td>Must be in allowed list</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>event_source</td>
+<td>enum</td>
+<td>Must match the catalogue's declared source</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>schema_version</td>
+<td>integer</td>
+<td>&gt;= 1; must match a version in the change log</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>data_environment</td>
+<td>enum</td>
+<td>Must equal 'production' in any table feeding management dashboards</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>reward_id</td>
+<td>string</td>
+<td>Non-null; immutable; unique within entity</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>source_type</td>
+<td>enum</td>
+<td>Must be in allowed list</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>source_id</td>
+<td>string</td>
+<td>Must resolve in the table implied by source_type</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>integer</td>
+<td>&gt; 0</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>enum</td>
+<td>Must be in allowed list</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<p>Optional: <code>wallet_transaction_id</code>, <code>app_version</code></p>
+<p>Acceptance tests:
+1. Crediting a reward emits one reward_credited and creates one wallet reward_credit row (wallet units) with matching amount and unit.
+2. Retrying the credit API with the same idempotency_key does not create a second credit.
+3. XP rewards emit reward_credited without a wallet row (until A-012 is resolved).</p>
+<h3>REQ-008 · <code>reward_reversed</code></h3>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Specification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Requirement ID</td>
+<td>REQ-008</td>
+</tr>
+<tr>
+<td>Event</td>
+<td><code>reward_reversed</code></td>
+</tr>
+<tr>
+<td>Trigger</td>
+<td>A previously credited reward is fully reversed.</td>
+</tr>
+<tr>
+<td>Source</td>
+<td>server</td>
+</tr>
+<tr>
+<td>Deduplication</td>
+<td>One per reward_id. Collection layer drops repeated <code>event_id</code>.</td>
+</tr>
+<tr>
+<td>Timestamp</td>
+<td><code>event_timestamp_utc</code> = moment the business state changed (not when the event was sent), ISO 8601 UTC; <code>received_at_utc</code> stamped by collection.</td>
+</tr>
+<tr>
+<td>Why needed</td>
+<td>Reversal rate.</td>
+</tr>
+<tr>
+<td>KPI dependency</td>
+<td>K-RWD-03, K-WAL-04</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>Critical</td>
+</tr>
+</tbody>
+</table>
+<p>Payload (required fields):</p>
+<table>
+<thead>
+<tr>
+<th>property</th>
+<th>data_type</th>
+<th>validation</th>
+<th>required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>event_id</td>
+<td>string</td>
+<td>Non-null; immutable; unique within entity; UUID in production; duplicates are dropped on ingestion</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>event_name</td>
+<td>enum</td>
+<td>Must match ^[a-z]+(_[a-z]+)+$ and be in catalogue</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>user_id</td>
+<td>string</td>
+<td>Non-null; immutable; unique within entity; pattern agreed with engineering (simulated: ^VLUSR\d{6}$)</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>event_timestamp_utc</td>
+<td>timestamp</td>
+<td>ISO 8601 UTC with Z suffix; not in the future beyond 5 min clock skew</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>received_at_utc</td>
+<td>timestamp</td>
+<td>ISO 8601 UTC with Z suffix; not in the future beyond 5 min clock skew; &gt;= event_timestamp_utc - 5 min</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>feature</td>
+<td>enum</td>
+<td>Must be in allowed list</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>platform</td>
+<td>enum</td>
+<td>Must be in allowed list</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>event_source</td>
+<td>enum</td>
+<td>Must match the catalogue's declared source</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>schema_version</td>
+<td>integer</td>
+<td>&gt;= 1; must match a version in the change log</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>data_environment</td>
+<td>enum</td>
+<td>Must equal 'production' in any table feeding management dashboards</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>reward_id</td>
+<td>string</td>
+<td>Non-null; immutable; unique within entity</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>integer</td>
+<td>&gt; 0</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>enum</td>
+<td>Must be in allowed list</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>reversal_reason_category</td>
+<td>enum</td>
+<td>Required when status in (reversed, corrected)</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<p>Optional: <code>wallet_transaction_id</code>, <code>app_version</code></p>
+<p>Acceptance tests:
+1. Reversing a credited reward emits reward_reversed and one wallet reversal row whose related_transaction_id is the original credit.
+2. final_amount becomes 0; amount keeps the original value.</p>
+<h3>REQ-009 · <code>daily_reward_claimed</code></h3>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Specification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Requirement ID</td>
+<td>REQ-009</td>
+</tr>
+<tr>
+<td>Event</td>
+<td><code>daily_reward_claimed</code></td>
+</tr>
+<tr>
+<td>Trigger</td>
+<td>Valid daily claim accepted within the IST claim window.</td>
+</tr>
+<tr>
+<td>Source</td>
+<td>server</td>
+</tr>
+<tr>
+<td>Deduplication</td>
+<td>One per user_id + claim_date_ist. Collection layer drops repeated <code>event_id</code>.</td>
+</tr>
+<tr>
+<td>Timestamp</td>
+<td><code>event_timestamp_utc</code> = moment the business state changed (not when the event was sent), ISO 8601 UTC; <code>received_at_utc</code> stamped by collection.</td>
+</tr>
+<tr>
+<td>Why needed</td>
+<td>Daily habit loop.</td>
+</tr>
+<tr>
+<td>KPI dependency</td>
+<td>K-ENG-09</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>High</td>
+</tr>
+</tbody>
+</table>
+<p>Payload (required fields):</p>
+<table>
+<thead>
+<tr>
+<th>property</th>
+<th>data_type</th>
+<th>validation</th>
+<th>required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>event_id</td>
+<td>string</td>
+<td>Non-null; immutable; unique within entity; UUID in production; duplicates are dropped on ingestion</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>event_name</td>
+<td>enum</td>
+<td>Must match ^[a-z]+(_[a-z]+)+$ and be in catalogue</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>user_id</td>
+<td>string</td>
+<td>Non-null; immutable; unique within entity; pattern agreed with engineering (simulated: ^VLUSR\d{6}$)</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>event_timestamp_utc</td>
+<td>timestamp</td>
+<td>ISO 8601 UTC with Z suffix; not in the future beyond 5 min clock skew</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>received_at_utc</td>
+<td>timestamp</td>
+<td>ISO 8601 UTC with Z suffix; not in the future beyond 5 min clock skew; &gt;= event_timestamp_utc - 5 min</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>feature</td>
+<td>enum</td>
+<td>Must be in allowed list</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>platform</td>
+<td>enum</td>
+<td>Must be in allowed list</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>event_source</td>
+<td>enum</td>
+<td>Must match the catalogue's declared source</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>schema_version</td>
+<td>integer</td>
+<td>&gt;= 1; must match a version in the change log</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>data_environment</td>
+<td>enum</td>
+<td>Must equal 'production' in any table feeding management dashboards</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>claim_date_ist</td>
+<td>date</td>
+<td>YYYY-MM-DD; one claim per user per date</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>streak_length</td>
+<td>integer</td>
+<td>&gt;= 0</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<p>Optional: <code>reward_id</code>, <code>app_version</code></p>
+<p>Acceptance tests:
+1. Two claims on the same IST day: the second is refused and no event is emitted.
+2. A claim at 23:59 IST and one at 00:01 IST count for two different claim dates.</p>
+<h3>REQ-010 · <code>referral_registered</code></h3>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Specification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Requirement ID</td>
+<td>REQ-010</td>
+</tr>
+<tr>
+<td>Event</td>
+<td><code>referral_registered</code></td>
+</tr>
+<tr>
+<td>Trigger</td>
+<td>A new account is created with a valid referral code.</td>
+</tr>
+<tr>
+<td>Source</td>
+<td>server</td>
+</tr>
+<tr>
+<td>Deduplication</td>
+<td>One per referral_id. Collection layer drops repeated <code>event_id</code>.</td>
+</tr>
+<tr>
+<td>Timestamp</td>
+<td><code>event_timestamp_utc</code> = moment the business state changed (not when the event was sent), ISO 8601 UTC; <code>received_at_utc</code> stamped by collection.</td>
+</tr>
+<tr>
+<td>Why needed</td>
+<td>Referral sign-ups.</td>
+</tr>
+<tr>
+<td>KPI dependency</td>
+<td>K-REF-02, K-REF-05</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>Critical</td>
+</tr>
+</tbody>
+</table>
+<p>Payload (required fields):</p>
+<table>
+<thead>
+<tr>
+<th>property</th>
+<th>data_type</th>
+<th>validation</th>
+<th>required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>event_id</td>
+<td>string</td>
+<td>Non-null; immutable; unique within entity; UUID in production; duplicates are dropped on ingestion</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>event_name</td>
+<td>enum</td>
+<td>Must match ^[a-z]+(_[a-z]+)+$ and be in catalogue</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>user_id</td>
+<td>string</td>
+<td>Non-null; immutable; unique within entity; pattern agreed with engineering (simulated: ^VLUSR\d{6}$)</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>event_timestamp_utc</td>
+<td>timestamp</td>
+<td>ISO 8601 UTC with Z suffix; not in the future beyond 5 min clock skew</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>received_at_utc</td>
+<td>timestamp</td>
+<td>ISO 8601 UTC with Z suffix; not in the future beyond 5 min clock skew; &gt;= event_timestamp_utc - 5 min</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>feature</td>
+<td>enum</td>
+<td>Must be in allowed list</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>platform</td>
+<td>enum</td>
+<td>Must be in allowed list</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>event_source</td>
+<td>enum</td>
+<td>Must match the catalogue's declared source</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>schema_version</td>
+<td>integer</td>
+<td>&gt;= 1; must match a version in the change log</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>data_environment</td>
+<td>enum</td>
+<td>Must equal 'production' in any table feeding management dashboards</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>referral_id</td>
+<td>string</td>
+<td>Must exist in referrals.referral_id when present</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>referrer_user_id</td>
+<td>string</td>
+<td>Must exist in users</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>referred_user_id</td>
+<td>string</td>
+<td>Must exist in users; must differ from referrer_user_id</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<p>Optional: <code>app_version</code></p>
+<p>Acceptance tests:
+1. A sign-up with a valid code emits referral_registered with both user IDs; referral_status = registered (not converted).
+2. Self-referral attempt: referrer_user_id = referred_user_id is rejected.</p>
+<h3>REQ-011 · <code>referral_converted</code></h3>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Specification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Requirement ID</td>
+<td>REQ-011</td>
+</tr>
+<tr>
+<td>Event</td>
+<td><code>referral_converted</code></td>
+</tr>
+<tr>
+<td>Trigger</td>
+<td>Referral passes validation and the referral reward is approved.</td>
+</tr>
+<tr>
+<td>Source</td>
+<td>server</td>
+</tr>
+<tr>
+<td>Deduplication</td>
+<td>One per referral_id. Collection layer drops repeated <code>event_id</code>.</td>
+</tr>
+<tr>
+<td>Timestamp</td>
+<td><code>event_timestamp_utc</code> = moment the business state changed (not when the event was sent), ISO 8601 UTC; <code>received_at_utc</code> stamped by collection.</td>
+</tr>
+<tr>
+<td>Why needed</td>
+<td>Referral success and cost.</td>
+</tr>
+<tr>
+<td>KPI dependency</td>
+<td>K-REF-04, K-REF-05</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>Critical</td>
+</tr>
+</tbody>
+</table>
+<p>Payload (required fields):</p>
+<table>
+<thead>
+<tr>
+<th>property</th>
+<th>data_type</th>
+<th>validation</th>
+<th>required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>event_id</td>
+<td>string</td>
+<td>Non-null; immutable; unique within entity; UUID in production; duplicates are dropped on ingestion</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>event_name</td>
+<td>enum</td>
+<td>Must match ^[a-z]+(_[a-z]+)+$ and be in catalogue</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>user_id</td>
+<td>string</td>
+<td>Non-null; immutable; unique within entity; pattern agreed with engineering (simulated: ^VLUSR\d{6}$)</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>event_timestamp_utc</td>
+<td>timestamp</td>
+<td>ISO 8601 UTC with Z suffix; not in the future beyond 5 min clock skew</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>received_at_utc</td>
+<td>timestamp</td>
+<td>ISO 8601 UTC with Z suffix; not in the future beyond 5 min clock skew; &gt;= event_timestamp_utc - 5 min</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>feature</td>
+<td>enum</td>
+<td>Must be in allowed list</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>platform</td>
+<td>enum</td>
+<td>Must be in allowed list</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>event_source</td>
+<td>enum</td>
+<td>Must match the catalogue's declared source</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>schema_version</td>
+<td>integer</td>
+<td>&gt;= 1; must match a version in the change log</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>data_environment</td>
+<td>enum</td>
+<td>Must equal 'production' in any table feeding management dashboards</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>referral_id</td>
+<td>string</td>
+<td>Must exist in referrals.referral_id when present</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>referrer_user_id</td>
+<td>string</td>
+<td>Must exist in users</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>reward_id</td>
+<td>string</td>
+<td>Non-null; immutable; unique within entity</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<p>Optional: <code>app_version</code></p>
+<p>Acceptance tests:
+1. Conversion only after first eligible activity and validation; emits reward_id that exists in rewards.
+2. A referral that is registered but never activated never emits referral_converted.</p>
+<h3>REQ-012 · <code>wallet_transaction_created</code></h3>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Specification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Requirement ID</td>
+<td>REQ-012</td>
+</tr>
+<tr>
+<td>Event</td>
+<td><code>wallet_transaction_created</code></td>
+</tr>
+<tr>
+<td>Trigger</td>
+<td>Ledger row inserted.</td>
+</tr>
+<tr>
+<td>Source</td>
+<td>server</td>
+</tr>
+<tr>
+<td>Deduplication</td>
+<td>One per transaction_id; idempotency_key unique. Collection layer drops repeated <code>event_id</code>.</td>
+</tr>
+<tr>
+<td>Timestamp</td>
+<td><code>event_timestamp_utc</code> = moment the business state changed (not when the event was sent), ISO 8601 UTC; <code>received_at_utc</code> stamped by collection.</td>
+</tr>
+<tr>
+<td>Why needed</td>
+<td>Ledger completeness.</td>
+</tr>
+<tr>
+<td>KPI dependency</td>
+<td>K-WAL-01, K-WAL-05</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>Critical</td>
+</tr>
+</tbody>
+</table>
+<p>Payload (required fields):</p>
+<table>
+<thead>
+<tr>
+<th>property</th>
+<th>data_type</th>
+<th>validation</th>
+<th>required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>event_id</td>
+<td>string</td>
+<td>Non-null; immutable; unique within entity; UUID in production; duplicates are dropped on ingestion</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>event_name</td>
+<td>enum</td>
+<td>Must match ^[a-z]+(_[a-z]+)+$ and be in catalogue</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>user_id</td>
+<td>string</td>
+<td>Non-null; immutable; unique within entity; pattern agreed with engineering (simulated: ^VLUSR\d{6}$)</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>event_timestamp_utc</td>
+<td>timestamp</td>
+<td>ISO 8601 UTC with Z suffix; not in the future beyond 5 min clock skew</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>received_at_utc</td>
+<td>timestamp</td>
+<td>ISO 8601 UTC with Z suffix; not in the future beyond 5 min clock skew; &gt;= event_timestamp_utc - 5 min</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>feature</td>
+<td>enum</td>
+<td>Must be in allowed list</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>platform</td>
+<td>enum</td>
+<td>Must be in allowed list</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>event_source</td>
+<td>enum</td>
+<td>Must match the catalogue's declared source</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>schema_version</td>
+<td>integer</td>
+<td>&gt;= 1; must match a version in the change log</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>data_environment</td>
+<td>enum</td>
+<td>Must equal 'production' in any table feeding management dashboards</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>transaction_id</td>
+<td>string</td>
+<td>Non-null; immutable; unique within entity</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>transaction_type</td>
+<td>enum</td>
+<td>Must be in allowed list; exchange types Proposed</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>direction</td>
+<td>enum</td>
+<td>Must agree with transaction_type</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>integer</td>
+<td>&gt; 0</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>enum</td>
+<td>Must be in allowed list</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>transaction_status</td>
+<td>enum</td>
+<td>pending-&gt;completed|failed; completed-&gt;reversed</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>reference_type</td>
+<td>enum</td>
+<td>Must be in allowed list</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<p>Optional: <code>reference_id</code>, <code>related_transaction_id</code>, <code>app_version</code></p>
+<p>Acceptance tests:
+1. Every balance change produces exactly one ledger row.
+2. Reversal rows always carry related_transaction_id.
+3. Sum of ledger per user/unit equals displayed balance in a test account.</p>
+<h3>REQ-013 · <code>wallet_transaction_completed</code></h3>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Specification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Requirement ID</td>
+<td>REQ-013</td>
+</tr>
+<tr>
+<td>Event</td>
+<td><code>wallet_transaction_completed</code></td>
+</tr>
+<tr>
+<td>Trigger</td>
+<td>Ledger row reaches 'completed'.</td>
+</tr>
+<tr>
+<td>Source</td>
+<td>server</td>
+</tr>
+<tr>
+<td>Deduplication</td>
+<td>One per transaction_id. Collection layer drops repeated <code>event_id</code>.</td>
+</tr>
+<tr>
+<td>Timestamp</td>
+<td><code>event_timestamp_utc</code> = moment the business state changed (not when the event was sent), ISO 8601 UTC; <code>received_at_utc</code> stamped by collection.</td>
+</tr>
+<tr>
+<td>Why needed</td>
+<td>Settled volume.</td>
+</tr>
+<tr>
+<td>KPI dependency</td>
+<td>K-WAL-02, K-WAL-03</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>Critical</td>
+</tr>
+</tbody>
+</table>
+<p>Payload (required fields):</p>
+<table>
+<thead>
+<tr>
+<th>property</th>
+<th>data_type</th>
+<th>validation</th>
+<th>required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>event_id</td>
+<td>string</td>
+<td>Non-null; immutable; unique within entity; UUID in production; duplicates are dropped on ingestion</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>event_name</td>
+<td>enum</td>
+<td>Must match ^[a-z]+(_[a-z]+)+$ and be in catalogue</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>user_id</td>
+<td>string</td>
+<td>Non-null; immutable; unique within entity; pattern agreed with engineering (simulated: ^VLUSR\d{6}$)</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>event_timestamp_utc</td>
+<td>timestamp</td>
+<td>ISO 8601 UTC with Z suffix; not in the future beyond 5 min clock skew</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>received_at_utc</td>
+<td>timestamp</td>
+<td>ISO 8601 UTC with Z suffix; not in the future beyond 5 min clock skew; &gt;= event_timestamp_utc - 5 min</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>feature</td>
+<td>enum</td>
+<td>Must be in allowed list</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>platform</td>
+<td>enum</td>
+<td>Must be in allowed list</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>event_source</td>
+<td>enum</td>
+<td>Must match the catalogue's declared source</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>schema_version</td>
+<td>integer</td>
+<td>&gt;= 1; must match a version in the change log</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>data_environment</td>
+<td>enum</td>
+<td>Must equal 'production' in any table feeding management dashboards</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>transaction_id</td>
+<td>string</td>
+<td>Non-null; immutable; unique within entity</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>transaction_type</td>
+<td>enum</td>
+<td>Must be in allowed list; exchange types Proposed</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>direction</td>
+<td>enum</td>
+<td>Must agree with transaction_type</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>integer</td>
+<td>&gt; 0</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>enum</td>
+<td>Must be in allowed list</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<p>Optional: <code>app_version</code></p>
+<p>Acceptance tests:
+1. Pending redemption debit emits completed only when the withdrawal completes.</p>
+<h3>REQ-014 · <code>wallet_transaction_reversed</code></h3>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Specification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Requirement ID</td>
+<td>REQ-014</td>
+</tr>
+<tr>
+<td>Event</td>
+<td><code>wallet_transaction_reversed</code></td>
+</tr>
+<tr>
+<td>Trigger</td>
+<td>Ledger row is reversed by a linked reversing row.</td>
+</tr>
+<tr>
+<td>Source</td>
+<td>server</td>
+</tr>
+<tr>
+<td>Deduplication</td>
+<td>One per transaction_id. Collection layer drops repeated <code>event_id</code>.</td>
+</tr>
+<tr>
+<td>Timestamp</td>
+<td><code>event_timestamp_utc</code> = moment the business state changed (not when the event was sent), ISO 8601 UTC; <code>received_at_utc</code> stamped by collection.</td>
+</tr>
+<tr>
+<td>Why needed</td>
+<td>Reversal tracking.</td>
+</tr>
+<tr>
+<td>KPI dependency</td>
+<td>K-WAL-04</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>Critical</td>
+</tr>
+</tbody>
+</table>
+<p>Payload (required fields):</p>
+<table>
+<thead>
+<tr>
+<th>property</th>
+<th>data_type</th>
+<th>validation</th>
+<th>required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>event_id</td>
+<td>string</td>
+<td>Non-null; immutable; unique within entity; UUID in production; duplicates are dropped on ingestion</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>event_name</td>
+<td>enum</td>
+<td>Must match ^[a-z]+(_[a-z]+)+$ and be in catalogue</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>user_id</td>
+<td>string</td>
+<td>Non-null; immutable; unique within entity; pattern agreed with engineering (simulated: ^VLUSR\d{6}$)</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>event_timestamp_utc</td>
+<td>timestamp</td>
+<td>ISO 8601 UTC with Z suffix; not in the future beyond 5 min clock skew</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>received_at_utc</td>
+<td>timestamp</td>
+<td>ISO 8601 UTC with Z suffix; not in the future beyond 5 min clock skew; &gt;= event_timestamp_utc - 5 min</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>feature</td>
+<td>enum</td>
+<td>Must be in allowed list</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>platform</td>
+<td>enum</td>
+<td>Must be in allowed list</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>event_source</td>
+<td>enum</td>
+<td>Must match the catalogue's declared source</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>schema_version</td>
+<td>integer</td>
+<td>&gt;= 1; must match a version in the change log</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>data_environment</td>
+<td>enum</td>
+<td>Must equal 'production' in any table feeding management dashboards</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>transaction_id</td>
+<td>string</td>
+<td>Non-null; immutable; unique within entity</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>related_transaction_id</td>
+<td>string</td>
+<td>Required for reversal, adjustment, refund, exchange_credit; must exist</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>integer</td>
+<td>&gt; 0</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>enum</td>
+<td>Must be in allowed list</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<p>Optional: <code>app_version</code></p>
+<p>Acceptance tests:
+1. Reversed row status becomes 'reversed' and a linked reversing row exists.</p>
+<h3>REQ-015 · <code>withdrawal_requested</code></h3>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Specification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Requirement ID</td>
+<td>REQ-015</td>
+</tr>
+<tr>
+<td>Event</td>
+<td><code>withdrawal_requested</code></td>
+</tr>
+<tr>
+<td>Trigger</td>
+<td>Withdrawal request accepted by the backend and redemption debit created.</td>
+</tr>
+<tr>
+<td>Source</td>
+<td>server</td>
+</tr>
+<tr>
+<td>Deduplication</td>
+<td>One per withdrawal_id. Collection layer drops repeated <code>event_id</code>.</td>
+</tr>
+<tr>
+<td>Timestamp</td>
+<td><code>event_timestamp_utc</code> = moment the business state changed (not when the event was sent), ISO 8601 UTC; <code>received_at_utc</code> stamped by collection.</td>
+</tr>
+<tr>
+<td>Why needed</td>
+<td>Payout demand.</td>
+</tr>
+<tr>
+<td>KPI dependency</td>
+<td>K-WDR-01, K-WDR-03, K-WDR-09</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>Critical</td>
+</tr>
+</tbody>
+</table>
+<p>Payload (required fields):</p>
+<table>
+<thead>
+<tr>
+<th>property</th>
+<th>data_type</th>
+<th>validation</th>
+<th>required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>event_id</td>
+<td>string</td>
+<td>Non-null; immutable; unique within entity; UUID in production; duplicates are dropped on ingestion</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>event_name</td>
+<td>enum</td>
+<td>Must match ^[a-z]+(_[a-z]+)+$ and be in catalogue</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>user_id</td>
+<td>string</td>
+<td>Non-null; immutable; unique within entity; pattern agreed with engineering (simulated: ^VLUSR\d{6}$)</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>event_timestamp_utc</td>
+<td>timestamp</td>
+<td>ISO 8601 UTC with Z suffix; not in the future beyond 5 min clock skew</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>received_at_utc</td>
+<td>timestamp</td>
+<td>ISO 8601 UTC with Z suffix; not in the future beyond 5 min clock skew; &gt;= event_timestamp_utc - 5 min</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>feature</td>
+<td>enum</td>
+<td>Must be in allowed list</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>platform</td>
+<td>enum</td>
+<td>Must be in allowed list</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>event_source</td>
+<td>enum</td>
+<td>Must match the catalogue's declared source</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>schema_version</td>
+<td>integer</td>
+<td>&gt;= 1; must match a version in the change log</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>data_environment</td>
+<td>enum</td>
+<td>Must equal 'production' in any table feeding management dashboards</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>withdrawal_id</td>
+<td>string</td>
+<td>Non-null; immutable; unique within entity</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>amount_inr</td>
+<td>decimal</td>
+<td>&gt;= published minimum (Rs. 10 as of 2026-10-01)</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>ve_debited</td>
+<td>integer</td>
+<td>&gt; 0; equals linked redemption_debit amount</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>payout_method</td>
+<td>enum</td>
+<td>Must be in allowed list</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>debit_transaction_id</td>
+<td>string</td>
+<td>Must exist in wallet_transactions</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<p>Optional: <code>app_version</code></p>
+<p>Acceptance tests:
+1. A request emits withdrawal_requested and one pending redemption_debit with ve_debited.
+2. A request below the published minimum is rejected by the API and emits nothing.
+3. Double-tapping submit creates one withdrawal_id.</p>
+<h3>REQ-016 · <code>withdrawal_processing</code></h3>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Specification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Requirement ID</td>
+<td>REQ-016</td>
+</tr>
+<tr>
+<td>Event</td>
+<td><code>withdrawal_processing</code></td>
+</tr>
+<tr>
+<td>Trigger</td>
+<td>Request moves into review/processing.</td>
+</tr>
+<tr>
+<td>Source</td>
+<td>server</td>
+</tr>
+<tr>
+<td>Deduplication</td>
+<td>One per withdrawal_id per transition. Collection layer drops repeated <code>event_id</code>.</td>
+</tr>
+<tr>
+<td>Timestamp</td>
+<td><code>event_timestamp_utc</code> = moment the business state changed (not when the event was sent), ISO 8601 UTC; <code>received_at_utc</code> stamped by collection.</td>
+</tr>
+<tr>
+<td>Why needed</td>
+<td>Queue stage timing.</td>
+</tr>
+<tr>
+<td>KPI dependency</td>
+<td>K-WDR-03</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>High</td>
+</tr>
+</tbody>
+</table>
+<p>Payload (required fields):</p>
+<table>
+<thead>
+<tr>
+<th>property</th>
+<th>data_type</th>
+<th>validation</th>
+<th>required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>event_id</td>
+<td>string</td>
+<td>Non-null; immutable; unique within entity; UUID in production; duplicates are dropped on ingestion</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>event_name</td>
+<td>enum</td>
+<td>Must match ^[a-z]+(_[a-z]+)+$ and be in catalogue</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>user_id</td>
+<td>string</td>
+<td>Non-null; immutable; unique within entity; pattern agreed with engineering (simulated: ^VLUSR\d{6}$)</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>event_timestamp_utc</td>
+<td>timestamp</td>
+<td>ISO 8601 UTC with Z suffix; not in the future beyond 5 min clock skew</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>received_at_utc</td>
+<td>timestamp</td>
+<td>ISO 8601 UTC with Z suffix; not in the future beyond 5 min clock skew; &gt;= event_timestamp_utc - 5 min</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>feature</td>
+<td>enum</td>
+<td>Must be in allowed list</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>platform</td>
+<td>enum</td>
+<td>Must be in allowed list</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>event_source</td>
+<td>enum</td>
+<td>Must match the catalogue's declared source</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>schema_version</td>
+<td>integer</td>
+<td>&gt;= 1; must match a version in the change log</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>data_environment</td>
+<td>enum</td>
+<td>Must equal 'production' in any table feeding management dashboards</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>withdrawal_id</td>
+<td>string</td>
+<td>Non-null; immutable; unique within entity</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<p>Optional: <code>review_type</code>, <code>app_version</code></p>
+<p>Acceptance tests:
+1. Moving to review emits one event; processing timestamp &gt;= requested timestamp.</p>
+<h3>REQ-017 · <code>withdrawal_completed</code></h3>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Specification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Requirement ID</td>
+<td>REQ-017</td>
+</tr>
+<tr>
+<td>Event</td>
+<td><code>withdrawal_completed</code></td>
+</tr>
+<tr>
+<td>Trigger</td>
+<td>Payout partner confirms the transfer.</td>
+</tr>
+<tr>
+<td>Source</td>
+<td>server</td>
+</tr>
+<tr>
+<td>Deduplication</td>
+<td>One per withdrawal_id. Collection layer drops repeated <code>event_id</code>.</td>
+</tr>
+<tr>
+<td>Timestamp</td>
+<td><code>event_timestamp_utc</code> = moment the business state changed (not when the event was sent), ISO 8601 UTC; <code>received_at_utc</code> stamped by collection.</td>
+</tr>
+<tr>
+<td>Why needed</td>
+<td>Completed payouts.</td>
+</tr>
+<tr>
+<td>KPI dependency</td>
+<td>K-WDR-02, K-WDR-06, K-WDR-07, K-WDR-10</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>Critical</td>
+</tr>
+</tbody>
+</table>
+<p>Payload (required fields):</p>
+<table>
+<thead>
+<tr>
+<th>property</th>
+<th>data_type</th>
+<th>validation</th>
+<th>required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>event_id</td>
+<td>string</td>
+<td>Non-null; immutable; unique within entity; UUID in production; duplicates are dropped on ingestion</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>event_name</td>
+<td>enum</td>
+<td>Must match ^[a-z]+(_[a-z]+)+$ and be in catalogue</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>user_id</td>
+<td>string</td>
+<td>Non-null; immutable; unique within entity; pattern agreed with engineering (simulated: ^VLUSR\d{6}$)</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>event_timestamp_utc</td>
+<td>timestamp</td>
+<td>ISO 8601 UTC with Z suffix; not in the future beyond 5 min clock skew</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>received_at_utc</td>
+<td>timestamp</td>
+<td>ISO 8601 UTC with Z suffix; not in the future beyond 5 min clock skew; &gt;= event_timestamp_utc - 5 min</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>feature</td>
+<td>enum</td>
+<td>Must be in allowed list</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>platform</td>
+<td>enum</td>
+<td>Must be in allowed list</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>event_source</td>
+<td>enum</td>
+<td>Must match the catalogue's declared source</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>schema_version</td>
+<td>integer</td>
+<td>&gt;= 1; must match a version in the change log</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>data_environment</td>
+<td>enum</td>
+<td>Must equal 'production' in any table feeding management dashboards</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>withdrawal_id</td>
+<td>string</td>
+<td>Non-null; immutable; unique within entity</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>amount_inr</td>
+<td>decimal</td>
+<td>&gt;= published minimum (Rs. 10 as of 2026-10-01)</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>payout_method</td>
+<td>enum</td>
+<td>Must be in allowed list</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<p>Optional: <code>payout_reference_id</code>, <code>app_version</code></p>
+<p>Acceptance tests:
+1. Partner confirmation emits withdrawal_completed; redemption debit becomes completed; final timestamp &gt;= processing.</p>
+<h3>REQ-018 · <code>withdrawal_rejected</code></h3>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Specification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Requirement ID</td>
+<td>REQ-018</td>
+</tr>
+<tr>
+<td>Event</td>
+<td><code>withdrawal_rejected</code></td>
+</tr>
+<tr>
+<td>Trigger</td>
+<td>Request rejected during review.</td>
+</tr>
+<tr>
+<td>Source</td>
+<td>server</td>
+</tr>
+<tr>
+<td>Deduplication</td>
+<td>One per withdrawal_id. Collection layer drops repeated <code>event_id</code>.</td>
+</tr>
+<tr>
+<td>Timestamp</td>
+<td><code>event_timestamp_utc</code> = moment the business state changed (not when the event was sent), ISO 8601 UTC; <code>received_at_utc</code> stamped by collection.</td>
+</tr>
+<tr>
+<td>Why needed</td>
+<td>Rejection analysis.</td>
+</tr>
+<tr>
+<td>KPI dependency</td>
+<td>K-WDR-04, K-WDR-06</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>Critical</td>
+</tr>
+</tbody>
+</table>
+<p>Payload (required fields):</p>
+<table>
+<thead>
+<tr>
+<th>property</th>
+<th>data_type</th>
+<th>validation</th>
+<th>required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>event_id</td>
+<td>string</td>
+<td>Non-null; immutable; unique within entity; UUID in production; duplicates are dropped on ingestion</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>event_name</td>
+<td>enum</td>
+<td>Must match ^[a-z]+(_[a-z]+)+$ and be in catalogue</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>user_id</td>
+<td>string</td>
+<td>Non-null; immutable; unique within entity; pattern agreed with engineering (simulated: ^VLUSR\d{6}$)</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>event_timestamp_utc</td>
+<td>timestamp</td>
+<td>ISO 8601 UTC with Z suffix; not in the future beyond 5 min clock skew</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>received_at_utc</td>
+<td>timestamp</td>
+<td>ISO 8601 UTC with Z suffix; not in the future beyond 5 min clock skew; &gt;= event_timestamp_utc - 5 min</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>feature</td>
+<td>enum</td>
+<td>Must be in allowed list</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>platform</td>
+<td>enum</td>
+<td>Must be in allowed list</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>event_source</td>
+<td>enum</td>
+<td>Must match the catalogue's declared source</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>schema_version</td>
+<td>integer</td>
+<td>&gt;= 1; must match a version in the change log</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>data_environment</td>
+<td>enum</td>
+<td>Must equal 'production' in any table feeding management dashboards</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>withdrawal_id</td>
+<td>string</td>
+<td>Non-null; immutable; unique within entity</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>reason_category</td>
+<td>enum</td>
+<td>Required when status in (rejected, reversed)</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<p>Optional: <code>refund_transaction_id</code>, <code>app_version</code></p>
+<p>Acceptance tests:
+1. Rejection emits reason_category and creates one redemption_refund ledger row of equal amount.</p>
+<h3>REQ-019 · <code>withdrawal_reversed</code></h3>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Specification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Requirement ID</td>
+<td>REQ-019</td>
+</tr>
+<tr>
+<td>Event</td>
+<td><code>withdrawal_reversed</code></td>
+</tr>
+<tr>
+<td>Trigger</td>
+<td>A completed payout is reversed (e.g. partner failure).</td>
+</tr>
+<tr>
+<td>Source</td>
+<td>server</td>
+</tr>
+<tr>
+<td>Deduplication</td>
+<td>One per withdrawal_id. Collection layer drops repeated <code>event_id</code>.</td>
+</tr>
+<tr>
+<td>Timestamp</td>
+<td><code>event_timestamp_utc</code> = moment the business state changed (not when the event was sent), ISO 8601 UTC; <code>received_at_utc</code> stamped by collection.</td>
+</tr>
+<tr>
+<td>Why needed</td>
+<td>Post-completion failures.</td>
+</tr>
+<tr>
+<td>KPI dependency</td>
+<td>K-WDR-05</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>High</td>
+</tr>
+</tbody>
+</table>
+<p>Payload (required fields):</p>
+<table>
+<thead>
+<tr>
+<th>property</th>
+<th>data_type</th>
+<th>validation</th>
+<th>required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>event_id</td>
+<td>string</td>
+<td>Non-null; immutable; unique within entity; UUID in production; duplicates are dropped on ingestion</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>event_name</td>
+<td>enum</td>
+<td>Must match ^[a-z]+(_[a-z]+)+$ and be in catalogue</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>user_id</td>
+<td>string</td>
+<td>Non-null; immutable; unique within entity; pattern agreed with engineering (simulated: ^VLUSR\d{6}$)</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>event_timestamp_utc</td>
+<td>timestamp</td>
+<td>ISO 8601 UTC with Z suffix; not in the future beyond 5 min clock skew</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>received_at_utc</td>
+<td>timestamp</td>
+<td>ISO 8601 UTC with Z suffix; not in the future beyond 5 min clock skew; &gt;= event_timestamp_utc - 5 min</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>feature</td>
+<td>enum</td>
+<td>Must be in allowed list</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>platform</td>
+<td>enum</td>
+<td>Must be in allowed list</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>event_source</td>
+<td>enum</td>
+<td>Must match the catalogue's declared source</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>schema_version</td>
+<td>integer</td>
+<td>&gt;= 1; must match a version in the change log</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>data_environment</td>
+<td>enum</td>
+<td>Must equal 'production' in any table feeding management dashboards</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>withdrawal_id</td>
+<td>string</td>
+<td>Non-null; immutable; unique within entity</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>reason_category</td>
+<td>enum</td>
+<td>Required when status in (rejected, reversed)</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<p>Optional: <code>refund_transaction_id</code>, <code>app_version</code></p>
+<p>Acceptance tests:
+1. Only a completed withdrawal can be reversed; emits refund row.</p></main></div>
+<script>try{var t=localStorage.getItem('t');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script type="module">if(document.querySelector('.mermaid')){const m=await import('https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs');m.default.initialize({startOnLoad:true,theme:'neutral'});m.default.run();}</script>
+</body></html>

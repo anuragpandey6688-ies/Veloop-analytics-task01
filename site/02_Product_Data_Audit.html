@@ -1,0 +1,369 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>02 · Product Data Readiness Audit | VELOOP Analytics Task 01</title><style>
+:root{--bg:#f6f8fb;--panel:#fff;--ink:#10233d;--muted:#5a6b7d;--line:#dbe3ee;--accent:#1f3a5f;--accent2:#5b8def;--warn:#7a2e00;--warnbg:#fff4e0}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0f141b;--panel:#161d27;--ink:#e6edf5;--muted:#9aa9ba;--line:#2a3544;--accent:#9db8f2;--accent2:#7ea4f5;--warn:#ffcf99;--warnbg:#2b2214}}
+:root[data-theme="dark"]{--bg:#0f141b;--panel:#161d27;--ink:#e6edf5;--muted:#9aa9ba;--line:#2a3544;--accent:#9db8f2;--accent2:#7ea4f5;--warn:#ffcf99;--warnbg:#2b2214}
+*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+a{color:var(--accent2)}.wrap{display:grid;grid-template-columns:280px minmax(0,1fr);min-height:100vh}
+nav{background:var(--panel);border-right:1px solid var(--line);padding:20px 14px;position:sticky;top:0;height:100vh;overflow:auto}
+nav .brand{font-weight:800;font-size:16px;margin:0 6px 14px}nav a{display:block;padding:6px 8px;border-radius:6px;color:var(--ink);text-decoration:none;font-size:13.5px}
+nav a:hover,nav a.on{background:var(--bg);color:var(--accent2)}main{padding:32px 40px;max-width:1200px;min-width:0}
+h1{font-size:28px;line-height:1.25;margin-top:0}h2{margin-top:36px;border-bottom:1px solid var(--line);padding-bottom:6px}h3{margin-top:26px}
+table{border-collapse:collapse;width:100%;font-size:13px;margin:14px 0;display:block;overflow-x:auto}
+th,td{border:1px solid var(--line);padding:6px 9px;text-align:left;vertical-align:top}th{background:var(--accent);color:#fff;position:sticky;top:0}
+:root[data-theme="dark"] th{color:#0f141b}tr:nth-child(even) td{background:color-mix(in srgb,var(--panel) 92%,var(--accent2))}
+blockquote{margin:16px 0;padding:12px 16px;background:var(--warnbg);border-left:4px solid var(--warn);color:var(--warn);border-radius:6px}
+code{background:color-mix(in srgb,var(--panel) 80%,var(--accent2));padding:1px 5px;border-radius:4px;font-size:12.5px}
+pre{background:var(--panel);border:1px solid var(--line);padding:14px;border-radius:8px;overflow:auto}pre code{background:none;padding:0}
+img{max-width:100%;height:auto;background:#fff;border:1px solid var(--line);border-radius:8px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px;margin:18px 0}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px;text-decoration:none;color:var(--ink)}
+.card b{display:block;margin-bottom:4px}.card span{color:var(--muted);font-size:13px}
+.stats{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin:18px 0}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px}.stat b{font-size:24px;display:block;color:var(--accent2)}
+.stat span{font-size:12.5px;color:var(--muted)}.toggle{margin:12px 6px 0;font-size:12px;background:none;border:1px solid var(--line);color:var(--ink);border-radius:6px;padding:4px 8px;cursor:pointer}
+@media print{nav{display:none}.wrap{display:block}main{max-width:none;padding:0}th{position:static}table{display:table;font-size:10.5px}h2{break-after:avoid}}
+@media (max-width:860px){.wrap{grid-template-columns:1fr}nav{position:static;height:auto;max-height:200px;border-right:0;border-bottom:1px solid var(--line)}main{padding:20px 16px}}
+</style></head><body><div class="wrap"><nav>
+<div class="brand"><a href="index.html" style="padding:0;color:inherit">VELOOP Analytics Blueprint</a></div>
+<a class="" href="index.html">Overview</a><a class='' href='01_Executive_Summary.html'>01 · Executive Summary</a><a class='on' href='02_Product_Data_Audit.html'>02 · Product Data Readiness Audit</a><a class='' href='03_Data_Coverage_Matrix.html'>03 · Data Coverage Matrix</a><a class='' href='04_User_Analytics_Specification.html'>04 · User & Account Analytics Specification</a><a class='' href='05_Earning_Reward_Analytics_Specification.html'>05 · Earning & Reward Analytics Specification</a><a class='' href='06_Wallet_Withdrawal_Analytics_Specification.html'>06 · Wallet & Withdrawal Analytics Specification</a><a class='' href='07_Referral_Engagement_Analytics.html'>07 · Referral & Engagement Analytics</a><a class='' href='08_Event_Tracking_Plan.html'>08 · Event Tracking Plan</a><a class='' href='09_Data_Dictionary.html'>09 · Data Dictionary</a><a class='' href='10_Logical_Data_Model.html'>10 · Logical Data Model</a><a class='' href='11_KPI_Catalogue.html'>11 · KPI Catalogue</a><a class='' href='12_Simulated_Data_Profiling.html'>12 · Simulated Data Profiling: Findings</a><a class='' href='13_Data_Quality_Audit.html'>13 · Data Quality Audit: Report</a><a class='' href='14_Dashboard_Blueprint.html'>14 · Analytics Dashboard Blueprint</a><a class='' href='15_Developer_Analytics_Handoff.html'>15 · Developer Analytics Handoff</a><a class='' href='16_Data_Pipeline_Proposal.html'>16 · Data Pipeline & Operating Model</a><a class='' href='17_Privacy_Governance_Proposal.html'>17 · Data Access, Privacy & Governance Proposal</a><a class='' href='18_Analytics_Readiness_Assessment.html'>18 · Analytics Readiness Assessment</a><a class='' href='19_Assumption_Verification_Register.html'>19 · Assumption & Verification Register</a><a class='' href='20_Implementation_Backlog.html'>20 · Implementation Backlog</a><a class='' href='21_Final_Consolidated_Report.html'>21 · Final Consolidated Report</a><a href="downloads.html" class="">Downloads</a>
+<button class="toggle" onclick="var r=document.documentElement;r.dataset.theme=(r.dataset.theme==='dark'?'light':'dark');try{localStorage.setItem('t',r.dataset.theme)}catch(e){}">Toggle theme</button>
+</nav><main><h1>02 · Product Data Readiness Audit</h1>
+<blockquote>
+<p><strong>Status:</strong> proposed specification. No event, field, table or KPI in this document has been verified as implemented in VELOOP production (see Assumption A-001). Facts taken from official VELOOP pages cite a source ID from the Source &amp; Verification Register (deliverable 19).</p>
+</blockquote>
+<h2>What was reviewed</h2>
+<ul>
+<li>The task brief (SRC-01) and the assignment email (SRC-02).</li>
+<li>The supplied dataset <code>VELoop_Rewards_Data_01.xlsx</code> (SRC-03), profiled and audited in 12 and 13.</li>
+<li>Public official VELOOP pages, all checked on 2026-10-01: the help center, withdrawal, verification, currency, earning, referral, missions/badges and exchange pages, the privacy policy and the homepage (SRC-04 to SRC-16).</li>
+</ul>
+<h2>What VELOOP is, according to official pages</h2>
+<p>An online rewards and engagement platform operated from Ramgarh, Jharkhand, India. It has five virtual credits: VEs (main reward credits), XP (progression), Gems (exchangeable), Tokens (selected purchases) and Spins (wheel) (SRC-04). Earning features include watch ads, surveys, app tasks, captcha, tap &amp; earn, a 1.5-hour earning session ("Mine &amp; earn", explicitly not crypto mining, SRC-10), games and follow &amp; earn. Engagement features include daily check-in (IST window, SRC-08), streaks, spin, missions, badges, levels, leaderboard and promo codes. The money features are a wallet dashboard, Gems Exchange / Swap Center, and withdrawals from Rs. 10 by UPI, PayPal or gift cards, with system and manual review (SRC-05, SRC-06). Six features are officially "coming soon" and are not instrumented now (SRC-11).</p>
+<p><strong>Caution:</strong> a published help page is evidence that a feature is <em>intended</em> and described, not that it is live or tracked. Every implementation question is in the register (A-001, A-002).</p>
+<h2>Conflicts found between sources (not resolved by guessing)</h2>
+<table>
+<thead>
+<tr>
+<th>Topic</th>
+<th>Source A</th>
+<th>Source B</th>
+<th>Treatment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Production scale</td>
+<td>Homepage: "Registered Users 1 570 253+", "Total Paid Out 1 500 470+" (SRC-14)</td>
+<td>Brief: VELOOP "currently does not have the volume of production data required"</td>
+<td>Homepage figures are <strong>not used</strong>; flagged A-021</td>
+</tr>
+<tr>
+<td>Payout methods</td>
+<td>Homepage: transfers to "crypto wallet", footer "Staking"</td>
+<td>Withdrawal page: UPI, PayPal, gift cards; mining page: "does not perform ... staking"</td>
+<td>Official withdrawal page used for allowed values; A-022</td>
+</tr>
+<tr>
+<td>App</td>
+<td>Homepage: "Get Soon The App"</td>
+<td>Supplied data: platform = Web for 100%</td>
+<td><code>platform</code> enum keeps android/ios for later; A-018</td>
+</tr>
+<tr>
+<td>Support</td>
+<td>velooprewardsteam@gmail.com, 24–48 h (pages) and 24–72 h (header)</td>
+<td>Email: velooprewardsofficial@gmail.com; homepage business@veloop.com</td>
+<td>A-027; K-SUP-04 notes both windows</td>
+</tr>
+<tr>
+<td>Brief structure</td>
+<td>Sections 1, 3, 4 missing; duration "22–24 days" and "22–25 days"</td>
+<td>n/a</td>
+<td>Recorded in SRC-01</td>
+</tr>
+</tbody>
+</table>
+<h2>A1–A4 Product data map</h2>
+<p>The coverage matrix (03) maps 32 product areas and features. The lifecycles show which steps become events:</p>
+<table>
+<thead>
+<tr>
+<th>lifecycle</th>
+<th>step</th>
+<th>stage</th>
+<th>measured_by</th>
+<th>how</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Task</td>
+<td>1</td>
+<td>Task viewed</td>
+<td>task_viewed</td>
+<td>Client event</td>
+</tr>
+<tr>
+<td>Task</td>
+<td>2</td>
+<td>Task opened</td>
+<td>task_opened</td>
+<td>Client event</td>
+</tr>
+<tr>
+<td>Task</td>
+<td>3</td>
+<td>Task started</td>
+<td>task_started</td>
+<td>Server event; creates activity_id</td>
+</tr>
+<tr>
+<td>Task</td>
+<td>4</td>
+<td>User finishes task action</td>
+<td>task_submitted</td>
+<td>Client event (task types with a finish step)</td>
+</tr>
+<tr>
+<td>Task</td>
+<td>5</td>
+<td>Completion validated</td>
+<td>task_completed / task_failed</td>
+<td>Server event after validation (task_completed is emitted only when validation passes)</td>
+</tr>
+<tr>
+<td>Task</td>
+<td>6</td>
+<td>Reward credited</td>
+<td>reward_pending -&gt; reward_credited</td>
+<td>Server events in reward service</td>
+</tr>
+<tr>
+<td>Task</td>
+<td>7</td>
+<td>Abandoned</td>
+<td>(derived)</td>
+<td>Not emitted by the client; derived when no completion within the timeout (A-013), recorded as task_failed with failure_category = user_abandoned</td>
+</tr>
+<tr>
+<td>Withdrawal</td>
+<td>1</td>
+<td>Requested</td>
+<td>withdrawal_requested</td>
+<td>Server</td>
+</tr>
+<tr>
+<td>Withdrawal</td>
+<td>2</td>
+<td>Under review / processing</td>
+<td>withdrawal_processing</td>
+<td>Server</td>
+</tr>
+<tr>
+<td>Withdrawal</td>
+<td>3</td>
+<td>Completed</td>
+<td>withdrawal_completed</td>
+<td>Server (partner confirmation)</td>
+</tr>
+<tr>
+<td>Withdrawal</td>
+<td>4</td>
+<td>Rejected</td>
+<td>withdrawal_rejected</td>
+<td>Server; refund ledger row</td>
+</tr>
+<tr>
+<td>Withdrawal</td>
+<td>5</td>
+<td>Reversed</td>
+<td>withdrawal_reversed</td>
+<td>Server; refund ledger row</td>
+</tr>
+<tr>
+<td>Referral</td>
+<td>1</td>
+<td>Referral created</td>
+<td>referral_created</td>
+<td>Server</td>
+</tr>
+<tr>
+<td>Referral</td>
+<td>2</td>
+<td>User registered</td>
+<td>referral_registered</td>
+<td>Server</td>
+</tr>
+<tr>
+<td>Referral</td>
+<td>3</td>
+<td>User activated</td>
+<td>referral_activated</td>
+<td>Server</td>
+</tr>
+<tr>
+<td>Referral</td>
+<td>4</td>
+<td>Referral converted</td>
+<td>referral_converted</td>
+<td>Server; registration alone never counts</td>
+</tr>
+</tbody>
+</table>
+<h3>A3 User event vs system event vs business outcome</h3>
+<table>
+<thead>
+<tr>
+<th>class</th>
+<th>meaning</th>
+<th>examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>User event</td>
+<td>Something the user does, observed by client or server.</td>
+<td>task_opened, task_started, daily_reward_claimed, withdrawal_requested, spin_started</td>
+</tr>
+<tr>
+<td>System event</td>
+<td>Something VELOOP's systems decide or record without a direct user action.</td>
+<td>task_completed (after validation), reward_credited, reward_reversed, withdrawal_completed, account_status_changed, referral_converted</td>
+</tr>
+<tr>
+<td>Business outcome</td>
+<td>A measured result computed from events; never emitted directly.</td>
+<td>Task completion rate, credited reward volume, withdrawal completion rate, referral conversion rate</td>
+</tr>
+</tbody>
+</table>
+<h2>Analytics gaps (16)</h2>
+<table>
+<thead>
+<tr>
+<th>gap_id</th>
+<th>gap</th>
+<th>evidence</th>
+<th>impact</th>
+<th>priority</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>G01</td>
+<td>No event-level activity data</td>
+<td>Supplied data is one snapshot row per user (last_login, lifetime_sessions, flags).</td>
+<td>DAU/WAU/MAU, retention and funnels cannot be computed.</td>
+<td>Critical</td>
+</tr>
+<tr>
+<td>G02</td>
+<td>Referred users cannot be linked to referrers</td>
+<td>Users has referral_source_detail = 'Friend/Family' only; no referral_id or referrer_user_id.</td>
+<td>Referral funnel and referral cost cannot be measured.</td>
+<td>Critical</td>
+</tr>
+<tr>
+<td>G03</td>
+<td>Timestamps have no timezone</td>
+<td>registration_datetime and last_login_datetime are naive.</td>
+<td>Day boundaries can be wrong by 5.5 h; daily reward/streak KPIs misalign with the IST claim window.</td>
+<td>High</td>
+</tr>
+<tr>
+<td>G04</td>
+<td>No account status history</td>
+<td>account_status is current state only.</td>
+<td>Suspension trends and lifecycle timing cannot be measured.</td>
+<td>High</td>
+</tr>
+<tr>
+<td>G05</td>
+<td>Balances without a ledger</td>
+<td>xp_balance is a stored balance; no transactions.</td>
+<td>Balances cannot be reconciled or explained.</td>
+<td>Critical</td>
+</tr>
+<tr>
+<td>G06</td>
+<td>Undocumented derived fields</td>
+<td>is_active_7d/30d and days_since_registration use an unstated reference date (inferred 2026-09-15 00:00) and login-based activity.</td>
+<td>Flags are not reproducible; definitions conflict with qualifying-activity DAU.</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>G07</td>
+<td>Seven of eight expected datasets missing</td>
+<td>Only Users supplied.</td>
+<td>Relationship and KPI tests impossible on supplied data (J2/J3).</td>
+<td>High</td>
+</tr>
+<tr>
+<td>G08</td>
+<td>No session identifier</td>
+<td>Only a lifetime counter.</td>
+<td>Session-level and returning-user analysis impossible.</td>
+<td>High</td>
+</tr>
+<tr>
+<td>G09</td>
+<td>No event_id / idempotency key</td>
+<td>No unique event or transaction identifiers in supplied structure.</td>
+<td>Duplicate events/credits cannot be detected.</td>
+<td>Critical</td>
+</tr>
+<tr>
+<td>G10</td>
+<td>No third-party tracking fields</td>
+<td>No provider_id, external_reference_id or validation status.</td>
+<td>Partner tracking failures cannot be separated from VELOOP failures (C4).</td>
+<td>High</td>
+</tr>
+<tr>
+<td>G11</td>
+<td>No onboarding or verification timestamps</td>
+<td>Status fields only.</td>
+<td>Time-to-onboard and cohort-based rates impossible.</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>G12</td>
+<td>Personal data in analytics dataset</td>
+<td>full_name, email, exact age, gender, city present.</td>
+<td>Privacy risk with no analytical need.</td>
+<td>High</td>
+</tr>
+<tr>
+<td>G13</td>
+<td>Platform/device semantics unclear</td>
+<td>platform = Web for all; primary_device mixes OS values; app status unknown.</td>
+<td>Platform split unreliable.</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>G14</td>
+<td>No currency conversion rates</td>
+<td>Not published or supplied.</td>
+<td>Reward liability in INR cannot be computed.</td>
+<td>High</td>
+</tr>
+<tr>
+<td>G15</td>
+<td>Consent and marketing opt-in conflict</td>
+<td>34 users opted in while consent pending.</td>
+<td>Marketing audience may include non-consented users.</td>
+<td>High</td>
+</tr>
+<tr>
+<td>G16</td>
+<td>Supplied dictionary incomplete</td>
+<td>platform and country undocumented; no allowed values for account_status beyond 'controlled list'.</td>
+<td>Ambiguous fields.</td>
+<td>Low</td>
+</tr>
+</tbody>
+</table></main></div>
+<script>try{var t=localStorage.getItem('t');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script type="module">if(document.querySelector('.mermaid')){const m=await import('https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs');m.default.initialize({startOnLoad:true,theme:'neutral'});m.default.run();}</script>
+</body></html>

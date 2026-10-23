@@ -1,0 +1,70 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='1160' height='630' viewBox='0 0 1160 630'>
+<rect width='100%' height='100%' fill='#F6F8FB'/>
+<text x='30' y='40' font-size='22' font-weight='700' fill='#10233D' font-family='Inter, Helvetica, Arial, sans-serif'>Dashboard 4 Rewards</text>
+<text x='30' y='64' font-size='12' fill='#7A2E00' font-family='Inter, Helvetica, Arial, sans-serif'>WIREFRAME. Layout only, no data. Production data only (data_environment = production). Shows 'data as of' time.</text>
+<rect x='30' y='78' width='1100' height='30' rx='6' fill='white' stroke='#C9D7F7'/>
+<text x='42' y='98' font-size='12' fill='#33475B' font-family='Inter, Helvetica, Arial, sans-serif'>Filters: Date range | feature | reversal_reason_category | unit   ·   Data as of: [timestamp]</text>
+<rect x='30' y='122' width='540' height='230' rx='10' fill='white' stroke='#C9D7F7'/>
+<text x='44' y='146' font-size='14' font-weight='700' fill='#10233D' font-family='Inter, Helvetica, Arial, sans-serif'>Reward activity</text>
+<text x='44' y='164' font-size='11' fill='#5A6B7D' font-family='Inter, Helvetica, Arial, sans-serif'>K-RWD-01 · Stacked column · refresh Daily</text>
+<rect x='56.0' y='275.0' width='63.71428571428571' height='27.0' fill='#9DB8F2'/>
+<rect x='125.71428571428571' y='235.85' width='63.71428571428571' height='66.15' fill='#9DB8F2'/>
+<rect x='195.42857142857142' y='270.95' width='63.71428571428571' height='31.05' fill='#9DB8F2'/>
+<rect x='265.1428571428571' y='231.8' width='63.71428571428571' height='70.2' fill='#9DB8F2'/>
+<rect x='334.85714285714283' y='266.9' width='63.71428571428571' height='35.1' fill='#9DB8F2'/>
+<rect x='404.57142857142856' y='227.75' width='63.71428571428571' height='74.25' fill='#9DB8F2'/>
+<rect x='474.2857142857143' y='262.85' width='63.71428571428571' height='39.15' fill='#9DB8F2'/>
+<text x='44' y='338' font-size='11' fill='#33475B' font-family='Inter, Helvetica, Arial, sans-serif'>Q: How many reward decisions are made?</text>
+<rect x='590' y='122' width='540' height='230' rx='10' fill='white' stroke='#C9D7F7'/>
+<text x='604' y='146' font-size='14' font-weight='700' fill='#10233D' font-family='Inter, Helvetica, Arial, sans-serif'>Reward source</text>
+<text x='604' y='164' font-size='11' fill='#5A6B7D' font-family='Inter, Helvetica, Arial, sans-serif'>K-RWD-05 · Treemap per unit · refresh Daily</text>
+<rect x='614.0' y='184.0' width='58.5' height='26.5' fill='#5B8DEF' fill-opacity='0.20'/>
+<rect x='675.5' y='184.0' width='58.5' height='26.5' fill='#5B8DEF' fill-opacity='0.70'/>
+<rect x='737.0' y='184.0' width='58.5' height='26.5' fill='#5B8DEF' fill-opacity='0.40'/>
+<rect x='798.5' y='184.0' width='58.5' height='26.5' fill='#5B8DEF' fill-opacity='0.90'/>
+<rect x='860.0' y='184.0' width='58.5' height='26.5' fill='#5B8DEF' fill-opacity='0.60'/>
+<rect x='921.5' y='184.0' width='58.5' height='26.5' fill='#5B8DEF' fill-opacity='0.30'/>
+<rect x='983.0' y='184.0' width='58.5' height='26.5' fill='#5B8DEF' fill-opacity='0.80'/>
+<rect x='1044.5' y='184.0' width='58.5' height='26.5' fill='#5B8DEF' fill-opacity='0.50'/>
+<rect x='614.0' y='213.5' width='58.5' height='26.5' fill='#5B8DEF' fill-opacity='0.50'/>
+<rect x='675.5' y='213.5' width='58.5' height='26.5' fill='#5B8DEF' fill-opacity='0.20'/>
+<rect x='737.0' y='213.5' width='58.5' height='26.5' fill='#5B8DEF' fill-opacity='0.70'/>
+<rect x='798.5' y='213.5' width='58.5' height='26.5' fill='#5B8DEF' fill-opacity='0.40'/>
+<rect x='860.0' y='213.5' width='58.5' height='26.5' fill='#5B8DEF' fill-opacity='0.90'/>
+<rect x='921.5' y='213.5' width='58.5' height='26.5' fill='#5B8DEF' fill-opacity='0.60'/>
+<rect x='983.0' y='213.5' width='58.5' height='26.5' fill='#5B8DEF' fill-opacity='0.30'/>
+<rect x='1044.5' y='213.5' width='58.5' height='26.5' fill='#5B8DEF' fill-opacity='0.80'/>
+<rect x='614.0' y='243.0' width='58.5' height='26.5' fill='#5B8DEF' fill-opacity='0.80'/>
+<rect x='675.5' y='243.0' width='58.5' height='26.5' fill='#5B8DEF' fill-opacity='0.50'/>
+<rect x='737.0' y='243.0' width='58.5' height='26.5' fill='#5B8DEF' fill-opacity='0.20'/>
+<rect x='798.5' y='243.0' width='58.5' height='26.5' fill='#5B8DEF' fill-opacity='0.70'/>
+<rect x='860.0' y='243.0' width='58.5' height='26.5' fill='#5B8DEF' fill-opacity='0.40'/>
+<rect x='921.5' y='243.0' width='58.5' height='26.5' fill='#5B8DEF' fill-opacity='0.90'/>
+<rect x='983.0' y='243.0' width='58.5' height='26.5' fill='#5B8DEF' fill-opacity='0.60'/>
+<rect x='1044.5' y='243.0' width='58.5' height='26.5' fill='#5B8DEF' fill-opacity='0.30'/>
+<rect x='614.0' y='272.5' width='58.5' height='26.5' fill='#5B8DEF' fill-opacity='0.30'/>
+<rect x='675.5' y='272.5' width='58.5' height='26.5' fill='#5B8DEF' fill-opacity='0.80'/>
+<rect x='737.0' y='272.5' width='58.5' height='26.5' fill='#5B8DEF' fill-opacity='0.50'/>
+<rect x='798.5' y='272.5' width='58.5' height='26.5' fill='#5B8DEF' fill-opacity='0.20'/>
+<rect x='860.0' y='272.5' width='58.5' height='26.5' fill='#5B8DEF' fill-opacity='0.70'/>
+<rect x='921.5' y='272.5' width='58.5' height='26.5' fill='#5B8DEF' fill-opacity='0.40'/>
+<rect x='983.0' y='272.5' width='58.5' height='26.5' fill='#5B8DEF' fill-opacity='0.90'/>
+<rect x='1044.5' y='272.5' width='58.5' height='26.5' fill='#5B8DEF' fill-opacity='0.60'/>
+<text x='604' y='338' font-size='11' fill='#33475B' font-family='Inter, Helvetica, Arial, sans-serif'>Q: Where does reward budget go?</text>
+<rect x='30' y='372' width='540' height='230' rx='10' fill='white' stroke='#C9D7F7'/>
+<text x='44' y='396' font-size='14' font-weight='700' fill='#10233D' font-family='Inter, Helvetica, Arial, sans-serif'>Reward status and backlog</text>
+<text x='44' y='414' font-size='11' fill='#5A6B7D' font-family='Inter, Helvetica, Arial, sans-serif'>K-RWD-04, K-RWD-06 · Aged bar + line · refresh Hourly</text>
+<rect x='56.0' y='525.0' width='63.71428571428571' height='27.0' fill='#9DB8F2'/>
+<rect x='125.71428571428571' y='485.85' width='63.71428571428571' height='66.15' fill='#9DB8F2'/>
+<rect x='195.42857142857142' y='520.95' width='63.71428571428571' height='31.05' fill='#9DB8F2'/>
+<rect x='265.1428571428571' y='481.8' width='63.71428571428571' height='70.2' fill='#9DB8F2'/>
+<rect x='334.85714285714283' y='516.9' width='63.71428571428571' height='35.1' fill='#9DB8F2'/>
+<rect x='404.57142857142856' y='477.75' width='63.71428571428571' height='74.25' fill='#9DB8F2'/>
+<rect x='474.2857142857143' y='512.85' width='63.71428571428571' height='39.15' fill='#9DB8F2'/>
+<text x='44' y='588' font-size='11' fill='#33475B' font-family='Inter, Helvetica, Arial, sans-serif'>Q: Are users waiting too long for rewards?</text>
+<rect x='590' y='372' width='540' height='230' rx='10' fill='white' stroke='#C9D7F7'/>
+<text x='604' y='396' font-size='14' font-weight='700' fill='#10233D' font-family='Inter, Helvetica, Arial, sans-serif'>Reversal activity</text>
+<text x='604' y='414' font-size='11' fill='#5A6B7D' font-family='Inter, Helvetica, Arial, sans-serif'>K-RWD-03 · Line + stacked bar · refresh Daily</text>
+<polyline points='614.0,547.0 668.6666666666666,486.56666666666666 723.3333333333334,524.1333333333333 778.0,463.7 832.6666666666666,501.26666666666665 887.3333333333333,538.8333333333334 942.0,478.4 996.6666666666667,515.9666666666667 1051.3333333333333,455.5333333333333 1106.0,493.1' fill='none' stroke='#5B8DEF' stroke-width='2.5'/>
+<text x='604' y='588' font-size='11' fill='#33475B' font-family='Inter, Helvetica, Arial, sans-serif'>Q: Is credited activity trustworthy?</text>
+</svg>

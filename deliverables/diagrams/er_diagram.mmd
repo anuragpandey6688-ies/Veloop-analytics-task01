@@ -1,0 +1,136 @@
+erDiagram
+    users {
+        string user_id PK
+        string referral_id FK
+        timestamp registration_at_utc
+        enum acquisition_source
+        enum account_status
+        enum onboarding_status
+    }
+    user_status_history {
+        string status_change_id PK
+        string user_id FK
+        enum previous_status
+        enum new_status
+        timestamp changed_at_utc
+    }
+    sessions {
+        string session_id PK
+        string user_id FK
+        timestamp session_start_utc
+        enum platform
+    }
+    feature_events {
+        string event_id PK
+        string user_id FK
+        string session_id FK
+        enum event_name
+        timestamp event_timestamp_utc
+        enum feature
+    }
+    tasks {
+        string task_id PK
+        enum task_type
+        enum fulfilment_source
+        enum reward_unit
+    }
+    task_activity {
+        string activity_id PK
+        string user_id FK
+        string task_id FK
+        string session_id FK
+        enum activity_status
+        enum validation_status
+        timestamp started_at_utc
+    }
+    rewards {
+        string reward_id PK
+        string user_id FK
+        string source_id FK
+        string wallet_transaction_id FK
+        enum reward_status
+        integer amount
+        enum unit
+    }
+    wallet_transactions {
+        string transaction_id PK
+        string user_id FK
+        string reference_id FK
+        string related_transaction_id FK
+        enum transaction_type
+        enum direction
+        integer amount
+    }
+    withdrawals {
+        string withdrawal_id PK
+        string user_id FK
+        string debit_transaction_id FK
+        decimal amount_inr
+        enum payout_method
+        enum withdrawal_status
+    }
+    withdrawal_status_history {
+        string status_history_id PK
+        string withdrawal_id FK
+        enum from_status
+        enum to_status
+        timestamp changed_at_utc
+    }
+    referrals {
+        string referral_id PK
+        string referrer_user_id FK
+        string referred_user_id FK
+        string reward_id FK
+        enum referral_status
+    }
+    missions {
+        string mission_id PK
+        string mission_type
+    }
+    mission_progress {
+        string mission_progress_id PK
+        string user_id FK
+        string mission_id FK
+        enum mission_status
+    }
+    badges {
+        string badge_id PK
+        enum badge_type
+    }
+    user_badges {
+        string user_id PK
+        string badge_id PK
+        timestamp earned_at_utc
+    }
+    support_tickets {
+        string ticket_id PK
+        string user_id FK
+        enum issue_category
+        enum ticket_status
+    }
+    content {
+        string content_id PK
+        enum content_category
+    }
+    users ||--o{ withdrawals : requests
+    withdrawals ||--|{ withdrawal_status_history : transitions
+    withdrawals ||--|{ wallet_transactions : debits
+    users ||--o{ sessions : has
+    users ||--o{ feature_events : generates
+    sessions |o--o{ feature_events : groups
+    users ||--o{ user_status_history : changes
+    users ||--o{ task_activity : attempts
+    tasks ||--o{ task_activity : attempted_as
+    task_activity ||--o| rewards : earns
+    users ||--o{ rewards : receives
+    rewards ||--o{ wallet_transactions : posts
+    wallet_transactions |o--o{ wallet_transactions : reverses
+    users ||--o{ referrals : refers
+    users |o--o| referrals : referred_by
+    referrals ||--o| rewards : rewards
+    users ||--o{ mission_progress : joins
+    missions ||--o{ mission_progress : tracked_in
+    users ||--o{ user_badges : earns
+    badges ||--o{ user_badges : awarded_as
+    users |o--o{ support_tickets : raises
+    content ||--o{ feature_events : viewed_in

@@ -1,0 +1,76 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>01 · Executive Summary | VELOOP Analytics Task 01</title><style>
+:root{--bg:#f6f8fb;--panel:#fff;--ink:#10233d;--muted:#5a6b7d;--line:#dbe3ee;--accent:#1f3a5f;--accent2:#5b8def;--warn:#7a2e00;--warnbg:#fff4e0}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0f141b;--panel:#161d27;--ink:#e6edf5;--muted:#9aa9ba;--line:#2a3544;--accent:#9db8f2;--accent2:#7ea4f5;--warn:#ffcf99;--warnbg:#2b2214}}
+:root[data-theme="dark"]{--bg:#0f141b;--panel:#161d27;--ink:#e6edf5;--muted:#9aa9ba;--line:#2a3544;--accent:#9db8f2;--accent2:#7ea4f5;--warn:#ffcf99;--warnbg:#2b2214}
+*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+a{color:var(--accent2)}.wrap{display:grid;grid-template-columns:280px minmax(0,1fr);min-height:100vh}
+nav{background:var(--panel);border-right:1px solid var(--line);padding:20px 14px;position:sticky;top:0;height:100vh;overflow:auto}
+nav .brand{font-weight:800;font-size:16px;margin:0 6px 14px}nav a{display:block;padding:6px 8px;border-radius:6px;color:var(--ink);text-decoration:none;font-size:13.5px}
+nav a:hover,nav a.on{background:var(--bg);color:var(--accent2)}main{padding:32px 40px;max-width:1200px;min-width:0}
+h1{font-size:28px;line-height:1.25;margin-top:0}h2{margin-top:36px;border-bottom:1px solid var(--line);padding-bottom:6px}h3{margin-top:26px}
+table{border-collapse:collapse;width:100%;font-size:13px;margin:14px 0;display:block;overflow-x:auto}
+th,td{border:1px solid var(--line);padding:6px 9px;text-align:left;vertical-align:top}th{background:var(--accent);color:#fff;position:sticky;top:0}
+:root[data-theme="dark"] th{color:#0f141b}tr:nth-child(even) td{background:color-mix(in srgb,var(--panel) 92%,var(--accent2))}
+blockquote{margin:16px 0;padding:12px 16px;background:var(--warnbg);border-left:4px solid var(--warn);color:var(--warn);border-radius:6px}
+code{background:color-mix(in srgb,var(--panel) 80%,var(--accent2));padding:1px 5px;border-radius:4px;font-size:12.5px}
+pre{background:var(--panel);border:1px solid var(--line);padding:14px;border-radius:8px;overflow:auto}pre code{background:none;padding:0}
+img{max-width:100%;height:auto;background:#fff;border:1px solid var(--line);border-radius:8px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px;margin:18px 0}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px;text-decoration:none;color:var(--ink)}
+.card b{display:block;margin-bottom:4px}.card span{color:var(--muted);font-size:13px}
+.stats{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin:18px 0}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px}.stat b{font-size:24px;display:block;color:var(--accent2)}
+.stat span{font-size:12.5px;color:var(--muted)}.toggle{margin:12px 6px 0;font-size:12px;background:none;border:1px solid var(--line);color:var(--ink);border-radius:6px;padding:4px 8px;cursor:pointer}
+@media print{nav{display:none}.wrap{display:block}main{max-width:none;padding:0}th{position:static}table{display:table;font-size:10.5px}h2{break-after:avoid}}
+@media (max-width:860px){.wrap{grid-template-columns:1fr}nav{position:static;height:auto;max-height:200px;border-right:0;border-bottom:1px solid var(--line)}main{padding:20px 16px}}
+</style></head><body><div class="wrap"><nav>
+<div class="brand"><a href="index.html" style="padding:0;color:inherit">VELOOP Analytics Blueprint</a></div>
+<a class="" href="index.html">Overview</a><a class='on' href='01_Executive_Summary.html'>01 · Executive Summary</a><a class='' href='02_Product_Data_Audit.html'>02 · Product Data Readiness Audit</a><a class='' href='03_Data_Coverage_Matrix.html'>03 · Data Coverage Matrix</a><a class='' href='04_User_Analytics_Specification.html'>04 · User & Account Analytics Specification</a><a class='' href='05_Earning_Reward_Analytics_Specification.html'>05 · Earning & Reward Analytics Specification</a><a class='' href='06_Wallet_Withdrawal_Analytics_Specification.html'>06 · Wallet & Withdrawal Analytics Specification</a><a class='' href='07_Referral_Engagement_Analytics.html'>07 · Referral & Engagement Analytics</a><a class='' href='08_Event_Tracking_Plan.html'>08 · Event Tracking Plan</a><a class='' href='09_Data_Dictionary.html'>09 · Data Dictionary</a><a class='' href='10_Logical_Data_Model.html'>10 · Logical Data Model</a><a class='' href='11_KPI_Catalogue.html'>11 · KPI Catalogue</a><a class='' href='12_Simulated_Data_Profiling.html'>12 · Simulated Data Profiling: Findings</a><a class='' href='13_Data_Quality_Audit.html'>13 · Data Quality Audit: Report</a><a class='' href='14_Dashboard_Blueprint.html'>14 · Analytics Dashboard Blueprint</a><a class='' href='15_Developer_Analytics_Handoff.html'>15 · Developer Analytics Handoff</a><a class='' href='16_Data_Pipeline_Proposal.html'>16 · Data Pipeline & Operating Model</a><a class='' href='17_Privacy_Governance_Proposal.html'>17 · Data Access, Privacy & Governance Proposal</a><a class='' href='18_Analytics_Readiness_Assessment.html'>18 · Analytics Readiness Assessment</a><a class='' href='19_Assumption_Verification_Register.html'>19 · Assumption & Verification Register</a><a class='' href='20_Implementation_Backlog.html'>20 · Implementation Backlog</a><a class='' href='21_Final_Consolidated_Report.html'>21 · Final Consolidated Report</a><a href="downloads.html" class="">Downloads</a>
+<button class="toggle" onclick="var r=document.documentElement;r.dataset.theme=(r.dataset.theme==='dark'?'light':'dark');try{localStorage.setItem('t',r.dataset.theme)}catch(e){}">Toggle theme</button>
+</nav><main><h1>01 · Executive Summary</h1>
+<p><strong>VELOOP Rewards · Data Analyst Internship · Task 01 · Product Analytics, Data Readiness &amp; Data Management Blueprint · 2026-10-01</strong></p>
+<blockquote>
+<p><strong>SIMULATED DATA NOTICE.</strong> Every number below that describes data comes from fictional datasets (supplied by VELOOP for this task, or generated by the analyst and labelled "SIMULATED DATA — CREATED FOR ANALYTICAL TESTING"). None of it describes actual VELOOP users, earnings, withdrawals, revenue, retention, conversion or performance.</p>
+</blockquote>
+<h2>What was investigated</h2>
+<p>The work had three parts. First, what VELOOP will need to measure, based on the brief and 17 recorded sources including the official help center and privacy policy. Second, what the supplied dataset can and cannot support. Third, which collection, structure, quality and governance controls VELOOP should put in place before production reporting starts.</p>
+<h2>What was discovered</h2>
+<ol>
+<li><strong>The supplied dataset contains only Users data.</strong> It has 1,000 clean rows and 1,008 audit rows. The seven other datasets the brief describes (Task Activity, Rewards, Wallet, Withdrawals, Referrals, Feature Events, Messy Data) were not supplied. They were generated under section 28, labelled as simulated, anchored to the supplied user IDs, and documented.</li>
+<li><strong>The supplied structure is a snapshot, not a history.</strong> Of 14 sampled KPIs, 9 cannot be computed from it and 4 only partially. No engagement, money or referral KPI can be calculated over time.</li>
+<li><strong>The "clean" sheet still has logical defects.</strong> 91 users have sessions but zero active days. 30 have a login but zero sessions. 34 are opted into marketing while consent is pending. Activity flags rely on an undocumented reference date (reverse-engineered: 2026-09-15 00:00). The messy sheet's planted defects were all found by rules (12/12 cells, 8/8 duplicate rows), and 90 of 90 defects injected into the generated Messy_Data were detected (0 false positives).</li>
+<li><strong>Referrals cannot be measured with the supplied structure.</strong> Referred users have no link to their referrer.</li>
+<li><strong>The analytics dataset contains personal data</strong> (name, email, exact age, gender, city) that no analysis needs.</li>
+<li><strong>Public sources conflict.</strong> Homepage figures (1.57M+ users, crypto payouts, staking) do not match the brief or the help center. They were recorded as unverified and not used.</li>
+</ol>
+<h2>What is currently unknown</h2>
+<p>There are 27 recorded unknowns (deliverable 19). The highest-risk ones: whether any events are emitted today (A-001); the timestamp timezone (A-004); whether a wallet ledger and idempotency keys exist (A-005, A-006); currency conversion rates (A-010); real withdrawal statuses and reasons (A-011); partner callbacks (A-014); the policy for reversals after withdrawal (A-020).</p>
+<h2>What VELOOP should implement</h2>
+<ul>
+<li>A <strong>46-event tracking plan</strong> using one <code>object_action</code> naming standard. Money and status events are server-side, and each has an <code>event_id</code>.</li>
+<li>A <strong>17-entity logical model</strong> with an append-only wallet ledger, separate activity and reward records, and status histories.</li>
+<li>A <strong>181-field data dictionary</strong> and <strong>53 KPI definitions</strong> (no targets).</li>
+<li><strong>17 quality rules</strong>, each placed at the earliest layer that can stop the defect.</li>
+<li>A two-stage, low-cost pipeline, a pseudonymous access model, a change log, and a 20-item backlog.</li>
+</ul>
+<h2>Major risks</h2>
+<ul>
+<li><strong>Duplicate or unreconcilable money records</strong> if transaction IDs and idempotency keys are missing. This is critical because it affects users' balances directly.</li>
+<li><strong>Wrong daily KPIs</strong> if the timezone is not fixed (the daily-reward window is IST).</li>
+<li><strong>Misleading reporting</strong> if login-based flags, homepage figures or simulated data are reported as performance.</li>
+<li><strong>Privacy exposure</strong> from personal data in analytics extracts, and consent conflicts in the marketing audience.</li>
+<li><strong>Partner dependency:</strong> ad, survey and offer outcomes are decided outside VELOOP and arrive late or not at all.</li>
+</ul>
+<h2>Major priorities</h2>
+<ol>
+<li>Confirm what exists today (BL-01).</li>
+<li>Stable IDs, ledger, reward states, withdrawal history and UTC timestamps (BL-02 to BL-06).</li>
+<li>Server-side critical events and quality checks (BL-07 to BL-11).</li>
+<li>Remove personal data and fix consent (BL-12). Publish conversion rates (BL-13).</li>
+<li>Build dashboards only after production data passes the checks (BL-18).</li>
+</ol>
+<p>Readiness today: <strong>9/40</strong> (deliverable 18). This low score reflects the evidence available to the analyst, not a judgement on the product.</p></main></div>
+<script>try{var t=localStorage.getItem('t');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script type="module">if(document.querySelector('.mermaid')){const m=await import('https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs');m.default.initialize({startOnLoad:true,theme:'neutral'});m.default.run();}</script>
+</body></html>

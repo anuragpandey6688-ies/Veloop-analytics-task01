@@ -1,0 +1,478 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>06 · Wallet & Withdrawal Analytics Specification | VELOOP Analytics Task 01</title><style>
+:root{--bg:#f6f8fb;--panel:#fff;--ink:#10233d;--muted:#5a6b7d;--line:#dbe3ee;--accent:#1f3a5f;--accent2:#5b8def;--warn:#7a2e00;--warnbg:#fff4e0}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0f141b;--panel:#161d27;--ink:#e6edf5;--muted:#9aa9ba;--line:#2a3544;--accent:#9db8f2;--accent2:#7ea4f5;--warn:#ffcf99;--warnbg:#2b2214}}
+:root[data-theme="dark"]{--bg:#0f141b;--panel:#161d27;--ink:#e6edf5;--muted:#9aa9ba;--line:#2a3544;--accent:#9db8f2;--accent2:#7ea4f5;--warn:#ffcf99;--warnbg:#2b2214}
+*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+a{color:var(--accent2)}.wrap{display:grid;grid-template-columns:280px minmax(0,1fr);min-height:100vh}
+nav{background:var(--panel);border-right:1px solid var(--line);padding:20px 14px;position:sticky;top:0;height:100vh;overflow:auto}
+nav .brand{font-weight:800;font-size:16px;margin:0 6px 14px}nav a{display:block;padding:6px 8px;border-radius:6px;color:var(--ink);text-decoration:none;font-size:13.5px}
+nav a:hover,nav a.on{background:var(--bg);color:var(--accent2)}main{padding:32px 40px;max-width:1200px;min-width:0}
+h1{font-size:28px;line-height:1.25;margin-top:0}h2{margin-top:36px;border-bottom:1px solid var(--line);padding-bottom:6px}h3{margin-top:26px}
+table{border-collapse:collapse;width:100%;font-size:13px;margin:14px 0;display:block;overflow-x:auto}
+th,td{border:1px solid var(--line);padding:6px 9px;text-align:left;vertical-align:top}th{background:var(--accent);color:#fff;position:sticky;top:0}
+:root[data-theme="dark"] th{color:#0f141b}tr:nth-child(even) td{background:color-mix(in srgb,var(--panel) 92%,var(--accent2))}
+blockquote{margin:16px 0;padding:12px 16px;background:var(--warnbg);border-left:4px solid var(--warn);color:var(--warn);border-radius:6px}
+code{background:color-mix(in srgb,var(--panel) 80%,var(--accent2));padding:1px 5px;border-radius:4px;font-size:12.5px}
+pre{background:var(--panel);border:1px solid var(--line);padding:14px;border-radius:8px;overflow:auto}pre code{background:none;padding:0}
+img{max-width:100%;height:auto;background:#fff;border:1px solid var(--line);border-radius:8px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px;margin:18px 0}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px;text-decoration:none;color:var(--ink)}
+.card b{display:block;margin-bottom:4px}.card span{color:var(--muted);font-size:13px}
+.stats{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin:18px 0}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px}.stat b{font-size:24px;display:block;color:var(--accent2)}
+.stat span{font-size:12.5px;color:var(--muted)}.toggle{margin:12px 6px 0;font-size:12px;background:none;border:1px solid var(--line);color:var(--ink);border-radius:6px;padding:4px 8px;cursor:pointer}
+@media print{nav{display:none}.wrap{display:block}main{max-width:none;padding:0}th{position:static}table{display:table;font-size:10.5px}h2{break-after:avoid}}
+@media (max-width:860px){.wrap{grid-template-columns:1fr}nav{position:static;height:auto;max-height:200px;border-right:0;border-bottom:1px solid var(--line)}main{padding:20px 16px}}
+</style></head><body><div class="wrap"><nav>
+<div class="brand"><a href="index.html" style="padding:0;color:inherit">VELOOP Analytics Blueprint</a></div>
+<a class="" href="index.html">Overview</a><a class='' href='01_Executive_Summary.html'>01 · Executive Summary</a><a class='' href='02_Product_Data_Audit.html'>02 · Product Data Readiness Audit</a><a class='' href='03_Data_Coverage_Matrix.html'>03 · Data Coverage Matrix</a><a class='' href='04_User_Analytics_Specification.html'>04 · User & Account Analytics Specification</a><a class='' href='05_Earning_Reward_Analytics_Specification.html'>05 · Earning & Reward Analytics Specification</a><a class='on' href='06_Wallet_Withdrawal_Analytics_Specification.html'>06 · Wallet & Withdrawal Analytics Specification</a><a class='' href='07_Referral_Engagement_Analytics.html'>07 · Referral & Engagement Analytics</a><a class='' href='08_Event_Tracking_Plan.html'>08 · Event Tracking Plan</a><a class='' href='09_Data_Dictionary.html'>09 · Data Dictionary</a><a class='' href='10_Logical_Data_Model.html'>10 · Logical Data Model</a><a class='' href='11_KPI_Catalogue.html'>11 · KPI Catalogue</a><a class='' href='12_Simulated_Data_Profiling.html'>12 · Simulated Data Profiling: Findings</a><a class='' href='13_Data_Quality_Audit.html'>13 · Data Quality Audit: Report</a><a class='' href='14_Dashboard_Blueprint.html'>14 · Analytics Dashboard Blueprint</a><a class='' href='15_Developer_Analytics_Handoff.html'>15 · Developer Analytics Handoff</a><a class='' href='16_Data_Pipeline_Proposal.html'>16 · Data Pipeline & Operating Model</a><a class='' href='17_Privacy_Governance_Proposal.html'>17 · Data Access, Privacy & Governance Proposal</a><a class='' href='18_Analytics_Readiness_Assessment.html'>18 · Analytics Readiness Assessment</a><a class='' href='19_Assumption_Verification_Register.html'>19 · Assumption & Verification Register</a><a class='' href='20_Implementation_Backlog.html'>20 · Implementation Backlog</a><a class='' href='21_Final_Consolidated_Report.html'>21 · Final Consolidated Report</a><a href="downloads.html" class="">Downloads</a>
+<button class="toggle" onclick="var r=document.documentElement;r.dataset.theme=(r.dataset.theme==='dark'?'light':'dark');try{localStorage.setItem('t',r.dataset.theme)}catch(e){}">Toggle theme</button>
+</nav><main><h1>06 · Wallet &amp; Withdrawal Analytics Specification</h1>
+<blockquote>
+<p><strong>Status:</strong> proposed specification. No event, field, table or KPI in this document has been verified as implemented in VELOOP production (see Assumption A-001). Facts taken from official VELOOP pages cite a source ID from the Source &amp; Verification Register (deliverable 19).</p>
+</blockquote>
+<p>Official facts used (SRC-05): minimum withdrawal Rs. 10; methods UPI, PayPal, Amazon Gift Cards, Google Play Gift Cards; usually processed within 24 h, up to 72 h in review cases. VE-to-INR conversion is <strong>not published</strong> (A-010), so INR and VE values are stored separately and never converted by the analyst.</p>
+<h2>D1 Wallet transaction model</h2>
+<p>The wallet is an <strong>append-only ledger</strong>: one row per balance movement, never updated in place. Supported transaction types: <code>reward_credit</code>, <code>reversal</code>, <code>adjustment</code>, <code>redemption_debit</code>, <code>redemption_refund</code>. <code>exchange_debit</code> and <code>exchange_credit</code> are <strong>Proposed</strong>: the Gems Exchange exists (SRC-16), but how it is recorded is unknown. The direction (credit/debit) carries the sign and <code>amount</code> is always positive.</p>
+<table>
+<thead>
+<tr>
+<th>field_name</th>
+<th>data_type</th>
+<th>required</th>
+<th>allowed_values</th>
+<th>validation</th>
+<th>definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>transaction_id</td>
+<td>string</td>
+<td>Yes</td>
+<td></td>
+<td>Non-null; immutable; unique within entity</td>
+<td>Identifier of one ledger movement. Never reused.</td>
+</tr>
+<tr>
+<td>user_id</td>
+<td>string</td>
+<td>Yes</td>
+<td></td>
+<td>Must exist in users</td>
+<td>Wallet owner.</td>
+</tr>
+<tr>
+<td>transaction_type</td>
+<td>enum</td>
+<td>Yes</td>
+<td>reward_credit, reversal, adjustment, exchange_debit, exchange_credit, redemption_debit, redemption_refund</td>
+<td>Must be in allowed list; exchange types Proposed</td>
+<td>Business type of the movement.</td>
+</tr>
+<tr>
+<td>direction</td>
+<td>enum</td>
+<td>Yes</td>
+<td>credit, debit</td>
+<td>Must agree with transaction_type</td>
+<td>Whether the balance goes up (credit) or down (debit).</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>integer</td>
+<td>Yes</td>
+<td></td>
+<td>&gt; 0</td>
+<td>Absolute amount moved. Sign is carried by direction.</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>enum</td>
+<td>Yes</td>
+<td>VE, GEM, TOKEN, SPIN</td>
+<td>Must be in allowed list</td>
+<td>Wallet unit moved.</td>
+</tr>
+<tr>
+<td>transaction_status</td>
+<td>enum</td>
+<td>Yes</td>
+<td>pending, completed, failed, reversed</td>
+<td>pending-&gt;completed|failed; completed-&gt;reversed</td>
+<td>Current state of the movement.</td>
+</tr>
+<tr>
+<td>reference_type</td>
+<td>enum</td>
+<td>Yes</td>
+<td>reward, withdrawal, exchange, manual_adjustment</td>
+<td>Must be in allowed list</td>
+<td>Kind of business record that caused the movement.</td>
+</tr>
+<tr>
+<td>reference_id</td>
+<td>string</td>
+<td>Conditional</td>
+<td></td>
+<td>Must resolve in the table implied by reference_type</td>
+<td>Identifier of the causing record (reward_id, withdrawal_id...).</td>
+</tr>
+<tr>
+<td>related_transaction_id</td>
+<td>string</td>
+<td>Conditional</td>
+<td></td>
+<td>Required for reversal, adjustment, refund, exchange_credit; must exist</td>
+<td>Original transaction that this one reverses, corrects or pairs with.</td>
+</tr>
+<tr>
+<td>created_at_utc</td>
+<td>timestamp</td>
+<td>Yes</td>
+<td></td>
+<td>ISO 8601 UTC with Z suffix; not in the future beyond 5 min clock skew</td>
+<td>When the movement was recorded.</td>
+</tr>
+<tr>
+<td>completed_at_utc</td>
+<td>timestamp</td>
+<td>Conditional</td>
+<td></td>
+<td>ISO 8601 UTC with Z suffix; not in the future beyond 5 min clock skew; &gt;= created_at_utc</td>
+<td>When the movement became final.</td>
+</tr>
+<tr>
+<td>balance_after</td>
+<td>integer</td>
+<td>No</td>
+<td></td>
+<td>&gt;= 0 unless a documented correction</td>
+<td>Balance of this unit after the movement.</td>
+</tr>
+<tr>
+<td>idempotency_key</td>
+<td>string</td>
+<td>Yes</td>
+<td></td>
+<td>Unique</td>
+<td>Key that prevents the same business action creating two ledger rows.</td>
+</tr>
+</tbody>
+</table>
+<p>Reversal/correction relationship: every <code>reversal</code>, <code>adjustment</code>, <code>redemption_refund</code> and <code>exchange_credit</code> row must carry <code>related_transaction_id</code> pointing to the original row (QC-13). An unlinked correction is a data-quality defect.</p>
+<h2>D2 Withdrawal lifecycle</h2>
+<pre><code>withdrawal_requested ──► withdrawal_processing ──► withdrawal_completed ──► (withdrawal_reversed)
+                                   │
+                                   └──► withdrawal_rejected
+</code></pre>
+<ul>
+<li>On <strong>request</strong>, a <code>redemption_debit</code> (pending) is created, so VEs cannot be spent twice.</li>
+<li>On <strong>completion</strong>, the debit becomes completed.</li>
+<li>On <strong>rejection or reversal</strong>, a <code>redemption_refund</code> credit is created and linked to the debit.</li>
+<li>Every transition is written to <code>withdrawal_status_history</code>. A transition that is not drawn above is rejected (QC-09).</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>entity</th>
+<th>field_name</th>
+<th>data_type</th>
+<th>required</th>
+<th>allowed_values</th>
+<th>definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>withdrawals</td>
+<td>withdrawal_id</td>
+<td>string</td>
+<td>Yes</td>
+<td></td>
+<td>Identifier of one withdrawal/redemption request.</td>
+</tr>
+<tr>
+<td>withdrawals</td>
+<td>user_id</td>
+<td>string</td>
+<td>Yes</td>
+<td></td>
+<td>Requesting user.</td>
+</tr>
+<tr>
+<td>withdrawals</td>
+<td>amount_inr</td>
+<td>decimal</td>
+<td>Yes</td>
+<td></td>
+<td>Requested payout value in Indian rupees.</td>
+</tr>
+<tr>
+<td>withdrawals</td>
+<td>ve_debited</td>
+<td>integer</td>
+<td>Yes</td>
+<td></td>
+<td>VEs debited from the wallet for the request.</td>
+</tr>
+<tr>
+<td>withdrawals</td>
+<td>payout_method</td>
+<td>enum</td>
+<td>Yes</td>
+<td>UPI, PayPal, Amazon Gift Card, Google Play Gift Card</td>
+<td>Requested payout method.</td>
+</tr>
+<tr>
+<td>withdrawals</td>
+<td>withdrawal_status</td>
+<td>enum</td>
+<td>Yes</td>
+<td>requested, processing, completed, rejected, reversed</td>
+<td>Current lifecycle state.</td>
+</tr>
+<tr>
+<td>withdrawals</td>
+<td>requested_at_utc</td>
+<td>timestamp</td>
+<td>Yes</td>
+<td></td>
+<td>When the user submitted the request.</td>
+</tr>
+<tr>
+<td>withdrawals</td>
+<td>processing_at_utc</td>
+<td>timestamp</td>
+<td>Conditional</td>
+<td></td>
+<td>When review/processing started.</td>
+</tr>
+<tr>
+<td>withdrawals</td>
+<td>final_at_utc</td>
+<td>timestamp</td>
+<td>Conditional</td>
+<td></td>
+<td>When the request reached completed, rejected or reversed.</td>
+</tr>
+<tr>
+<td>withdrawals</td>
+<td>reason_category</td>
+<td>enum</td>
+<td>Conditional</td>
+<td>verification_failed, payout_details_invalid, policy_violation, payout_partner_failure</td>
+<td>Reason category for rejection or reversal.</td>
+</tr>
+<tr>
+<td>withdrawals</td>
+<td>review_type</td>
+<td>enum</td>
+<td>No</td>
+<td>system, manual</td>
+<td>Whether the request went through system-only or manual review.</td>
+</tr>
+<tr>
+<td>withdrawals</td>
+<td>debit_transaction_id</td>
+<td>string</td>
+<td>Yes</td>
+<td></td>
+<td>Wallet redemption_debit created for this request.</td>
+</tr>
+<tr>
+<td>withdrawals</td>
+<td>payout_reference_id</td>
+<td>string</td>
+<td>Conditional</td>
+<td></td>
+<td>Payout partner's reference for the transfer. Never a UPI ID, account number or card number.</td>
+</tr>
+<tr>
+<td>withdrawal_status_history</td>
+<td>status_history_id</td>
+<td>string</td>
+<td>Yes</td>
+<td></td>
+<td>Identifier of one withdrawal status transition.</td>
+</tr>
+<tr>
+<td>withdrawal_status_history</td>
+<td>withdrawal_id</td>
+<td>string</td>
+<td>Yes</td>
+<td></td>
+<td>Withdrawal that changed status.</td>
+</tr>
+<tr>
+<td>withdrawal_status_history</td>
+<td>from_status</td>
+<td>enum</td>
+<td>Conditional</td>
+<td>requested, processing, completed, rejected, reversed</td>
+<td>Status before the transition (blank for creation).</td>
+</tr>
+<tr>
+<td>withdrawal_status_history</td>
+<td>to_status</td>
+<td>enum</td>
+<td>Yes</td>
+<td>requested, processing, completed, rejected, reversed</td>
+<td>Status after the transition.</td>
+</tr>
+<tr>
+<td>withdrawal_status_history</td>
+<td>changed_at_utc</td>
+<td>timestamp</td>
+<td>Yes</td>
+<td></td>
+<td>When the transition happened.</td>
+</tr>
+</tbody>
+</table>
+<h2>D3 Withdrawal KPIs</h2>
+<table>
+<thead>
+<tr>
+<th>kpi_id</th>
+<th>name</th>
+<th>definition</th>
+<th>formula</th>
+<th>required</th>
+<th>data_source</th>
+<th>frequency</th>
+<th>stakeholder</th>
+<th>business_purpose</th>
+<th>limitation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>K-WDR-01</td>
+<td>Withdrawal Requests</td>
+<td>Count and INR value of withdrawal requests submitted.</td>
+<td>COUNT(withdrawal_id), SUM(amount_inr) WHERE requested_at_utc in period</td>
+<td>withdrawals.withdrawal_id, withdrawals.requested_at_utc, withdrawals.amount_inr</td>
+<td>withdrawals</td>
+<td>Daily</td>
+<td>Finance, Operations</td>
+<td>Payout demand.</td>
+<td>Requests later rejected are included.</td>
+</tr>
+<tr>
+<td>K-WDR-02</td>
+<td>Completed Withdrawals</td>
+<td>Count and INR value reaching 'completed' in the period.</td>
+<td>COUNT(*), SUM(amount_inr) WHERE withdrawal_status = 'completed' AND final_at_utc in period</td>
+<td>withdrawals.withdrawal_status, withdrawals.final_at_utc, withdrawals.amount_inr</td>
+<td>withdrawals</td>
+<td>Daily</td>
+<td>Finance, Founder</td>
+<td>Payout delivered.</td>
+<td>Partner-side failures after completion need payout_reference_id reconciliation.</td>
+</tr>
+<tr>
+<td>K-WDR-03</td>
+<td>Pending Withdrawal Queue</td>
+<td>Count, INR value and age of requests in 'requested' or 'processing' at snapshot time.</td>
+<td>COUNT(*), SUM(amount_inr), MAX(now - requested_at_utc) WHERE status in ('requested','processing')</td>
+<td>withdrawals.withdrawal_status, withdrawals.requested_at_utc, withdrawals.amount_inr</td>
+<td>withdrawals</td>
+<td>Hourly / Daily</td>
+<td>Operations</td>
+<td>Operational load and user waiting time.</td>
+<td>Snapshot; requires status history for trends.</td>
+</tr>
+<tr>
+<td>K-WDR-04</td>
+<td>Rejected Withdrawals and Rejection Rate</td>
+<td>Count of rejected requests and share of resolved requests that were rejected, by reason_category.</td>
+<td>COUNT(rejected) / COUNT(rejected + completed + reversed) for requests resolved in period</td>
+<td>withdrawals.withdrawal_status, withdrawals.reason_category</td>
+<td>withdrawals</td>
+<td>Weekly</td>
+<td>Operations, Trust &amp; Safety</td>
+<td>Payout friction and abuse handling.</td>
+<td>Reason taxonomy is proposed (A-015).</td>
+</tr>
+<tr>
+<td>K-WDR-05</td>
+<td>Reversed Withdrawals</td>
+<td>Count and INR value of withdrawals reversed after completion.</td>
+<td>COUNT(*), SUM(amount_inr) WHERE withdrawal_status = 'reversed'</td>
+<td>withdrawals.withdrawal_status, withdrawals.amount_inr, withdrawals.reason_category</td>
+<td>withdrawals</td>
+<td>Weekly</td>
+<td>Finance</td>
+<td>Payout failures after completion.</td>
+<td>Reversal can occur after reporting period closes.</td>
+</tr>
+<tr>
+<td>K-WDR-06</td>
+<td>Withdrawal Processing Time</td>
+<td>Median and P90 hours from request to final status, for resolved requests.</td>
+<td>PERCENTILE(final_at_utc - requested_at_utc, 0.5 / 0.9)</td>
+<td>withdrawals.requested_at_utc, withdrawals.final_at_utc</td>
+<td>withdrawals</td>
+<td>Daily</td>
+<td>Operations, Founder</td>
+<td>Payout speed vs published expectation (24 h, up to 72 h).</td>
+<td>Excludes open requests; pair with K-WDR-03.</td>
+</tr>
+<tr>
+<td>K-WDR-07</td>
+<td>Withdrawal Completion Rate</td>
+<td>Share of resolved requests (requested in the cohort) that completed and were not reversed.</td>
+<td>COUNT(completed) / COUNT(completed + rejected + reversed)</td>
+<td>withdrawals.withdrawal_status, withdrawals.requested_at_utc</td>
+<td>withdrawals</td>
+<td>Weekly</td>
+<td>Founder, Finance</td>
+<td>Payout reliability.</td>
+<td>Open requests excluded; recent cohorts immature.</td>
+</tr>
+<tr>
+<td>K-WDR-08</td>
+<td>Withdrawal Volume (INR)</td>
+<td>Sum of amount_inr by status for the period.</td>
+<td>SUM(amount_inr) GROUP BY withdrawal_status</td>
+<td>withdrawals.amount_inr, withdrawals.withdrawal_status</td>
+<td>withdrawals</td>
+<td>Daily</td>
+<td>Finance</td>
+<td>Cash liability and payout spend.</td>
+<td>INR only; VE liability needs a confirmed conversion rate.</td>
+</tr>
+<tr>
+<td>K-WDR-09</td>
+<td>Payout Method Distribution</td>
+<td>Share of requests and completed volume by payout_method.</td>
+<td>COUNT(<em>) GROUP BY payout_method / COUNT(</em>)</td>
+<td>withdrawals.payout_method, withdrawals.withdrawal_status</td>
+<td>withdrawals</td>
+<td>Weekly</td>
+<td>Operations, Finance</td>
+<td>Partner capacity planning.</td>
+<td>Method availability varies by user eligibility (official).</td>
+</tr>
+<tr>
+<td>K-WDR-10</td>
+<td>Share Resolved Within 72 Hours</td>
+<td>Share of resolved requests whose processing time was 72 hours or less.</td>
+<td>COUNT(final_at_utc - requested_at_utc &lt;= 72h) / COUNT(resolved)</td>
+<td>withdrawals.requested_at_utc, withdrawals.final_at_utc</td>
+<td>withdrawals</td>
+<td>Daily</td>
+<td>Operations, Founder</td>
+<td>Checks delivery against the publicly stated processing window. This is a published policy reference, not an internal target.</td>
+<td>Policy window may change; read from config, not hard-coded.</td>
+</tr>
+</tbody>
+</table>
+<p>Wallet KPIs: K-WAL-01 Wallet Transactions, K-WAL-02 Credit Volume, K-WAL-03 Redemption Activity, K-WAL-04 Wallet Reversals and Refunds, K-WAL-05 Ledger Reconciliation Exceptions. Full definitions are in 11.</p>
+<h2>Open policy question found by simulation</h2>
+<p>In the simulated ledger, <strong>5 users end with a negative VE balance</strong>. This happens when a reward is reversed after its VEs were already withdrawn. VELOOP's pages describe reversal and forfeiture but not this case. Analytics needs the rule (allow negative balance, recover from future earnings, or write off) before reversal and liability KPIs can be interpreted (A-020).</p></main></div>
+<script>try{var t=localStorage.getItem('t');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script type="module">if(document.querySelector('.mermaid')){const m=await import('https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs');m.default.initialize({startOnLoad:true,theme:'neutral'});m.default.run();}</script>
+</body></html>

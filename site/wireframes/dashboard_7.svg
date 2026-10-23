@@ -1,0 +1,20 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='1160' height='380' viewBox='0 0 1160 380'>
+<rect width='100%' height='100%' fill='#F6F8FB'/>
+<text x='30' y='40' font-size='22' font-weight='700' fill='#10233D' font-family='Inter, Helvetica, Arial, sans-serif'>Dashboard 7 Referrals</text>
+<text x='30' y='64' font-size='12' fill='#7A2E00' font-family='Inter, Helvetica, Arial, sans-serif'>WIREFRAME. Layout only, no data. Production data only (data_environment = production). Shows 'data as of' time.</text>
+<rect x='30' y='78' width='1100' height='30' rx='6' fill='white' stroke='#C9D7F7'/>
+<text x='42' y='98' font-size='12' fill='#33475B' font-family='Inter, Helvetica, Arial, sans-serif'>Filters: Date range | referral_channel   ·   Data as of: [timestamp]</text>
+<rect x='30' y='122' width='540' height='230' rx='10' fill='white' stroke='#C9D7F7'/>
+<text x='44' y='146' font-size='14' font-weight='700' fill='#10233D' font-family='Inter, Helvetica, Arial, sans-serif'>Referral funnel</text>
+<text x='44' y='164' font-size='11' fill='#5A6B7D' font-family='Inter, Helvetica, Arial, sans-serif'>K-REF-01..K-REF-04 · Funnel · refresh Daily</text>
+<rect x='59.0' y='186.0' width='482.0' height='23.5' fill='#9DB8F2'/>
+<rect x='107.19999999999999' y='214.5' width='385.6' height='23.5' fill='#9DB8F2'/>
+<rect x='155.4' y='243.0' width='289.2' height='23.5' fill='#9DB8F2'/>
+<rect x='203.60000000000002' y='271.5' width='192.79999999999995' height='23.5' fill='#9DB8F2'/>
+<text x='44' y='338' font-size='11' fill='#33475B' font-family='Inter, Helvetica, Arial, sans-serif'>Q: Where do referrals drop?</text>
+<rect x='590' y='122' width='540' height='230' rx='10' fill='white' stroke='#C9D7F7'/>
+<text x='604' y='146' font-size='14' font-weight='700' fill='#10233D' font-family='Inter, Helvetica, Arial, sans-serif'>Conversion and rejection</text>
+<text x='604' y='164' font-size='11' fill='#5A6B7D' font-family='Inter, Helvetica, Arial, sans-serif'>K-REF-05, K-REF-06 · Line · refresh Weekly</text>
+<polyline points='614.0,297.0 668.6666666666666,236.56666666666666 723.3333333333334,274.1333333333333 778.0,213.7 832.6666666666666,251.26666666666665 887.3333333333333,288.8333333333333 942.0,228.4 996.6666666666667,265.96666666666664 1051.3333333333333,205.53333333333333 1106.0,243.1' fill='none' stroke='#5B8DEF' stroke-width='2.5'/>
+<text x='604' y='338' font-size='11' fill='#33475B' font-family='Inter, Helvetica, Arial, sans-serif'>Q: Are referred users genuine?</text>
+</svg>

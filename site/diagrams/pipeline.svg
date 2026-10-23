@@ -1,0 +1,71 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='1180' height='1142' viewBox='0 0 1180 1142'>
+<defs><marker id='ah' markerWidth='10' markerHeight='8' refX='9' refY='4' orient='auto'><path d='M0,0 L10,4 L0,8 z' fill='#1F3A5F'/></marker></defs>
+<rect width='100%' height='100%' fill='white'/>
+<text x='590.0' y='34' text-anchor='middle' font-size='20' font-weight='700' fill='#10233D' font-family='Inter, Helvetica, Arial, sans-serif'>VELOOP analytics pipeline (proposed, Stage 1 with Stage 2 upgrade path)</text>
+<rect x='60' y='60' width='520' height='100' rx='10' fill='#E8F0FB' stroke='#1F3A5F' stroke-width='1.5'/>
+<text x='320.0' y='84' text-anchor='middle' font-size='15' font-weight='700' fill='#10233D' font-family='Inter, Helvetica, Arial, sans-serif'>1 VELOOP Application</text>
+<text x='320.0' y='106' text-anchor='middle' font-size='12' fill='#33475B' font-family='Inter, Helvetica, Arial, sans-serif'>Web app (client events: views, opens, onboarding)</text>
+<text x='320.0' y='123' text-anchor='middle' font-size='12' fill='#33475B' font-family='Inter, Helvetica, Arial, sans-serif'>Backend services: accounts, tasks, rewards,</text>
+<text x='320.0' y='140' text-anchor='middle' font-size='12' fill='#33475B' font-family='Inter, Helvetica, Arial, sans-serif'>wallet, withdrawals, referrals</text>
+<line x1='320.0' y1='160' x2='320.0' y2='192' stroke='#1F3A5F' stroke-width='2' marker-end='url(#ah)'/>
+<rect x='60' y='194' width='520' height='100' rx='10' fill='#E8F0FB' stroke='#1F3A5F' stroke-width='1.5'/>
+<text x='320.0' y='218' text-anchor='middle' font-size='15' font-weight='700' fill='#10233D' font-family='Inter, Helvetica, Arial, sans-serif'>2 Application Events</text>
+<text x='320.0' y='240' text-anchor='middle' font-size='12' fill='#33475B' font-family='Inter, Helvetica, Arial, sans-serif'>Server events via transactional outbox (money, status)</text>
+<text x='320.0' y='257' text-anchor='middle' font-size='12' fill='#33475B' font-family='Inter, Helvetica, Arial, sans-serif'>Client events to one validated endpoint</text>
+<text x='320.0' y='274' text-anchor='middle' font-size='12' fill='#33475B' font-family='Inter, Helvetica, Arial, sans-serif'>event_id + schema_version + data_environment</text>
+<line x1='320.0' y1='294' x2='320.0' y2='326' stroke='#1F3A5F' stroke-width='2' marker-end='url(#ah)'/>
+<rect x='60' y='328' width='520' height='100' rx='10' fill='#FFF4E0' stroke='#1F3A5F' stroke-width='1.5'/>
+<text x='320.0' y='352' text-anchor='middle' font-size='15' font-weight='700' fill='#10233D' font-family='Inter, Helvetica, Arial, sans-serif'>3 Raw Data Storage</text>
+<text x='320.0' y='374' text-anchor='middle' font-size='12' fill='#33475B' font-family='Inter, Helvetica, Arial, sans-serif'>raw_events table + business tables (read replica)</text>
+<text x='320.0' y='391' text-anchor='middle' font-size='12' fill='#33475B' font-family='Inter, Helvetica, Arial, sans-serif'>Stage 2 only if load justifies: object storage + warehouse</text>
+<text x='320.0' y='408' text-anchor='middle' font-size='12' fill='#33475B' font-family='Inter, Helvetica, Arial, sans-serif'>quarantine table for rejected rows</text>
+<line x1='320.0' y1='428' x2='320.0' y2='460' stroke='#1F3A5F' stroke-width='2' marker-end='url(#ah)'/>
+<rect x='60' y='462' width='520' height='100' rx='10' fill='#FDECEC' stroke='#1F3A5F' stroke-width='1.5'/>
+<text x='320.0' y='486' text-anchor='middle' font-size='15' font-weight='700' fill='#10233D' font-family='Inter, Helvetica, Arial, sans-serif'>4 Validation</text>
+<text x='320.0' y='508' text-anchor='middle' font-size='12' fill='#33475B' font-family='Inter, Helvetica, Arial, sans-serif'>QC-01..QC-11: IDs, enums, timestamps (UTC),</text>
+<text x='320.0' y='525' text-anchor='middle' font-size='12' fill='#33475B' font-family='Inter, Helvetica, Arial, sans-serif'>required fields, naming, dedup on event_id</text>
+<line x1='320.0' y1='562' x2='320.0' y2='594' stroke='#1F3A5F' stroke-width='2' marker-end='url(#ah)'/>
+<rect x='60' y='596' width='520' height='100' rx='10' fill='#EAF6EC' stroke='#1F3A5F' stroke-width='1.5'/>
+<text x='320.0' y='620' text-anchor='middle' font-size='15' font-weight='700' fill='#10233D' font-family='Inter, Helvetica, Arial, sans-serif'>5 Transformation</text>
+<text x='320.0' y='642' text-anchor='middle' font-size='12' fill='#33475B' font-family='Inter, Helvetica, Arial, sans-serif'>Scheduled SQL / dbt Core (free)</text>
+<text x='320.0' y='659' text-anchor='middle' font-size='12' fill='#33475B' font-family='Inter, Helvetica, Arial, sans-serif'>Clean tables, normalisation, derived fields with as-of time</text>
+<line x1='320.0' y1='696' x2='320.0' y2='728' stroke='#1F3A5F' stroke-width='2' marker-end='url(#ah)'/>
+<rect x='60' y='730' width='520' height='100' rx='10' fill='#EAF6EC' stroke='#1F3A5F' stroke-width='1.5'/>
+<text x='320.0' y='754' text-anchor='middle' font-size='15' font-weight='700' fill='#10233D' font-family='Inter, Helvetica, Arial, sans-serif'>6 Analytical Data Layer</text>
+<text x='320.0' y='776' text-anchor='middle' font-size='12' fill='#33475B' font-family='Inter, Helvetica, Arial, sans-serif'>Daily KPI tables on IST day, production only (QC-16)</text>
+<text x='320.0' y='793' text-anchor='middle' font-size='12' fill='#33475B' font-family='Inter, Helvetica, Arial, sans-serif'>Reconciliation QC-13 must pass before refresh</text>
+<line x1='320.0' y1='830' x2='320.0' y2='862' stroke='#1F3A5F' stroke-width='2' marker-end='url(#ah)'/>
+<rect x='60' y='864' width='520' height='100' rx='10' fill='#F1ECFB' stroke='#1F3A5F' stroke-width='1.5'/>
+<text x='320.0' y='888' text-anchor='middle' font-size='15' font-weight='700' fill='#10233D' font-family='Inter, Helvetica, Arial, sans-serif'>7 BI / Dashboard</text>
+<text x='320.0' y='910' text-anchor='middle' font-size='12' fill='#33475B' font-family='Inter, Helvetica, Arial, sans-serif'>Metabase OSS or Looker Studio</text>
+<text x='320.0' y='927' text-anchor='middle' font-size='12' fill='#33475B' font-family='Inter, Helvetica, Arial, sans-serif'>7 dashboards (deliverable 14), stale-data banner</text>
+<line x1='320.0' y1='964' x2='320.0' y2='996' stroke='#1F3A5F' stroke-width='2' marker-end='url(#ah)'/>
+<rect x='60' y='998' width='520' height='100' rx='10' fill='#F1ECFB' stroke='#1F3A5F' stroke-width='1.5'/>
+<text x='320.0' y='1022' text-anchor='middle' font-size='15' font-weight='700' fill='#10233D' font-family='Inter, Helvetica, Arial, sans-serif'>8 Business Reporting</text>
+<text x='320.0' y='1044' text-anchor='middle' font-size='12' fill='#33475B' font-family='Inter, Helvetica, Arial, sans-serif'>Founder, Product, Operations, Finance</text>
+<text x='320.0' y='1061' text-anchor='middle' font-size='12' fill='#33475B' font-family='Inter, Helvetica, Arial, sans-serif'>Definitions versioned in change log (Q)</text>
+<rect x='700' y='462' width='400' height='100' rx='10' fill='#F7F7F7' stroke='#8A8A8A' stroke-width='1.5'/>
+<text x='900.0' y='486' text-anchor='middle' font-size='15' font-weight='700' fill='#10233D' font-family='Inter, Helvetica, Arial, sans-serif'>Monitoring</text>
+<text x='900.0' y='508' text-anchor='middle' font-size='12' fill='#33475B' font-family='Inter, Helvetica, Arial, sans-serif'>Freshness, volume anomalies,</text>
+<text x='900.0' y='525' text-anchor='middle' font-size='12' fill='#33475B' font-family='Inter, Helvetica, Arial, sans-serif'>test failures, quarantine counts</text>
+<text x='900.0' y='542' text-anchor='middle' font-size='12' fill='#33475B' font-family='Inter, Helvetica, Arial, sans-serif'>-&gt; team channel alert</text>
+<line x1='580' y1='512.0' x2='698' y2='512.0' stroke='#8A8A8A' stroke-dasharray='5,4'/>
+<rect x='700' y='596' width='400' height='100' rx='10' fill='#F7F7F7' stroke='#8A8A8A' stroke-width='1.5'/>
+<text x='900.0' y='620' text-anchor='middle' font-size='15' font-weight='700' fill='#10233D' font-family='Inter, Helvetica, Arial, sans-serif'>Failure handling</text>
+<text x='900.0' y='642' text-anchor='middle' font-size='12' fill='#33475B' font-family='Inter, Helvetica, Arial, sans-serif'>Retry with same event_id</text>
+<text x='900.0' y='659' text-anchor='middle' font-size='12' fill='#33475B' font-family='Inter, Helvetica, Arial, sans-serif'>Failed model keeps last good data</text>
+<text x='900.0' y='676' text-anchor='middle' font-size='12' fill='#33475B' font-family='Inter, Helvetica, Arial, sans-serif'>Nightly 7-day recompute for late callbacks</text>
+<line x1='580' y1='646.0' x2='698' y2='646.0' stroke='#8A8A8A' stroke-dasharray='5,4'/>
+<rect x='700' y='864' width='400' height='100' rx='10' fill='#F7F7F7' stroke='#8A8A8A' stroke-width='1.5'/>
+<text x='900.0' y='888' text-anchor='middle' font-size='15' font-weight='700' fill='#10233D' font-family='Inter, Helvetica, Arial, sans-serif'>Refresh</text>
+<text x='900.0' y='910' text-anchor='middle' font-size='12' fill='#33475B' font-family='Inter, Helvetica, Arial, sans-serif'>Daily 02:00 IST full refresh</text>
+<text x='900.0' y='927' text-anchor='middle' font-size='12' fill='#33475B' font-family='Inter, Helvetica, Arial, sans-serif'>Hourly: withdrawal queue,</text>
+<text x='900.0' y='944' text-anchor='middle' font-size='12' fill='#33475B' font-family='Inter, Helvetica, Arial, sans-serif'>pending rewards</text>
+<line x1='580' y1='914.0' x2='698' y2='914.0' stroke='#8A8A8A' stroke-dasharray='5,4'/>
+<rect x='700' y='194' width='400' height='100' rx='10' fill='#F7F7F7' stroke='#8A8A8A' stroke-width='1.5'/>
+<text x='900.0' y='218' text-anchor='middle' font-size='15' font-weight='700' fill='#10233D' font-family='Inter, Helvetica, Arial, sans-serif'>Ownership</text>
+<text x='900.0' y='240' text-anchor='middle' font-size='12' fill='#33475B' font-family='Inter, Helvetica, Arial, sans-serif'>Engineering: steps 1-4</text>
+<text x='900.0' y='257' text-anchor='middle' font-size='12' fill='#33475B' font-family='Inter, Helvetica, Arial, sans-serif'>Data/Analytics: steps 5-7</text>
+<text x='900.0' y='274' text-anchor='middle' font-size='12' fill='#33475B' font-family='Inter, Helvetica, Arial, sans-serif'>Product: definitions; Founder: approval</text>
+<line x1='580' y1='244.0' x2='698' y2='244.0' stroke='#8A8A8A' stroke-dasharray='5,4'/>
+</svg>
