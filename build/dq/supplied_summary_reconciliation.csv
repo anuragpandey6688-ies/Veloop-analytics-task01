@@ -1,0 +1,9 @@
+metric,supplied_summary,recomputed,match
+Users,1000,1000,True
+Active 7d,78,78,True
+Active 30d,325,325,True
+Verified email,855,855,True
+Onboarding completed,722,722,True
+Google Sign-In,339,339,True
+Referral acquisition,119,119,True
+Suspended,77,77,True

@@ -1,0 +1,22 @@
+{
+  "scope_a": {
+    "planted_cell_changes": 12,
+    "detected_cell_changes": 12,
+    "missed": [],
+    "extra_detected": [],
+    "planted_duplicate_rows": 8,
+    "detected_duplicate_rows": 8
+  },
+  "issues": 37,
+  "by_severity": {
+    "High": 14,
+    "Medium": 11,
+    "Critical": 6,
+    "Low": 6
+  },
+  "scope_c_injected": 90,
+  "scope_c_tp": 90,
+  "scope_c_missed": 0,
+  "scope_c_fp": 0,
+  "summary_reconciles": true
+}

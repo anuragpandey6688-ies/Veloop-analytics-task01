@@ -1,0 +1,12 @@
+dataset,origin,records,columns,primary_key,unique_ids,duplicate_ids,exact_duplicate_rows,missing_cells,date_columns,date_min,date_max,simulated_label
+Users_1000_Clean,Supplied,1000,27,user_id,1000,0,0,953,"registration_datetime, last_login_datetime",2026-04-01 02:10:00,2026-09-17 10:08:00,MISSING (no label column)
+Users_Messy_Audit,Supplied,1008,28,user_id,1000,8,8,965,"registration_datetime, last_login_datetime",2026-04-01 02:10:00,2026-09-17 10:08:00,SIMULATED — NOT ACTUAL VELOOP DATA
+Task_Activity,Analyst-generated,6000,15,activity_id,6000,0,0,10701,"started_at_utc, completed_at_utc",2026-04-03 10:44:50,2026-09-15 18:28:00,SIMULATED DATA — CREATED FOR ANALYTICAL TESTING
+Rewards,Analyst-generated,5651,15,reward_id,5651,0,0,12037,"created_at_utc, credited_at_utc, reversed_at_utc",2026-04-04 03:17:14,2026-09-15 18:28:00,SIMULATED DATA — CREATED FOR ANALYTICAL TESTING
+Wallet,Analyst-generated,6656,13,transaction_id,6656,0,0,6517,"created_at_utc, completed_at_utc",2026-04-05 12:58:11,2026-09-15 18:29:59,SIMULATED DATA — CREATED FOR ANALYTICAL TESTING
+Withdrawals,Analyst-generated,1200,12,withdrawal_id,1200,0,0,1148,"requested_at_utc, processing_at_utc, final_at_utc",2026-04-18 19:07:27,2026-09-15 18:25:01,SIMULATED DATA — CREATED FOR ANALYTICAL TESTING
+Referrals,Analyst-generated,900,12,referral_id,900,0,0,4076,"created_at_utc, registered_at_utc, activated_at_utc, converted_at_utc",2026-04-01 16:05:56,2026-09-15 16:32:15,SIMULATED DATA — CREATED FOR ANALYTICAL TESTING
+Feature_Events,Analyst-generated,12000,8,event_id,12000,0,0,0,event_timestamp_utc,2026-04-03 22:37:19,2026-09-15 18:29:59,SIMULATED DATA — CREATED FOR ANALYTICAL TESTING
+Messy_Data,Analyst-generated,522,11,record_id,517,5,0,504,event_timestamp_utc,2026-04-05 12:36:00,2026-09-15 14:11:48,SIMULATED DATA — CREATED FOR ANALYTICAL TESTING
+Tasks,Analyst-generated (helper),40,7,task_id,40,0,0,0,,,,SIMULATED DATA — CREATED FOR ANALYTICAL TESTING
+Sessions,Analyst-generated (helper),11649,4,session_id,11649,0,0,0,session_start_utc,2026-04-03 10:28:10,2026-09-15 18:29:59,SIMULATED DATA — CREATED FOR ANALYTICAL TESTING

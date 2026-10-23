@@ -1,0 +1,14 @@
+test_id,check,violations,rows_tested,result
+S01,Task activity starts on or after the user's registration,0,6000,PASS
+S02,Feature events on or after the user's registration,0,12000,PASS
+S03,No task activity for 'Pending Verification' users (they have no login),0,6000,PASS
+S04,Every supplied user with acquisition_source = Referral can be linked to a referrer (only in companion data),0,119,PASS
+S05,No self-referrals,0,900,PASS
+S06,Every credited/reversed/corrected VE or GEM reward has a wallet credit,0,4803,PASS
+S07,Every withdrawal has exactly one redemption debit,0,1200,PASS
+S08,Simulated VE running balance never negative (a negative balance means a reward was reversed after its VEs were redeemed),5,829,"FLAG (kept on purpose, see A-020)"
+S09,Withdrawal timestamps ordered: requested <= processing <= final,0,1200,PASS
+S10,Task timestamps ordered: started <= completed,0,6000,PASS
+S11,Reward timestamps ordered: created <= credited <= reversed,0,5651,PASS
+S12,Referral timestamps ordered: created <= registered <= activated <= converted,0,900,PASS
+S13,Wallet timestamps ordered: created <= completed,0,6656,PASS

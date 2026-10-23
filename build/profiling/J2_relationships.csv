@@ -1,0 +1,28 @@
+test_id,child,parent,child_rows_tested,blank_keys,matched,orphans,orphan_examples,result,note
+R00a,Task Activity.user_id (supplied),Users_1000_Clean.user_id,0,0,0,0,,NOT TESTABLE,Supplied workbook has no Task Activity sheet.
+R00b,Rewards.user_id (supplied),Users_1000_Clean.user_id,0,0,0,0,,NOT TESTABLE,Supplied workbook has no Rewards sheet.
+R00c,Wallet.user_id (supplied),Users_1000_Clean.user_id,0,0,0,0,,NOT TESTABLE,Supplied workbook has no Wallet sheet.
+R00d,Withdrawals.user_id (supplied),Users_1000_Clean.user_id,0,0,0,0,,NOT TESTABLE,Supplied workbook has no Withdrawals sheet.
+R00e,Referrals.user_id (supplied),Users_1000_Clean.user_id,0,0,0,0,,NOT TESTABLE,Supplied workbook has no Referrals sheet; Users has no referrer field.
+R00f,Feature Events.user_id (supplied),Users_1000_Clean.user_id,0,0,0,0,,NOT TESTABLE,Supplied workbook has no Feature Events sheet.
+R01,Users_Messy_Audit.user_id,Users_1000_Clean.user_id,1008,0,1008,0,,PASS,Supplied audit sheet against supplied clean sheet.
+R02,Task_Activity.user_id,Users_1000_Clean.user_id,6000,0,6000,0,,PASS,
+R03,Rewards.user_id,Users_1000_Clean.user_id,5651,0,5651,0,,PASS,
+R04,Wallet.user_id,Users_1000_Clean.user_id,6656,0,6656,0,,PASS,
+R05,Withdrawals.user_id,Users_1000_Clean.user_id,1200,0,1200,0,,PASS,
+R06,Referrals.referrer_user_id,Users_1000_Clean.user_id,900,0,900,0,,PASS,
+R07,Referrals.referred_user_id,Users_1000_Clean.user_id,119,781,119,0,,PASS,
+R08,Feature_Events.user_id,Users_1000_Clean.user_id,12000,0,12000,0,,PASS,
+R09,Sessions.user_id,Users_1000_Clean.user_id,11649,0,11649,0,,PASS,
+R10,Task_Activity.task_id,Tasks.task_id,6000,0,6000,0,,PASS,
+R11,Task_Activity.session_id,Sessions.session_id,6000,0,6000,0,,PASS,
+R12,Feature_Events.session_id,Sessions.session_id,12000,0,12000,0,,PASS,
+R13,Rewards.source_id,Task_Activity.activity_id,3882,0,3882,0,,PASS,
+R14,Rewards.source_id,Feature_Events.event_id,1681,0,1681,0,,PASS,
+R15,Rewards.source_id,Referrals.referral_id,88,0,88,0,,PASS,
+R16,Rewards.wallet_transaction_id,Wallet.transaction_id,4803,848,4803,0,,PASS,
+R17,Wallet.related_transaction_id,Wallet.transaction_id,552,6104,552,0,,PASS,
+R18,Wallet.reference_id,Rewards.reward_id,5111,0,5111,0,,PASS,
+R19,Wallet.reference_id,Withdrawals.withdrawal_id,1343,0,1343,0,,PASS,
+R20,Withdrawals.debit_transaction_id,Wallet.transaction_id,1200,0,1200,0,,PASS,
+R21,Messy_Data.user_id,Users_1000_Clean.user_id,516,6,510,6,"VLUSR900904, VLUSR900903, VLUSR900900, VLUSR900905, VLUSR900901",FAIL,Orphans expected: injected defect.

@@ -1,0 +1,132 @@
+{
+  "datasets": {
+    "Users_1000_Clean": {
+      "records": 1000,
+      "columns": 27,
+      "unique_ids": 1000,
+      "duplicate_ids": 0,
+      "exact_duplicate_rows": 0,
+      "missing_cells": 953,
+      "date_min": "2026-04-01 02:10:00",
+      "date_max": "2026-09-17 10:08:00"
+    },
+    "Users_Messy_Audit": {
+      "records": 1008,
+      "columns": 28,
+      "unique_ids": 1000,
+      "duplicate_ids": 8,
+      "exact_duplicate_rows": 8,
+      "missing_cells": 965,
+      "date_min": "2026-04-01 02:10:00",
+      "date_max": "2026-09-17 10:08:00"
+    },
+    "Task_Activity": {
+      "records": 6000,
+      "columns": 15,
+      "unique_ids": 6000,
+      "duplicate_ids": 0,
+      "exact_duplicate_rows": 0,
+      "missing_cells": 10701,
+      "date_min": "2026-04-03 10:44:50",
+      "date_max": "2026-09-15 18:28:00"
+    },
+    "Rewards": {
+      "records": 5651,
+      "columns": 15,
+      "unique_ids": 5651,
+      "duplicate_ids": 0,
+      "exact_duplicate_rows": 0,
+      "missing_cells": 12037,
+      "date_min": "2026-04-04 03:17:14",
+      "date_max": "2026-09-15 18:28:00"
+    },
+    "Wallet": {
+      "records": 6656,
+      "columns": 13,
+      "unique_ids": 6656,
+      "duplicate_ids": 0,
+      "exact_duplicate_rows": 0,
+      "missing_cells": 6517,
+      "date_min": "2026-04-05 12:58:11",
+      "date_max": "2026-09-15 18:29:59"
+    },
+    "Withdrawals": {
+      "records": 1200,
+      "columns": 12,
+      "unique_ids": 1200,
+      "duplicate_ids": 0,
+      "exact_duplicate_rows": 0,
+      "missing_cells": 1148,
+      "date_min": "2026-04-18 19:07:27",
+      "date_max": "2026-09-15 18:25:01"
+    },
+    "Referrals": {
+      "records": 900,
+      "columns": 12,
+      "unique_ids": 900,
+      "duplicate_ids": 0,
+      "exact_duplicate_rows": 0,
+      "missing_cells": 4076,
+      "date_min": "2026-04-01 16:05:56",
+      "date_max": "2026-09-15 16:32:15"
+    },
+    "Feature_Events": {
+      "records": 12000,
+      "columns": 8,
+      "unique_ids": 12000,
+      "duplicate_ids": 0,
+      "exact_duplicate_rows": 0,
+      "missing_cells": 0,
+      "date_min": "2026-04-03 22:37:19",
+      "date_max": "2026-09-15 18:29:59"
+    },
+    "Messy_Data": {
+      "records": 522,
+      "columns": 11,
+      "unique_ids": 517,
+      "duplicate_ids": 5,
+      "exact_duplicate_rows": 0,
+      "missing_cells": 504,
+      "date_min": "2026-04-05 12:36:00",
+      "date_max": "2026-09-15 14:11:48"
+    },
+    "Tasks": {
+      "records": 40,
+      "columns": 7,
+      "unique_ids": 40,
+      "duplicate_ids": 0,
+      "exact_duplicate_rows": 0,
+      "missing_cells": 0,
+      "date_min": "",
+      "date_max": ""
+    },
+    "Sessions": {
+      "records": 11649,
+      "columns": 4,
+      "unique_ids": 11649,
+      "duplicate_ids": 0,
+      "exact_duplicate_rows": 0,
+      "missing_cells": 0,
+      "date_min": "2026-04-03 10:28:10",
+      "date_max": "2026-09-15 18:29:59"
+    }
+  },
+  "relationship_fail": [
+    "R21"
+  ],
+  "relationship_not_testable": 6,
+  "relationship_tests": 27,
+  "semantic_fail": [],
+  "referral_users_unlinked_in_companion": 0,
+  "kpi_tests": 14,
+  "kpi_not_computable_supplied": 9,
+  "kpi_partial_supplied": 4,
+  "kpi_yes_supplied": 1,
+  "sim_returning": 85,
+  "sim_dau_last_day": 6,
+  "sim_wau": 49,
+  "sim_mau": 273,
+  "sim_completion_rate_pct": 57.3,
+  "sim_wdr_median_h": 16.8,
+  "sim_wdr_p90_h": 66.1
+}

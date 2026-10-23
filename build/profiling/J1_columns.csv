@@ -1,0 +1,153 @@
+dataset,column,non_blank,missing,missing_pct,unique_values,inferred_type,min,max,mean,unparseable,top_values
+Users_1000_Clean,user_id,1000,0,0.0,1000,string,,,,0,
+Users_1000_Clean,full_name,1000,0,0.0,404,string,,,,0,
+Users_1000_Clean,email,1000,0,0.0,1000,string,,,,0,
+Users_1000_Clean,age,1000,0,0.0,21,numeric,18.0,38.0,28.04,0,'32': 64; '22': 60; '23': 57; '20': 56; '35': 54; '38': 54; '24': 53; '25': 51; '37': 49; '28': 49; '30': 47; '29': 47
+Users_1000_Clean,gender,1000,0,0.0,3,categorical,,,,0,'Male': 343; 'Female': 331; 'Prefer not to say': 326
+Users_1000_Clean,state,1000,0,0.0,17,categorical,,,,0,'Kerala': 129; 'Uttar Pradesh': 122; 'Bihar': 92; 'Odisha': 83; 'Maharashtra': 67; 'Karnataka': 63; 'Telangana': 63; 'West Bengal': 56; 'Gujarat': 49; 'Punjab': 48; 'Jharkhand': 46; 'Delhi': 38
+Users_1000_Clean,city,1000,0,0.0,29,categorical,,,,0,'Kochi': 129; 'Bhubaneswar': 83; 'Hyderabad': 63; 'Gaya': 49; 'Ludhiana': 48; 'Noida': 44; 'Patna': 43; 'Kanpur': 40; 'Lucknow': 38; 'New Delhi': 38; 'Guwahati': 36; 'Bengaluru': 34
+Users_1000_Clean,registration_datetime,1000,0,0.0,999,datetime,2026-04-01 02:10:00,2026-09-15 19:47:00,,0,
+Users_1000_Clean,acquisition_source,1000,0,0.0,7,categorical,,,,0,'Organic Search': 244; 'Direct': 217; 'Social Media': 160; 'Referral': 119; 'WhatsApp': 103; 'Other': 102; 'Telegram': 55
+Users_1000_Clean,referral_source_detail,119,881,88.1,1,categorical,,,,0,'': 881; 'Friend/Family': 119
+Users_1000_Clean,primary_device,1000,0,0.0,4,categorical,,,,0,'Android': 659; 'Windows': 155; 'iOS': 140; 'macOS': 46
+Users_1000_Clean,platform,1000,0,0.0,1,categorical,,,,0,'Web': 1000
+Users_1000_Clean,account_status,1000,0,0.0,4,categorical,,,,0,'Active': 568; 'Inactive': 283; 'Suspended': 77; 'Pending Verification': 72
+Users_1000_Clean,email_verification_status,1000,0,0.0,2,categorical,,,,0,'Verified': 855; 'Pending': 145
+Users_1000_Clean,onboarding_status,1000,0,0.0,3,categorical,,,,0,'Completed': 722; 'Started': 146; 'Not Started': 132
+Users_1000_Clean,last_login_datetime,928,72,7.2,899,datetime,2026-04-15 02:51:00,2026-09-17 10:08:00,,0,
+Users_1000_Clean,lifetime_sessions,1000,0,0.0,58,numeric,0.0,81.0,12.87,0,
+Users_1000_Clean,active_days,1000,0,0.0,33,numeric,0.0,32.0,7.73,0,
+Users_1000_Clean,xp_balance,1000,0,0.0,450,numeric,5.0,1156.0,231.89,0,
+Users_1000_Clean,referral_code,1000,0,0.0,1000,string,,,,0,
+Users_1000_Clean,days_since_registration,1000,0,0.0,754,numeric,-0.8,166.9,81.33,0,
+Users_1000_Clean,is_active_7d,1000,0,0.0,2,categorical,,,,0,'No': 922; 'Yes': 78
+Users_1000_Clean,is_active_30d,1000,0,0.0,2,categorical,,,,0,'No': 675; 'Yes': 325
+Users_1000_Clean,consent_status,1000,0,0.0,2,categorical,,,,0,'Accepted': 923; 'Pending': 77
+Users_1000_Clean,marketing_opt_in,1000,0,0.0,2,categorical,,,,0,'No': 558; 'Yes': 442
+Users_1000_Clean,account_created_via,1000,0,0.0,2,categorical,,,,0,'Web Registration': 661; 'Google Sign-In': 339
+Users_1000_Clean,country,1000,0,0.0,1,categorical,,,,0,'India': 1000
+Users_Messy_Audit,user_id,1008,0,0.0,1000,string,,,,0,
+Users_Messy_Audit,full_name,1008,0,0.0,404,string,,,,0,
+Users_Messy_Audit,email,1008,0,0.0,1000,string,,,,0,
+Users_Messy_Audit,age,1007,1,0.1,21,numeric,18.0,38.0,28.05,0,'32': 65; '22': 60; '23': 57; '20': 56; '35': 55; '24': 55; '38': 53; '25': 51; '37': 50; '28': 49; '30': 48; '33': 48
+Users_Messy_Audit,gender,1007,1,0.1,3,categorical,,,,0,'Male': 345; 'Female': 332; 'Prefer not to say': 330; '': 1
+Users_Messy_Audit,state,1008,0,0.0,17,categorical,,,,0,'Kerala': 129; 'Uttar Pradesh': 124; 'Bihar': 93; 'Odisha': 83; 'Maharashtra': 67; 'Karnataka': 64; 'Telangana': 63; 'West Bengal': 56; 'Gujarat': 50; 'Punjab': 49; 'Jharkhand': 47; 'Delhi': 38
+Users_Messy_Audit,city,1007,1,0.1,29,categorical,,,,0,'Kochi': 129; 'Bhubaneswar': 82; 'Hyderabad': 63; 'Gaya': 49; 'Ludhiana': 49; 'Noida': 46; 'Patna': 44; 'Kanpur': 40; 'Lucknow': 38; 'New Delhi': 38; 'Guwahati': 36; 'Bengaluru': 34
+Users_Messy_Audit,registration_datetime,1008,0,0.0,999,datetime,2026-04-01 02:10:00,2026-09-15 19:47:00,,2,
+Users_Messy_Audit,acquisition_source,1007,1,0.1,7,categorical,,,,0,'Organic Search': 245; 'Direct': 216; 'Social Media': 160; 'Referral': 123; 'WhatsApp': 104; 'Other': 103; 'Telegram': 56; '': 1
+Users_Messy_Audit,referral_source_detail,123,885,87.8,1,categorical,,,,0,'': 885; 'Friend/Family': 123
+Users_Messy_Audit,primary_device,1007,1,0.1,4,categorical,,,,0,'Android': 662; 'Windows': 158; 'iOS': 141; 'macOS': 46; '': 1
+Users_Messy_Audit,platform,1008,0,0.0,1,categorical,,,,0,'Web': 1008
+Users_Messy_Audit,account_status,1008,0,0.0,4,categorical,,,,0,'Active': 571; 'Inactive': 288; 'Suspended': 77; 'Pending Verification': 72
+Users_Messy_Audit,email_verification_status,1007,1,0.1,2,categorical,,,,0,'Verified': 862; 'Pending': 145; '': 1
+Users_Messy_Audit,onboarding_status,1007,1,0.1,3,categorical,,,,0,'Completed': 728; 'Started': 146; 'Not Started': 133; '': 1
+Users_Messy_Audit,last_login_datetime,935,73,7.24,898,datetime,2026-04-15 02:51:00,2026-09-17 10:08:00,,0,
+Users_Messy_Audit,lifetime_sessions,1008,0,0.0,58,numeric,0.0,81.0,12.83,0,
+Users_Messy_Audit,active_days,1008,0,0.0,33,numeric,0.0,32.0,7.71,0,
+Users_Messy_Audit,xp_balance,1008,0,0.0,450,numeric,5.0,1156.0,231.79,0,
+Users_Messy_Audit,referral_code,1008,0,0.0,1000,string,,,,0,
+Users_Messy_Audit,days_since_registration,1008,0,0.0,754,numeric,-0.8,166.9,81.39,0,
+Users_Messy_Audit,is_active_7d,1008,0,0.0,2,categorical,,,,0,'No': 930; 'Yes': 78
+Users_Messy_Audit,is_active_30d,1008,0,0.0,2,categorical,,,,0,'No': 680; 'Yes': 328
+Users_Messy_Audit,consent_status,1008,0,0.0,2,categorical,,,,0,'Accepted': 930; 'Pending': 78
+Users_Messy_Audit,marketing_opt_in,1008,0,0.0,2,categorical,,,,0,'No': 563; 'Yes': 445
+Users_Messy_Audit,account_created_via,1008,0,0.0,2,categorical,,,,0,'Web Registration': 666; 'Google Sign-In': 342
+Users_Messy_Audit,country,1008,0,0.0,1,categorical,,,,0,'India': 1008
+Users_Messy_Audit,data_environment,1008,0,0.0,1,categorical,,,,0,'SIMULATED — NOT ACTUAL VELOOP DATA': 1008
+Task_Activity,activity_id,6000,0,0.0,6000,string,,,,0,
+Task_Activity,user_id,6000,0,0.0,865,string,,,,0,
+Task_Activity,task_id,6000,0,0.0,40,string,,,,0,
+Task_Activity,task_type,6000,0,0.0,8,categorical,,,,0,'watch_ad': 2235; 'tap_earn': 831; 'captcha': 717; 'earning_session': 618; 'survey': 515; 'game': 467; 'social_follow': 319; 'app_task': 298
+Task_Activity,feature,6000,0,0.0,8,categorical,,,,0,'watch_ads': 2235; 'tap_earn': 831; 'captcha': 717; 'earning_session': 618; 'surveys': 515; 'games': 467; 'follow_earn': 319; 'app_tasks': 298
+Task_Activity,session_id,6000,0,0.0,4707,string,,,,0,
+Task_Activity,started_at_utc,6000,0,0.0,5998,datetime,2026-04-03 10:44:50+00:00,2026-09-15 18:24:59+00:00,,0,
+Task_Activity,completed_at_utc,3882,2118,35.3,3878,datetime,2026-04-04 03:17:14+00:00,2026-09-15 18:28:00+00:00,,0,
+Task_Activity,activity_status,6000,0,0.0,4,categorical,,,,0,'completed': 3417; 'abandoned': 1497; 'failed': 621; 'pending_validation': 465
+Task_Activity,validation_status,6000,0,0.0,4,categorical,,,,0,'passed': 3417; 'not_reached': 1925; 'pending': 465; 'failed': 193
+Task_Activity,failure_category,2118,3882,64.7,5,categorical,,,,0,'': 3882; 'user_abandoned': 1497; 'validation_failed': 193; 'tracking_failed': 189; 'task_failed': 153; 'system_error': 86
+Task_Activity,reward_amount,3417,2583,43.05,15,numeric,3.0,120.0,17.14,0,'': 2583; '10': 476; '5': 451; '4': 311; '6': 304; '3': 302; '30': 284; '15': 254; '9': 216; '40': 216; '60': 166; '12': 156
+Task_Activity,reward_unit,3882,2118,35.3,2,categorical,,,,0,'VE': 3360; '': 2118; 'GEM': 522
+Task_Activity,tracking_source,6000,0,0.0,2,categorical,,,,0,'partner_network_sim': 3367; 'veloop': 2633
+Task_Activity,data_environment,6000,0,0.0,1,categorical,,,,0,'SIMULATED DATA — CREATED FOR ANALYTICAL TESTING': 6000
+Rewards,reward_id,5651,0,0.0,5651,string,,,,0,
+Rewards,user_id,5651,0,0.0,865,string,,,,0,
+Rewards,source_type,5651,0,0.0,6,categorical,,,,0,'task': 3882; 'daily_reward': 813; 'spin': 486; 'mission': 280; 'badge': 102; 'referral': 88
+Rewards,source_id,5651,0,0.0,5651,string,,,,0,
+Rewards,feature,5651,0,0.0,13,categorical,,,,0,'watch_ads': 1437; 'daily_rewards': 813; 'tap_earn': 546; 'spin': 486; 'captcha': 458; 'earning_session': 395; 'surveys': 335; 'games': 312; 'missions': 280; 'follow_earn': 210; 'app_tasks': 189; 'badges': 102
+Rewards,amount,5651,0,0.0,20,numeric,3.0,150.0,19.91,0,'10': 852; '5': 824; '15': 574; '3': 503; '6': 472; '9': 381; '4': 328; '30': 309; '40': 253; '60': 189; '12': 176; '50': 124
+Rewards,final_amount,5651,0,0.0,27,numeric,0.0,150.0,18.83,0,'10': 810; '5': 790; '15': 548; '3': 489; '6': 439; '9': 353; '4': 316; '30': 298; '0': 242; '40': 240; '60': 176; '12': 166
+Rewards,unit,5651,0,0.0,3,categorical,,,,0,'VE': 4261; 'GEM': 1008; 'XP': 382
+Rewards,reward_status,5651,0,0.0,4,categorical,,,,0,'credited': 4848; 'pending': 466; 'reversed': 242; 'corrected': 95
+Rewards,created_at_utc,5651,0,0.0,5647,datetime,2026-04-04 03:17:14+00:00,2026-09-15 18:28:00+00:00,,0,
+Rewards,credited_at_utc,5185,466,8.25,5183,datetime,2026-04-05 12:58:11+00:00,2026-09-15 18:27:22+00:00,,0,
+Rewards,reversed_at_utc,242,5409,95.72,242,datetime,2026-04-07 16:59:08+00:00,2026-09-14 06:14:38+00:00,,0,
+Rewards,reversal_reason_category,337,5314,94.04,4,categorical,,,,0,'': 5314; 'technical_correction': 139; 'invalid_activity': 119; 'tracking_dispute': 55; 'duplicate_credit': 24
+Rewards,wallet_transaction_id,4803,848,15.01,4803,string,,,,0,
+Rewards,data_environment,5651,0,0.0,1,categorical,,,,0,'SIMULATED DATA — CREATED FOR ANALYTICAL TESTING': 5651
+Wallet,transaction_id,6656,0,0.0,6656,string,,,,0,
+Wallet,user_id,6656,0,0.0,856,string,,,,0,
+Wallet,transaction_type,6656,0,0.0,7,categorical,,,,0,'reward_credit': 4803; 'redemption_debit': 1200; 'reversal': 222; 'redemption_refund': 143; 'exchange_debit': 101; 'exchange_credit': 101; 'adjustment': 86
+Wallet,direction,6656,0,0.0,2,categorical,,,,0,'credit': 5047; 'debit': 1609
+Wallet,amount,6656,0,0.0,21,numeric,2.0,200.0,19.93,0,'10': 872; '20': 832; '5': 781; '40': 726; '15': 549; '3': 529; '6': 473; '9': 398; '4': 323; '30': 297; '100': 199; '60': 178
+Wallet,unit,6656,0,0.0,2,categorical,,,,0,'VE': 5535; 'GEM': 1121
+Wallet,transaction_status,6656,0,0.0,3,categorical,,,,0,'completed': 6223; 'reversed': 365; 'pending': 68
+Wallet,reference_type,6656,0,0.0,3,categorical,,,,0,'reward': 5111; 'withdrawal': 1343; 'exchange': 202
+Wallet,reference_id,6454,202,3.03,6003,string,,,,0,
+Wallet,related_transaction_id,552,6104,91.71,552,string,,,,0,
+Wallet,created_at_utc,6656,0,0.0,6552,datetime,2026-04-05 12:58:11+00:00,2026-09-15 18:29:59+00:00,,0,
+Wallet,completed_at_utc,6445,211,3.17,6341,datetime,2026-04-05 12:58:11+00:00,2026-09-15 18:29:59+00:00,,0,
+Wallet,data_environment,6656,0,0.0,1,categorical,,,,0,'SIMULATED DATA — CREATED FOR ANALYTICAL TESTING': 6656
+Withdrawals,withdrawal_id,1200,0,0.0,1200,string,,,,0,
+Withdrawals,user_id,1200,0,0.0,480,string,,,,0,
+Withdrawals,amount_inr,1200,0,0.0,4,numeric,10.0,100.0,17.32,0,'10': 659; '20': 442; '50': 91; '100': 8
+Withdrawals,ve_debited,1200,0,0.0,4,numeric,20.0,200.0,34.63,0,'20': 659; '40': 442; '100': 91; '200': 8
+Withdrawals,payout_method,1200,0,0.0,4,categorical,,,,0,'UPI': 616; 'Amazon Gift Card': 239; 'Google Play Gift Card': 215; 'PayPal': 130
+Withdrawals,withdrawal_status,1200,0,0.0,5,categorical,,,,0,'completed': 989; 'rejected': 112; 'processing': 45; 'reversed': 31; 'requested': 23
+Withdrawals,requested_at_utc,1200,0,0.0,1200,datetime,2026-04-18 19:07:27+00:00,2026-09-15 16:52:22+00:00,,0,
+Withdrawals,processing_at_utc,1177,23,1.92,1177,datetime,2026-04-19 01:25:10+00:00,2026-09-15 18:25:01+00:00,,0,
+Withdrawals,final_at_utc,1132,68,5.67,1132,datetime,2026-04-20 00:20:53+00:00,2026-09-15 16:55:00+00:00,,0,
+Withdrawals,reason_category,143,1057,88.08,4,categorical,,,,0,'': 1057; 'payout_partner_failure': 44; 'payout_details_invalid': 37; 'verification_failed': 36; 'policy_violation': 26
+Withdrawals,debit_transaction_id,1200,0,0.0,1200,string,,,,0,
+Withdrawals,data_environment,1200,0,0.0,1,categorical,,,,0,'SIMULATED DATA — CREATED FOR ANALYTICAL TESTING': 1200
+Referrals,referral_id,900,0,0.0,900,string,,,,0,
+Referrals,referrer_user_id,900,0,0.0,523,string,,,,0,
+Referrals,referred_user_id,119,781,86.78,119,string,,,,0,
+Referrals,referral_code,900,0,0.0,523,string,,,,0,
+Referrals,referral_channel,900,0,0.0,4,categorical,,,,0,'whatsapp': 437; 'copy_link': 240; 'telegram': 167; 'other': 56
+Referrals,referral_status,900,0,0.0,5,categorical,,,,0,'expired': 592; 'created': 189; 'converted': 88; 'registered': 26; 'rejected': 5
+Referrals,created_at_utc,900,0,0.0,900,datetime,2026-04-01 16:05:56+00:00,2026-09-15 16:32:15+00:00,,0,
+Referrals,registered_at_utc,119,781,86.78,119,datetime,2026-04-01 23:19:00+00:00,2026-09-14 04:36:00+00:00,,0,
+Referrals,activated_at_utc,93,807,89.67,93,datetime,2026-04-12 02:33:06+00:00,2026-09-13 04:41:58+00:00,,0,
+Referrals,converted_at_utc,88,812,90.22,88,datetime,2026-04-12 12:25:35+00:00,2026-09-14 23:29:55+00:00,,0,
+Referrals,rejection_reason_category,5,895,99.44,2,categorical,,,,0,'': 895; 'verification_failed': 3; 'policy_violation': 2
+Referrals,data_environment,900,0,0.0,1,categorical,,,,0,'SIMULATED DATA — CREATED FOR ANALYTICAL TESTING': 900
+Feature_Events,event_id,12000,0,0.0,12000,string,,,,0,
+Feature_Events,user_id,12000,0,0.0,901,string,,,,0,
+Feature_Events,session_id,12000,0,0.0,6764,string,,,,0,
+Feature_Events,event_name,12000,0,0.0,12,categorical,,,,0,'feature_viewed': 3481; 'task_viewed': 2152; 'user_logged_in': 1680; 'daily_reward_claimed': 813; 'streak_updated': 813; 'spin_started': 789; 'spin_completed': 704; 'mission_started': 637; 'help_article_viewed': 484; 'mission_completed': 280; 'badge_earned': 102; 'support_ticket_created': 65
+Feature_Events,feature,12000,0,0.0,17,categorical,,,,0,'tasks': 2459; 'spin': 1785; 'account': 1680; 'daily_rewards': 1626; 'missions': 1202; 'help_center': 484; 'earning_session': 317; 'level_dashboard': 307; 'watch_ads': 307; 'referrals': 296; 'home': 289; 'wallet': 278
+Feature_Events,platform,12000,0,0.0,1,categorical,,,,0,'web': 12000
+Feature_Events,event_timestamp_utc,12000,0,0.0,11986,datetime,2026-04-03 22:37:19+00:00,2026-09-15 18:29:59+00:00,,0,
+Feature_Events,data_environment,12000,0,0.0,1,categorical,,,,0,'SIMULATED DATA — CREATED FOR ANALYTICAL TESTING': 12000
+Messy_Data,record_id,522,0,0.0,517,string,,,,0,
+Messy_Data,source_table,522,0,0.0,2,categorical,,,,0,'withdrawals': 277; 'task_activity': 245
+Messy_Data,user_id,516,6,1.15,181,string,,,,0,
+Messy_Data,reference_id,522,0,0.0,210,string,,,,0,
+Messy_Data,event_name,522,0,0.0,13,categorical,,,,0,'task_completed': 121; 'task_started': 117; 'withdrawal_requested': 93; 'withdrawal_processing': 89; 'withdrawal_completed': 78; 'withdrawal_rejected': 12; 'task_started ': 4; 'withdrawal_requested ': 2; 'task-complete': 2; 'WithdrawalRequested': 1; 'withdrawalCompleted': 1; 'withdrawal-processing': 1
+Messy_Data,status,522,0,0.0,18,categorical,,,,0,'completed': 198; 'started': 115; 'requested': 94; 'processing': 87; 'rejected': 12; 'Started': 3; 'Completed': 2; 'done': 1; 'approved': 1; 'in-review': 1; 'PROCESSING': 1; 'REQUESTED': 1
+Messy_Data,event_timestamp_utc,517,5,0.96,505,datetime,2026-04-05 12:36:00+00:00,2026-09-15 14:11:48+00:00,,8,
+Messy_Data,amount,400,122,23.37,29,numeric,-45.0,120.0,16.53,6,'10': 147; '20': 125; '': 122; '5': 15; '50': 12; '4': 12; '40': 11; '15': 10; '6': 10; '9': 9; '3': 9; '30': 7
+Messy_Data,unit,400,122,23.37,3,categorical,,,,0,'INR': 277; '': 122; 'VE': 104; 'GEM': 19
+Messy_Data,payout_method,273,249,47.7,4,categorical,,,,0,'': 249; 'UPI': 135; 'Google Play Gift Card': 64; 'Amazon Gift Card': 46; 'PayPal': 28
+Messy_Data,data_environment,522,0,0.0,1,categorical,,,,0,'SIMULATED DATA — CREATED FOR ANALYTICAL TESTING': 522
+Tasks,task_id,40,0,0.0,40,string,,,,0,
+Tasks,task_type,40,0,0.0,8,categorical,,,,0,'watch_ad': 5; 'survey': 5; 'app_task': 5; 'captcha': 5; 'tap_earn': 5; 'earning_session': 5; 'game': 5; 'social_follow': 5
+Tasks,feature,40,0,0.0,8,categorical,,,,0,'watch_ads': 5; 'surveys': 5; 'app_tasks': 5; 'captcha': 5; 'tap_earn': 5; 'earning_session': 5; 'games': 5; 'follow_earn': 5
+Tasks,reward_unit,40,0,0.0,2,categorical,,,,0,'VE': 30; 'GEM': 10
+Tasks,reward_amount,40,0,0.0,15,numeric,3.0,120.0,23.57,0,'60': 5; '6': 5; '40': 4; '4': 4; '30': 4; '3': 3; '12': 3; '10': 2; '5': 2; '9': 2; '18': 2; '8': 1
+Tasks,fulfilment_source,40,0,0.0,2,categorical,,,,0,'external_partner': 20; 'veloop_internal': 20
+Tasks,data_environment,40,0,0.0,1,categorical,,,,0,'SIMULATED DATA — CREATED FOR ANALYTICAL TESTING': 40
+Sessions,session_id,11649,0,0.0,11649,string,,,,0,
+Sessions,user_id,11649,0,0.0,928,string,,,,0,
+Sessions,session_start_utc,11649,0,0.0,11612,datetime,2026-04-03 10:28:10+00:00,2026-09-15 18:29:59+00:00,,0,
+Sessions,data_environment,11649,0,0.0,1,categorical,,,,0,'SIMULATED DATA — CREATED FOR ANALYTICAL TESTING': 11649

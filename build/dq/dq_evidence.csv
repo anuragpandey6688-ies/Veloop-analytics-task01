@@ -1,0 +1,397 @@
+issue_id,record,field
+DQ-U01,VLUSR000779,user_id
+DQ-U01,VLUSR000335,user_id
+DQ-U01,VLUSR000272,user_id
+DQ-U01,VLUSR000803,user_id
+DQ-U01,VLUSR000217,user_id
+DQ-U01,VLUSR000409,user_id
+DQ-U01,VLUSR000813,user_id
+DQ-U01,VLUSR000095,user_id
+DQ-U-MISS-age,VLUSR000007,age
+DQ-U-MISS-city,VLUSR000001,city
+DQ-U-MISS-acquisition_source,VLUSR000002,acquisition_source
+DQ-U-MISS-primary_device,VLUSR000003,primary_device
+DQ-U-MISS-email_verification_status,VLUSR000006,email_verification_status
+DQ-U-MISS-onboarding_status,VLUSR000004,onboarding_status
+DQ-U-MISS-gender,VLUSR000008,gender
+DQ-U02,VLUSR000023,registration_datetime
+DQ-U02,VLUSR000024,registration_datetime
+DQ-U03,VLUSR000021,registration_datetime / days_since_registration
+DQ-U03,VLUSR000022,registration_datetime / days_since_registration
+DQ-U04,VLUSR000005,last_login_datetime
+DQ-C01,VLUSR000004,active_days / lifetime_sessions
+DQ-C01,VLUSR000018,active_days / lifetime_sessions
+DQ-C01,VLUSR000023,active_days / lifetime_sessions
+DQ-C01,VLUSR000043,active_days / lifetime_sessions
+DQ-C01,VLUSR000052,active_days / lifetime_sessions
+DQ-C01,VLUSR000069,active_days / lifetime_sessions
+DQ-C01,VLUSR000084,active_days / lifetime_sessions
+DQ-C01,VLUSR000085,active_days / lifetime_sessions
+DQ-C01,VLUSR000091,active_days / lifetime_sessions
+DQ-C01,VLUSR000096,active_days / lifetime_sessions
+DQ-C01,VLUSR000101,active_days / lifetime_sessions
+DQ-C01,VLUSR000108,active_days / lifetime_sessions
+DQ-C01,VLUSR000113,active_days / lifetime_sessions
+DQ-C01,VLUSR000120,active_days / lifetime_sessions
+DQ-C01,VLUSR000149,active_days / lifetime_sessions
+DQ-C01,VLUSR000181,active_days / lifetime_sessions
+DQ-C01,VLUSR000186,active_days / lifetime_sessions
+DQ-C01,VLUSR000195,active_days / lifetime_sessions
+DQ-C01,VLUSR000220,active_days / lifetime_sessions
+DQ-C01,VLUSR000226,active_days / lifetime_sessions
+DQ-C01,VLUSR000233,active_days / lifetime_sessions
+DQ-C01,VLUSR000265,active_days / lifetime_sessions
+DQ-C01,VLUSR000278,active_days / lifetime_sessions
+DQ-C01,VLUSR000280,active_days / lifetime_sessions
+DQ-C01,VLUSR000324,active_days / lifetime_sessions
+DQ-C01,VLUSR000358,active_days / lifetime_sessions
+DQ-C01,VLUSR000375,active_days / lifetime_sessions
+DQ-C01,VLUSR000377,active_days / lifetime_sessions
+DQ-C01,VLUSR000380,active_days / lifetime_sessions
+DQ-C01,VLUSR000388,active_days / lifetime_sessions
+DQ-C01,VLUSR000406,active_days / lifetime_sessions
+DQ-C01,VLUSR000409,active_days / lifetime_sessions
+DQ-C01,VLUSR000412,active_days / lifetime_sessions
+DQ-C01,VLUSR000419,active_days / lifetime_sessions
+DQ-C01,VLUSR000430,active_days / lifetime_sessions
+DQ-C01,VLUSR000450,active_days / lifetime_sessions
+DQ-C01,VLUSR000455,active_days / lifetime_sessions
+DQ-C01,VLUSR000464,active_days / lifetime_sessions
+DQ-C01,VLUSR000475,active_days / lifetime_sessions
+DQ-C01,VLUSR000480,active_days / lifetime_sessions
+DQ-C01,VLUSR000481,active_days / lifetime_sessions
+DQ-C01,VLUSR000483,active_days / lifetime_sessions
+DQ-C01,VLUSR000484,active_days / lifetime_sessions
+DQ-C01,VLUSR000488,active_days / lifetime_sessions
+DQ-C01,VLUSR000497,active_days / lifetime_sessions
+DQ-C01,VLUSR000509,active_days / lifetime_sessions
+DQ-C01,VLUSR000534,active_days / lifetime_sessions
+DQ-C01,VLUSR000553,active_days / lifetime_sessions
+DQ-C01,VLUSR000554,active_days / lifetime_sessions
+DQ-C01,VLUSR000598,active_days / lifetime_sessions
+DQ-C01,VLUSR000602,active_days / lifetime_sessions
+DQ-C01,VLUSR000613,active_days / lifetime_sessions
+DQ-C01,VLUSR000616,active_days / lifetime_sessions
+DQ-C01,VLUSR000627,active_days / lifetime_sessions
+DQ-C01,VLUSR000638,active_days / lifetime_sessions
+DQ-C01,VLUSR000643,active_days / lifetime_sessions
+DQ-C01,VLUSR000658,active_days / lifetime_sessions
+DQ-C01,VLUSR000665,active_days / lifetime_sessions
+DQ-C01,VLUSR000671,active_days / lifetime_sessions
+DQ-C01,VLUSR000672,active_days / lifetime_sessions
+DQ-C01,VLUSR000680,active_days / lifetime_sessions
+DQ-C01,VLUSR000699,active_days / lifetime_sessions
+DQ-C01,VLUSR000712,active_days / lifetime_sessions
+DQ-C01,VLUSR000716,active_days / lifetime_sessions
+DQ-C01,VLUSR000727,active_days / lifetime_sessions
+DQ-C01,VLUSR000743,active_days / lifetime_sessions
+DQ-C01,VLUSR000745,active_days / lifetime_sessions
+DQ-C01,VLUSR000757,active_days / lifetime_sessions
+DQ-C01,VLUSR000759,active_days / lifetime_sessions
+DQ-C01,VLUSR000793,active_days / lifetime_sessions
+DQ-C01,VLUSR000795,active_days / lifetime_sessions
+DQ-C01,VLUSR000802,active_days / lifetime_sessions
+DQ-C01,VLUSR000805,active_days / lifetime_sessions
+DQ-C01,VLUSR000810,active_days / lifetime_sessions
+DQ-C01,VLUSR000828,active_days / lifetime_sessions
+DQ-C01,VLUSR000836,active_days / lifetime_sessions
+DQ-C01,VLUSR000858,active_days / lifetime_sessions
+DQ-C01,VLUSR000871,active_days / lifetime_sessions
+DQ-C01,VLUSR000879,active_days / lifetime_sessions
+DQ-C01,VLUSR000883,active_days / lifetime_sessions
+DQ-C01,VLUSR000893,active_days / lifetime_sessions
+DQ-C01,VLUSR000894,active_days / lifetime_sessions
+DQ-C01,VLUSR000897,active_days / lifetime_sessions
+DQ-C01,VLUSR000899,active_days / lifetime_sessions
+DQ-C01,VLUSR000924,active_days / lifetime_sessions
+DQ-C01,VLUSR000944,active_days / lifetime_sessions
+DQ-C01,VLUSR000945,active_days / lifetime_sessions
+DQ-C01,VLUSR000981,active_days / lifetime_sessions
+DQ-C01,VLUSR000986,active_days / lifetime_sessions
+DQ-C01,VLUSR000987,active_days / lifetime_sessions
+DQ-C01,VLUSR000999,active_days / lifetime_sessions
+DQ-C02,VLUSR000016,last_login_datetime / lifetime_sessions
+DQ-C02,VLUSR000027,last_login_datetime / lifetime_sessions
+DQ-C02,VLUSR000119,last_login_datetime / lifetime_sessions
+DQ-C02,VLUSR000177,last_login_datetime / lifetime_sessions
+DQ-C02,VLUSR000197,last_login_datetime / lifetime_sessions
+DQ-C02,VLUSR000236,last_login_datetime / lifetime_sessions
+DQ-C02,VLUSR000257,last_login_datetime / lifetime_sessions
+DQ-C02,VLUSR000316,last_login_datetime / lifetime_sessions
+DQ-C02,VLUSR000322,last_login_datetime / lifetime_sessions
+DQ-C02,VLUSR000347,last_login_datetime / lifetime_sessions
+DQ-C02,VLUSR000391,last_login_datetime / lifetime_sessions
+DQ-C02,VLUSR000416,last_login_datetime / lifetime_sessions
+DQ-C02,VLUSR000421,last_login_datetime / lifetime_sessions
+DQ-C02,VLUSR000429,last_login_datetime / lifetime_sessions
+DQ-C02,VLUSR000444,last_login_datetime / lifetime_sessions
+DQ-C02,VLUSR000461,last_login_datetime / lifetime_sessions
+DQ-C02,VLUSR000473,last_login_datetime / lifetime_sessions
+DQ-C02,VLUSR000530,last_login_datetime / lifetime_sessions
+DQ-C02,VLUSR000646,last_login_datetime / lifetime_sessions
+DQ-C02,VLUSR000657,last_login_datetime / lifetime_sessions
+DQ-C02,VLUSR000682,last_login_datetime / lifetime_sessions
+DQ-C02,VLUSR000709,last_login_datetime / lifetime_sessions
+DQ-C02,VLUSR000737,last_login_datetime / lifetime_sessions
+DQ-C02,VLUSR000752,last_login_datetime / lifetime_sessions
+DQ-C02,VLUSR000800,last_login_datetime / lifetime_sessions
+DQ-C02,VLUSR000806,last_login_datetime / lifetime_sessions
+DQ-C02,VLUSR000821,last_login_datetime / lifetime_sessions
+DQ-C02,VLUSR000851,last_login_datetime / lifetime_sessions
+DQ-C02,VLUSR000904,last_login_datetime / lifetime_sessions
+DQ-C02,VLUSR000993,last_login_datetime / lifetime_sessions
+DQ-C03,VLUSR000010,last_login_datetime / lifetime_sessions
+DQ-C03,VLUSR000014,last_login_datetime / lifetime_sessions
+DQ-C03,VLUSR000015,last_login_datetime / lifetime_sessions
+DQ-C03,VLUSR000034,last_login_datetime / lifetime_sessions
+DQ-C03,VLUSR000042,last_login_datetime / lifetime_sessions
+DQ-C03,VLUSR000047,last_login_datetime / lifetime_sessions
+DQ-C03,VLUSR000048,last_login_datetime / lifetime_sessions
+DQ-C03,VLUSR000081,last_login_datetime / lifetime_sessions
+DQ-C03,VLUSR000088,last_login_datetime / lifetime_sessions
+DQ-C03,VLUSR000092,last_login_datetime / lifetime_sessions
+DQ-C03,VLUSR000120,last_login_datetime / lifetime_sessions
+DQ-C03,VLUSR000123,last_login_datetime / lifetime_sessions
+DQ-C03,VLUSR000134,last_login_datetime / lifetime_sessions
+DQ-C03,VLUSR000143,last_login_datetime / lifetime_sessions
+DQ-C03,VLUSR000173,last_login_datetime / lifetime_sessions
+DQ-C03,VLUSR000174,last_login_datetime / lifetime_sessions
+DQ-C03,VLUSR000181,last_login_datetime / lifetime_sessions
+DQ-C03,VLUSR000186,last_login_datetime / lifetime_sessions
+DQ-C03,VLUSR000210,last_login_datetime / lifetime_sessions
+DQ-C03,VLUSR000213,last_login_datetime / lifetime_sessions
+DQ-C03,VLUSR000215,last_login_datetime / lifetime_sessions
+DQ-C03,VLUSR000239,last_login_datetime / lifetime_sessions
+DQ-C03,VLUSR000263,last_login_datetime / lifetime_sessions
+DQ-C03,VLUSR000268,last_login_datetime / lifetime_sessions
+DQ-C03,VLUSR000302,last_login_datetime / lifetime_sessions
+DQ-C03,VLUSR000349,last_login_datetime / lifetime_sessions
+DQ-C03,VLUSR000373,last_login_datetime / lifetime_sessions
+DQ-C03,VLUSR000383,last_login_datetime / lifetime_sessions
+DQ-C03,VLUSR000431,last_login_datetime / lifetime_sessions
+DQ-C03,VLUSR000441,last_login_datetime / lifetime_sessions
+DQ-C03,VLUSR000449,last_login_datetime / lifetime_sessions
+DQ-C03,VLUSR000452,last_login_datetime / lifetime_sessions
+DQ-C03,VLUSR000468,last_login_datetime / lifetime_sessions
+DQ-C03,VLUSR000469,last_login_datetime / lifetime_sessions
+DQ-C03,VLUSR000483,last_login_datetime / lifetime_sessions
+DQ-C03,VLUSR000498,last_login_datetime / lifetime_sessions
+DQ-C03,VLUSR000512,last_login_datetime / lifetime_sessions
+DQ-C03,VLUSR000525,last_login_datetime / lifetime_sessions
+DQ-C03,VLUSR000532,last_login_datetime / lifetime_sessions
+DQ-C03,VLUSR000533,last_login_datetime / lifetime_sessions
+DQ-C03,VLUSR000550,last_login_datetime / lifetime_sessions
+DQ-C03,VLUSR000586,last_login_datetime / lifetime_sessions
+DQ-C03,VLUSR000588,last_login_datetime / lifetime_sessions
+DQ-C03,VLUSR000592,last_login_datetime / lifetime_sessions
+DQ-C03,VLUSR000621,last_login_datetime / lifetime_sessions
+DQ-C03,VLUSR000622,last_login_datetime / lifetime_sessions
+DQ-C03,VLUSR000630,last_login_datetime / lifetime_sessions
+DQ-C03,VLUSR000649,last_login_datetime / lifetime_sessions
+DQ-C03,VLUSR000684,last_login_datetime / lifetime_sessions
+DQ-C03,VLUSR000706,last_login_datetime / lifetime_sessions
+DQ-C03,VLUSR000728,last_login_datetime / lifetime_sessions
+DQ-C03,VLUSR000765,last_login_datetime / lifetime_sessions
+DQ-C03,VLUSR000771,last_login_datetime / lifetime_sessions
+DQ-C03,VLUSR000774,last_login_datetime / lifetime_sessions
+DQ-C03,VLUSR000792,last_login_datetime / lifetime_sessions
+DQ-C03,VLUSR000797,last_login_datetime / lifetime_sessions
+DQ-C03,VLUSR000820,last_login_datetime / lifetime_sessions
+DQ-C03,VLUSR000828,last_login_datetime / lifetime_sessions
+DQ-C03,VLUSR000840,last_login_datetime / lifetime_sessions
+DQ-C03,VLUSR000850,last_login_datetime / lifetime_sessions
+DQ-C03,VLUSR000857,last_login_datetime / lifetime_sessions
+DQ-C03,VLUSR000865,last_login_datetime / lifetime_sessions
+DQ-C03,VLUSR000894,last_login_datetime / lifetime_sessions
+DQ-C03,VLUSR000901,last_login_datetime / lifetime_sessions
+DQ-C03,VLUSR000905,last_login_datetime / lifetime_sessions
+DQ-C03,VLUSR000913,last_login_datetime / lifetime_sessions
+DQ-C03,VLUSR000914,last_login_datetime / lifetime_sessions
+DQ-C03,VLUSR000924,last_login_datetime / lifetime_sessions
+DQ-C03,VLUSR000935,last_login_datetime / lifetime_sessions
+DQ-C03,VLUSR000947,last_login_datetime / lifetime_sessions
+DQ-C03,VLUSR000977,last_login_datetime / lifetime_sessions
+DQ-C03,VLUSR000985,last_login_datetime / lifetime_sessions
+DQ-C04,VLUSR000040,consent_status / marketing_opt_in
+DQ-C04,VLUSR000047,consent_status / marketing_opt_in
+DQ-C04,VLUSR000105,consent_status / marketing_opt_in
+DQ-C04,VLUSR000144,consent_status / marketing_opt_in
+DQ-C04,VLUSR000152,consent_status / marketing_opt_in
+DQ-C04,VLUSR000228,consent_status / marketing_opt_in
+DQ-C04,VLUSR000240,consent_status / marketing_opt_in
+DQ-C04,VLUSR000262,consent_status / marketing_opt_in
+DQ-C04,VLUSR000298,consent_status / marketing_opt_in
+DQ-C04,VLUSR000301,consent_status / marketing_opt_in
+DQ-C04,VLUSR000327,consent_status / marketing_opt_in
+DQ-C04,VLUSR000361,consent_status / marketing_opt_in
+DQ-C04,VLUSR000393,consent_status / marketing_opt_in
+DQ-C04,VLUSR000407,consent_status / marketing_opt_in
+DQ-C04,VLUSR000429,consent_status / marketing_opt_in
+DQ-C04,VLUSR000455,consent_status / marketing_opt_in
+DQ-C04,VLUSR000461,consent_status / marketing_opt_in
+DQ-C04,VLUSR000521,consent_status / marketing_opt_in
+DQ-C04,VLUSR000616,consent_status / marketing_opt_in
+DQ-C04,VLUSR000643,consent_status / marketing_opt_in
+DQ-C04,VLUSR000767,consent_status / marketing_opt_in
+DQ-C04,VLUSR000774,consent_status / marketing_opt_in
+DQ-C04,VLUSR000783,consent_status / marketing_opt_in
+DQ-C04,VLUSR000801,consent_status / marketing_opt_in
+DQ-C04,VLUSR000821,consent_status / marketing_opt_in
+DQ-C04,VLUSR000857,consent_status / marketing_opt_in
+DQ-C04,VLUSR000865,consent_status / marketing_opt_in
+DQ-C04,VLUSR000897,consent_status / marketing_opt_in
+DQ-C04,VLUSR000904,consent_status / marketing_opt_in
+DQ-C04,VLUSR000919,consent_status / marketing_opt_in
+DQ-C04,VLUSR000946,consent_status / marketing_opt_in
+DQ-C04,VLUSR000969,consent_status / marketing_opt_in
+DQ-C04,VLUSR000994,consent_status / marketing_opt_in
+DQ-C04,VLUSR000997,consent_status / marketing_opt_in
+DQ-C05,VLUSR000128,days_since_registration
+DQ-C05,VLUSR000684,days_since_registration
+DQ-C05,VLUSR000686,days_since_registration
+DQ-C05,VLUSR000703,days_since_registration
+DQ-C06,VLUSR000128,last_login_datetime
+DQ-C06,VLUSR000665,last_login_datetime
+DQ-C06,VLUSR000686,last_login_datetime
+DQ-C06,VLUSR000703,last_login_datetime
+DQ-C07,VLUSR000106,is_active_7d / is_active_30d
+DQ-C07,VLUSR000128,is_active_7d / is_active_30d
+DQ-C07,VLUSR000261,is_active_7d / is_active_30d
+DQ-C07,VLUSR000267,is_active_7d / is_active_30d
+DQ-C07,VLUSR000359,is_active_7d / is_active_30d
+DQ-C07,VLUSR000376,is_active_7d / is_active_30d
+DQ-C07,VLUSR000665,is_active_7d / is_active_30d
+DQ-C07,VLUSR000686,is_active_7d / is_active_30d
+DQ-C07,VLUSR000703,is_active_7d / is_active_30d
+DQ-C08,VLUSR000006,email_verification_status / account_status
+DQ-C08,VLUSR000056,email_verification_status / account_status
+DQ-C08,VLUSR000077,email_verification_status / account_status
+DQ-C08,VLUSR000083,email_verification_status / account_status
+DQ-C08,VLUSR000103,email_verification_status / account_status
+DQ-C08,VLUSR000137,email_verification_status / account_status
+DQ-C08,VLUSR000138,email_verification_status / account_status
+DQ-C08,VLUSR000165,email_verification_status / account_status
+DQ-C08,VLUSR000182,email_verification_status / account_status
+DQ-C08,VLUSR000188,email_verification_status / account_status
+DQ-C08,VLUSR000189,email_verification_status / account_status
+DQ-C08,VLUSR000194,email_verification_status / account_status
+DQ-C08,VLUSR000269,email_verification_status / account_status
+DQ-C08,VLUSR000307,email_verification_status / account_status
+DQ-C08,VLUSR000309,email_verification_status / account_status
+DQ-C08,VLUSR000376,email_verification_status / account_status
+DQ-C08,VLUSR000415,email_verification_status / account_status
+DQ-C08,VLUSR000486,email_verification_status / account_status
+DQ-C08,VLUSR000488,email_verification_status / account_status
+DQ-C08,VLUSR000492,email_verification_status / account_status
+DQ-C08,VLUSR000496,email_verification_status / account_status
+DQ-C08,VLUSR000510,email_verification_status / account_status
+DQ-C08,VLUSR000518,email_verification_status / account_status
+DQ-C08,VLUSR000540,email_verification_status / account_status
+DQ-C08,VLUSR000549,email_verification_status / account_status
+DQ-C08,VLUSR000570,email_verification_status / account_status
+DQ-C08,VLUSR000589,email_verification_status / account_status
+DQ-C08,VLUSR000603,email_verification_status / account_status
+DQ-C08,VLUSR000617,email_verification_status / account_status
+DQ-C08,VLUSR000666,email_verification_status / account_status
+DQ-C08,VLUSR000667,email_verification_status / account_status
+DQ-C08,VLUSR000719,email_verification_status / account_status
+DQ-C08,VLUSR000733,email_verification_status / account_status
+DQ-C08,VLUSR000744,email_verification_status / account_status
+DQ-C08,VLUSR000795,email_verification_status / account_status
+DQ-C08,VLUSR000846,email_verification_status / account_status
+DQ-C08,VLUSR000884,email_verification_status / account_status
+DQ-C08,VLUSR000921,email_verification_status / account_status
+DQ-C08,VLUSR000959,email_verification_status / account_status
+DQ-C08,VLUSR000983,email_verification_status / account_status
+DQ-C08,VLUSR000984,email_verification_status / account_status
+DQ-C08,VLUSR000990,email_verification_status / account_status
+DQ-M01,VLMSY00040,record_id
+DQ-M01,VLMSY00176,record_id
+DQ-M01,VLMSY00226,record_id
+DQ-M01,VLMSY00317,record_id
+DQ-M01,VLMSY00507,record_id
+DQ-M02,VLMSY00090,user_id
+DQ-M02,VLMSY00158,user_id
+DQ-M02,VLMSY00215,user_id
+DQ-M02,VLMSY00395,user_id
+DQ-M02,VLMSY00442,user_id
+DQ-M02,VLMSY00453,user_id
+DQ-M03,VLMSY00103,event_timestamp_utc
+DQ-M03,VLMSY00151,event_timestamp_utc
+DQ-M03,VLMSY00412,event_timestamp_utc
+DQ-M03,VLMSY00417,event_timestamp_utc
+DQ-M03,VLMSY00491,event_timestamp_utc
+DQ-M04,VLMSY00058,event_timestamp_utc
+DQ-M04,VLMSY00182,event_timestamp_utc
+DQ-M04,VLMSY00243,event_timestamp_utc
+DQ-M04,VLMSY00361,event_timestamp_utc
+DQ-M04,VLMSY00431,event_timestamp_utc
+DQ-M04,VLMSY00473,event_timestamp_utc
+DQ-M04,VLMSY00316,event_timestamp_utc
+DQ-M04,VLMSY00447,event_timestamp_utc
+DQ-M05,VLMSY00020,status
+DQ-M05,VLMSY00046,status
+DQ-M05,VLMSY00137,status
+DQ-M05,VLMSY00375,status
+DQ-M05,VLMSY00379,status
+DQ-M05,VLMSY00415,status
+DQ-M05,VLMSY00504,status
+DQ-M06,VLMSY00045,status
+DQ-M06,VLMSY00206,status
+DQ-M06,VLMSY00217,status
+DQ-M06,VLMSY00275,status
+DQ-M06,VLMSY00328,status
+DQ-M06,VLMSY00345,status
+DQ-M06,VLMSY00385,status
+DQ-M06,VLMSY00416,status
+DQ-M06,VLMSY00443,status
+DQ-M07,VLMSY00010,event_name (any text field)
+DQ-M07,VLMSY00232,event_name (any text field)
+DQ-M07,VLMSY00285,event_name (any text field)
+DQ-M07,VLMSY00295,event_name (any text field)
+DQ-M07,VLMSY00333,event_name (any text field)
+DQ-M07,VLMSY00341,event_name (any text field)
+DQ-M08,VLMSY00024,amount
+DQ-M08,VLMSY00075,amount
+DQ-M08,VLMSY00186,amount
+DQ-M08,VLMSY00230,amount
+DQ-M08,VLMSY00235,amount
+DQ-M08,VLMSY00364,amount
+DQ-M09,VLMSY00147,amount
+DQ-M09,VLMSY00362,amount
+DQ-M09,VLMSY00400,amount
+DQ-M09,VLMSY00446,amount
+DQ-M09,VLMSY00462,amount
+DQ-M10,VLMSY00001,payout_method
+DQ-M10,VLMSY00012,payout_method
+DQ-M10,VLMSY00039,payout_method
+DQ-M10,VLMSY00149,payout_method
+DQ-M11,VLMSY00022,user_id
+DQ-M11,VLMSY00266,user_id
+DQ-M11,VLMSY00335,user_id
+DQ-M11,VLMSY00429,user_id
+DQ-M11,VLMSY00436,user_id
+DQ-M11,VLMSY00445,user_id
+DQ-M12,VLMSY00511,row
+DQ-M12,VLMSY00512,row
+DQ-M12,VLMSY00513,row
+DQ-M12,VLMSY00514,row
+DQ-M12,VLMSY00515,row
+DQ-M12,VLMSY00516,row
+DQ-M12,VLMSY00517,row
+DQ-M12,VLMSY00518,row
+DQ-M12,VLMSY00519,row
+DQ-M12,VLMSY00520,row
+DQ-M12,VLMSY00521,row
+DQ-M12,VLMSY00522,row
+DQ-M13,VLMSY00121,event_name
+DQ-M13,VLMSY00132,event_name
+DQ-M13,VLMSY00143,event_name
+DQ-M13,VLMSY00388,event_name
+DQ-M13,VLMSY00452,event_name
+DQ-M13,VLMSY00459,event_name
+DQ-M14,VLMSY00036,event_timestamp_utc / event_name
+DQ-M14,VLMSY00084,event_timestamp_utc / event_name
+DQ-M14,VLMSY00228,event_timestamp_utc / event_name
+DQ-M14,VLMSY00246,event_timestamp_utc / event_name
+DQ-M14,VLMSY00249,event_timestamp_utc / event_name

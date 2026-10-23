@@ -1,0 +1,16 @@
+{
+  "n_events": 46,
+  "n_kpis": 53,
+  "n_entities": 17,
+  "n_fields": 181,
+  "n_qual": 10,
+  "n_gaps": 16,
+  "n_assump": 27,
+  "n_sources": 17,
+  "n_dq": 37,
+  "n_rules": 17,
+  "n_visuals": 31,
+  "n_backlog": 20,
+  "n_handoff": 19,
+  "n_cov": 32
+}
